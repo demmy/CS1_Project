@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.layoutControl = new DevExpress.XtraLayout.LayoutControl();
+            this.roleLookUpEdit = new DevExpress.XtraEditors.LookUpEdit();
             this.loginTextEdit = new DevExpress.XtraEditors.TextEdit();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.stateButton = new System.Windows.Forms.Button();
@@ -72,9 +73,11 @@
             this.firstNameTextEditLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.addNewCommentButtonLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.newCommentTextEditLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl)).BeginInit();
             this.layoutControl.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.roleLookUpEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.loginTextEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
@@ -106,11 +109,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.firstNameTextEditLayoutControlItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.addNewCommentButtonLayoutControlItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.newCommentTextEditLayoutControlItem)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl
             // 
+            this.layoutControl.Controls.Add(this.roleLookUpEdit);
             this.layoutControl.Controls.Add(this.loginTextEdit);
             this.layoutControl.Controls.Add(this.panelControl1);
             this.layoutControl.Controls.Add(this.isActiveCheckEdit);
@@ -137,9 +142,25 @@
             this.layoutControl.TabIndex = 0;
             this.layoutControl.Text = "layoutControl1";
             // 
+            // roleLookUpEdit
+            // 
+            this.roleLookUpEdit.Location = new System.Drawing.Point(103, 262);
+            this.roleLookUpEdit.Name = "roleLookUpEdit";
+            this.roleLookUpEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.roleLookUpEdit.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Title", "Role")});
+            this.roleLookUpEdit.Properties.DisplayMember = "Title";
+            this.roleLookUpEdit.Properties.NullText = "";
+            this.roleLookUpEdit.Properties.ValueMember = "Title";
+            this.roleLookUpEdit.Size = new System.Drawing.Size(903, 20);
+            this.roleLookUpEdit.StyleController = this.layoutControl;
+            this.roleLookUpEdit.TabIndex = 58;
+            this.roleLookUpEdit.EditValueChanged += new System.EventHandler(this.roleLookUpEdit_EditValueChanged);
+            // 
             // loginTextEdit
             // 
-            this.loginTextEdit.Location = new System.Drawing.Point(19, 120);
+            this.loginTextEdit.Location = new System.Drawing.Point(19, 119);
             this.loginTextEdit.Name = "loginTextEdit";
             this.loginTextEdit.Size = new System.Drawing.Size(474, 20);
             this.loginTextEdit.StyleController = this.layoutControl;
@@ -219,7 +240,7 @@
             // 
             // isActiveCheckEdit
             // 
-            this.isActiveCheckEdit.Location = new System.Drawing.Point(441, 215);
+            this.isActiveCheckEdit.Location = new System.Drawing.Point(441, 208);
             this.isActiveCheckEdit.Name = "isActiveCheckEdit";
             this.isActiveCheckEdit.Properties.Caption = "Active";
             this.isActiveCheckEdit.Size = new System.Drawing.Size(52, 19);
@@ -228,16 +249,16 @@
             // 
             // addCommentButton
             // 
-            this.addCommentButton.Location = new System.Drawing.Point(976, 705);
+            this.addCommentButton.Location = new System.Drawing.Point(976, 683);
             this.addCommentButton.Name = "addCommentButton";
-            this.addCommentButton.Size = new System.Drawing.Size(30, 22);
+            this.addCommentButton.Size = new System.Drawing.Size(30, 44);
             this.addCommentButton.StyleController = this.layoutControl;
             this.addCommentButton.TabIndex = 49;
             this.addCommentButton.Text = "+";
             // 
             // newCommentTextEdit
             // 
-            this.newCommentTextEdit.Location = new System.Drawing.Point(7, 705);
+            this.newCommentTextEdit.Location = new System.Drawing.Point(7, 683);
             this.newCommentTextEdit.Name = "newCommentTextEdit";
             this.newCommentTextEdit.Size = new System.Drawing.Size(965, 20);
             this.newCommentTextEdit.StyleController = this.layoutControl;
@@ -245,24 +266,24 @@
             // 
             // commentsRichTextBox
             // 
-            this.commentsRichTextBox.Location = new System.Drawing.Point(7, 271);
+            this.commentsRichTextBox.Location = new System.Drawing.Point(7, 286);
             this.commentsRichTextBox.Name = "commentsRichTextBox";
-            this.commentsRichTextBox.Size = new System.Drawing.Size(999, 430);
+            this.commentsRichTextBox.Size = new System.Drawing.Size(999, 393);
             this.commentsRichTextBox.TabIndex = 17;
             this.commentsRichTextBox.Text = "";
             // 
             // commentsLabel
             // 
-            this.commentsLabel.Location = new System.Drawing.Point(10, 251);
+            this.commentsLabel.Location = new System.Drawing.Point(10, 244);
             this.commentsLabel.Name = "commentsLabel";
-            this.commentsLabel.Size = new System.Drawing.Size(978, 16);
+            this.commentsLabel.Size = new System.Drawing.Size(978, 14);
             this.commentsLabel.StyleController = this.layoutControl;
             this.commentsLabel.TabIndex = 16;
             this.commentsLabel.Text = "Comments";
             // 
             // lastNameTextEdit
             // 
-            this.lastNameTextEdit.Location = new System.Drawing.Point(521, 214);
+            this.lastNameTextEdit.Location = new System.Drawing.Point(521, 208);
             this.lastNameTextEdit.Name = "lastNameTextEdit";
             this.lastNameTextEdit.Size = new System.Drawing.Size(473, 20);
             this.lastNameTextEdit.StyleController = this.layoutControl;
@@ -270,16 +291,16 @@
             // 
             // lastNameLabel
             // 
-            this.lastNameLabel.Location = new System.Drawing.Point(524, 194);
+            this.lastNameLabel.Location = new System.Drawing.Point(524, 189);
             this.lastNameLabel.Name = "lastNameLabel";
-            this.lastNameLabel.Size = new System.Drawing.Size(452, 16);
+            this.lastNameLabel.Size = new System.Drawing.Size(452, 15);
             this.lastNameLabel.StyleController = this.layoutControl;
             this.lastNameLabel.TabIndex = 14;
             this.lastNameLabel.Text = "Last name";
             // 
             // middleNameTextEdit
             // 
-            this.middleNameTextEdit.Location = new System.Drawing.Point(521, 166);
+            this.middleNameTextEdit.Location = new System.Drawing.Point(521, 163);
             this.middleNameTextEdit.Name = "middleNameTextEdit";
             this.middleNameTextEdit.Size = new System.Drawing.Size(473, 20);
             this.middleNameTextEdit.StyleController = this.layoutControl;
@@ -287,16 +308,16 @@
             // 
             // middleNameLabel
             // 
-            this.middleNameLabel.Location = new System.Drawing.Point(524, 147);
+            this.middleNameLabel.Location = new System.Drawing.Point(524, 145);
             this.middleNameLabel.Name = "middleNameLabel";
-            this.middleNameLabel.Size = new System.Drawing.Size(452, 15);
+            this.middleNameLabel.Size = new System.Drawing.Size(452, 14);
             this.middleNameLabel.StyleController = this.layoutControl;
             this.middleNameLabel.TabIndex = 12;
             this.middleNameLabel.Text = "Middle name";
             // 
             // firstNameTextEdit
             // 
-            this.firstNameTextEdit.Location = new System.Drawing.Point(521, 119);
+            this.firstNameTextEdit.Location = new System.Drawing.Point(521, 118);
             this.firstNameTextEdit.Name = "firstNameTextEdit";
             this.firstNameTextEdit.Size = new System.Drawing.Size(473, 20);
             this.firstNameTextEdit.StyleController = this.layoutControl;
@@ -306,14 +327,14 @@
             // 
             this.firstNameLabel.Location = new System.Drawing.Point(524, 99);
             this.firstNameLabel.Name = "firstNameLabel";
-            this.firstNameLabel.Size = new System.Drawing.Size(452, 16);
+            this.firstNameLabel.Size = new System.Drawing.Size(452, 15);
             this.firstNameLabel.StyleController = this.layoutControl;
             this.firstNameLabel.TabIndex = 10;
             this.firstNameLabel.Text = "First name";
             // 
             // roleComboBoxEdit
             // 
-            this.roleComboBoxEdit.Location = new System.Drawing.Point(19, 215);
+            this.roleComboBoxEdit.Location = new System.Drawing.Point(19, 208);
             this.roleComboBoxEdit.Name = "roleComboBoxEdit";
             this.roleComboBoxEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -323,16 +344,16 @@
             // 
             // roleLabel
             // 
-            this.roleLabel.Location = new System.Drawing.Point(22, 196);
+            this.roleLabel.Location = new System.Drawing.Point(22, 191);
             this.roleLabel.Name = "roleLabel";
-            this.roleLabel.Size = new System.Drawing.Size(453, 15);
+            this.roleLabel.Size = new System.Drawing.Size(453, 13);
             this.roleLabel.StyleController = this.layoutControl;
             this.roleLabel.TabIndex = 7;
             this.roleLabel.Text = "Role";
             // 
             // passwordTextEdit
             // 
-            this.passwordTextEdit.Location = new System.Drawing.Point(19, 168);
+            this.passwordTextEdit.Location = new System.Drawing.Point(19, 165);
             this.passwordTextEdit.Name = "passwordTextEdit";
             this.passwordTextEdit.Size = new System.Drawing.Size(474, 20);
             this.passwordTextEdit.StyleController = this.layoutControl;
@@ -342,16 +363,16 @@
             // 
             this.loginLabel.Location = new System.Drawing.Point(22, 100);
             this.loginLabel.Name = "loginLabel";
-            this.loginLabel.Size = new System.Drawing.Size(453, 16);
+            this.loginLabel.Size = new System.Drawing.Size(453, 15);
             this.loginLabel.StyleController = this.layoutControl;
             this.loginLabel.TabIndex = 4;
             this.loginLabel.Text = "Login";
             // 
             // passwordLabel
             // 
-            this.passwordLabel.Location = new System.Drawing.Point(22, 148);
+            this.passwordLabel.Location = new System.Drawing.Point(22, 146);
             this.passwordLabel.Name = "passwordLabel";
-            this.passwordLabel.Size = new System.Drawing.Size(453, 16);
+            this.passwordLabel.Size = new System.Drawing.Size(453, 15);
             this.passwordLabel.StyleController = this.layoutControl;
             this.passwordLabel.TabIndex = 5;
             this.passwordLabel.Text = "Password";
@@ -367,7 +388,8 @@
             this.layoutControlGroup1,
             this.layoutControlGroup2,
             this.addNewCommentButtonLayoutControlItem,
-            this.newCommentTextEditLayoutControlItem});
+            this.newCommentTextEditLayoutControlItem,
+            this.layoutControlItem2});
             this.layoutControlGroup.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup.Name = "Root";
             this.layoutControlGroup.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 0, 0, 0);
@@ -377,11 +399,11 @@
             // commentsLabelLayoutControlItem
             // 
             this.commentsLabelLayoutControlItem.Control = this.commentsLabel;
-            this.commentsLabelLayoutControlItem.Location = new System.Drawing.Point(0, 249);
+            this.commentsLabelLayoutControlItem.Location = new System.Drawing.Point(0, 242);
             this.commentsLabelLayoutControlItem.MinSize = new System.Drawing.Size(54, 17);
             this.commentsLabelLayoutControlItem.Name = "commentsLabelLayoutControlItem";
             this.commentsLabelLayoutControlItem.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 20, 2, 2);
-            this.commentsLabelLayoutControlItem.Size = new System.Drawing.Size(1003, 20);
+            this.commentsLabelLayoutControlItem.Size = new System.Drawing.Size(1003, 18);
             this.commentsLabelLayoutControlItem.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.commentsLabelLayoutControlItem.TextSize = new System.Drawing.Size(0, 0);
             this.commentsLabelLayoutControlItem.TextVisible = false;
@@ -389,10 +411,10 @@
             // commentsRichTextBoxLayoutControlItem
             // 
             this.commentsRichTextBoxLayoutControlItem.Control = this.commentsRichTextBox;
-            this.commentsRichTextBoxLayoutControlItem.Location = new System.Drawing.Point(0, 269);
+            this.commentsRichTextBoxLayoutControlItem.Location = new System.Drawing.Point(0, 284);
             this.commentsRichTextBoxLayoutControlItem.MinSize = new System.Drawing.Size(24, 24);
             this.commentsRichTextBoxLayoutControlItem.Name = "commentsRichTextBoxLayoutControlItem";
-            this.commentsRichTextBoxLayoutControlItem.Size = new System.Drawing.Size(1003, 434);
+            this.commentsRichTextBoxLayoutControlItem.Size = new System.Drawing.Size(1003, 397);
             this.commentsRichTextBoxLayoutControlItem.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.commentsRichTextBoxLayoutControlItem.TextSize = new System.Drawing.Size(0, 0);
             this.commentsRichTextBoxLayoutControlItem.TextVisible = false;
@@ -427,7 +449,7 @@
             this.isActiveCheckEditLayoutControlItem});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 67);
             this.layoutControlGroup1.Name = "layoutControlGroup1";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(502, 182);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(502, 175);
             this.layoutControlGroup1.Text = "User data";
             // 
             // loginLabelLayoutControlItem
@@ -438,7 +460,7 @@
             this.loginLabelLayoutControlItem.Name = "loginLabelLayoutControlItem";
             this.loginLabelLayoutControlItem.OptionsTableLayoutItem.ColumnIndex = 1;
             this.loginLabelLayoutControlItem.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 20, 2, 2);
-            this.loginLabelLayoutControlItem.Size = new System.Drawing.Size(478, 20);
+            this.loginLabelLayoutControlItem.Size = new System.Drawing.Size(478, 19);
             this.loginLabelLayoutControlItem.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.loginLabelLayoutControlItem.TextSize = new System.Drawing.Size(0, 0);
             this.loginLabelLayoutControlItem.TextVisible = false;
@@ -446,10 +468,10 @@
             // loginTextEditLayoutControlItem
             // 
             this.loginTextEditLayoutControlItem.Control = this.loginTextEdit;
-            this.loginTextEditLayoutControlItem.Location = new System.Drawing.Point(0, 20);
+            this.loginTextEditLayoutControlItem.Location = new System.Drawing.Point(0, 19);
             this.loginTextEditLayoutControlItem.MinSize = new System.Drawing.Size(54, 24);
             this.loginTextEditLayoutControlItem.Name = "loginTextEditLayoutControlItem";
-            this.loginTextEditLayoutControlItem.Size = new System.Drawing.Size(478, 28);
+            this.loginTextEditLayoutControlItem.Size = new System.Drawing.Size(478, 27);
             this.loginTextEditLayoutControlItem.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.loginTextEditLayoutControlItem.TextSize = new System.Drawing.Size(0, 0);
             this.loginTextEditLayoutControlItem.TextVisible = false;
@@ -458,11 +480,11 @@
             // 
             this.passwordLabelLayoutControlItem.Control = this.passwordLabel;
             this.passwordLabelLayoutControlItem.CustomizationFormText = "passwordLabelLayoutControlItem";
-            this.passwordLabelLayoutControlItem.Location = new System.Drawing.Point(0, 48);
+            this.passwordLabelLayoutControlItem.Location = new System.Drawing.Point(0, 46);
             this.passwordLabelLayoutControlItem.MinSize = new System.Drawing.Size(50, 17);
             this.passwordLabelLayoutControlItem.Name = "passwordLabelLayoutControlItem";
             this.passwordLabelLayoutControlItem.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 20, 2, 2);
-            this.passwordLabelLayoutControlItem.Size = new System.Drawing.Size(478, 20);
+            this.passwordLabelLayoutControlItem.Size = new System.Drawing.Size(478, 19);
             this.passwordLabelLayoutControlItem.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.passwordLabelLayoutControlItem.TextSize = new System.Drawing.Size(0, 0);
             this.passwordLabelLayoutControlItem.TextVisible = false;
@@ -470,12 +492,12 @@
             // passwordTextEditLayoutControlItem
             // 
             this.passwordTextEditLayoutControlItem.Control = this.passwordTextEdit;
-            this.passwordTextEditLayoutControlItem.Location = new System.Drawing.Point(0, 68);
+            this.passwordTextEditLayoutControlItem.Location = new System.Drawing.Point(0, 65);
             this.passwordTextEditLayoutControlItem.MinSize = new System.Drawing.Size(54, 24);
             this.passwordTextEditLayoutControlItem.Name = "passwordTextEditLayoutControlItem";
             this.passwordTextEditLayoutControlItem.OptionsTableLayoutItem.ColumnIndex = 1;
             this.passwordTextEditLayoutControlItem.OptionsTableLayoutItem.RowIndex = 1;
-            this.passwordTextEditLayoutControlItem.Size = new System.Drawing.Size(478, 28);
+            this.passwordTextEditLayoutControlItem.Size = new System.Drawing.Size(478, 26);
             this.passwordTextEditLayoutControlItem.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.passwordTextEditLayoutControlItem.TextSize = new System.Drawing.Size(0, 0);
             this.passwordTextEditLayoutControlItem.TextVisible = false;
@@ -483,12 +505,12 @@
             // roleLayoutControlItem
             // 
             this.roleLayoutControlItem.Control = this.roleLabel;
-            this.roleLayoutControlItem.Location = new System.Drawing.Point(0, 96);
+            this.roleLayoutControlItem.Location = new System.Drawing.Point(0, 91);
             this.roleLayoutControlItem.MinSize = new System.Drawing.Size(25, 17);
             this.roleLayoutControlItem.Name = "roleLayoutControlItem";
             this.roleLayoutControlItem.OptionsTableLayoutItem.RowIndex = 2;
             this.roleLayoutControlItem.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 20, 2, 2);
-            this.roleLayoutControlItem.Size = new System.Drawing.Size(478, 19);
+            this.roleLayoutControlItem.Size = new System.Drawing.Size(478, 17);
             this.roleLayoutControlItem.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.roleLayoutControlItem.TextSize = new System.Drawing.Size(0, 0);
             this.roleLayoutControlItem.TextVisible = false;
@@ -496,7 +518,7 @@
             // roleComboBoxEditLayoutControlItem
             // 
             this.roleComboBoxEditLayoutControlItem.Control = this.roleComboBoxEdit;
-            this.roleComboBoxEditLayoutControlItem.Location = new System.Drawing.Point(0, 115);
+            this.roleComboBoxEditLayoutControlItem.Location = new System.Drawing.Point(0, 108);
             this.roleComboBoxEditLayoutControlItem.MinSize = new System.Drawing.Size(54, 24);
             this.roleComboBoxEditLayoutControlItem.Name = "roleComboBoxEditLayoutControlItem";
             this.roleComboBoxEditLayoutControlItem.OptionsTableLayoutItem.RowIndex = 3;
@@ -509,7 +531,7 @@
             // isActiveCheckEditLayoutControlItem
             // 
             this.isActiveCheckEditLayoutControlItem.Control = this.isActiveCheckEdit;
-            this.isActiveCheckEditLayoutControlItem.Location = new System.Drawing.Point(369, 115);
+            this.isActiveCheckEditLayoutControlItem.Location = new System.Drawing.Point(369, 108);
             this.isActiveCheckEditLayoutControlItem.MinSize = new System.Drawing.Size(56, 23);
             this.isActiveCheckEditLayoutControlItem.Name = "isActiveCheckEditLayoutControlItem";
             this.isActiveCheckEditLayoutControlItem.OptionsTableLayoutItem.ColumnIndex = 1;
@@ -531,18 +553,18 @@
             this.firstNameTextEditLayoutControlItem});
             this.layoutControlGroup2.Location = new System.Drawing.Point(502, 67);
             this.layoutControlGroup2.Name = "layoutControlGroup2";
-            this.layoutControlGroup2.Size = new System.Drawing.Size(501, 182);
+            this.layoutControlGroup2.Size = new System.Drawing.Size(501, 175);
             this.layoutControlGroup2.Text = "Personal data";
             // 
             // lastNameTextEditLayoutControlItem
             // 
             this.lastNameTextEditLayoutControlItem.Control = this.lastNameTextEdit;
-            this.lastNameTextEditLayoutControlItem.Location = new System.Drawing.Point(0, 115);
+            this.lastNameTextEditLayoutControlItem.Location = new System.Drawing.Point(0, 109);
             this.lastNameTextEditLayoutControlItem.MinSize = new System.Drawing.Size(54, 24);
             this.lastNameTextEditLayoutControlItem.Name = "lastNameTextEditLayoutControlItem";
             this.lastNameTextEditLayoutControlItem.OptionsTableLayoutItem.ColumnIndex = 1;
             this.lastNameTextEditLayoutControlItem.OptionsTableLayoutItem.RowIndex = 2;
-            this.lastNameTextEditLayoutControlItem.Size = new System.Drawing.Size(477, 25);
+            this.lastNameTextEditLayoutControlItem.Size = new System.Drawing.Size(477, 24);
             this.lastNameTextEditLayoutControlItem.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.lastNameTextEditLayoutControlItem.TextSize = new System.Drawing.Size(0, 0);
             this.lastNameTextEditLayoutControlItem.TextVisible = false;
@@ -550,12 +572,12 @@
             // lastNameLabelLayoutControlItem
             // 
             this.lastNameLabelLayoutControlItem.Control = this.lastNameLabel;
-            this.lastNameLabelLayoutControlItem.Location = new System.Drawing.Point(0, 95);
+            this.lastNameLabelLayoutControlItem.Location = new System.Drawing.Point(0, 90);
             this.lastNameLabelLayoutControlItem.MinSize = new System.Drawing.Size(53, 17);
             this.lastNameLabelLayoutControlItem.Name = "lastNameLabelLayoutControlItem";
             this.lastNameLabelLayoutControlItem.OptionsTableLayoutItem.RowIndex = 1;
             this.lastNameLabelLayoutControlItem.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 20, 2, 2);
-            this.lastNameLabelLayoutControlItem.Size = new System.Drawing.Size(477, 20);
+            this.lastNameLabelLayoutControlItem.Size = new System.Drawing.Size(477, 19);
             this.lastNameLabelLayoutControlItem.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.lastNameLabelLayoutControlItem.TextSize = new System.Drawing.Size(0, 0);
             this.lastNameLabelLayoutControlItem.TextVisible = false;
@@ -563,11 +585,11 @@
             // middleNameTextEditLayoutControlItem
             // 
             this.middleNameTextEditLayoutControlItem.Control = this.middleNameTextEdit;
-            this.middleNameTextEditLayoutControlItem.Location = new System.Drawing.Point(0, 67);
+            this.middleNameTextEditLayoutControlItem.Location = new System.Drawing.Point(0, 64);
             this.middleNameTextEditLayoutControlItem.MinSize = new System.Drawing.Size(54, 24);
             this.middleNameTextEditLayoutControlItem.Name = "middleNameTextEditLayoutControlItem";
             this.middleNameTextEditLayoutControlItem.OptionsTableLayoutItem.RowIndex = 2;
-            this.middleNameTextEditLayoutControlItem.Size = new System.Drawing.Size(477, 28);
+            this.middleNameTextEditLayoutControlItem.Size = new System.Drawing.Size(477, 26);
             this.middleNameTextEditLayoutControlItem.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.middleNameTextEditLayoutControlItem.TextSize = new System.Drawing.Size(0, 0);
             this.middleNameTextEditLayoutControlItem.TextVisible = false;
@@ -575,12 +597,12 @@
             // middleNameLabelLayoutControlItem
             // 
             this.middleNameLabelLayoutControlItem.Control = this.middleNameLabel;
-            this.middleNameLabelLayoutControlItem.Location = new System.Drawing.Point(0, 48);
+            this.middleNameLabelLayoutControlItem.Location = new System.Drawing.Point(0, 46);
             this.middleNameLabelLayoutControlItem.MinSize = new System.Drawing.Size(63, 17);
             this.middleNameLabelLayoutControlItem.Name = "middleNameLabelLayoutControlItem";
             this.middleNameLabelLayoutControlItem.OptionsTableLayoutItem.ColumnIndex = 1;
             this.middleNameLabelLayoutControlItem.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 20, 2, 2);
-            this.middleNameLabelLayoutControlItem.Size = new System.Drawing.Size(477, 19);
+            this.middleNameLabelLayoutControlItem.Size = new System.Drawing.Size(477, 18);
             this.middleNameLabelLayoutControlItem.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.middleNameLabelLayoutControlItem.TextSize = new System.Drawing.Size(0, 0);
             this.middleNameLabelLayoutControlItem.TextVisible = false;
@@ -592,7 +614,7 @@
             this.firstNameLabelLayoutControlItem.MinSize = new System.Drawing.Size(54, 17);
             this.firstNameLabelLayoutControlItem.Name = "firstNameLabelLayoutControlItem";
             this.firstNameLabelLayoutControlItem.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 20, 2, 2);
-            this.firstNameLabelLayoutControlItem.Size = new System.Drawing.Size(477, 20);
+            this.firstNameLabelLayoutControlItem.Size = new System.Drawing.Size(477, 19);
             this.firstNameLabelLayoutControlItem.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.firstNameLabelLayoutControlItem.TextSize = new System.Drawing.Size(0, 0);
             this.firstNameLabelLayoutControlItem.TextVisible = false;
@@ -600,12 +622,12 @@
             // firstNameTextEditLayoutControlItem
             // 
             this.firstNameTextEditLayoutControlItem.Control = this.firstNameTextEdit;
-            this.firstNameTextEditLayoutControlItem.Location = new System.Drawing.Point(0, 20);
+            this.firstNameTextEditLayoutControlItem.Location = new System.Drawing.Point(0, 19);
             this.firstNameTextEditLayoutControlItem.MinSize = new System.Drawing.Size(54, 24);
             this.firstNameTextEditLayoutControlItem.Name = "firstNameTextEditLayoutControlItem";
             this.firstNameTextEditLayoutControlItem.OptionsTableLayoutItem.ColumnIndex = 1;
             this.firstNameTextEditLayoutControlItem.OptionsTableLayoutItem.RowIndex = 1;
-            this.firstNameTextEditLayoutControlItem.Size = new System.Drawing.Size(477, 28);
+            this.firstNameTextEditLayoutControlItem.Size = new System.Drawing.Size(477, 27);
             this.firstNameTextEditLayoutControlItem.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.firstNameTextEditLayoutControlItem.TextSize = new System.Drawing.Size(0, 0);
             this.firstNameTextEditLayoutControlItem.TextVisible = false;
@@ -613,10 +635,10 @@
             // addNewCommentButtonLayoutControlItem
             // 
             this.addNewCommentButtonLayoutControlItem.Control = this.addCommentButton;
-            this.addNewCommentButtonLayoutControlItem.Location = new System.Drawing.Point(969, 703);
+            this.addNewCommentButtonLayoutControlItem.Location = new System.Drawing.Point(969, 681);
             this.addNewCommentButtonLayoutControlItem.MinSize = new System.Drawing.Size(24, 26);
             this.addNewCommentButtonLayoutControlItem.Name = "addNewCommentButtonLayoutControlItem";
-            this.addNewCommentButtonLayoutControlItem.Size = new System.Drawing.Size(34, 26);
+            this.addNewCommentButtonLayoutControlItem.Size = new System.Drawing.Size(34, 48);
             this.addNewCommentButtonLayoutControlItem.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.addNewCommentButtonLayoutControlItem.TextSize = new System.Drawing.Size(0, 0);
             this.addNewCommentButtonLayoutControlItem.TextVisible = false;
@@ -624,13 +646,21 @@
             // newCommentTextEditLayoutControlItem
             // 
             this.newCommentTextEditLayoutControlItem.Control = this.newCommentTextEdit;
-            this.newCommentTextEditLayoutControlItem.Location = new System.Drawing.Point(0, 703);
+            this.newCommentTextEditLayoutControlItem.Location = new System.Drawing.Point(0, 681);
             this.newCommentTextEditLayoutControlItem.MinSize = new System.Drawing.Size(54, 24);
             this.newCommentTextEditLayoutControlItem.Name = "newCommentTextEditLayoutControlItem";
-            this.newCommentTextEditLayoutControlItem.Size = new System.Drawing.Size(969, 26);
+            this.newCommentTextEditLayoutControlItem.Size = new System.Drawing.Size(969, 48);
             this.newCommentTextEditLayoutControlItem.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.newCommentTextEditLayoutControlItem.TextSize = new System.Drawing.Size(0, 0);
             this.newCommentTextEditLayoutControlItem.TextVisible = false;
+            // 
+            // layoutControlItem2
+            // 
+            this.layoutControlItem2.Control = this.roleLookUpEdit;
+            this.layoutControlItem2.Location = new System.Drawing.Point(0, 260);
+            this.layoutControlItem2.Name = "layoutControlItem2";
+            this.layoutControlItem2.Size = new System.Drawing.Size(1003, 24);
+            this.layoutControlItem2.TextSize = new System.Drawing.Size(93, 13);
             // 
             // emptySpaceItem1
             // 
@@ -650,6 +680,7 @@
             this.Text = "UserForm";
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl)).EndInit();
             this.layoutControl.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.roleLookUpEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.loginTextEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
@@ -681,6 +712,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.firstNameTextEditLayoutControlItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.addNewCommentButtonLayoutControlItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.newCommentTextEditLayoutControlItem)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
             this.ResumeLayout(false);
 
@@ -733,5 +765,7 @@
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup2;
         private DevExpress.XtraLayout.LayoutControlItem lastNameTextEditLayoutControlItem;
         private System.Windows.Forms.Button stateButton;
+        private DevExpress.XtraEditors.LookUpEdit roleLookUpEdit;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
     }
 }

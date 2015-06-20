@@ -17,14 +17,14 @@ namespace ContosoUI.UserForm
         private readonly IUserView view;
         private readonly UserModel model;
         public event PropertyChangedEventHandler PropertyChanged;
+
         IUserRepository DefaultUser = new DummyDAOForUser(); 
 
         private string login;
         private string firstName;
         private string middleName;
         private string lastName;
-        private Role role;
-        private string roleTitle;
+        public Role Role = new Role();
         private string password;
         private bool state;
         public List<Role> RoleList = new List<Role>(Storage.Roles);
@@ -100,29 +100,13 @@ namespace ContosoUI.UserForm
             }
         }
 
-        public Role Role
+        public int RoleID
         {
-            get { return role; }
+            get { return (Role == null) ? 0 : Role.Id; }
             set
             {
-                if (value != this.role)
-                {
-                    this.role = value;
-                    NotifyPropertyChanged();
-                }
-            }
-        }
-
-        public string RoleTitle
-        {
-            get { return roleTitle; }
-            set
-            {
-                if (value != this.roleTitle)
-                {
-                    this.roleTitle = value;
-                    NotifyPropertyChanged();
-                }
+                this.Role = RoleList.Where(x => x.Id == value).FirstOrDefault();
+               NotifyPropertyChanged();
             }
         }
 
@@ -156,18 +140,14 @@ namespace ContosoUI.UserForm
             FirstName = CurrentUser.Person.FirstName;
             MiddleName = CurrentUser.Person.MiddleName;
             LastName = CurrentUser.Person.LastName;
-            Role = CurrentUser.Role;
+            RoleID = CurrentUser.Role.Id;
             State = CurrentUser.IsActive;
         }
 
         public void Save()
         {         
-            var user = new User();
-            User existingUser = new User();
-            var j = DefaultUser.GetBy(Login, FirstName, LastName);
-
-            if (j.Count > 0)
-                existingUser = j.First();
+            User user = new User();
+            var existingUser = DefaultUser.GetBy(Login, FirstName, LastName);
 
             user.Login = Login;
             user.Password = Password;
@@ -176,11 +156,11 @@ namespace ContosoUI.UserForm
             user.Person.LastName = LastName;
             user.Person.MiddleName = MiddleName;
 
-            user.Role = RoleList.Where(x => x.Title == roleTitle).First();
+            user.Role = Role;
 
             user.IsActive = State;
 
-            if (existingUser.Id == user.Id)
+            if (existingUser.Count > 0)
                 model.Save(user);
             else
                 model.Create(user);
@@ -200,7 +180,7 @@ namespace ContosoUI.UserForm
             MiddleName = "";
             LastName = "";
             State = false;
-            Role.Title = "";
+            Role = null;
         }
     }
 }

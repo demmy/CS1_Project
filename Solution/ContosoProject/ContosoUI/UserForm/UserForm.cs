@@ -18,16 +18,19 @@ namespace ContosoUI.UserForm
         {
             InitializeComponent();
             presenter = new UserPresenter(this, new UserModel());
-            roleComboBoxEdit.Properties.Items.AddRange(presenter.RoleList.Select(x => x.Title).ToList());
             BindingSource binding = new BindingSource();
             binding.DataSource = presenter;
+
+            roleLookUpEdit.Properties.DataSource = presenter.RoleList;
+            roleLookUpEdit.Properties.ValueMember = "Id";
+            roleLookUpEdit.Properties.DisplayMember = "Title";
 
             loginTextEdit.DataBindings.Add("EditValue", binding, "Login");
             firstNameTextEdit.DataBindings.Add("EditValue", binding, "FirstName");
             middleNameTextEdit.DataBindings.Add("EditValue", binding, "MiddleName");
             lastNameTextEdit.DataBindings.Add("EditValue", binding, "LastName");
             passwordTextEdit.DataBindings.Add("EditValue", binding, "Password");
-            roleComboBoxEdit.DataBindings.Add("EditValue", binding, "RoleTitle");
+            roleLookUpEdit.DataBindings.Add("EditValue", binding, "RoleID");
         }
 
         public UserForm(int id)
@@ -44,7 +47,7 @@ namespace ContosoUI.UserForm
             firstNameTextEdit.Text = presenter.FirstName;
             middleNameTextEdit.Text = presenter.MiddleName;
             lastNameTextEdit.Text = presenter.LastName;
-            roleComboBoxEdit.Text = presenter.Role.Title;
+            roleLookUpEdit.EditValue = presenter.Role;
             passwordTextEdit.Text = presenter.Password;
             stateButtonText();
         }
@@ -78,6 +81,11 @@ namespace ContosoUI.UserForm
         private void saveCloseButton_Click(object sender, EventArgs e)
         {
             presenter.SaveAndNew();
+        }
+
+        private void roleLookUpEdit_EditValueChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
