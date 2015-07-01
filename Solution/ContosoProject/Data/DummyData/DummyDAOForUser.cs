@@ -4,6 +4,7 @@ using System.Linq;
 using Data.StoreData;
 using Domain.DAO;
 using Domain.Entities.Users;
+using Domain.Entities;
 
 namespace Data.DummyData
 {
@@ -13,24 +14,23 @@ namespace Data.DummyData
         {
             _collection = Storage.Users;
         }
-        public ICollection<User> GetByLogin(string login)
-        {
-            if (_collection.Any(x => x.Login == login))
-            {
-                return _collection.Where(x => x.Login == login).ToList();
-            }
-            else
-                throw new Exception();
-        }
 
-        public ICollection<User> GetByRole(Role role)
+        public ICollection<User> GetBy(string login, string firstName, string lastName)
         {
-            if (_collection.Any(x => x.Role == role))
+            var result = _collection.AsQueryable();
+            if (!string.IsNullOrWhiteSpace(login))
             {
-                return _collection.Where(x => x.Role == role).ToList();
+                result = result.Where(x => x.Login == login);
             }
-            else
-                throw new Exception();
+            if (!string.IsNullOrWhiteSpace(firstName))
+            {
+                result = result.Where(x => x.Person.FirstName == firstName);
+            }
+            if (!string.IsNullOrWhiteSpace(lastName))
+            {
+                result = result.Where(x => x.Person.LastName == lastName);
+            }
+            return result.ToList();
         }
     }
 }

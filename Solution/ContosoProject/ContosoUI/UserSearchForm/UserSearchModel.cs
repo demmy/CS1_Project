@@ -5,17 +5,17 @@ using System.Text;
 using System.Threading.Tasks;
 using Domain.Entities.Users;
 using Data.DummyData;
+using Domain.DAO;
 
 namespace ContosoUI.UserSearchForm
 {
-    class UserSearchModel
+    public class UserSearchModel
     {
+        IUserRepository user = new DummyDAOForUser();
+
         public ICollection<User> SearchUser(string login, string firstName, string lastName)
         {
-            DummyDAOForUser user = new DummyDAOForUser();
-
-            user.GetByLogin(login);
-            return user.GetByLogin(login);            
+            return user.GetBy(login, firstName, lastName);            
         }
 
     }
