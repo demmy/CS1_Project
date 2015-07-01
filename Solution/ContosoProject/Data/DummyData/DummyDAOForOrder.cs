@@ -14,26 +14,45 @@ namespace Data.DummyData
     {
         public DummyDAOForOrder()
         {
-            _collection = Storage.Orders;
+            Collection = Storage.Orders;
+        }
+
+        public ICollection<Order> GetBy(string orderNumber, Status status, Client client)
+        {
+            var result = Collection.AsQueryable();
+            if (!string.IsNullOrWhiteSpace(orderNumber))
+            {
+                return result.Where(x => x.OrderNumber == orderNumber).ToList();
+            }
+            if (client != null)
+            {
+                result = result.Where(x => x.Client.Equals(client));
+            }
+            result = result.Where(x => x.Status == status);
+                if (!Equals(result, Collection.AsQueryable()))
+                {
+                    return result.ToList();
+                }
+                throw new Exception();
         }
 
         public Order GetByNumber(string orderNumber)
         {
-            if(string.IsNullOrWhiteSpace(orderNumber)) 
-                return _collection.FirstOrDefault(x => x.OrderNumber == orderNumber);
+            if (string.IsNullOrWhiteSpace(orderNumber))
+                return Collection.FirstOrDefault(x => x.OrderNumber == orderNumber);
             throw new Exception();
         }
 
         public ICollection<Order> GetByStatus(Status status)
         {
-            return _collection.Where(x => x.Status == status).ToList();
+            return Collection.Where(x => x.Status == status).ToList();
         }
 
         public ICollection<Order> GetByClient(Client client)
         {
-            if (_collection.Any(x => x.Client == client))
+            if (Collection.Any(x => x.Client == client))
             {
-                return _collection.Where(x => x.Client == client).ToList();
+                return Collection.Where(x => x.Client == client).ToList();
             }
             throw new Exception();
         }
@@ -42,7 +61,7 @@ namespace Data.DummyData
         {
             if (Contains(product))
             {
-                return _collection.Where(x => x.OrderItems.Any(it => it.Product == product)).ToList();
+                return Collection.Where(x => x.OrderItems.Any(it => it.Product == product)).ToList();
             }
             throw new Exception();
         }
@@ -51,24 +70,24 @@ namespace Data.DummyData
         {
             if (!Contains(product))
             {
-                _collection.Add(new Order(new List<Comment>(), new List<OrderItem>()
+                Collection.Add(new Order(new List<Comment>(), new List<OrderItem>
                 {
                     new OrderItem(product, quantity, product.Price)
-                } ));
+                }));
             }
             throw new Exception();
         }
 
         public bool Contains(Product product)
         {
-            return _collection.Any(x => x.OrderItems.Any(it => it.Product == product));
+            return Collection.Any(x => x.OrderItems.Any(it => it.Product == product));
         }
 
         public void RemoveOrder(Product product)
         {
             if (Contains(product))
             {
-                _collection.First(x => x.OrderItems.Any(it => it.Product == product)).IsActive = false;
+                Collection.First(x => x.OrderItems.Any(it => it.Product == product)).IsActive = false;
             }
             throw new Exception();
         }
@@ -77,7 +96,7 @@ namespace Data.DummyData
         {
             if (Contains(product))
             {
-                var prod = _collection[_collection.IndexOf(_collection.First(x => x.OrderItems.Any(it => it.Product == product)))].OrderItems.First(x => x.Product == product);
+                var prod = Collection[Collection.IndexOf(Collection.First(x => x.OrderItems.Any(it => it.Product == product)))].OrderItems.First(x => x.Product == product);
                 prod.Quantity = quantity;
             }
             throw new Exception();
@@ -85,7 +104,7 @@ namespace Data.DummyData
 
         public double Sum
         {
-            get { return _collection.Sum(x => x.Sum); }
+            get { return Collection.Sum(x => x.Sum); }
         }
     }
 }

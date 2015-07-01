@@ -12,12 +12,12 @@ namespace Data.DummyData
     {
         public DummyDAOForUser()
         {
-            _collection = Storage.Users;
+            Collection = Storage.Users;
         }
 
         public ICollection<User> GetBy(string login, string firstName, string lastName)
         {
-            var result = _collection.AsQueryable();
+            var result = Collection.AsQueryable();
             if (!string.IsNullOrWhiteSpace(login))
             {
                 result = result.Where(x => x.Login == login);
@@ -36,9 +36,9 @@ namespace Data.DummyData
 
         public ICollection<User> GetByRole(Role role)
         {
-            if (_collection.Any(x => x.Role == role))
+            if (Collection.Any(x => x.Role == role))
             {
-                return _collection.Where(x => x.Role == role).ToList();
+                return Collection.Where(x => x.Role == role).ToList();
             }
             throw new Exception();
         }

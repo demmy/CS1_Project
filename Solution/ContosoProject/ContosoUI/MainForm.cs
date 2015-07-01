@@ -1,5 +1,7 @@
 ﻿using System;
-using ContosoUI.NicksForms.Order_form;
+using ContosoUI.ClientForm;
+using ContosoUI.OrderForm;
+using ContosoUI.ProductForm;
 using Data.StoreData;
 using DevExpress.XtraBars;
 using DevExpress.XtraBars.Ribbon;
@@ -39,16 +41,15 @@ namespace ContosoUI
 
         private void barUserButton_ItemClick(object sender, ItemClickEventArgs e)
         {
-            var form = new NicksForms.User_form.UserForm();
+            var form = new UserForm.UserForm();
             form.MdiParent = this;
             form.Show();
         }
 
         private void barButtonItem1_ItemClick(object sender, ItemClickEventArgs e)
         {
-            OrderPresenter presenter = new OrderPresenter(new OrderModel(), new OrderForm() { MdiParent = this}, Storage.Orders[2]);
-            presenter.ShowView();
-
+            OrderPresenter presenter = new OrderPresenter(new OrderModel(), new OrderForm.OrderForm() { MdiParent = this}, Storage.Orders[2]);
+            presenter.ShowView(presenter);
         }
 
         private void UsersListBarButtonItem_ItemClick(object sender, ItemClickEventArgs e)
@@ -67,16 +68,14 @@ namespace ContosoUI
 
         private void ClientBarButtonItem_ItemClick(object sender, ItemClickEventArgs e)
         {
-            //var form = new NicksForms.Client_form.();
-            //form.MdiParent = this;
-            //form.Show();
+            ClientPresenter presenter = new ClientPresenter(new ClientView() { MdiParent = this }, new ClientModel());
+            presenter.ShowView(presenter, 1);
         }
 
         private void ProductBarButtonItem_ItemClick(object sender, ItemClickEventArgs e)
         {
-            var form = new NicksForms.Product_form.ProductView();
-            form.MdiParent = this;
-            form.Show();
+            ProductPresenter presenter = new ProductPresenter(new ProductView() { MdiParent = this}, new ProductModel() );
+            presenter.ShowView(presenter, 4);
         }
     }
 }

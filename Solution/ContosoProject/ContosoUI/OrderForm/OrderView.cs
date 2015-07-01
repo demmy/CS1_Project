@@ -1,33 +1,36 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace ContosoUI.NicksForms.Order_form
+namespace ContosoUI.OrderForm
 {
     public partial class OrderForm : DevExpress.XtraBars.Ribbon.RibbonForm, IOrderView
     {
-        private OrderPresenter presenter;
+        private OrderPresenter _presenter;
+        private BindingSource binding;
 
         public OrderForm()
         {
             InitializeComponent();
-            presenter = new OrderPresenter(new OrderModel(), this);
+            _presenter = new OrderPresenter(new OrderModel(), this);
+        }
+
+        public OrderForm(int id)
+        {
+            InitializeComponent();
+            _presenter = new OrderPresenter(new OrderModel(), this);
         }
 
         private void OrderViewList_Load(object sender, EventArgs e)
         {
-            BindingSource binding = new BindingSource { DataSource = presenter };
+            binding = new BindingSource { DataSource = _presenter };
 
-            clientLookUpEdit.Properties.DataSource = presenter.ClientList;
-            orderStatusLookUpEdit.Properties.DataSource = presenter.StatusEnum;
-
+            clientLookUpEdit.Properties.DataSource = _presenter.ClientList;
+            orderStatusLookUpEdit.Properties.DataSource = _presenter.StatusEnum;
             orderNumberTextEdit.DataBindings.Add("EditValue", binding, "OrderNumber");
             
             orderDateEdit.DataBindings.Add("EditValue", binding, "Date");
             orderGridControl.DataBindings.Add("DataSource", binding, "OrderItems");
-            orderGridControl.RefreshDataSource();
-            orderGridControl.DataSource = presenter.OrderItems;
-
-            commentsListBox.DataBindings.Add("DataSource", binding, "Comments");            
+            commentsListBox.DataBindings.Add("DataSource", binding, "Comments");
         }
 
         private void ribbon_Click(object sender, EventArgs e)
@@ -37,21 +40,29 @@ namespace ContosoUI.NicksForms.Order_form
 
         private void orderSaveBarButton_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            presenter.Save();
+            binding.EndEdit();
+            _presenter.Save();
         }
 
         private void orderSaveAndNewBarButton_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            presenter.SaveAndNew();
+            binding.EndEdit();
+            _presenter.SaveAndNew();
         }
 
         private void ClearBarButton_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            presenter.Clear();
+            _presenter.Clear();
         }
 
         public void ShowView()
         {
+            Show();
+        }
+
+        public void ShowView(OrderPresenter presenter)
+        {
+            _presenter = presenter;
             Show();
         }
     }

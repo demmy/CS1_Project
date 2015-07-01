@@ -20,5 +20,10 @@ namespace Domain.Entities.Comments
         public string Text { get; set; }
 
         public EntityType EntityType { get; set; }
+        public override string ToString()
+        {
+            return Author != null ? string.Format("\"{0}\", {1}", Text, Date.ToShortDateString()) : string.Format("\"{0}\", {1} {2}", Text, Date.ToShortDateString(), Author);
+        }
     }
+
 }

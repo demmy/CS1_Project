@@ -18,7 +18,7 @@ namespace ContosoUI.UserSearchForm
     {
         private readonly UserSearchPresenter presenter;
         BindingSource binding = new BindingSource();
-
+         
         public UsersListView()
         {
             InitializeComponent();
@@ -33,6 +33,7 @@ namespace ContosoUI.UserSearchForm
             firstNameTextEdit.DataBindings.Add("EditValue", binding, "FirstName", false, DataSourceUpdateMode.OnPropertyChanged);
             lastNameTextEdit.DataBindings.Add("EditValue", binding, "LastName", false, DataSourceUpdateMode.OnPropertyChanged);
             usersGridControl.DataBindings.Add("DataSource", binding, "Users", false, DataSourceUpdateMode.OnPropertyChanged);
+            usersGridControl.RefreshDataSource();
         }
 
         private void addUserBarButton_ItemClick(object sender, ItemClickEventArgs e)
@@ -80,6 +81,8 @@ namespace ContosoUI.UserSearchForm
                 presenter.Search();
             }
         }
+
+       
 
         private void lastNameTextEdit_KeyPress(object sender, KeyPressEventArgs e)
         {

@@ -1,45 +1,40 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Data.SqlTypes;
 using System.Linq;
 using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using ContosoUI.Annotations;
 using Data.DummyData;
 using Domain.DAO;
 using Domain.Entities;
 using Domain.Entities.Comments;
 using Domain.Entities.Orders;
-using Domain.Entities.Users;
 
-namespace ContosoUI.NicksForms.Order_form
+namespace ContosoUI.OrderForm
 {
-    class OrderPresenter : INotifyPropertyChanged
+    public class OrderPresenter : Presenter, IViewPresenter
     {
         private OrderModel _model;
         private IOrderView _view;
-        public event PropertyChangedEventHandler PropertyChanged = delegate(object sender, PropertyChangedEventArgs args) {  };
+
+        IClientRepository _clientRepository = new DummyDAOForClient();
+
+        private Order _order = new Order(new List<Comment>(), new List<OrderItem>());
+        private Client _client = new Client();
 
         private string _orderNumber = string.Empty;
         private Status _status = Status.Opened;
         private DateTime _date = DateTime.Now;
-        private Client _client = new Client();
-
-        private Order _order = new Order(new List<Comment>(), new List<OrderItem>());
-
+        
         private BindingList<Comment> _comments = new BindingList<Comment>(); 
         private BindingList<OrderItem> _orderItems = new BindingList<OrderItem>();
-
-        IClientRepository _clientRepository = new DummyDAOForClient();
 
         public OrderPresenter(OrderModel model, IOrderView view)
         {
             _model = model;
             _view = view;
         }
-        
         public OrderPresenter(OrderModel model, IOrderView view, Order order)
         {
             _model = model;
@@ -55,11 +50,9 @@ namespace ContosoUI.NicksForms.Order_form
             get { return _orderNumber; }
             set
             {
-                if (value != _orderNumber)
-                {
-                    _orderNumber = value;
-                    NotifyPropertyChanged("OrderNumber");
-                }
+                if (value == _orderNumber) return;
+                _orderNumber = value;
+                NotifyPropertyChanged();
             }
         }
 
@@ -68,11 +61,9 @@ namespace ContosoUI.NicksForms.Order_form
             get { return _status; }
             set
             {
-                if (value != _status)
-                {
-                    _status = value;
-                    NotifyPropertyChanged("status");
-                }
+                if (value == _status) return;
+                _status = value;
+                NotifyPropertyChanged();
             }
         }
 
@@ -81,11 +72,31 @@ namespace ContosoUI.NicksForms.Order_form
             get { return _date; }
             set
             {
-                if (value != _date)
-                {
-                    _date = value;
-                    NotifyPropertyChanged("Date");
-                }
+                if (value.Equals(_date)) return;
+                _date = value;
+                NotifyPropertyChanged();
+            }
+        }
+
+        public BindingList<Comment> Comments
+        {
+            get { return _comments; }
+            set
+            {
+                if (Equals(value, _comments)) return;
+                _comments = value;
+                NotifyPropertyChanged();
+            }
+        }
+
+        public BindingList<OrderItem> OrderItems
+        {
+            get { return _orderItems; }
+            set
+            {
+                if (Equals(value, _orderItems)) return;
+                _orderItems = value;
+                NotifyPropertyChanged();
             }
         }
 
@@ -106,7 +117,13 @@ namespace ContosoUI.NicksForms.Order_form
 
         public void Clear()
         {
-            
+            _order = new Order();
+            _client = new Client();
+            _orderNumber = string.Empty;
+            _status = Status.Opened;
+            _date = DateTime.Now;
+            _orderItems = new BindingList<OrderItem>();
+            _comments = new BindingList<Comment>();
         }
 
         public void SaveAndNew()
@@ -120,27 +137,6 @@ namespace ContosoUI.NicksForms.Order_form
             get { return new BindingList<Client>(_clientRepository.GetAll().ToList()); }
         }
 
-        public BindingList<OrderItem> OrderItems
-        {
-            get { return _orderItems;}
-            set
-            {
-                    //need to implement the comparing of lists
-                    _orderItems = value;
-                    NotifyPropertyChanged("OrderItems");                
-            }
-        }
-        public BindingList<Comment> Comments
-        {
-            get { return _comments; }
-            set
-            {
-                //need to implement the comparing of lists
-                _comments = value;
-                NotifyPropertyChanged("Comments");
-
-            }
-        } 
 
         public List<Status> StatusEnum
         {
@@ -150,14 +146,9 @@ namespace ContosoUI.NicksForms.Order_form
             }
         }
 
-        private void NotifyPropertyChanged(string propertyName)
+        public void ShowView(OrderPresenter presenter)
         {
-            PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-        }
-
-        public void ShowView()
-        {
-            _view.ShowView();
+            _view.ShowView(presenter);
         }
     }
 }

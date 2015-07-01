@@ -184,11 +184,11 @@ namespace Data.StoreData
 
         public static List<Product> Products = new List<Product>
         {
-            new Product(new List<Comment>()){Category = Categories[0], Id = 1, IsActive = true,     Title = "Table",    Price = 100,    Date = DateTime.Now, SKU = "jh423b"},
-            new Product(new List<Comment>()){Category = Categories[1], Id = 2, IsActive = true,     Title = "Chair",    Price = 60,     Date = DateTime.Now, SKU = "sfdfh3"},
-            new Product(new List<Comment>()){Category = Categories[0], Id = 3, IsActive = true,     Title = "Wardrobe", Price = 20,     Date = DateTime.Now, SKU = "fhk32x"},
-            new Product(new List<Comment>()){Category = Categories[2], Id = 4, IsActive = false,    Title = "Table",    Price = 200,    Date = DateTime.Now, SKU = "jh423b"},
-            new Product(new List<Comment>()){Category = Categories[1], Id = 5, IsActive = true,     Title = "ArmChair", Price = 30,     Date = DateTime.Now, SKU = "lkj34q"}
+            new Product(new List<Comment>()){Category = Categories[0], Id = 1, IsActive = true,     Title = "Table",    Price = 100,    Date = DateTime.Now, SKU = "jh423b", Quantity = 1},
+            new Product(new List<Comment>()){Category = Categories[1], Id = 2, IsActive = true,     Title = "Chair",    Price = 60,     Date = DateTime.Now, SKU = "sfdfh3", Quantity = 0},
+            new Product(new List<Comment>()){Category = Categories[0], Id = 3, IsActive = true,     Title = "Wardrobe", Price = 20,     Date = DateTime.Now, SKU = "fhk32x", Quantity = 3},
+            new Product(new List<Comment>()){Category = Categories[2], Id = 4, IsActive = false,    Title = "Table",    Price = 200,    Date = DateTime.Now, SKU = "jh423b", Quantity = 2},
+            new Product(new List<Comment>()){Category = Categories[1], Id = 5, IsActive = true,     Title = "ArmChair", Price = 30,     Date = DateTime.Now, SKU = "lkj34q", Quantity = 4}
         };
 
         public static List<List<OrderItem>> OrderItems = new List<List<OrderItem>>

@@ -4,9 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ContosoUI.NicksForms.Client_form
+namespace ContosoUI
 {
-    interface IClientView
+    interface IViewPresenter
     {
+        void Save();
+        void SaveAndNew();
+        void Clear();
     }
 }

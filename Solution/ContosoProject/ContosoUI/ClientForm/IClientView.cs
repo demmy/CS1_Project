@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ContosoUI.NicksForms.Order_form
+namespace ContosoUI.ClientForm
 {
-    interface IOrderView
+    public interface IClientView
     {
-        void ShowView();
+        void ShowView(ClientPresenter presenter, int id);
     }
 }

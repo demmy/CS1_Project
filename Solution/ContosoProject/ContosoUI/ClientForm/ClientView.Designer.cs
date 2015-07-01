@@ -1,6 +1,6 @@
-﻿namespace ContosoUI.NicksForms
+﻿namespace ContosoUI.ClientForm
 {
-    partial class ClientViewList
+    partial class ClientView
     {
         /// <summary>
         /// Required designer variable.
@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ClientView));
+            this.сlientRibbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.сlientRibbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.clientBarSaveButton = new DevExpress.XtraBars.BarButtonItem();
             this.clientBarSaveAndNewButton = new DevExpress.XtraBars.BarButtonItem();
@@ -36,7 +38,6 @@
             this.сlientRibbonClientPage = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.сlientRibbonPageClientGroup = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.сlientRibbonPageClientFileGroup = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.сlientRibbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.clientLayoutControl = new DevExpress.XtraLayout.LayoutControl();
             this.сlientNewCommentTextBox = new System.Windows.Forms.TextBox();
             this.сlientAddCommentButton = new DevExpress.XtraEditors.SimpleButton();
@@ -100,6 +101,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.сlientSplitter)).BeginInit();
             this.SuspendLayout();
             // 
+            // сlientRibbonStatusBar
+            // 
+            this.сlientRibbonStatusBar.Location = new System.Drawing.Point(0, 736);
+            this.сlientRibbonStatusBar.Name = "сlientRibbonStatusBar";
+            this.сlientRibbonStatusBar.Ribbon = this.сlientRibbon;
+            this.сlientRibbonStatusBar.Size = new System.Drawing.Size(1014, 31);
+            // 
             // сlientRibbon
             // 
             this.сlientRibbon.ExpandCollapseItem.Id = 0;
@@ -120,25 +128,36 @@
             // clientBarSaveButton
             // 
             this.clientBarSaveButton.Caption = "Save";
+            this.clientBarSaveButton.Glyph = ((System.Drawing.Image)(resources.GetObject("clientBarSaveButton.Glyph")));
             this.clientBarSaveButton.Id = 4;
+            this.clientBarSaveButton.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("clientBarSaveButton.LargeGlyph")));
             this.clientBarSaveButton.Name = "clientBarSaveButton";
+            this.clientBarSaveButton.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.clientBarSaveButton_ItemClick);
             // 
             // clientBarSaveAndNewButton
             // 
             this.clientBarSaveAndNewButton.Caption = "Save and New";
+            this.clientBarSaveAndNewButton.Glyph = ((System.Drawing.Image)(resources.GetObject("clientBarSaveAndNewButton.Glyph")));
             this.clientBarSaveAndNewButton.Id = 5;
+            this.clientBarSaveAndNewButton.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("clientBarSaveAndNewButton.LargeGlyph")));
             this.clientBarSaveAndNewButton.Name = "clientBarSaveAndNewButton";
+            this.clientBarSaveAndNewButton.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.clientBarSaveAndNewButton_ItemClick);
             // 
             // clientBarClearButton
             // 
             this.clientBarClearButton.Caption = "Clear";
+            this.clientBarClearButton.Glyph = ((System.Drawing.Image)(resources.GetObject("clientBarClearButton.Glyph")));
             this.clientBarClearButton.Id = 6;
+            this.clientBarClearButton.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("clientBarClearButton.LargeGlyph")));
             this.clientBarClearButton.Name = "clientBarClearButton";
+            this.clientBarClearButton.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.clientBarClearButton_ItemClick);
             // 
             // clientBarRemoveRevertButton
             // 
             this.clientBarRemoveRevertButton.Caption = "Remove(revert)";
+            this.clientBarRemoveRevertButton.Glyph = ((System.Drawing.Image)(resources.GetObject("clientBarRemoveRevertButton.Glyph")));
             this.clientBarRemoveRevertButton.Id = 7;
+            this.clientBarRemoveRevertButton.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("clientBarRemoveRevertButton.LargeGlyph")));
             this.clientBarRemoveRevertButton.Name = "clientBarRemoveRevertButton";
             // 
             // сlientRibbonClientPage
@@ -162,13 +181,6 @@
             this.сlientRibbonPageClientFileGroup.ItemLinks.Add(this.clientBarRemoveRevertButton);
             this.сlientRibbonPageClientFileGroup.Name = "сlientRibbonPageClientFileGroup";
             this.сlientRibbonPageClientFileGroup.Text = "Client";
-            // 
-            // сlientRibbonStatusBar
-            // 
-            this.сlientRibbonStatusBar.Location = new System.Drawing.Point(0, 736);
-            this.сlientRibbonStatusBar.Name = "сlientRibbonStatusBar";
-            this.сlientRibbonStatusBar.Ribbon = this.сlientRibbon;
-            this.сlientRibbonStatusBar.Size = new System.Drawing.Size(1014, 31);
             // 
             // clientLayoutControl
             // 
@@ -233,6 +245,7 @@
             // 
             this.сlientOrderGridView.GridControl = this.сlientOrdersGridControl;
             this.сlientOrderGridView.Name = "сlientOrderGridView";
+            this.сlientOrderGridView.OptionsBehavior.AutoExpandAllGroups = true;
             // 
             // сlientTelephonesListBoxControl
             // 
@@ -492,7 +505,7 @@
             this.сlientSplitter.Name = "сlientSplitter";
             this.сlientSplitter.Size = new System.Drawing.Size(5, 573);
             // 
-            // ClientViewList
+            // ClientView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -500,7 +513,7 @@
             this.Controls.Add(this.clientLayoutControl);
             this.Controls.Add(this.сlientRibbonStatusBar);
             this.Controls.Add(this.сlientRibbon);
-            this.Name = "ClientViewList";
+            this.Name = "ClientView";
             this.Ribbon = this.сlientRibbon;
             this.StatusBar = this.сlientRibbonStatusBar;
             this.Text = "ClientViewList";
@@ -542,9 +555,6 @@
 
         #endregion
 
-        private DevExpress.XtraBars.Ribbon.RibbonControl сlientRibbon;
-        private DevExpress.XtraBars.Ribbon.RibbonPage сlientRibbonClientPage;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup сlientRibbonPageClientGroup;
         private DevExpress.XtraBars.Ribbon.RibbonStatusBar сlientRibbonStatusBar;
         private DevExpress.XtraLayout.LayoutControl clientLayoutControl;
         private DevExpress.XtraEditors.ListBoxControl clientCommentsListBoxControl;
@@ -576,11 +586,14 @@
         private DevExpress.XtraEditors.SimpleButton сlientAddCommentButton;
         private DevExpress.XtraLayout.LayoutControlItem clientLayoutControlAddNewCommentButton;
         private DevExpress.XtraLayout.LayoutControlItem сlientLayoutControlNewCommentTextEdit;
+        private DevExpress.XtraLayout.SplitterItem сlientSplitter;
+        private DevExpress.XtraBars.Ribbon.RibbonControl сlientRibbon;
         private DevExpress.XtraBars.BarButtonItem clientBarSaveButton;
         private DevExpress.XtraBars.BarButtonItem clientBarSaveAndNewButton;
         private DevExpress.XtraBars.BarButtonItem clientBarClearButton;
         private DevExpress.XtraBars.BarButtonItem clientBarRemoveRevertButton;
+        private DevExpress.XtraBars.Ribbon.RibbonPage сlientRibbonClientPage;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup сlientRibbonPageClientGroup;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup сlientRibbonPageClientFileGroup;
-        private DevExpress.XtraLayout.SplitterItem сlientSplitter;
     }
 }

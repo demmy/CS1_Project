@@ -7,7 +7,7 @@ namespace Domain.Entities.Products
 {
     public class Product : ExtendedEntity, ICommentable
     {
-        private int Quantity { get; set; }
+        public int Quantity { get; set; }
         public double Price { get; set; }
         public string Title { get; set; }
         public string SKU { get; set; }
@@ -28,7 +28,7 @@ namespace Domain.Entities.Products
                 EntityType = EntityType.Product,
                 Id = -1,
                 IsActive = true,
-                Text = string.Format("Client has been added {0}", DateTime.Now.ToShortDateString())
+                Text = string.Format("Product has been added ")
             });
         }
 
@@ -62,6 +62,11 @@ namespace Domain.Entities.Products
         public override int GetHashCode()
         {
             return this.Id;
+        }
+
+        public override string ToString()
+        {
+            return Title;
         }
     }
 }

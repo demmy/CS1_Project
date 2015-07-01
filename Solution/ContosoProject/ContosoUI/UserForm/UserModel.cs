@@ -1,9 +1,13 @@
-﻿using System.Collections.Generic;
-using Data.DummyData;
+﻿using Data.DummyData;
 using Domain.DAO;
 using Domain.Entities.Users;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace ContosoUI.NicksForms.User_form
+namespace ContosoUI.UserForm
 {
     public class UserModel
     {
@@ -18,5 +22,5 @@ namespace ContosoUI.NicksForms.User_form
         {
             user.Create(currentUser);
         }
-     }
+    }
 }

@@ -81,14 +81,14 @@ namespace ContosoUI.UserSearchForm
 
         public void Add()
         {
-            NicksForms.User_form.UserForm addUserForm = new NicksForms.User_form.UserForm();
+            UserForm.UserForm addUserForm = new UserForm.UserForm();
             addUserForm.MdiParent = ContosoUI.MainForm.ActiveForm;
             addUserForm.Show();
         }
 
         public void Edit(int id)
         {
-            NicksForms.User_form.UserForm editUserForm = new NicksForms.User_form.UserForm(id);
+            UserForm.UserForm editUserForm = new UserForm.UserForm(id);
             editUserForm.MdiParent = ContosoUI.MainForm.ActiveForm;
             editUserForm.Show();
         }

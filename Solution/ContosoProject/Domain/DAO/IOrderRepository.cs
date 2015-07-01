@@ -7,6 +7,7 @@ namespace Domain.DAO
 {
     public interface IOrderRepository : IRepositoryExtension<Order>
     {
+        ICollection<Order> GetBy(string orderNumber, Status status, Client client);
         Order GetByNumber(string orderNumber);
         ICollection<Order> GetByStatus(Status status); 
         ICollection<Order> GetByClient(Client client);

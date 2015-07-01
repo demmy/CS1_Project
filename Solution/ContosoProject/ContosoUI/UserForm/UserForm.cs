@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Windows.Forms;
-using ContosoUI.NicksForms.User_form;
+using ContosoUI.UserForm;
 
-namespace ContosoUI.NicksForms.User_form
+namespace ContosoUI.UserForm
 {
     public partial class UserForm : DevExpress.XtraBars.Ribbon.RibbonForm, IUserView
     {
@@ -15,30 +15,32 @@ namespace ContosoUI.NicksForms.User_form
             presenter = new UserPresenter(this, new UserModel());
         }
 
-        private void UserForm_Load(object sender, EventArgs e)
+        public UserForm(int id)
         {
-            binding.DataSource = presenter; 
+            InitializeComponent();
+            presenter = new UserPresenter(this, new UserModel());
+            presenter.GetUser(id);
+            stateButtonText();
+        }      
+  
+        private void UserForm_Load(object sender, EventArgs e)
+        { 
+            binding.DataSource = presenter;
+
+            roleLookUpEdit.Properties.DataSource = presenter.RoleList;
+            roleLookUpEdit.Properties.ValueMember = "Id";
+            roleLookUpEdit.Properties.DisplayMember = "Title";
 
             loginTextEdit.DataBindings.Add("EditValue", binding, "Login");
             firstNameTextEdit.DataBindings.Add("EditValue", binding, "FirstName");
             middleNameTextEdit.DataBindings.Add("EditValue", binding, "MiddleName");
             lastNameTextEdit.DataBindings.Add("EditValue", binding, "LastName");
             passwordTextEdit.DataBindings.Add("EditValue", binding, "Password");
-
-            roleLookUpEdit.Properties.DataSource = presenter.RoleList;
-            roleLookUpEdit.Properties.ValueMember = "Id";
-            roleLookUpEdit.Properties.DisplayMember = "Title";
-
             roleLookUpEdit.DataBindings.Add("EditValue", binding, "RoleID");
-
-            stateButtonText();
         }
 
-        public UserForm(int id)
+        public void RefreshForm()
         {
-            InitializeComponent();
-            presenter = new UserPresenter(this, new UserModel());
-            presenter.GetUser(id);
             stateButtonText();
         }
 
@@ -50,15 +52,12 @@ namespace ContosoUI.NicksForms.User_form
         private void stateButton_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             presenter.State = !presenter.State;
-            stateButtonText();
         }
 
         private void stateButtonText()
         {
             if (presenter.State)
-            {
                 stateButton.Caption = "Remove";
-            }
             else
                 stateButton.Caption = "Revert";
         }
@@ -71,6 +70,6 @@ namespace ContosoUI.NicksForms.User_form
         private void barSaveAndNewButton_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             presenter.SaveAndNew();
-        }        
+        }     
     }
 }

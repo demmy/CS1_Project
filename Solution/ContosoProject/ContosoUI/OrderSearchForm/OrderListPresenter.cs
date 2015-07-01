@@ -81,14 +81,14 @@ namespace ContosoUI.OrderSearchForm
 
         public void Add()
         {
-            NicksForms.Order_form.OrderForm addOrderForm = new NicksForms.Order_form.OrderForm();
+            OrderForm.OrderForm addOrderForm = new OrderForm.OrderForm();
             addOrderForm.MdiParent = ContosoUI.MainForm.ActiveForm;
             addOrderForm.Show();
         }
 
         public void Edit(int id)
         {
-            NicksForms.Order_form.OrderForm editOrderForm = new NicksForms.Order_form.OrderForm();
+            OrderForm.OrderForm editOrderForm = new OrderForm.OrderForm(id);
             editOrderForm.MdiParent = ContosoUI.MainForm.ActiveForm;
             editOrderForm.Show();
         }
@@ -97,11 +97,12 @@ namespace ContosoUI.OrderSearchForm
         {
             List<Order> orders;
             if (OrderNumber != null && Client != null && Status != Status.Undefined)
-                orders = model.GetAll().ToList();//model.GetByNumber(OrderNumber);
+                orders = model.GetBy(OrderNumber, Status, Client).ToList(); 
             else
                 orders = model.GetAll().ToList();
 
             OrdersList = new BindingList<Order>(orders);
+            NotifyPropertyChanged();
         }
 
         public void Clear()

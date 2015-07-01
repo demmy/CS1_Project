@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Data.StoreData;
 using Domain.DAO;
@@ -10,12 +11,12 @@ namespace Data.DummyData
     {
         public DummyDAOForClient()
         {
-            _collection = Storage.Clients;
+            Collection = Storage.Clients;
         }
 
         public ICollection<Client> FindBy(string firstName, string lastName, string city)
         {
-            var result = _collection.AsQueryable();
+            var result = Collection.AsQueryable();
             if (!string.IsNullOrWhiteSpace(firstName))
             {
                 result = result.Where(x => x.Person.FirstName == firstName);
@@ -28,7 +29,11 @@ namespace Data.DummyData
             {
                 result = result.Where(x => x.ClientLocation.City == city);
             }
-            return result.ToList();
+            if (!Equals(result, Collection.AsQueryable()))
+            {
+                return result.ToList();
+            }
+            throw new Exception();
         }
     }
 }

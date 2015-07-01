@@ -81,14 +81,14 @@ namespace ContosoUI.ProductSearchForm
 
         public void Add()
         {
-            NicksForms.Product_form.ProductView addProductForm = new NicksForms.Product_form.ProductView();
+            ProductForm.ProductView addProductForm = new ProductForm.ProductView();
             addProductForm.MdiParent = ContosoUI.MainForm.ActiveForm;
             addProductForm.Show();
         }
 
         public void Edit(int id)
         {
-            NicksForms.Product_form.ProductView editProductForm = new NicksForms.Product_form.ProductView();
+            ProductForm.ProductView editProductForm = new ProductForm.ProductView(id);
             editProductForm.MdiParent = ContosoUI.MainForm.ActiveForm;
             editProductForm.Show();
         }

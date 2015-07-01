@@ -1,19 +1,21 @@
-﻿using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using Data.DummyData;
+﻿using Data.DummyData;
 using Data.StoreData;
 using Domain.DAO;
 using Domain.Entities;
 using Domain.Entities.Users;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace ContosoUI.NicksForms.User_form
+namespace ContosoUI.UserForm
 {
-    class UserPresenter : INotifyPropertyChanged
+    class UserPresenter : Presenter, IViewPresenter
     {
         private readonly IUserView view;
         private readonly UserModel model;
-        public event PropertyChangedEventHandler PropertyChanged = delegate(object sender, PropertyChangedEventArgs args) {  };
 
         IUserRepository DefaultUser = new DummyDAOForUser(); 
 
@@ -22,8 +24,8 @@ namespace ContosoUI.NicksForms.User_form
             this.view = view;
             this.model = model;
         }
-
-        private string login = string.Empty;
+                
+        private string login;
         public string Login
         {
             get { return login; }
@@ -32,12 +34,12 @@ namespace ContosoUI.NicksForms.User_form
                 if (value != this.login)
                 {
                     this.login = value;
-                    NotifyPropertyChanged("Login");
+                    NotifyPropertyChanged();
                 }
             }
         }
 
-        private string firstName = string.Empty;
+        private string firstName;
         public string FirstName
         {
             get { return firstName; }
@@ -46,12 +48,12 @@ namespace ContosoUI.NicksForms.User_form
                 if (value != this.firstName)
                 {
                     this.firstName = value;
-                    NotifyPropertyChanged("FirstName");
+                    NotifyPropertyChanged();
                 }
             }
         }
 
-        private string middleName = string.Empty;
+        private string middleName;
         public string MiddleName
         {
             get { return middleName; }
@@ -60,12 +62,12 @@ namespace ContosoUI.NicksForms.User_form
                 if (value != this.middleName)
                 {
                     this.middleName = value;
-                    NotifyPropertyChanged("MiddleName");
+                    NotifyPropertyChanged();
                 }
             }
         }
 
-        private string lastName = string.Empty;
+        private string lastName;
         public string LastName
         {
             get { return lastName; }
@@ -74,12 +76,12 @@ namespace ContosoUI.NicksForms.User_form
                 if (value != this.lastName)
                 {
                     this.lastName = value;
-                    NotifyPropertyChanged("LastName");
+                    NotifyPropertyChanged();
                 }
             }
         }
 
-        private string password = string.Empty;
+        private string password;
         public string Password
         {
             get { return password; }
@@ -88,7 +90,7 @@ namespace ContosoUI.NicksForms.User_form
                 if (value != this.password)
                 {
                     this.password = value;
-                    NotifyPropertyChanged("Password");
+                    NotifyPropertyChanged();
                 }
             }
         }
@@ -100,8 +102,8 @@ namespace ContosoUI.NicksForms.User_form
             get { return (Role == null) ? 0 : Role.Id; }
             set
             {
-                Role = RoleList.FirstOrDefault(x => x.Id == value);
-                NotifyPropertyChanged("RoleID");
+                this.Role = RoleList.Where(x => x.Id == value).FirstOrDefault();
+                NotifyPropertyChanged();
             }
         }
 
@@ -114,16 +116,8 @@ namespace ContosoUI.NicksForms.User_form
                 if (value != this.state)
                 {
                     this.state = value;
-                    NotifyPropertyChanged("State");
+                    NotifyPropertyChanged();
                 }
-            }
-        }
-
-        private void NotifyPropertyChanged(string propertyName)
-        {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
             }
         }
 
@@ -151,7 +145,9 @@ namespace ContosoUI.NicksForms.User_form
             user.Person.FirstName = FirstName;
             user.Person.LastName = LastName;
             user.Person.MiddleName = MiddleName;
+
             user.Role = Role;
+
             user.IsActive = State;
 
             if (existingUser.Count > 0)

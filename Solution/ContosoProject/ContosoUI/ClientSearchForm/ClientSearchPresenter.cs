@@ -69,16 +69,16 @@ namespace ContosoUI.ClientSearchForm
 
         public void Add()
         {
-            //NicksForms.Client_form.ClientViewList addClientForm = new NicksForms.Client_form.ClientViewList(); // what's going on with Client form???
-            //addClientForm.MdiParent = ContosoUI.MainForm.ActiveForm;
-            //addClientForm.Show();
+            ClientForm.ClientView addClientForm = new ClientForm.ClientView();
+            addClientForm.MdiParent = ContosoUI.MainForm.ActiveForm;
+            addClientForm.Show();
         }
 
         public void Edit(int id)
         {
-            //NicksForms.Client_form.ClientViewList addClientForm = new NicksForms.Client_form.ClientViewList();
-            //addClientForm.MdiParent = ContosoUI.MainForm.ActiveForm;
-            //addClientForm.Show();
+            ClientForm.ClientView editClientForm = new ClientForm.ClientView(id);
+            editClientForm.MdiParent = ContosoUI.MainForm.ActiveForm;
+            editClientForm.Show();
         }
 
         public void Search()

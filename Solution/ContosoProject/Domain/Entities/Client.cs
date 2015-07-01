@@ -2,51 +2,74 @@
 using System.Collections.Generic;
 using System.Linq;
 using Domain.Entities.Comments;
-using Domain.Entities.Users;
 
 namespace Domain.Entities
 {
     public class Client : ExtendedEntity, ICommentable
     {
-        public Location ClientLocation { get; set; }
-        public Person Person { get; set; }
-        private ICollection<string> _telephones;
-        private ICollection<Comment> _comments = new List<Comment>();
+        private readonly List<Comment> _comments = new List<Comment>();
+        private readonly List<string> _telephones = new List<string>();
+
         public Client(ICollection<string> telephones, ICollection<Comment> comments) : this()
         {
-            _telephones = telephones;
-            _comments.ToList().AddRange(comments);
+            _telephones = telephones.ToList();
+            _comments = comments.ToList();
         }
 
         public Client()
         {
-            _comments.Add(new Comment()
+            _comments.Add(new Comment
             {
                 Author = null,
                 Date = DateTime.Now,
                 EntityType = EntityType.Client,
                 Id = -1,
                 IsActive = true,
-                Text = string.Format("Client has been added {0}", DateTime.Now.ToShortDateString())
+                Text = string.Format("Client has been added ")
             });
         }
 
+        public Location ClientLocation { get; set; }
+        public Person Person { get; set; }
+
         public IReadOnlyCollection<string> Telephones
         {
-            get
-            {
-                return (IReadOnlyCollection<string>)_telephones;
-            }
+            get { return _telephones; }
         }
 
         public IReadOnlyCollection<Comment> Comments
         {
-            get { return (IReadOnlyCollection<Comment>)_comments; }
+            get { return _comments; }
         }
 
         public override string ToString()
         {
             return Person.ToString();
+        }
+
+        protected bool Equals(Client other)
+        {
+            return _telephones.SequenceEqual(other._telephones) && _comments.SequenceEqual(other._comments) && ClientLocation.Equals(other.ClientLocation) && Person.Equals(other.Person);
+        }
+
+        public override int GetHashCode()
+        {
+            unchecked
+            {
+                var hashCode = (_telephones != null ? _telephones.GetHashCode() : 0);
+                hashCode = (hashCode*397) ^ (_comments != null ? _comments.GetHashCode() : 0);
+                hashCode = (hashCode*397) ^ (ClientLocation != null ? ClientLocation.GetHashCode() : 0);
+                hashCode = (hashCode*397) ^ (Person != null ? Person.GetHashCode() : 0);
+                return hashCode;
+            }
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (ReferenceEquals(null, obj)) return false;
+            if (ReferenceEquals(this, obj)) return true;
+            if (obj.GetType() != typeof (Client)) return false;
+            return Equals((Client) obj);
         }
     }
 }

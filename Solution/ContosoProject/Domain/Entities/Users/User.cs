@@ -22,7 +22,7 @@ namespace Domain.Entities.Users
                 EntityType = EntityType.User,
                 Id = -1,
                 IsActive = true,
-                Text = string.Format("User has been added {0}", DateTime.Now.ToShortDateString())
+                Text = string.Format("User has been added ")
             });
         }
 

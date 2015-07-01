@@ -15,7 +15,7 @@ namespace Domain.Entities.Orders
         public string OrderNumber { get; set; }
 
         private List<OrderItem> orderItems;
-        private ICollection<Comment> _comments= new List<Comment>();
+        private List<Comment> _comments= new List<Comment>();
 
         public Order(ICollection<Comment> comments, List<OrderItem> orders) : this()
         {
@@ -32,7 +32,7 @@ namespace Domain.Entities.Orders
                 EntityType = EntityType.Order,
                 Id = -1,
                 IsActive = true,
-                Text = string.Format("Client has been added {0}", DateTime.Now.ToShortDateString())
+                Text = string.Format("Client has been added ")
             });
         }
 
@@ -43,7 +43,7 @@ namespace Domain.Entities.Orders
 
         public IReadOnlyCollection<Comment> Comments
         {
-            get { return (IReadOnlyCollection<Comment>)_comments; }
+            get { return _comments; }
         }
 
         public double Sum

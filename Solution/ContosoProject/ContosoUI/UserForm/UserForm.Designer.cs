@@ -1,4 +1,4 @@
-﻿namespace ContosoUI.NicksForms.User_form
+﻿namespace ContosoUI.UserForm
 {
     partial class UserForm
     {
@@ -48,7 +48,6 @@
             this.firstNameTextEdit = new DevExpress.XtraEditors.TextEdit();
             this.passwordTextEdit = new DevExpress.XtraEditors.TextEdit();
             this.loginTextEdit = new DevExpress.XtraEditors.TextEdit();
-            this.roleLookUpEdit = new DevExpress.XtraEditors.LookUpEdit();
             this.layoutControlEntireGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.tabbedControlLoginDataGroup = new DevExpress.XtraLayout.TabbedControlGroup();
             this.layoutControlLoginDataGroup = new DevExpress.XtraLayout.LayoutControlGroup();
@@ -67,6 +66,7 @@
             this.middleNameLayoutControl = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlLastNameTextEdit = new DevExpress.XtraLayout.LayoutControlItem();
             this.splitterItem1 = new DevExpress.XtraLayout.SplitterItem();
+            this.roleLookUpEdit = new DevExpress.XtraEditors.LookUpEdit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl)).BeginInit();
             this.layoutControl.SuspendLayout();
@@ -77,7 +77,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.firstNameTextEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.passwordTextEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.loginTextEdit.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.roleLookUpEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlEntireGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabbedControlLoginDataGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlLoginDataGroup)).BeginInit();
@@ -96,6 +95,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.middleNameLayoutControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlLastNameTextEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitterItem1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.roleLookUpEdit.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // ribbon
@@ -279,22 +279,6 @@
             this.loginTextEdit.StyleController = this.layoutControl;
             this.loginTextEdit.TabIndex = 4;
             // 
-            // roleLookUpEdit
-            // 
-            this.roleLookUpEdit.Location = new System.Drawing.Point(29, 363);
-            this.roleLookUpEdit.MenuManager = this.ribbon;
-            this.roleLookUpEdit.Name = "roleLookUpEdit";
-            this.roleLookUpEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.roleLookUpEdit.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Title", "Title")});
-            this.roleLookUpEdit.Properties.NullText = "";
-            this.roleLookUpEdit.Properties.PopupSizeable = false;
-            this.roleLookUpEdit.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
-            this.roleLookUpEdit.Size = new System.Drawing.Size(325, 20);
-            this.roleLookUpEdit.StyleController = this.layoutControl;
-            this.roleLookUpEdit.TabIndex = 6;
-            // 
             // layoutControlEntireGroup
             // 
             this.layoutControlEntireGroup.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
@@ -329,7 +313,7 @@
             this.layoutControlLoginDataGroup.Location = new System.Drawing.Point(0, 0);
             this.layoutControlLoginDataGroup.Name = "layoutControlLoginDataGroup";
             this.layoutControlLoginDataGroup.Size = new System.Drawing.Size(339, 331);
-            this.layoutControlLoginDataGroup.Text = "User data";
+            this.layoutControlLoginDataGroup.Text = "Login data";
             // 
             // layoutControlLoginTextEdit
             // 
@@ -497,6 +481,20 @@
             this.splitterItem1.Name = "splitterItem1";
             this.splitterItem1.Size = new System.Drawing.Size(5, 573);
             // 
+            // roleLookUpEdit
+            // 
+            this.roleLookUpEdit.Location = new System.Drawing.Point(29, 363);
+            this.roleLookUpEdit.MenuManager = this.ribbon;
+            this.roleLookUpEdit.Name = "roleLookUpEdit";
+            this.roleLookUpEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.roleLookUpEdit.Properties.NullText = "";
+            this.roleLookUpEdit.Properties.PopupSizeable = false;
+            this.roleLookUpEdit.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
+            this.roleLookUpEdit.Size = new System.Drawing.Size(325, 20);
+            this.roleLookUpEdit.StyleController = this.layoutControl;
+            this.roleLookUpEdit.TabIndex = 6;
+            // 
             // UserForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -520,7 +518,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.firstNameTextEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.passwordTextEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.loginTextEdit.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.roleLookUpEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlEntireGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabbedControlLoginDataGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlLoginDataGroup)).EndInit();
@@ -539,6 +536,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.middleNameLayoutControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlLastNameTextEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitterItem1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.roleLookUpEdit.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
