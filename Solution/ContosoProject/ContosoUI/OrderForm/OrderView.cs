@@ -177,7 +177,6 @@ namespace ContosoUI.OrderForm
         private void addOrderItemButton_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             _presenter.OrderItems.Add(new OrderItem(new Product() {Title = "Choose product"}, 0, 0));
-
         }
 
         private void orderGridView_CellValueChanging(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)

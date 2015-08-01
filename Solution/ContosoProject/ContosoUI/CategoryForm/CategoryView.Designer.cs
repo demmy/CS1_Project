@@ -28,11 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CategoryView));
             this.ribbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.saveBarButton = new DevExpress.XtraBars.BarButtonItem();
             this.addCategoryBarButton = new DevExpress.XtraBars.BarButtonItem();
-            this.newCategoryPopupControlContainer = new DevExpress.XtraBars.PopupControlContainer();
+            this.newCategoryPopupControlContainer = new DevExpress.XtraBars.PopupControlContainer(this.components);
             this.newCategoryLayoutControl = new DevExpress.XtraLayout.LayoutControl();
             this.addNewCategorySimpleButton = new DevExpress.XtraEditors.SimpleButton();
             this.newCategoryTextEdit = new DevExpress.XtraEditors.TextEdit();
@@ -386,7 +387,7 @@
             this.Name = "CategoryView";
             this.Ribbon = this.ribbon;
             this.StatusBar = this.ribbonStatusBar;
-            this.Text = "Category View";
+            this.Text = "Categories";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.CategoryView_FormClosed);
             this.Load += new System.EventHandler(this.CategoryView_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).EndInit();
