@@ -32,8 +32,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CategoryView));
             this.ribbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.saveBarButton = new DevExpress.XtraBars.BarButtonItem();
-            this.saveAndNewBarButton = new DevExpress.XtraBars.BarButtonItem();
-            this.newBarButton = new DevExpress.XtraBars.BarButtonItem();
             this.addCategoryBarButton = new DevExpress.XtraBars.BarButtonItem();
             this.newCategoryPopupControlContainer = new DevExpress.XtraBars.PopupControlContainer(this.components);
             this.newCategoryLayoutControl = new DevExpress.XtraLayout.LayoutControl();
@@ -88,8 +86,6 @@
             this.ribbon.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.ribbon.ExpandCollapseItem,
             this.saveBarButton,
-            this.saveAndNewBarButton,
-            this.newBarButton,
             this.addCategoryBarButton});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
             this.ribbon.MaxItemId = 7;
@@ -115,24 +111,6 @@
             this.saveBarButton.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("saveBarButton.LargeGlyph")));
             this.saveBarButton.Name = "saveBarButton";
             this.saveBarButton.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.saveBarButton_ItemClick);
-            // 
-            // saveAndNewBarButton
-            // 
-            this.saveAndNewBarButton.Caption = "Save and New";
-            this.saveAndNewBarButton.Glyph = ((System.Drawing.Image)(resources.GetObject("saveAndNewBarButton.Glyph")));
-            this.saveAndNewBarButton.Id = 2;
-            this.saveAndNewBarButton.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("saveAndNewBarButton.LargeGlyph")));
-            this.saveAndNewBarButton.Name = "saveAndNewBarButton";
-            this.saveAndNewBarButton.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.saveAndNewBarButton_ItemClick);
-            // 
-            // newBarButton
-            // 
-            this.newBarButton.Caption = "New";
-            this.newBarButton.Glyph = ((System.Drawing.Image)(resources.GetObject("newBarButton.Glyph")));
-            this.newBarButton.Id = 3;
-            this.newBarButton.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("newBarButton.LargeGlyph")));
-            this.newBarButton.Name = "newBarButton";
-            this.newBarButton.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.newBarButton_ItemClick);
             // 
             // addCategoryBarButton
             // 
@@ -233,8 +211,6 @@
             // categoryRibbonPageGroup
             // 
             this.categoryRibbonPageGroup.ItemLinks.Add(this.saveBarButton);
-            this.categoryRibbonPageGroup.ItemLinks.Add(this.saveAndNewBarButton);
-            this.categoryRibbonPageGroup.ItemLinks.Add(this.newBarButton);
             this.categoryRibbonPageGroup.MergeOrder = 50;
             this.categoryRibbonPageGroup.Name = "categoryRibbonPageGroup";
             this.categoryRibbonPageGroup.Text = "Category";
@@ -452,8 +428,6 @@
         private DevExpress.XtraEditors.ListBoxControl categoryCommentsListBoxControl;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlCommentsListBox;
         private DevExpress.XtraBars.BarButtonItem saveBarButton;
-        private DevExpress.XtraBars.BarButtonItem saveAndNewBarButton;
-        private DevExpress.XtraBars.BarButtonItem newBarButton;
         private DevExpress.XtraBars.BarButtonItem addCategoryBarButton;
         private DevExpress.XtraEditors.SimpleButton addNewCommentButton;
         private DevExpress.XtraEditors.TextEdit addNewCommentTextEdit;

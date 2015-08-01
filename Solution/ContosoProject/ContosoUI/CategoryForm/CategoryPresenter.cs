@@ -72,17 +72,6 @@ namespace ContosoUI.CategoryForm
             SaveCategory();
         }        
 
-        public void SaveAndNew()
-        {
-            Save();
-            New();
-        }
-
-        public void New()
-        {
-            
-        }
-
         public void AddCategoryWithTitle(string title)
         {
             _categories.Add(_categoryToSave  = new Category(Domain.Entities.Comments.Comments.Init(Program.AuthUser, "Category")) { Title = title });
@@ -90,11 +79,6 @@ namespace ContosoUI.CategoryForm
             if (Categories.Count < 2)
                 _selectedCategory = _categoryToSave;
         }
-
-        //public void Search()
-        //{
-        //    Categories = new BindingList<Category>(_categoryRepository.FindBy(x => x.Title.ToLower().StartsWith(_searchTitleCategory.ToLower())).ToList());
-        //}
 
         public BindingList<Category> Categories
         {
@@ -117,16 +101,5 @@ namespace ContosoUI.CategoryForm
                 NotifyPropertyChanged();
             }
         }
-
-        //public string SearchTitleCategory
-        //{
-        //    get { return _searchTitleCategory; }
-        //    set
-        //    {
-        //        if (_searchTitleCategory.Equals(value)) return;
-        //        _searchTitleCategory = value;
-        //        NotifyPropertyChanged();
-        //    }
-        //}
     }
 }
