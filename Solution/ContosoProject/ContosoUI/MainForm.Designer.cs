@@ -36,6 +36,7 @@ namespace ContosoUI
             this.components = new System.ComponentModel.Container();
             DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonClientsGroup;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
+            DevExpress.XtraSplashScreen.SplashScreenManager chairsSplashScreenManager = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::ContosoUI.ChairsSplashScreen), true, true);
             this.ClientsListBarButton = new DevExpress.XtraBars.BarButtonItem();
             this.ClientBarButton = new DevExpress.XtraBars.BarButtonItem();
             this.mainRibbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
@@ -248,6 +249,10 @@ namespace ContosoUI
             this.xtraTabbedMdiManager.HeaderButtonsShowMode = DevExpress.XtraTab.TabButtonShowMode.WhenNeeded;
             this.xtraTabbedMdiManager.MdiParent = this;
             // 
+            // chairsSplashScreenManager
+            // 
+            chairsSplashScreenManager.ClosingDelay = 500;
+            // 
             // MainForm
             // 
             this.AllowFormGlass = DevExpress.Utils.DefaultBoolean.True;
@@ -261,6 +266,7 @@ namespace ContosoUI
             this.IsMdiContainer = true;
             this.Name = "MainForm";
             this.Ribbon = this.mainRibbon;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CHAIRS";
             this.Load += new System.EventHandler(this.MainForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.mainRibbon)).EndInit();

@@ -151,6 +151,12 @@
     <Compile Include="ProductForm\ProductModel.cs" />
     <Compile Include="ProductForm\ProductPresenter.cs" />
     <Compile Include="ProductSearchForm\ProductListModel.cs" />
+    <Compile Include="ChairsSplashScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChairsSplashScreen.Designer.cs">
+      <DependentUpon>ChairsSplashScreen.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserForm\IUserView.cs" />
     <Compile Include="UserForm\UserModel.cs" />
     <Compile Include="UserForm\UserPresenter.cs" />
@@ -222,6 +228,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ProductForm\ProductView.resx">
       <DependentUpon>ProductView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChairsSplashScreen.resx">
+      <DependentUpon>ChairsSplashScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserForm\UserForm.resx">
       <DependentUpon>UserForm.cs</DependentUpon>

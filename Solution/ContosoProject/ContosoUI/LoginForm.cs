@@ -11,6 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DevExpress.XtraSplashScreen;
 namespace ContosoUI
 {
     public partial class LoginForm : Form
@@ -35,6 +36,7 @@ namespace ContosoUI
         {
             using (_context)
             {
+                SplashScreenManager.ShowForm(typeof(ChairsSplashScreen));
                 IUserRepository userRepo = new EFUserDAO(_context);
                 var hashedPass = passwordTextEdit.Text.CreateHash();
                 var user = userRepo.Authentificate(loginTextEdit.Text, hashedPass);
@@ -45,6 +47,7 @@ namespace ContosoUI
                 }
                 else
                 {
+                    SplashScreenManager.CloseForm();
                     MessageBox.Show("Invalid login or password", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }

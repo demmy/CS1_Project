@@ -106,16 +106,8 @@ namespace ContosoUI.ProductForm
             }
             else
             {
-                if (_model.GetBy(null, productToSave.Title, null).FirstOrDefault() == null)
-                {
-                    _model.Create(productToSave);
-                    _product = productToSave;
-                }
-                else
-                {
-                    MessageBox.Show("Product with this title already exists. Change title", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
-                    Title = string.Empty;
-                }
+                _model.Create(productToSave);
+                _product = productToSave;            
             }
         }
         
