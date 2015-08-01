@@ -52,11 +52,9 @@ namespace ContosoUI
             this.ribbonOrdersGroup = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.systemRibbonGroup = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.xtraTabbedMdiManager = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
-            this.pictureEdit = new DevExpress.XtraEditors.PictureEdit();
             ribbonClientsGroup = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             ((System.ComponentModel.ISupportInitialize)(this.mainRibbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabbedMdiManager)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureEdit.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // ribbonClientsGroup
@@ -108,7 +106,7 @@ namespace ContosoUI
             this.RibbonMerge});
             this.mainRibbon.ShowApplicationButton = DevExpress.Utils.DefaultBoolean.False;
             this.mainRibbon.ShowCategoryInCaption = false;
-            this.mainRibbon.ShowExpandCollapseButton = DevExpress.Utils.DefaultBoolean.False;
+            this.mainRibbon.ShowExpandCollapseButton = DevExpress.Utils.DefaultBoolean.True;
             this.mainRibbon.ShowFullScreenButton = DevExpress.Utils.DefaultBoolean.False;
             this.mainRibbon.ShowPageHeadersMode = DevExpress.XtraBars.Ribbon.ShowPageHeadersMode.Hide;
             this.mainRibbon.ShowQatLocationSelector = false;
@@ -226,17 +224,6 @@ namespace ContosoUI
             this.xtraTabbedMdiManager.HeaderButtonsShowMode = DevExpress.XtraTab.TabButtonShowMode.WhenNeeded;
             this.xtraTabbedMdiManager.MdiParent = this;
             // 
-            // pictureEdit
-            // 
-            this.pictureEdit.EditValue = ((object)(resources.GetObject("pictureEdit.EditValue")));
-            this.pictureEdit.Location = new System.Drawing.Point(0, 143);
-            this.pictureEdit.MenuManager = this.mainRibbon;
-            this.pictureEdit.Name = "pictureEdit";
-            this.pictureEdit.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
-            this.pictureEdit.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Zoom;
-            this.pictureEdit.Size = new System.Drawing.Size(764, 482);
-            this.pictureEdit.TabIndex = 2;
-            // 
             // MainForm
             // 
             this.AllowFormGlass = DevExpress.Utils.DefaultBoolean.True;
@@ -245,8 +232,7 @@ namespace ContosoUI
             this.Appearance.Options.UseBackColor = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(764, 625);
-            this.Controls.Add(this.pictureEdit);
+            this.ClientSize = new System.Drawing.Size(764, 632);
             this.Controls.Add(this.mainRibbon);
             this.IsMdiContainer = true;
             this.Name = "MainForm";
@@ -256,7 +242,6 @@ namespace ContosoUI
             this.Load += new System.EventHandler(this.MainForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.mainRibbon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabbedMdiManager)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureEdit.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -280,7 +265,6 @@ namespace ContosoUI
         private BarButtonItem ClientBarButton;
         private RibbonPageGroup ribbonUserGroup;
         private RibbonPageGroup ribbonProductsGroup;
-        private DevExpress.XtraEditors.PictureEdit pictureEdit;
     }
 }
 

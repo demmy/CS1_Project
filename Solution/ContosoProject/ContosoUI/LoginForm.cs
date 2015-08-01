@@ -15,6 +15,8 @@ namespace ContosoUI
 {
     public partial class LoginForm : Form
     {
+        public static User CurrentUser { get; private set; }
+
         public LoginForm()
         {
             InitializeComponent();
@@ -29,19 +31,24 @@ namespace ContosoUI
         {
             IUserRepository userRepo = new DummyDAOForUser();
             IList<User> users = userRepo.GetAll().ToList();
-
-            if (users.Where(x => x.Login == loginTextEdit.Text && x.Password == passwordTextEdit.Text).Any())
+            var user = users.Where(x => x.Login == loginTextEdit.Text && x.Password == passwordTextEdit.Text);
+            if (user.Any())
             {
+                CurrentUser = user.First();
                 MainForm main = Program.MainForm;
-                this.Hide();
-                main.Show();
+                Program.OpenMainFormOnClose = true;
+                this.Close(); 
             }
             else
             {
-                MessageBox.Show("Invalide login or password", "Warning!");
-            }
+                MessageBox.Show("Invalid login or password", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }                   
+        }
 
-                   
+        private void passwordTextEdit_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+                okButton_Click(sender, e);
         }
     }
 }

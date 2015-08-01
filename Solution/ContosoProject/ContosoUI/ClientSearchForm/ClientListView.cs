@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using DevExpress.XtraBars;
 using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraGrid.Views.Grid.ViewInfo;
+using Domain.Entities.Users;
 
 namespace ContosoUI.ClientSearchForm
 {
@@ -24,8 +25,16 @@ namespace ContosoUI.ClientSearchForm
             presenter = new ClientSearchPresenter(this);
         }
 
+        private void ShowDependentOnRole(Role role)
+        {
+            if (!role.Permissions.Where(x => x.Title == "Add Client").Any()) // Change permission's title
+                clientCityTextEdit.Enabled = false;
+        }
+
         private void ClientListView_Load(object sender, EventArgs e)
         {
+            ShowDependentOnRole(LoginForm.CurrentUser.Role);
+
             binding.DataSource = presenter;
 
             clientCityTextEdit.DataBindings.Add("EditValue", binding, "City", false, DataSourceUpdateMode.OnPropertyChanged);

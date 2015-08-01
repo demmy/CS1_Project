@@ -5,6 +5,7 @@ namespace ContosoUI
 {
     static class Program
     {
+        public static bool OpenMainFormOnClose { get; set; }
         public static MainForm MainForm { get; private set; }
         /// <summary>
         /// The main entry point for the application.
@@ -16,6 +17,11 @@ namespace ContosoUI
             Application.SetCompatibleTextRenderingDefault(false);
             MainForm = new MainForm();
             Application.Run(new LoginForm());
+
+            if (OpenMainFormOnClose)
+            {
+                Application.Run(MainForm);
+            }
         }
     }
 }

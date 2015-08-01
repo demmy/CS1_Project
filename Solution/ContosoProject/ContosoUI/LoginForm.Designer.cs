@@ -107,6 +107,7 @@
             this.passwordTextEdit.Size = new System.Drawing.Size(287, 20);
             this.passwordTextEdit.StyleController = this.layoutControl1;
             this.passwordTextEdit.TabIndex = 1;
+            this.passwordTextEdit.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.passwordTextEdit_KeyPress);
             // 
             // loginTextEdit
             // 

@@ -10,6 +10,9 @@ using System.Windows.Forms;
 using DevExpress.XtraBars;
 using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraGrid.Views.Grid.ViewInfo;
+using Domain.Entities.Users;
+using Domain.DAO;
+using Data.DummyData;
 
 namespace ContosoUI.ProductSearchForm
 {
@@ -24,8 +27,16 @@ namespace ContosoUI.ProductSearchForm
             presenter = new ProductListPresenter(this);
         }
 
+        private void ShowDependentOnRole(Role role)
+        {
+            if (role.Permissions.Where(x => x.Title == "Add Product").Count() == 0)
+                categoryLookUpEdit.Enabled = false;
+        }
+
         private void ProductListView_Load(object sender, EventArgs e)
         {
+            ShowDependentOnRole(LoginForm.CurrentUser.Role);
+
             binding.DataSource = presenter;
 
             skuTextEdit.DataBindings.Add("EditValue", binding, "SKU", false, DataSourceUpdateMode.OnPropertyChanged);

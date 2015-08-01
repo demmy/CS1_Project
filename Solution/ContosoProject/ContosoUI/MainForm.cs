@@ -5,16 +5,31 @@ using ContosoUI.ProductForm;
 using Data.StoreData;
 using DevExpress.XtraBars;
 using DevExpress.XtraBars.Ribbon;
+using Domain.Entities.Users;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace ContosoUI
 {
     public partial class MainForm : RibbonForm
-    {
+    {         
         public MainForm()
         {
             InitializeComponent();
         }
- 
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            ShowDependentOnRole(LoginForm.CurrentUser.Role);
+        }
+
+        private void ShowDependentOnRole (Role role)
+        {
+            if (!role.Permissions.Where(x => x.Title == "Add User").Any()) 
+                UserBarButton.Visibility = BarItemVisibility.Never;
+        }
+
         private void clientsMenuBtn_ItemClick(object sender, ItemClickEventArgs e)
         {
             var form = new ClientSearchForm.ClientListView();
@@ -32,11 +47,6 @@ namespace ContosoUI
         private void exitMenuBtn_ItemClick(object sender, ItemClickEventArgs e)
         {
             Environment.Exit(0);
-        }
-
-        private void MainForm_Load(object sender, EventArgs e)
-        {
-
         }
 
         private void barUserButton_ItemClick(object sender, ItemClickEventArgs e)
