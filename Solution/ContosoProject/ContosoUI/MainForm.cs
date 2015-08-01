@@ -14,7 +14,7 @@ namespace ContosoUI
         {
             InitializeComponent();
         }
-
+ 
         private void clientsMenuBtn_ItemClick(object sender, ItemClickEventArgs e)
         {
             var form = new ClientSearchForm.ClientListView();
@@ -31,7 +31,7 @@ namespace ContosoUI
 
         private void exitMenuBtn_ItemClick(object sender, ItemClickEventArgs e)
         {
-            this.Close();
+            Environment.Exit(0);
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -76,6 +76,11 @@ namespace ContosoUI
         {
             ProductPresenter presenter = new ProductPresenter(new ProductView() { MdiParent = this}, new ProductModel() );
             presenter.ShowView(presenter, 4);
+        }
+
+        private void MainForm_FormClosing(object sender, System.Windows.Forms.FormClosingEventArgs e)
+        {
+            Environment.Exit(0);
         }
     }
 }

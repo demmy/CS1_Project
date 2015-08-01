@@ -15,7 +15,7 @@ namespace ContosoUI
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             MainForm = new MainForm();
-            Application.Run(MainForm);
+            Application.Run(new LoginForm());
         }
     }
 }
