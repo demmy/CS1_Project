@@ -13,16 +13,16 @@ namespace ContosoUI
 
         private void clientsMenuBtn_ItemClick(object sender, ItemClickEventArgs e)
         {
-            //var form = new ClientSearchForm.ClientSearchForm();
-            //form.MdiParent = this;
-            //form.Show();
+            var form = new ClientSearchForm.ClientListView();
+            form.MdiParent = this;
+            form.Show();
         }
 
         private void ordersMenuBtn_ItemClick(object sender, ItemClickEventArgs e)
         {
-            //var form = new OrderSearchForm.OrderSearchForm();
-            //form.MdiParent = this;
-            //form.Show();
+            var form = new OrderSearchForm.OrderListView();
+            form.MdiParent = this;
+            form.Show();
         }
 
         private void exitMenuBtn_ItemClick(object sender, ItemClickEventArgs e)
@@ -33,6 +33,13 @@ namespace ContosoUI
         private void MainForm_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void barButtonItem1_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            var form = new UserSearchForm.UsersListView();
+            form.MdiParent = this;
+            form.Show();
         }
     }
 }

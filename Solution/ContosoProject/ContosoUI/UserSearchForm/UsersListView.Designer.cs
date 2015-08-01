@@ -223,7 +223,7 @@
             this.layoutControlLogin.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
             this.layoutControlLogin.Size = new System.Drawing.Size(332, 50);
             this.layoutControlLogin.Spacing = new DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 2);
-            this.layoutControlLogin.Text = "Login";
+            this.layoutControlLogin.Text = "City";
             this.layoutControlLogin.TextLocation = DevExpress.Utils.Locations.Top;
             this.layoutControlLogin.TextSize = new System.Drawing.Size(50, 13);
             // 

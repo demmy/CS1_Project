@@ -42,11 +42,12 @@ namespace ContosoUI
             this.Р = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.workRibbonPageGroup = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.systemRibbonGroup = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.xtraTabbedMdiManager1 = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
             this.applicationMenu1 = new DevExpress.XtraBars.Ribbon.ApplicationMenu(this.components);
+            this.xtraTabbedMdiManager1 = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
+            this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.mainRibbon)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.xtraTabbedMdiManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.applicationMenu1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.xtraTabbedMdiManager1)).BeginInit();
             this.SuspendLayout();
             // 
             // mainRibbon
@@ -56,9 +57,10 @@ namespace ContosoUI
             this.mainRibbon.ExpandCollapseItem,
             this.clientsMenuBtn,
             this.ordersMenuBtn,
-            this.exitMenuBtn});
+            this.exitMenuBtn,
+            this.barButtonItem1});
             this.mainRibbon.Location = new System.Drawing.Point(0, 0);
-            this.mainRibbon.MaxItemId = 1;
+            this.mainRibbon.MaxItemId = 2;
             this.mainRibbon.Name = "mainRibbon";
             this.mainRibbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.Р});
@@ -118,16 +120,11 @@ namespace ContosoUI
             // 
             // systemRibbonGroup
             // 
+            this.systemRibbonGroup.ItemLinks.Add(this.barButtonItem1);
             this.systemRibbonGroup.ItemLinks.Add(this.exitMenuBtn, "В");
             this.systemRibbonGroup.KeyTip = "0";
             this.systemRibbonGroup.MergeOrder = 999;
             this.systemRibbonGroup.Name = "systemRibbonGroup";
-            // 
-            // xtraTabbedMdiManager1
-            // 
-            this.xtraTabbedMdiManager1.ClosePageButtonShowMode = DevExpress.XtraTab.ClosePageButtonShowMode.InTabControlHeader;
-            this.xtraTabbedMdiManager1.HeaderButtonsShowMode = DevExpress.XtraTab.TabButtonShowMode.WhenNeeded;
-            this.xtraTabbedMdiManager1.MdiParent = this;
             // 
             // applicationMenu1
             // 
@@ -135,6 +132,19 @@ namespace ContosoUI
             this.applicationMenu1.ItemLinks.Add(this.clientsMenuBtn);
             this.applicationMenu1.Name = "applicationMenu1";
             this.applicationMenu1.Ribbon = this.mainRibbon;
+            // 
+            // xtraTabbedMdiManager1
+            // 
+            this.xtraTabbedMdiManager1.ClosePageButtonShowMode = DevExpress.XtraTab.ClosePageButtonShowMode.InTabControlHeader;
+            this.xtraTabbedMdiManager1.HeaderButtonsShowMode = DevExpress.XtraTab.TabButtonShowMode.WhenNeeded;
+            this.xtraTabbedMdiManager1.MdiParent = this;
+            // 
+            // barButtonItem1
+            // 
+            this.barButtonItem1.Caption = "Users";
+            this.barButtonItem1.Id = 1;
+            this.barButtonItem1.Name = "barButtonItem1";
+            this.barButtonItem1.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem1_ItemClick);
             // 
             // MainForm
             // 
@@ -151,8 +161,8 @@ namespace ContosoUI
             this.TopMost = true;
             this.Load += new System.EventHandler(this.MainForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.mainRibbon)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.xtraTabbedMdiManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.applicationMenu1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.xtraTabbedMdiManager1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -169,6 +179,7 @@ namespace ContosoUI
         private RibbonPageGroup systemRibbonGroup;
         private XtraTabbedMdiManager xtraTabbedMdiManager1;
         private ApplicationMenu applicationMenu1;
+        private BarButtonItem barButtonItem1;
     }
 }
 

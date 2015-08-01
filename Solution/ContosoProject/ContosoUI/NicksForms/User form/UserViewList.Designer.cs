@@ -321,7 +321,7 @@
             this.layoutControlLoginDataGroup.Location = new System.Drawing.Point(0, 0);
             this.layoutControlLoginDataGroup.Name = "layoutControlLoginDataGroup";
             this.layoutControlLoginDataGroup.Size = new System.Drawing.Size(339, 331);
-            this.layoutControlLoginDataGroup.Text = "Login data";
+            this.layoutControlLoginDataGroup.Text = "City data";
             // 
             // layoutControlLoginTextEdit
             // 
@@ -331,7 +331,7 @@
             this.layoutControlLoginTextEdit.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
             this.layoutControlLoginTextEdit.Size = new System.Drawing.Size(339, 50);
             this.layoutControlLoginTextEdit.Spacing = new DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 2);
-            this.layoutControlLoginTextEdit.Text = "Login";
+            this.layoutControlLoginTextEdit.Text = "City";
             this.layoutControlLoginTextEdit.TextLocation = DevExpress.Utils.Locations.Top;
             this.layoutControlLoginTextEdit.TextSize = new System.Drawing.Size(59, 13);
             // 

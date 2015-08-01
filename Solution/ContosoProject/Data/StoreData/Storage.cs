@@ -130,10 +130,10 @@ namespace Data.StoreData
 
         public static List<Location> Locations = new List<Location>
         {
-            new Location {Adress = "pr. Metalurgov, 78", City = "Dnepropetrovsk"},
-            new Location {Adress = "ul. Sevastopolskaya, 43", City = "Dnepropetrovsk"},
-            new Location {Adress = "ul. Davidova, 3", City = "Dnepropetrovsk"},
-            new Location {Adress = "ul. Gogolya, 6", City = "Dnepropetrovsk"}
+            new Location {Address = "pr. Metalurgov, 78", City = "Dnepropetrovsk"},
+            new Location {Address = "ul. Sevastopolskaya, 43", City = "Dnepropetrovsk"},
+            new Location {Address = "ul. Davidova, 3", City = "Dnepropetrovsk"},
+            new Location {Address = "ul. Gogolya, 6", City = "Dnepropetrovsk"}
         };
 
         public static List<List<string>> ClientTelephones = new List<List<string>>

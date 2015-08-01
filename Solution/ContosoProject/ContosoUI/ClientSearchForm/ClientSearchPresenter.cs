@@ -1,41 +1,40 @@
-﻿using System;
+﻿using Data.StoreData;
+using Domain.Entities;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Domain.Entities.Users;
-using Data.StoreData;
-using System.ComponentModel;
-using System.Runtime.CompilerServices;
 
-namespace ContosoUI.UserSearchForm
+namespace ContosoUI.ClientSearchForm
 {
-    public class UserSearchPresenter: INotifyPropertyChanged
+    public class ClientSearchPresenter : INotifyPropertyChanged
     {
-        private readonly IUserSearchView view;
-        private readonly UserSearchModel model;
+        private readonly IClientSearchView view;
+        private readonly ClientSearchModel model;
         public event PropertyChangedEventHandler PropertyChanged;
 
-        private string login;
+        private string city;
         private string firstName;
         private string lastName;
-        private BindingList<User> usersList;
+        private BindingList<Client> clientsList;
 
-        public UserSearchPresenter(IUserSearchView view, UserSearchModel model)
+        public ClientSearchPresenter(IClientSearchView view, ClientSearchModel model)
         {
             this.view = view;
             this.model = model;
-            usersList = new BindingList<User>(Storage.Users);
+            clientsList = new BindingList<Client>(Storage.Clients);
         }
 
-        public string Login 
+        public string City 
         {
-            get { return login; }
+            get { return city; }
             set
             {
-                if (value != this.login)
+                if (value != this.city)
                 {
-                    this.login = value;
+                    this.city = value;
                     NotifyPropertyChanged();
                 }
             }
@@ -67,14 +66,14 @@ namespace ContosoUI.UserSearchForm
             }
         }
 
-        public BindingList<User> Users
+        public BindingList<Client> Clients
         {
-            get { return usersList; }
+            get { return clientsList; }
             set
             {
-                if (value != this.usersList)
+                if (value != this.clientsList)
                 {
-                    this.usersList = value;
+                    this.clientsList = value;
                     //NotifyPropertyChanged();
                 }
             }
@@ -88,30 +87,31 @@ namespace ContosoUI.UserSearchForm
             }
         }
 
-        public void AddUser()
+        public void AddClient()
         {
-            UserForm.UserForm addUserForm = new UserForm.UserForm();
-            addUserForm.Show();
+            UserForm.UserForm addClientForm = new UserForm.UserForm();
+            addClientForm.Show();
         }
 
-        public void EditUser(int id)
+        public void EditClient(int id)
         {
-            UserForm.UserForm editUserForm = new UserForm.UserForm(id);           
-            editUserForm.Show();
+            UserForm.UserForm editClientForm = new UserForm.UserForm(id);           
+            editClientForm.Show();
         }
 
         public void Search()
         {
-            var users = model.SearchUser(Login, FirstName, LastName);
-            Users = new BindingList<User>((IList<User>)users);
+            var clients = model.SearchClient(FirstName, LastName, City);
+            Clients = new BindingList<Client>((IList<Client>)clients);
         }
 
         public void Clear()
         {
-            Login = "";
+            City = "";
             FirstName = "";
             LastName = "";
-            Users = new BindingList<User>(Storage.Users);
+            Clients = new BindingList<Client>(Storage.Clients);
         }
+
     }
 }

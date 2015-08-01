@@ -46,7 +46,7 @@ namespace ContosoUI.UserSearchForm
 
         private void clearUserBarButton_ItemClick(object sender, ItemClickEventArgs e)
         {
-            presenter.Cancel();
+            presenter.Clear();
             RefreshForm();
         }
 

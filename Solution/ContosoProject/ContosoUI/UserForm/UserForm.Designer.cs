@@ -366,7 +366,7 @@
             this.loginLabel.Size = new System.Drawing.Size(453, 15);
             this.loginLabel.StyleController = this.layoutControl;
             this.loginLabel.TabIndex = 4;
-            this.loginLabel.Text = "Login";
+            this.loginLabel.Text = "City";
             // 
             // passwordLabel
             // 

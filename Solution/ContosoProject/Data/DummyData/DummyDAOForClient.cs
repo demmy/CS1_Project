@@ -13,20 +13,16 @@ namespace Data.DummyData
             _collection = Storage.Clients;
         }
 
-        public ICollection<Client> FindBy(Person person, string city)
+        public ICollection<Client> FindBy(string firstName, string lastName, string city)
         {
             var result = _collection.AsQueryable();
-            if (!string.IsNullOrWhiteSpace(person.FirstName))
+            if (!string.IsNullOrWhiteSpace(firstName))
             {
-                result = result.Where(x => x.Person.FirstName == person.FirstName);
-            }
-            if (!string.IsNullOrWhiteSpace(person.MiddleName))
+                result = result.Where(x => x.Person.FirstName == firstName);
+            }            
+            if (!string.IsNullOrWhiteSpace(lastName))
             {
-                result = result.Where(x => x.Person.MiddleName == person.MiddleName);
-            }
-            if (!string.IsNullOrWhiteSpace(person.LastName))
-            {
-                result = result.Where(x => x.Person.LastName == person.LastName);
+                result = result.Where(x => x.Person.LastName == lastName);
             }
             if (!string.IsNullOrWhiteSpace(city))
             {

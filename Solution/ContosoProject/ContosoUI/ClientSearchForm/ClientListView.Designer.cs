@@ -39,6 +39,9 @@
             this.layoutControlClientView = new DevExpress.XtraLayout.LayoutControl();
             this.clientsGridControl = new DevExpress.XtraGrid.GridControl();
             this.clientsGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.clientCityTextEdit = new DevExpress.XtraEditors.TextEdit();
             this.clientLastNameTextEdit = new DevExpress.XtraEditors.TextEdit();
             this.clientFirstNameTextEdit = new DevExpress.XtraEditors.TextEdit();
@@ -85,6 +88,7 @@
             this.addClientBarButton.Id = 1;
             this.addClientBarButton.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("addClientBarButton.LargeGlyph")));
             this.addClientBarButton.Name = "addClientBarButton";
+            this.addClientBarButton.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.addClientBarButton_ItemClick);
             // 
             // searchClientBarButton
             // 
@@ -93,6 +97,7 @@
             this.searchClientBarButton.Id = 2;
             this.searchClientBarButton.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("searchClientBarButton.LargeGlyph")));
             this.searchClientBarButton.Name = "searchClientBarButton";
+            this.searchClientBarButton.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.searchClientBarButton_ItemClick);
             // 
             // clearClientBarButton
             // 
@@ -101,6 +106,7 @@
             this.clearClientBarButton.Id = 3;
             this.clearClientBarButton.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("clearClientBarButton.LargeGlyph")));
             this.clearClientBarButton.Name = "clearClientBarButton";
+            this.clearClientBarButton.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.clearClientBarButton_ItemClick);
             // 
             // ribbonPageClientView
             // 
@@ -151,8 +157,37 @@
             // 
             // clientsGridView
             // 
+            this.clientsGridView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridColumn1,
+            this.gridColumn2,
+            this.gridColumn3});
             this.clientsGridView.GridControl = this.clientsGridControl;
             this.clientsGridView.Name = "clientsGridView";
+            this.clientsGridView.DoubleClick += new System.EventHandler(this.clientsGridView_DoubleClick);
+            // 
+            // gridColumn1
+            // 
+            this.gridColumn1.Caption = "Last name";
+            this.gridColumn1.FieldName = "Person.LastName";
+            this.gridColumn1.Name = "gridColumn1";
+            this.gridColumn1.Visible = true;
+            this.gridColumn1.VisibleIndex = 0;
+            // 
+            // gridColumn2
+            // 
+            this.gridColumn2.Caption = "First Name";
+            this.gridColumn2.FieldName = "Person.FirstName";
+            this.gridColumn2.Name = "gridColumn2";
+            this.gridColumn2.Visible = true;
+            this.gridColumn2.VisibleIndex = 1;
+            // 
+            // gridColumn3
+            // 
+            this.gridColumn3.Caption = "City";
+            this.gridColumn3.FieldName = "ClientLocation.City";
+            this.gridColumn3.Name = "gridColumn3";
+            this.gridColumn3.Visible = true;
+            this.gridColumn3.VisibleIndex = 2;
             // 
             // clientCityTextEdit
             // 
@@ -292,5 +327,8 @@
         private DevExpress.XtraGrid.GridControl clientsGridControl;
         private DevExpress.XtraGrid.Views.Grid.GridView clientsGridView;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlClientsGridControl;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn3;
     }
 }

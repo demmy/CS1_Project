@@ -760,7 +760,7 @@ namespace ContosoUI.NicksForms
             this.simpleCancelButton.Size = new System.Drawing.Size(103, 22);
             this.simpleCancelButton.StyleController = this.layoutControl2;
             this.simpleCancelButton.TabIndex = 6;
-            this.simpleCancelButton.Text = "Cancel";
+            this.simpleCancelButton.Text = "Clear";
             // 
             // simpleAddTitleButton
             // 
