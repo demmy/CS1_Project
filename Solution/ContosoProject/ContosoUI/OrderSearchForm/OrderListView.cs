@@ -39,7 +39,7 @@ namespace ContosoUI.OrderSearchForm
             clientLookUpEdit.Properties.DisplayMember = "Person";
 
             orderStatusComboBoxEdit.Properties.Items.AddRange(presenter.StatusList);
-            orderStatusComboBoxEdit.DataBindings.Add("EditValue", binding, "StatusEnum", false, DataSourceUpdateMode.OnPropertyChanged);
+            orderStatusComboBoxEdit.DataBindings.Add("EditValue", binding, "StatusEnum");
         }
 
         private void searchOrderBarButton_ItemClick(object sender, ItemClickEventArgs e)
@@ -66,12 +66,6 @@ namespace ContosoUI.OrderSearchForm
             }
         }
 
-        private void orderStatusComboBoxEdit_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (orderStatusComboBoxEdit.Text == Status.All.ToString())
-                orderStatusComboBoxEdit.Text = string.Empty;
-        }
-
         private void orderNumberTextEdit_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == Convert.ToChar(Keys.Enter))
@@ -88,6 +82,11 @@ namespace ContosoUI.OrderSearchForm
                 binding.EndEdit();
                 presenter.Search();
             }
+        }
+
+        private void orderStatusComboBoxEdit_SelectedIndexChanged(object sender, EventArgs e)
+        {
+                presenter.StatusEnum = (Status)orderStatusComboBoxEdit.SelectedItem;
         }
     }
 }

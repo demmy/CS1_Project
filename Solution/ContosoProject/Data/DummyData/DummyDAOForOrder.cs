@@ -20,20 +20,27 @@ namespace Data.DummyData
         public ICollection<Order> GetBy(string orderNumber, Status status, Client client)
         {
             var result = Collection.AsQueryable();
+
             if (!string.IsNullOrWhiteSpace(orderNumber))
             {
                 return result.Where(x => x.OrderNumber == orderNumber).ToList();
             }
+
             if (client != null)
             {
                 result = result.Where(x => x.Client.Equals(client));
             }
-            result = result.Where(x => x.Status == status);
-                if (!Equals(result, Collection.AsQueryable()))
-                {
-                    return result.ToList();
-                }
-                throw new Exception();
+
+            if (status != Status.All)
+            {
+                result = result.Where(x => x.Status == status);
+            }
+
+            if (!Equals(result, Collection.AsQueryable()))
+            {
+                return result.ToList();
+            }
+            throw new Exception();
         }
 
         public Order GetByNumber(string orderNumber)

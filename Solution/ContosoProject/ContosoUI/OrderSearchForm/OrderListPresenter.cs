@@ -89,7 +89,7 @@ namespace ContosoUI.OrderSearchForm
         public void Search()
         {
             List<Order> orders;
-            
+
             if (string.IsNullOrEmpty(OrderNumber) && Client == null && StatusEnum == Status.All)
                 orders = model.GetAll().ToList();
             else

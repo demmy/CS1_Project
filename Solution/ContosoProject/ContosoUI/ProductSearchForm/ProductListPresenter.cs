@@ -103,6 +103,7 @@ namespace ContosoUI.ProductSearchForm
             Title = null;
             Category = null;
             Products.Clear();
+            NotifyPropertyChanged();
         }
     }
 }

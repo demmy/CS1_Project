@@ -44,11 +44,6 @@ namespace ContosoUI
             form.Show();
         }
 
-        private void exitMenuBtn_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            Environment.Exit(0);
-        }
-
         private void barUserButton_ItemClick(object sender, ItemClickEventArgs e)
         {
             var form = new UserForm.UserForm();
@@ -86,6 +81,26 @@ namespace ContosoUI
         {
             ProductPresenter presenter = new ProductPresenter(new ProductView() { MdiParent = this}, new ProductModel() );
             presenter.ShowView(presenter, 4);
+        }
+
+        private void MainForm_MdiChildActivate(object sender, EventArgs e)
+        {
+            pictureEdit1.Visible = false;
+        }
+
+        private void MainForm_Activated(object sender, EventArgs e)
+        {
+            pictureEdit1.Visible = true;
+        }
+
+        private void xtraTabbedMdiManager_PageRemoved(object sender, DevExpress.XtraTabbedMdi.MdiTabPageEventArgs e)
+        {
+            pictureEdit1.Visible = true;
+        }
+
+        private void ExitBarButton_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            this.Close();
         }
     }
 }

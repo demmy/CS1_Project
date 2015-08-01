@@ -20,6 +20,11 @@ namespace ContosoUI
         public LoginForm()
         {
             InitializeComponent();
+
+#if DEBUG
+            loginTextEdit.Text = "d";
+            passwordTextEdit.Text = "11";
+#endif
         }
 
         private void cancelButton_Click(object sender, EventArgs e)
