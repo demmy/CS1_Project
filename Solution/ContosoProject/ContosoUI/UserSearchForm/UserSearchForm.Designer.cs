@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
-            this.textEdit2 = new DevExpress.XtraEditors.TextEdit();
+            this.LoginTextEdit = new DevExpress.XtraEditors.TextEdit();
             this.UsersGridControl = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -41,43 +41,43 @@
             this.gridColumn8 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.LastNameLabelControl = new DevExpress.XtraEditors.LabelControl();
-            this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
-            this.FirstNameLabelControl = new DevExpress.XtraEditors.LabelControl();
+            this.LastNameTextEdit = new DevExpress.XtraEditors.TextEdit();
+            this.LoginLabelControl = new DevExpress.XtraEditors.LabelControl();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.SearchUserButton = new DevExpress.XtraEditors.SimpleButton();
             this.AddUserButton = new DevExpress.XtraEditors.SimpleButton();
             this.EditUserButton = new DevExpress.XtraEditors.SimpleButton();
             this.CancelButton = new DevExpress.XtraEditors.SimpleButton();
-            this.MiddleNameLabelControl = new DevExpress.XtraEditors.LabelControl();
+            this.FirstNameLabelControl = new DevExpress.XtraEditors.LabelControl();
             this.textEdit3 = new DevExpress.XtraEditors.TextEdit();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.layoutControlFirstNameTextEdit = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlLoginTextEdit = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlUsersGrid = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlCityLabel = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlLastNameTextEdit = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlFirstNameLabel = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlLastNameLabel = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlMiddleNameTextEdit = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlLastNameTextEdit = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlLoginLabel = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlFirstNameLabel = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlFirstNameTextEdit = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LoginTextEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.UsersGridControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LastNameTextEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit3.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlFirstNameTextEdit)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlLoginTextEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlUsersGrid)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlCityLabel)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlLastNameTextEdit)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlFirstNameLabel)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlLastNameLabel)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlMiddleNameTextEdit)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlLastNameTextEdit)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlLoginLabel)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlFirstNameLabel)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlFirstNameTextEdit)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
@@ -85,13 +85,13 @@
             this.layoutControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.layoutControl1.Controls.Add(this.textEdit2);
+            this.layoutControl1.Controls.Add(this.LoginTextEdit);
             this.layoutControl1.Controls.Add(this.UsersGridControl);
             this.layoutControl1.Controls.Add(this.LastNameLabelControl);
-            this.layoutControl1.Controls.Add(this.textEdit1);
-            this.layoutControl1.Controls.Add(this.FirstNameLabelControl);
+            this.layoutControl1.Controls.Add(this.LastNameTextEdit);
+            this.layoutControl1.Controls.Add(this.LoginLabelControl);
             this.layoutControl1.Controls.Add(this.panelControl1);
-            this.layoutControl1.Controls.Add(this.MiddleNameLabelControl);
+            this.layoutControl1.Controls.Add(this.FirstNameLabelControl);
             this.layoutControl1.Controls.Add(this.textEdit3);
             this.layoutControl1.Location = new System.Drawing.Point(2, -1);
             this.layoutControl1.Name = "layoutControl1";
@@ -100,13 +100,13 @@
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
-            // textEdit2
+            // LoginTextEdit
             // 
-            this.textEdit2.Location = new System.Drawing.Point(5, 105);
-            this.textEdit2.Name = "textEdit2";
-            this.textEdit2.Size = new System.Drawing.Size(328, 20);
-            this.textEdit2.StyleController = this.layoutControl1;
-            this.textEdit2.TabIndex = 52;
+            this.LoginTextEdit.Location = new System.Drawing.Point(5, 105);
+            this.LoginTextEdit.Name = "LoginTextEdit";
+            this.LoginTextEdit.Size = new System.Drawing.Size(328, 20);
+            this.LoginTextEdit.StyleController = this.layoutControl1;
+            this.LoginTextEdit.TabIndex = 52;
             // 
             // UsersGridControl
             // 
@@ -202,22 +202,22 @@
             this.LastNameLabelControl.TabIndex = 53;
             this.LastNameLabelControl.Text = "Last Name";
             // 
-            // textEdit1
+            // LastNameTextEdit
             // 
-            this.textEdit1.Location = new System.Drawing.Point(680, 105);
-            this.textEdit1.Name = "textEdit1";
-            this.textEdit1.Size = new System.Drawing.Size(321, 20);
-            this.textEdit1.StyleController = this.layoutControl1;
-            this.textEdit1.TabIndex = 61;
+            this.LastNameTextEdit.Location = new System.Drawing.Point(680, 105);
+            this.LastNameTextEdit.Name = "LastNameTextEdit";
+            this.LastNameTextEdit.Size = new System.Drawing.Size(321, 20);
+            this.LastNameTextEdit.StyleController = this.layoutControl1;
+            this.LastNameTextEdit.TabIndex = 61;
             // 
-            // FirstNameLabelControl
+            // LoginLabelControl
             // 
-            this.FirstNameLabelControl.Location = new System.Drawing.Point(15, 71);
-            this.FirstNameLabelControl.Name = "FirstNameLabelControl";
-            this.FirstNameLabelControl.Size = new System.Drawing.Size(293, 30);
-            this.FirstNameLabelControl.StyleController = this.layoutControl1;
-            this.FirstNameLabelControl.TabIndex = 62;
-            this.FirstNameLabelControl.Text = "First Name";
+            this.LoginLabelControl.Location = new System.Drawing.Point(15, 71);
+            this.LoginLabelControl.Name = "LoginLabelControl";
+            this.LoginLabelControl.Size = new System.Drawing.Size(293, 30);
+            this.LoginLabelControl.StyleController = this.layoutControl1;
+            this.LoginLabelControl.TabIndex = 62;
+            this.LoginLabelControl.Text = "Login";
             // 
             // panelControl1
             // 
@@ -263,6 +263,7 @@
             this.AddUserButton.Size = new System.Drawing.Size(120, 53);
             this.AddUserButton.TabIndex = 58;
             this.AddUserButton.Text = "Add user";
+            this.AddUserButton.Click += new System.EventHandler(this.AddUserButton_Click);
             // 
             // EditUserButton
             // 
@@ -294,14 +295,14 @@
             this.CancelButton.TabIndex = 60;
             this.CancelButton.Text = "Cancel";
             // 
-            // MiddleNameLabelControl
+            // FirstNameLabelControl
             // 
-            this.MiddleNameLabelControl.Location = new System.Drawing.Point(350, 71);
-            this.MiddleNameLabelControl.Name = "MiddleNameLabelControl";
-            this.MiddleNameLabelControl.Size = new System.Drawing.Size(293, 30);
-            this.MiddleNameLabelControl.StyleController = this.layoutControl1;
-            this.MiddleNameLabelControl.TabIndex = 62;
-            this.MiddleNameLabelControl.Text = "Middle Name";
+            this.FirstNameLabelControl.Location = new System.Drawing.Point(350, 71);
+            this.FirstNameLabelControl.Name = "FirstNameLabelControl";
+            this.FirstNameLabelControl.Size = new System.Drawing.Size(293, 30);
+            this.FirstNameLabelControl.StyleController = this.layoutControl1;
+            this.FirstNameLabelControl.TabIndex = 62;
+            this.FirstNameLabelControl.Text = "First Name";
             // 
             // textEdit3
             // 
@@ -316,32 +317,32 @@
             this.layoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
             this.layoutControlGroup1.GroupBordersVisible = false;
             this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlFirstNameTextEdit,
+            this.layoutControlLoginTextEdit,
             this.layoutControlUsersGrid,
-            this.layoutControlCityLabel,
-            this.layoutControlLastNameTextEdit,
-            this.layoutControlFirstNameLabel,
-            this.layoutControlItem1,
             this.layoutControlLastNameLabel,
-            this.layoutControlMiddleNameTextEdit});
+            this.layoutControlLastNameTextEdit,
+            this.layoutControlLoginLabel,
+            this.layoutControlItem1,
+            this.layoutControlFirstNameLabel,
+            this.layoutControlFirstNameTextEdit});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "Root";
             this.layoutControlGroup1.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 4, 2, 0);
             this.layoutControlGroup1.Size = new System.Drawing.Size(1010, 730);
             this.layoutControlGroup1.TextVisible = false;
             // 
-            // layoutControlFirstNameTextEdit
+            // layoutControlLoginTextEdit
             // 
-            this.layoutControlFirstNameTextEdit.Control = this.textEdit2;
-            this.layoutControlFirstNameTextEdit.CustomizationFormText = "layoutControlFirstNameTextEdit";
-            this.layoutControlFirstNameTextEdit.Location = new System.Drawing.Point(0, 101);
-            this.layoutControlFirstNameTextEdit.MinSize = new System.Drawing.Size(57, 24);
-            this.layoutControlFirstNameTextEdit.Name = "layoutControlFirstNameTextEdit";
-            this.layoutControlFirstNameTextEdit.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 2, 2, 2);
-            this.layoutControlFirstNameTextEdit.Size = new System.Drawing.Size(335, 28);
-            this.layoutControlFirstNameTextEdit.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.layoutControlFirstNameTextEdit.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlFirstNameTextEdit.TextVisible = false;
+            this.layoutControlLoginTextEdit.Control = this.LoginTextEdit;
+            this.layoutControlLoginTextEdit.CustomizationFormText = "layoutControlFirstNameTextEdit";
+            this.layoutControlLoginTextEdit.Location = new System.Drawing.Point(0, 101);
+            this.layoutControlLoginTextEdit.MinSize = new System.Drawing.Size(57, 24);
+            this.layoutControlLoginTextEdit.Name = "layoutControlLoginTextEdit";
+            this.layoutControlLoginTextEdit.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 2, 2, 2);
+            this.layoutControlLoginTextEdit.Size = new System.Drawing.Size(335, 28);
+            this.layoutControlLoginTextEdit.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.layoutControlLoginTextEdit.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlLoginTextEdit.TextVisible = false;
             // 
             // layoutControlUsersGrid
             // 
@@ -356,22 +357,22 @@
             this.layoutControlUsersGrid.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlUsersGrid.TextVisible = false;
             // 
-            // layoutControlCityLabel
+            // layoutControlLastNameLabel
             // 
-            this.layoutControlCityLabel.Control = this.LastNameLabelControl;
-            this.layoutControlCityLabel.CustomizationFormText = "layoutControlCityLabel";
-            this.layoutControlCityLabel.Location = new System.Drawing.Point(670, 67);
-            this.layoutControlCityLabel.MinSize = new System.Drawing.Size(54, 17);
-            this.layoutControlCityLabel.Name = "layoutControlCityLabel";
-            this.layoutControlCityLabel.Padding = new DevExpress.XtraLayout.Utils.Padding(20, 20, 2, 2);
-            this.layoutControlCityLabel.Size = new System.Drawing.Size(336, 34);
-            this.layoutControlCityLabel.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.layoutControlCityLabel.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlCityLabel.TextVisible = false;
+            this.layoutControlLastNameLabel.Control = this.LastNameLabelControl;
+            this.layoutControlLastNameLabel.CustomizationFormText = "layoutControlCityLabel";
+            this.layoutControlLastNameLabel.Location = new System.Drawing.Point(670, 67);
+            this.layoutControlLastNameLabel.MinSize = new System.Drawing.Size(54, 17);
+            this.layoutControlLastNameLabel.Name = "layoutControlLastNameLabel";
+            this.layoutControlLastNameLabel.Padding = new DevExpress.XtraLayout.Utils.Padding(20, 20, 2, 2);
+            this.layoutControlLastNameLabel.Size = new System.Drawing.Size(336, 34);
+            this.layoutControlLastNameLabel.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.layoutControlLastNameLabel.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlLastNameLabel.TextVisible = false;
             // 
             // layoutControlLastNameTextEdit
             // 
-            this.layoutControlLastNameTextEdit.Control = this.textEdit1;
+            this.layoutControlLastNameTextEdit.Control = this.LastNameTextEdit;
             this.layoutControlLastNameTextEdit.CustomizationFormText = "layoutControlCityTextEdit";
             this.layoutControlLastNameTextEdit.Location = new System.Drawing.Point(670, 101);
             this.layoutControlLastNameTextEdit.MinSize = new System.Drawing.Size(62, 24);
@@ -382,19 +383,19 @@
             this.layoutControlLastNameTextEdit.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlLastNameTextEdit.TextVisible = false;
             // 
-            // layoutControlFirstNameLabel
+            // layoutControlLoginLabel
             // 
-            this.layoutControlFirstNameLabel.Control = this.FirstNameLabelControl;
-            this.layoutControlFirstNameLabel.CustomizationFormText = "layoutControlFirstNameLabel";
-            this.layoutControlFirstNameLabel.Location = new System.Drawing.Point(0, 67);
-            this.layoutControlFirstNameLabel.MinSize = new System.Drawing.Size(81, 17);
-            this.layoutControlFirstNameLabel.Name = "layoutControlFirstNameLabel";
-            this.layoutControlFirstNameLabel.Padding = new DevExpress.XtraLayout.Utils.Padding(15, 27, 2, 2);
-            this.layoutControlFirstNameLabel.Size = new System.Drawing.Size(335, 34);
-            this.layoutControlFirstNameLabel.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.layoutControlFirstNameLabel.Text = "layoutControlLastNameLabel";
-            this.layoutControlFirstNameLabel.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlFirstNameLabel.TextVisible = false;
+            this.layoutControlLoginLabel.Control = this.LoginLabelControl;
+            this.layoutControlLoginLabel.CustomizationFormText = "layoutControlFirstNameLabel";
+            this.layoutControlLoginLabel.Location = new System.Drawing.Point(0, 67);
+            this.layoutControlLoginLabel.MinSize = new System.Drawing.Size(81, 17);
+            this.layoutControlLoginLabel.Name = "layoutControlLoginLabel";
+            this.layoutControlLoginLabel.Padding = new DevExpress.XtraLayout.Utils.Padding(15, 27, 2, 2);
+            this.layoutControlLoginLabel.Size = new System.Drawing.Size(335, 34);
+            this.layoutControlLoginLabel.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.layoutControlLoginLabel.Text = "layoutControlLastNameLabel";
+            this.layoutControlLoginLabel.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlLoginLabel.TextVisible = false;
             // 
             // layoutControlItem1
             // 
@@ -406,31 +407,31 @@
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
-            // layoutControlLastNameLabel
+            // layoutControlFirstNameLabel
             // 
-            this.layoutControlLastNameLabel.Control = this.MiddleNameLabelControl;
-            this.layoutControlLastNameLabel.CustomizationFormText = "layoutControlLastNameLabel";
-            this.layoutControlLastNameLabel.Location = new System.Drawing.Point(335, 67);
-            this.layoutControlLastNameLabel.MinSize = new System.Drawing.Size(148, 17);
-            this.layoutControlLastNameLabel.Name = "layoutControlLastNameLabel";
-            this.layoutControlLastNameLabel.Padding = new DevExpress.XtraLayout.Utils.Padding(15, 27, 2, 2);
-            this.layoutControlLastNameLabel.Size = new System.Drawing.Size(335, 34);
-            this.layoutControlLastNameLabel.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.layoutControlLastNameLabel.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlLastNameLabel.TextVisible = false;
+            this.layoutControlFirstNameLabel.Control = this.FirstNameLabelControl;
+            this.layoutControlFirstNameLabel.CustomizationFormText = "layoutControlLastNameLabel";
+            this.layoutControlFirstNameLabel.Location = new System.Drawing.Point(335, 67);
+            this.layoutControlFirstNameLabel.MinSize = new System.Drawing.Size(148, 17);
+            this.layoutControlFirstNameLabel.Name = "layoutControlFirstNameLabel";
+            this.layoutControlFirstNameLabel.Padding = new DevExpress.XtraLayout.Utils.Padding(15, 27, 2, 2);
+            this.layoutControlFirstNameLabel.Size = new System.Drawing.Size(335, 34);
+            this.layoutControlFirstNameLabel.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.layoutControlFirstNameLabel.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlFirstNameLabel.TextVisible = false;
             // 
-            // layoutControlMiddleNameTextEdit
+            // layoutControlFirstNameTextEdit
             // 
-            this.layoutControlMiddleNameTextEdit.Control = this.textEdit3;
-            this.layoutControlMiddleNameTextEdit.CustomizationFormText = "layoutControlLastNameTextEdit";
-            this.layoutControlMiddleNameTextEdit.Location = new System.Drawing.Point(335, 101);
-            this.layoutControlMiddleNameTextEdit.MinSize = new System.Drawing.Size(57, 24);
-            this.layoutControlMiddleNameTextEdit.Name = "layoutControlMiddleNameTextEdit";
-            this.layoutControlMiddleNameTextEdit.Padding = new DevExpress.XtraLayout.Utils.Padding(10, 2, 2, 2);
-            this.layoutControlMiddleNameTextEdit.Size = new System.Drawing.Size(335, 28);
-            this.layoutControlMiddleNameTextEdit.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.layoutControlMiddleNameTextEdit.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlMiddleNameTextEdit.TextVisible = false;
+            this.layoutControlFirstNameTextEdit.Control = this.textEdit3;
+            this.layoutControlFirstNameTextEdit.CustomizationFormText = "layoutControlLastNameTextEdit";
+            this.layoutControlFirstNameTextEdit.Location = new System.Drawing.Point(335, 101);
+            this.layoutControlFirstNameTextEdit.MinSize = new System.Drawing.Size(57, 24);
+            this.layoutControlFirstNameTextEdit.Name = "layoutControlFirstNameTextEdit";
+            this.layoutControlFirstNameTextEdit.Padding = new DevExpress.XtraLayout.Utils.Padding(10, 2, 2, 2);
+            this.layoutControlFirstNameTextEdit.Size = new System.Drawing.Size(335, 28);
+            this.layoutControlFirstNameTextEdit.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.layoutControlFirstNameTextEdit.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlFirstNameTextEdit.TextVisible = false;
             // 
             // UserSearchForm
             // 
@@ -442,23 +443,23 @@
             this.Text = "User Search Form";
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LoginTextEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.UsersGridControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LastNameTextEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.textEdit3.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlFirstNameTextEdit)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlLoginTextEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlUsersGrid)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlCityLabel)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlLastNameTextEdit)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlFirstNameLabel)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlLastNameLabel)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlMiddleNameTextEdit)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlLastNameTextEdit)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlLoginLabel)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlFirstNameLabel)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlFirstNameTextEdit)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -467,7 +468,7 @@
 
         private DevExpress.XtraLayout.LayoutControl layoutControl1;
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup1;
-        private DevExpress.XtraEditors.TextEdit textEdit2;
+        private DevExpress.XtraEditors.TextEdit LoginTextEdit;
         private DevExpress.XtraGrid.GridControl UsersGridControl;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
@@ -479,23 +480,23 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn8;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView2;
         private DevExpress.XtraEditors.LabelControl LastNameLabelControl;
-        private DevExpress.XtraEditors.TextEdit textEdit1;
-        private DevExpress.XtraEditors.LabelControl FirstNameLabelControl;
+        private DevExpress.XtraEditors.TextEdit LastNameTextEdit;
+        private DevExpress.XtraEditors.LabelControl LoginLabelControl;
         private DevExpress.XtraEditors.PanelControl panelControl1;
         private DevExpress.XtraEditors.SimpleButton SearchUserButton;
         private DevExpress.XtraEditors.SimpleButton AddUserButton;
         private DevExpress.XtraEditors.SimpleButton EditUserButton;
         private DevExpress.XtraEditors.SimpleButton CancelButton;
-        private DevExpress.XtraEditors.LabelControl MiddleNameLabelControl;
+        private DevExpress.XtraEditors.LabelControl FirstNameLabelControl;
         private DevExpress.XtraEditors.TextEdit textEdit3;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlFirstNameTextEdit;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlLoginTextEdit;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlUsersGrid;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlCityLabel;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlLastNameTextEdit;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlFirstNameLabel;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlLastNameLabel;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlMiddleNameTextEdit;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlLastNameTextEdit;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlLoginLabel;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlFirstNameLabel;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlFirstNameTextEdit;
 
 
     }

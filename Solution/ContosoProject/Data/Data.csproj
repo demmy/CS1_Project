@@ -58,6 +58,12 @@
     <Compile Include="DummyData\DummyDAOForRole.cs" />
     <Compile Include="DummyData\DummyDAOForUser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StoreDate\KeyedCollections.cs" />
+    <Compile Include="StoreDate\Storage.cs" />
+    <Compile Include="StoreDate\StorageClients.cs" />
+    <Compile Include="StoreDate\StorageOrders.cs" />
+    <Compile Include="StoreDate\StoragePermissions.cs" />
+    <Compile Include="StoreDate\StorageProducts.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

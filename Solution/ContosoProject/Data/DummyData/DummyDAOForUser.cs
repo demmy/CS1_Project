@@ -4,7 +4,7 @@ using Domain.Entities.Users;
 
 namespace Data.DummyData
 {
-    class DummyDAOForUser : DummyDAO<User>, IUserRepository
+    public class DummyDAOForUser : DummyDAO<User>, IUserRepository
     {
         public ICollection<User> GetByLogin(string login)
         {
@@ -12,6 +12,11 @@ namespace Data.DummyData
         }
 
         public ICollection<User> GetByRole(Role role)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public ICollection<User> GetByName(string fn, string ln)
         {
             throw new System.NotImplementedException();
         }
