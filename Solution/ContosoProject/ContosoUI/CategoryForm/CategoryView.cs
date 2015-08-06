@@ -38,15 +38,15 @@ namespace ContosoUI.CategoryForm
 
         private void ShowDependentOnRole(Role role)
         {
-            if (!role.Permissions.Any(x => x.Title != "Add Category"))
+            if (!role.Permissions.Any(x => x.Title == "Add Category"))
             {
                 addCategoryBarButton.Visibility = BarItemVisibility.Never;
             }
-            if (!role.Permissions.Any(x => x.Title != "Edit Category"))
+            if (!role.Permissions.Any(x => x.Title == "Edit Category"))
             {
                 saveBarButton.Visibility = BarItemVisibility.Never;
             }
-            if (!role.Permissions.Any(x => x.Title != "Comment Category"))
+            if (!role.Permissions.Any(x => x.Title == "Comment Category"))
             {
                 addNewCommentTextEdit.Enabled = false;
                 addNewCommentButton.Enabled = false;

@@ -32,6 +32,7 @@ namespace ContosoUI.ClientForm
         private BindingList<Order> _orders = new BindingList<Order>();
         private BindingList<Comment> _comments = new BindingList<Comment>();
         public bool State { get; set; }
+        private int _id;
 
         public ClientPresenter(IClientView view, ClientModel model)
         {
@@ -45,6 +46,7 @@ namespace ContosoUI.ClientForm
         {
             _client = _clientRepository.Find(id);
             InitializeClientsFields();
+            _id = id;           
         }
 
         private void InitializeClientsFields()
@@ -152,6 +154,8 @@ namespace ContosoUI.ClientForm
 
         #endregion
 
+
+
         public void Save()
         {
             if (string.IsNullOrEmpty(FirstName) || string.IsNullOrEmpty(MiddleName) || string.IsNullOrWhiteSpace(LastName))
@@ -159,10 +163,13 @@ namespace ContosoUI.ClientForm
                 MessageBox.Show("Fill the fields, please.", "Attention!");
                 return;
             }
+
             Client clientToSave = new Client(_telephones, _comments)
             {
-                Person = new Person() {FirstName = _firstName, MiddleName = _middleName, LastName = _lastName},
-                ClientLocation = new Location() {Address = _address, City = _city}, IsActive = State
+                Person = new Person() { FirstName = _firstName, MiddleName = _middleName, LastName = _lastName },
+                ClientLocation = new Location() { Address = _address, City = _city },
+                IsActive = State,
+                Id = _id
             };
 
             if (clientToSave.Id != 0)

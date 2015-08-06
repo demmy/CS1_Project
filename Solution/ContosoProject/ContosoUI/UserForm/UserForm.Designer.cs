@@ -35,6 +35,7 @@ namespace ContosoUI.UserForm
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserForm));
             this.ribbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.barSaveButton = new DevExpress.XtraBars.BarButtonItem();
@@ -53,7 +54,7 @@ namespace ContosoUI.UserForm
             this.passwordTextEdit = new DevExpress.XtraEditors.TextEdit();
             this.loginTextEdit = new DevExpress.XtraEditors.TextEdit();
             this.roleLookUpEdit = new DevExpress.XtraEditors.LookUpEdit();
-            this.roleBindingSource = new System.Windows.Forms.BindingSource();
+            this.roleBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.layoutControlEntireGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.tabbedControlLoginDataGroup = new DevExpress.XtraLayout.TabbedControlGroup();
             this.layoutControlLoginDataGroup = new DevExpress.XtraLayout.LayoutControlGroup();

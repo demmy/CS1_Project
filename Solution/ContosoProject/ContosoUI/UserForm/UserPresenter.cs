@@ -193,6 +193,7 @@ namespace ContosoUI.UserForm
 
         public void New()
         {
+            _user = new User();
             Login = "";
             Password = "";
             FirstName = "";

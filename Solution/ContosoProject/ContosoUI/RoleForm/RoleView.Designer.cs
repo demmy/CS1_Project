@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RoleView));
             this.ribbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.barSaveButton = new DevExpress.XtraBars.BarButtonItem();
-            this.barSaveNewButton = new DevExpress.XtraBars.BarButtonItem();
             this.barAddButton = new DevExpress.XtraBars.BarButtonItem();
             this.rolePage = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonFilePageGroup = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -39,7 +39,7 @@
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.roleLayoutControl = new DevExpress.XtraLayout.LayoutControl();
             this.roleGridControl = new DevExpress.XtraGrid.GridControl();
-            this.roleBindingSource = new System.Windows.Forms.BindingSource();
+            this.roleBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.roleGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colTitle = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colPermissions = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -66,7 +66,6 @@
             this.ribbon.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.ribbon.ExpandCollapseItem,
             this.barSaveButton,
-            this.barSaveNewButton,
             this.barAddButton});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
             this.ribbon.MaxItemId = 6;
@@ -93,15 +92,6 @@
             this.barSaveButton.Name = "barSaveButton";
             this.barSaveButton.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barSaveButton_ItemClick);
             // 
-            // barSaveNewButton
-            // 
-            this.barSaveNewButton.Caption = "Save and New";
-            this.barSaveNewButton.Glyph = ((System.Drawing.Image)(resources.GetObject("barSaveNewButton.Glyph")));
-            this.barSaveNewButton.Id = 2;
-            this.barSaveNewButton.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barSaveNewButton.LargeGlyph")));
-            this.barSaveNewButton.Name = "barSaveNewButton";
-            this.barSaveNewButton.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barSaveNewButton_ItemClick);
-            // 
             // barAddButton
             // 
             this.barAddButton.Caption = "Add role";
@@ -122,7 +112,6 @@
             // ribbonFilePageGroup
             // 
             this.ribbonFilePageGroup.ItemLinks.Add(this.barSaveButton);
-            this.ribbonFilePageGroup.ItemLinks.Add(this.barSaveNewButton);
             this.ribbonFilePageGroup.MergeOrder = 50;
             this.ribbonFilePageGroup.Name = "ribbonFilePageGroup";
             this.ribbonFilePageGroup.Text = "File";
@@ -286,7 +275,6 @@
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonFilePageGroup;
         private DevExpress.XtraBars.Ribbon.RibbonStatusBar ribbonStatusBar;
         private DevExpress.XtraBars.BarButtonItem barSaveButton;
-        private DevExpress.XtraBars.BarButtonItem barSaveNewButton;
         private DevExpress.XtraLayout.LayoutControl roleLayoutControl;
         private DevExpress.XtraLayout.LayoutControlGroup roleLayoutControlGroup;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonRolePageGroup;

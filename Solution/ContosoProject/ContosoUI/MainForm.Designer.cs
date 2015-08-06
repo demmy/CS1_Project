@@ -86,6 +86,10 @@ namespace ContosoUI
             this.ClientBarButton.Name = "ClientBarButton";
             this.ClientBarButton.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.ClientBarButtonItem_ItemClick);
             // 
+            // chairsSplashScreenManager
+            // 
+            chairsSplashScreenManager.ClosingDelay = 500;
+            // 
             // mainRibbon
             // 
             this.mainRibbon.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
@@ -248,10 +252,6 @@ namespace ContosoUI
             // 
             this.xtraTabbedMdiManager.HeaderButtonsShowMode = DevExpress.XtraTab.TabButtonShowMode.WhenNeeded;
             this.xtraTabbedMdiManager.MdiParent = this;
-            // 
-            // chairsSplashScreenManager
-            // 
-            chairsSplashScreenManager.ClosingDelay = 500;
             // 
             // MainForm
             // 
