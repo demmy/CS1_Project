@@ -99,8 +99,8 @@ namespace ContosoUI.ProductSearchForm
 
         public void Clear()
         {
-            SKU = "";
-            Title = "";
+            SKU = null;
+            Title = null;
             Category = null;
             Products.Clear();
         }

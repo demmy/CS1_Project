@@ -147,6 +147,7 @@
             // 
             // categoryLookUpEdit
             // 
+            this.categoryLookUpEdit.EditValue = "<Null>";
             this.categoryLookUpEdit.Location = new System.Drawing.Point(680, 33);
             this.categoryLookUpEdit.MenuManager = this.mainRibbon;
             this.categoryLookUpEdit.Name = "categoryLookUpEdit";
@@ -154,8 +155,6 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.categoryLookUpEdit.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Title", "Title")});
-            this.categoryLookUpEdit.Properties.DisplayMember = "Title";
-            this.categoryLookUpEdit.Properties.ValueMember = "Id";
             this.categoryLookUpEdit.Size = new System.Drawing.Size(317, 20);
             this.categoryLookUpEdit.StyleController = this.layoutControlProductView;
             this.categoryLookUpEdit.TabIndex = 9;

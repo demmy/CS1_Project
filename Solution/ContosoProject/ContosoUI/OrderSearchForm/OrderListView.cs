@@ -32,12 +32,14 @@ namespace ContosoUI.OrderSearchForm
 
             orderNumberTextEdit.DataBindings.Add("EditValue", binding, "OrderNumber", false, DataSourceUpdateMode.OnPropertyChanged);
             orderItemsGridControl.DataBindings.Add("DataSource", binding, "OrdersList", false, DataSourceUpdateMode.OnPropertyChanged);
-            
+
             clientLookUpEdit.Properties.DataSource = presenter.ClientsList;
             clientLookUpEdit.DataBindings.Add("EditValue", binding, "ClientID", false, DataSourceUpdateMode.OnPropertyChanged);
             clientLookUpEdit.Properties.ValueMember = "Id";
             clientLookUpEdit.Properties.DisplayMember = "Person";
+
             orderStatusComboBoxEdit.Properties.Items.AddRange(presenter.StatusList);
+            orderStatusComboBoxEdit.DataBindings.Add("EditValue", binding, "StatusEnum", false, DataSourceUpdateMode.OnPropertyChanged);
         }
 
         private void searchOrderBarButton_ItemClick(object sender, ItemClickEventArgs e)
@@ -66,7 +68,8 @@ namespace ContosoUI.OrderSearchForm
 
         private void orderStatusComboBoxEdit_SelectedIndexChanged(object sender, EventArgs e)
         {
-            presenter.StatusEnum = (Status)orderStatusComboBoxEdit.SelectedItem;
+            if (orderStatusComboBoxEdit.Text == Status.All.ToString())
+                orderStatusComboBoxEdit.Text = string.Empty;
         }
 
         private void orderNumberTextEdit_KeyPress(object sender, KeyPressEventArgs e)

@@ -42,9 +42,9 @@ namespace ContosoUI.ProductSearchForm
             skuTextEdit.DataBindings.Add("EditValue", binding, "SKU", false, DataSourceUpdateMode.OnPropertyChanged);
             productTitleTextEdit.DataBindings.Add("EditValue", binding, "Title", false, DataSourceUpdateMode.OnPropertyChanged);
             productsGridControl.DataBindings.Add("DataSource", binding, "Products", false, DataSourceUpdateMode.OnPropertyChanged);
-            categoryLookUpEdit.DataBindings.Add("EditValue", binding, "CategoryID", false, DataSourceUpdateMode.OnPropertyChanged);            
-
+           
             categoryLookUpEdit.Properties.DataSource = presenter.CategoriesList;
+            categoryLookUpEdit.DataBindings.Add("EditValue", binding, "CategoryID", false, DataSourceUpdateMode.OnPropertyChanged);            
             categoryLookUpEdit.Properties.ValueMember = "Id";
             categoryLookUpEdit.Properties.DisplayMember = "Title";
         }
@@ -53,11 +53,11 @@ namespace ContosoUI.ProductSearchForm
         {
             binding.EndEdit();
             presenter.Search();
-            productsGridControl.DataSource = presenter.Products;
         }
 
         private void clearProductBarButton_ItemClick(object sender, ItemClickEventArgs e)
         {
+            binding.EndEdit();
             presenter.Clear();
         }
 

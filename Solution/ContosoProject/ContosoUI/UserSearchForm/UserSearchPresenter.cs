@@ -99,9 +99,9 @@ namespace ContosoUI.UserSearchForm
 
         public void Clear()
         {
-            Login = "";
-            FirstName = "";
-            LastName = "";
+            Login = null;
+            FirstName = null;
+            LastName = null;
             Users.Clear();
         }
     }

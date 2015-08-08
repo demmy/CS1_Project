@@ -87,10 +87,5 @@ namespace ContosoUI
             ProductPresenter presenter = new ProductPresenter(new ProductView() { MdiParent = this}, new ProductModel() );
             presenter.ShowView(presenter, 4);
         }
-
-        private void MainForm_FormClosing(object sender, System.Windows.Forms.FormClosingEventArgs e)
-        {
-            Environment.Exit(0);
-        }
     }
 }
