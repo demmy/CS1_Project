@@ -17,7 +17,7 @@ namespace Data.DummyData
         {
             if (_collection.Any(x => x.SKU == sku))
             {
-                return _collection.Where(x => x.SKU== sku).ToList();
+                return _collection.Where(x => x.SKU == sku).ToList();
             }
             throw new Exception();
         }

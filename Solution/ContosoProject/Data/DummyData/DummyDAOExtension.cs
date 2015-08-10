@@ -13,16 +13,16 @@ namespace Data.DummyData
         {
             if (_collection.Any(x => x.User == user))
             {
-                return (ICollection<T>) _collection.Select(x=>x.User).ToList();
+                return (ICollection<T>)_collection.Select(x => x.User).ToList();
             }
             throw new Exception();
         }
 
         public ICollection<T> GetByDate(DateTime date)
         {
-            if (_collection.Any(x => x.Date == date))
+            if (_collection.Any(x => String.Equals(x.Date.ToShortDateString(), date.ToShortDateString())))
             {
-                return (ICollection<T>)_collection.Select(x => x.Date).ToList();
+                return _collection.Where(x => String.Equals(x.Date.ToShortDateString(), date.ToShortDateString())).ToList();
             }
             throw new Exception();
         }

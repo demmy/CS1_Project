@@ -14,7 +14,8 @@ namespace ContosoUI.UserForm
         string MiddleName { get; set; }
         string LastName { get; set; }
         string Role { get; set; }
-        bool Active { get; set; } // CheckBox.CheckState
-        ICollection<Domain.Entities.Comments.Comment> Comments { get; set; } // get: return comments.User.Login + comments.Date + comments.Text according to EntutyType.User
+        bool Active { get; set; }
+        string Comments { get; set; } 
+        //  comments.User.Login + comments.Date + comments.Text according to EntutyType.User
     }
 }
