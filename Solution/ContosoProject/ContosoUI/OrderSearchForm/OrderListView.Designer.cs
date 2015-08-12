@@ -320,7 +320,7 @@
             this.Name = "OrderListView";
             this.Ribbon = this.mainRibbon;
             this.StatusBar = this.ribbonStatusBarOrderView;
-            this.Text = "Order search";
+            this.Text = "Order Search";
             this.Load += new System.EventHandler(this.OrderListView_Load);
             ((System.ComponentModel.ISupportInitialize)(this.mainRibbon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlOrderView)).EndInit();

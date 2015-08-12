@@ -312,7 +312,7 @@
             this.Name = "UsersListView";
             this.Ribbon = this.mainRibbon;
             this.StatusBar = this.usersRibbonStatusBar;
-            this.Text = "User search";
+            this.Text = "User Search";
             this.Load += new System.EventHandler(this.UsersListView_Load);
             ((System.ComponentModel.ISupportInitialize)(this.mainRibbon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlUsers)).EndInit();

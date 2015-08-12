@@ -326,7 +326,7 @@
             this.Name = "ProductListView";
             this.Ribbon = this.mainRibbon;
             this.StatusBar = this.ribbonStatusBarProductView;
-            this.Text = "ProductListView";
+            this.Text = "Product Search";
             this.Load += new System.EventHandler(this.ProductListView_Load);
             ((System.ComponentModel.ISupportInitialize)(this.mainRibbon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlProductView)).EndInit();

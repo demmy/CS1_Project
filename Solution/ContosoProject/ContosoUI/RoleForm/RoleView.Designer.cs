@@ -252,7 +252,7 @@
             this.Name = "RoleView";
             this.Ribbon = this.ribbon;
             this.StatusBar = this.ribbonStatusBar;
-            this.Text = "RoleView";
+            this.Text = "Roles";
             this.Load += new System.EventHandler(this.RoleView_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.roleLayoutControl)).EndInit();
