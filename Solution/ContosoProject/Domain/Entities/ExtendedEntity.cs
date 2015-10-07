@@ -8,15 +8,14 @@ using Microsoft.Win32;
 
 namespace Domain.Entities
 {
-    class ExtendedEntity : Entity
+    abstract class ExtendedEntity : Entity
     {
-        public User User { get; private set; }
-        public DateTime Date { get; private set; }
-    
-        public ExtendedEntity(int id, bool isActive, DateTime date, User user) : base(id, isActive)
+        public User User { get; set; }
+        public DateTime Date { get; set; }
+
+        protected ExtendedEntity()
         {
             Date = DateTime.Now;
-            User = user;
         }
 
      } 

@@ -8,13 +8,12 @@ namespace Domain.Entities
 {
     class Role : Entity
     {
-        public string Title { get; private set; }
-        public List<Permission> Permissions { get; private set; }
+        public string Title { get; set; }
+        public List<Permission> Permissions { get; set; }
         
-        public Role(int id, bool isActive, List<Permission> permissions, string title) : base(id, isActive)
+        public Role()
         {
-            Permissions = permissions;
-            Title = title;
+            Permissions = new List<Permission>();
         }
     }
 }

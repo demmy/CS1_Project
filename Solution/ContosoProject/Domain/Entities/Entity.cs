@@ -6,15 +6,13 @@ using System.Threading.Tasks;
 
 namespace Domain.Entities
 {
-    class Entity
+    abstract class Entity
     {
-        public int ID { get; private set; }
         public bool IsActive { get; set; }
 
-        public Entity(int id, bool isActive)
+        protected Entity()
         {
-            ID = id;
-            IsActive = isActive;
+            IsActive = true;
         }
     }
 }

@@ -9,13 +9,11 @@ namespace Domain.Entities
 {
     class Permission : Entity
     {
-        public string Title { get; private set; }
-        public string Description { get; private set; }
+        public string Title { get; set; }
+        public string Description { get; set; }
 
-        public Permission(int id, bool isActive, string description, string title) : base(id, isActive)
+        public Permission()
         {
-            Description = description;
-            Title = title;
         }
     }
 }

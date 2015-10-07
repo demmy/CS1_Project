@@ -9,15 +9,13 @@ namespace Domain.Entities
 {
     class User : ExtendedEntity
     {
-        public string Login { get; private set; }
-        public string Password { get; private set; }
-        public Role Role { get; private set; }
+        public string Login { get; set; }
+        public string Password { get; set; }
+        public Role Role { get; set; }
 
-        public User(int id, bool isActive, DateTime date, User user, string login, string password, Role role) : base(id, isActive, date, user)
+        public User()
         {
-            Login = login;
-            Password = password;
-            Role = role;
+            
         }
 
     }
