@@ -15,7 +15,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data", "Data\Data.csproj", 
 		{39D880E2-2939-497D-8049-5EB6AD7BCB40} = {39D880E2-2939-497D-8049-5EB6AD7BCB40}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "Contoso.Test\Test.csproj", "{ECC8A660-DF62-4E7E-8470-A12A2F18B2AA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "Test\Test.csproj", "{ECC8A660-DF62-4E7E-8470-A12A2F18B2AA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

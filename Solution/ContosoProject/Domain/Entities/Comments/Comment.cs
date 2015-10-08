@@ -8,29 +8,12 @@ namespace Domain.Entities.Comments
 {
     public class Comment: ExtendedEntity
     {
-        private string _text;
-        private EntityType _entityType;
-
-        public Comment(string text, EntityType entityType)
+        public Comment()
         {
-            _text = text;
-            _entityType = entityType;
         }
 
-        public string Text
-        {
-            get
-            {
-                return _text;
-            }
-        }
+        public string Text { get; set; }
 
-        public EntityType EntityType
-        {
-            get
-            {
-                return _entityType;
-            }
-        }
+        public EntityType EntityType { get; set; }
     }
 }

@@ -12,29 +12,20 @@ namespace Domain.Entities
     /// </summary>
     public class Category: ExtendedEntity, ICommentable
     {
-        private string _title;
-        private List<Comment> _comments;
+        private ICollection<Comment> _comments;
 
-        public Category(string title, IEnumerable<Comment> comments)
+        public Category(ICollection<Comment> comments)
         {
-            _title = title;
             _comments = comments;
         }
         
-        string Title
-        {
-            // It maybe can be changed, think of it
-            get
-            {
-                return _title;
-            }
-        }
+        string Title { get; set; }
 
-        public IReadOnlyList<Comment> Comments
+        public IReadOnlyCollection<Comment> Comments
         {
             get 
             {
-                return _comments;
+                return (IReadOnlyCollection<Comment>)_comments;
             }
         }
     }

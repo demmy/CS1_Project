@@ -8,6 +8,6 @@ namespace Domain.Entities.Comments
 {
     public interface ICommentable
     {
-        IReadOnlyList<Comment> Comments { get; }
+        IReadOnlyCollection<Comment> Comments { get; }
     }
 }
