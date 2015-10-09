@@ -52,8 +52,6 @@
     <Compile Include="Repository\ICategoryRepository.cs" />
     <Compile Include="Repository\IClientRepository.cs" />
     <Compile Include="Repository\ICommentRepository.cs" />
-    <Compile Include="Repository\IEntityRepository.cs" />
-    <Compile Include="Repository\IExtendedEntityRepository.cs" />
     <Compile Include="Repository\IOrderRepository.cs" />
     <Compile Include="Repository\IPermissionRepository.cs" />
     <Compile Include="Repository\IProductRepository.cs" />

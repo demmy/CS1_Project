@@ -42,8 +42,6 @@
     <Compile Include="DAO\EFDAOForCategory.cs" />
     <Compile Include="DAO\EFDAOForClient.cs" />
     <Compile Include="DAO\EFDAOForComment.cs" />
-    <Compile Include="DAO\EFDAOForEntity.cs" />
-    <Compile Include="DAO\EFDAOForExtendedEntity.cs" />
     <Compile Include="DAO\EFDAOForOrder.cs" />
     <Compile Include="DAO\EFDAOForPermission.cs" />
     <Compile Include="DAO\EFDAOForProduct.cs" />
