@@ -41,7 +41,6 @@
   <ItemGroup>
     <Compile Include="Entities\Order.cs" />
     <Compile Include="Entities\Product.cs" />
-    <Compile Include="Entities\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
