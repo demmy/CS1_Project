@@ -1,9 +1,8 @@
 ﻿using System.Collections.Generic;
-using Domain.Entities;
 
-namespace Domain.DAO
+namespace Data.Repository
 {
-    interface IRepository<T>
+    public interface IRepository<T>
     {
         void Create(T entity);
         ICollection<T> ReadAll();

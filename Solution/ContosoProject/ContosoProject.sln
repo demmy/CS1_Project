@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.40629.0
+VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContosoUI", "ContosoUI\ContosoUI.csproj", "{347B3CAC-33C7-4E37-9405-6A42AA97018D}"
 	ProjectSection(ProjectDependencies) = postProject
@@ -11,9 +11,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{39D880E2-2939-497D-8049-5EB6AD7BCB40}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data", "Data\Data.csproj", "{22BD699B-4D80-45A0-94EE-55072F00E186}"
-	ProjectSection(ProjectDependencies) = postProject
-		{39D880E2-2939-497D-8049-5EB6AD7BCB40} = {39D880E2-2939-497D-8049-5EB6AD7BCB40}
-	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
