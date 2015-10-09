@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace Domain.Entities
 {
-    class Role : Entity
+    public class Role : Entity
     {
         public string Title { get; set; }
         public List<Permission> Permissions { get; set; }
         
-        public Role()
+        public Role(List<Permission> permissions, bool isActive) : base(isActive)
         {
-            Permissions = new List<Permission>();
+            Permissions = permissions;
         }
     }
 }

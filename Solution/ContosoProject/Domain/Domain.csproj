@@ -39,6 +39,27 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DAO\EFDAOForCategory.cs" />
+    <Compile Include="DAO\EFDAOForClient.cs" />
+    <Compile Include="DAO\EFDAOForComment.cs" />
+    <Compile Include="DAO\EFDAOForEntity.cs" />
+    <Compile Include="DAO\EFDAOForExtendedEntity.cs" />
+    <Compile Include="DAO\EFDAOForOrder.cs" />
+    <Compile Include="DAO\EFDAOForPermission.cs" />
+    <Compile Include="DAO\EFDAOForProduct.cs" />
+    <Compile Include="DAO\EFDAOForRole.cs" />
+    <Compile Include="DAO\EFDAOForUser.cs" />
+    <Compile Include="DAO\ICategoryRepository.cs" />
+    <Compile Include="DAO\IClientRepository.cs" />
+    <Compile Include="DAO\ICommentRepository.cs" />
+    <Compile Include="DAO\IEntityRepository.cs" />
+    <Compile Include="DAO\IExtendedEntityRepository.cs" />
+    <Compile Include="DAO\IOrderRepository.cs" />
+    <Compile Include="DAO\IPermissionRepository.cs" />
+    <Compile Include="DAO\IProductRepository.cs" />
+    <Compile Include="DAO\IRepository.cs" />
+    <Compile Include="DAO\IRoleRepository.cs" />
+    <Compile Include="DAO\IUserRepository.cs" />
     <Compile Include="Entities\Entity.cs" />
     <Compile Include="Entities\ExtendedEntity.cs" />
     <Compile Include="Entities\Permission.cs" />
@@ -46,9 +67,7 @@
     <Compile Include="Entities\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="DAO\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

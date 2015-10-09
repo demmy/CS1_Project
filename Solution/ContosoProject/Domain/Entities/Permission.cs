@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 
 namespace Domain.Entities
 {
-    class Permission : Entity
+    public class Permission : Entity
     {
         public string Title { get; set; }
         public string Description { get; set; }
 
-        public Permission()
+        public Permission(bool isActive) : base(isActive)
         {
         }
     }

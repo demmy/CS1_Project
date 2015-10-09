@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 
 namespace Domain.Entities
 {
-    class User : ExtendedEntity
+    public class User : ExtendedEntity
     {
         public string Login { get; set; }
         public string Password { get; set; }
         public Role Role { get; set; }
 
-        public User()
+        public User(DateTime date, bool isActive) : base(date, isActive)
         {
             
         }
