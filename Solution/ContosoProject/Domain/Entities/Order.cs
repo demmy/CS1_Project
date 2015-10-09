@@ -7,19 +7,18 @@ using System.Threading.Tasks;
 namespace Domain.Entities
 {
     class Order : ExtendedEntity, ICommentable
-    {
-        private List<OrderItem> orderItems;
+    {        
         Client Client { get; set; }
-        public static ExtendedEntity entityID;
-        public static User user;
+        private List<OrderItem> orderItems;
+        private ICollection<Comment> comments;
 
-        public Order(Client client)
-            : base(entityID.GetNewID, false, user.GetCurrentUser, DateTime.Now)
+        public Order(ICollection<Comment> comments)
         {
-            Client = client;
-            orderItems = new List<OrderItem>();
+            this.comments = comments;
         }
 
+
+        // Let all methods temporarily be here
         public void AddOrder(Product product, int quantity)
         {
             if (!Contains(product))
@@ -50,11 +49,15 @@ namespace Domain.Entities
             orderItems.Add(new OrderItem(product, quantity, price));
         }
 
-        public IReadOnlyList<Comment> Comments
+        public double Sum
         {
-            get { throw new NotImplementedException(); }
+            get { return orderItems.Sum(x => x.Price); }
         }
 
+        public IReadOnlyCollection<Comment> Comments
+        {
+            get { return (IReadOnlyCollection<Comment>)comments; }
+        }
 
         private sealed class OrderItem
         {
@@ -69,7 +72,6 @@ namespace Domain.Entities
                 Price = price;
             }            
         }
-
 
     }
 }

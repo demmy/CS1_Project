@@ -10,33 +10,18 @@ namespace Domain.Entities
     {
         private int Quantity { get; set; }
         public double Price { get; set; }
-        public string SKU;
+        public string SKU { get; set; }
         public Category Category { get; set; }
-        
-        public static ExtendedEntity entityID;
-        public static User user;
+        private ICollection<Comment> comments;
 
-        public Product(string SKU)
-            : base(entityID.GetNewID, false, user.GetCurrentUser, DateTime.Now)
+        public Product(ICollection<Comment> comments)
         {
-            this.SKU = SKU;
-            Quantity = 0;
-            Price = 0.0;
+            this.comments = comments;
         }
 
-        public Product(string SKU, Category category)
-            : base(entityID.GetNewID, false, user.GetCurrentUser, DateTime.Now)
+        public IReadOnlyCollection<Comment> Comments
         {
-            this.SKU = SKU;
-            Quantity = 0;
-            Price = 0.0;
-            Category = category;
-        }
-
-
-        public IReadOnlyList<Comment> Comments
-        {
-            get { throw new NotImplementedException(); }
+            get { return (IReadOnlyCollection<Comment>)comments; }
         }
     }
 }
