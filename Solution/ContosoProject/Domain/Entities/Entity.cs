@@ -4,6 +4,7 @@
     {
         protected Entity(bool isActive)
         {
+            IsActive = isActive;
         }
 
         public int Id { get; set; }
