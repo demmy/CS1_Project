@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Data.Repository
+namespace Domain.DAO
 {
     public interface IRepository<T>
     {

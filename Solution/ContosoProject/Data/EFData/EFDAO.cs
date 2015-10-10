@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using Data.Repository;
+using Domain.DAO;
 
-namespace Domain.DAO
+namespace Data.EFData
 {
-    class EFDAOForRepository<T> : IRepository<T>
+    class EFDAO<T> : IRepository<T>
     {
         public void Create(T entity)
         {

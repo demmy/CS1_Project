@@ -48,16 +48,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EFData\EFDAOForCategory.cs" />
+    <Compile Include="EFData\EFDAOForClient.cs" />
+    <Compile Include="EFData\EFDAOForComment.cs" />
+    <Compile Include="EFData\EFDAOForOrder.cs" />
+    <Compile Include="EFData\EFDAOForPermission.cs" />
+    <Compile Include="EFData\EFDAOForProduct.cs" />
+    <Compile Include="EFData\EFDAO.cs" />
+    <Compile Include="EFData\EFDAOForRole.cs" />
+    <Compile Include="EFData\EFDAOForUser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repository\ICategoryRepository.cs" />
-    <Compile Include="Repository\IClientRepository.cs" />
-    <Compile Include="Repository\ICommentRepository.cs" />
-    <Compile Include="Repository\IOrderRepository.cs" />
-    <Compile Include="Repository\IPermissionRepository.cs" />
-    <Compile Include="Repository\IProductRepository.cs" />
-    <Compile Include="Repository\IRepository.cs" />
-    <Compile Include="Repository\IRoleRepository.cs" />
-    <Compile Include="Repository\IUserRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -65,7 +65,15 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="DumbData\" />
-    <Folder Include="EFData\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Domain\Domain.csproj">
+      <Project>{39d880e2-2939-497d-8049-5eb6ad7bcb40}</Project>
+      <Name>Domain</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
