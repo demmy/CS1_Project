@@ -6,9 +6,12 @@ using System.Threading.Tasks;
 
 namespace Domain.Entities
 {
+    enum Status { Opened, PaidUp, Finished, Shipped, Closed }
+
     class Order : ExtendedEntity, ICommentable
     {        
         Client Client { get; set; }
+        Status Status { get; set; }
         private List<OrderItem> orderItems;
         private ICollection<Comment> comments;
 
