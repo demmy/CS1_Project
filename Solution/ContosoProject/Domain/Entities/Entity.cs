@@ -1,18 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Domain.Entities
+﻿namespace Domain.Entities
 {
     public abstract class Entity
     {
-        public bool IsActive { get; set; }
-
         protected Entity(bool isActive)
         {
-            IsActive = isActive;
         }
+
+        public int Id { get; set; }
+        public bool IsActive { get; set; }
     }
 }
