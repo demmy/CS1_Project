@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain.Entities
+namespace Domain.Entities.Products
 {
     class Product : ExtendedEntity, ICommentable
     {
@@ -33,12 +33,12 @@ namespace Domain.Entities
                 && ((Product)obj).Price == this.Price && ((Product)obj).Category == this.Category;
         }
 
-        public static bool operator ==(Product product1, Product product2)
+        public static bool operator == (Product product1, Product product2)
         {
             return product1.Equals(product2);
         }
 
-        public static bool operator !=(Product product1, Product product2)
+        public static bool operator != (Product product1, Product product2)
         {
             return !product1.Equals(product2);
         }
