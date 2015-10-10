@@ -41,18 +41,16 @@
   <ItemGroup>
     <Compile Include="Entities\Entity.cs" />
     <Compile Include="Entities\ExtendedEntity.cs" />
-    <Compile Include="Entities\Permission.cs" />
-    <Compile Include="Entities\Role.cs" />
-    <Compile Include="Entities\User.cs" />
-    <Compile Include="Entities\Category.cs" />
+    <Compile Include="Entities\Users\Permission.cs" />
+    <Compile Include="Entities\Users\Role.cs" />
+    <Compile Include="Entities\Users\User.cs" />
+    <Compile Include="Entities\Products\Category.cs" />
     <Compile Include="Entities\Comments\Comment.cs" />
-    <Compile Include="Entities\Comments\EntityType.cs" />
     <Compile Include="Entities\Comments\ICommentable.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="DAO\" />
-    <Folder Include="Entities\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

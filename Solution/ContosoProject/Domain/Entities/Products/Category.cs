@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Domain.Entities.Comments;
 
-namespace Domain.Entities
+namespace Domain.Entities.Products
 {
     /// <summary>
     /// The entity that describes the type of product

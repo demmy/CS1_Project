@@ -1,4 +1,5 @@
 ﻿using System;
+using Domain.Entities.Users;
 
 namespace Domain.Entities
 {
