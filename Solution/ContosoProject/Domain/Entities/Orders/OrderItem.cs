@@ -1,10 +1,11 @@
-﻿using System;
+﻿using Domain.Entities.Products;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain.Entities
+namespace Domain.Entities.Orders
 {
     class OrderItem
     {
