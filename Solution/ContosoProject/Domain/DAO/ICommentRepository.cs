@@ -1,4 +1,4 @@
-﻿using Domain.Entities;
+﻿using Domain.Entities.Comments;
 
 namespace Domain.DAO
 {

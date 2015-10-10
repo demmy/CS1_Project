@@ -2,9 +2,8 @@
 {
     public abstract class Entity
     {
-        protected Entity(bool isActive)
+        protected Entity()
         {
-            IsActive = isActive;
         }
 
         public int Id { get; set; }
