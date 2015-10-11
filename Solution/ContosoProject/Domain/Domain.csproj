@@ -41,6 +41,10 @@
   <ItemGroup>
     <Compile Include="Entities\Entity.cs" />
     <Compile Include="Entities\ExtendedEntity.cs" />
+    <Compile Include="Entities\Orders\Order.cs" />
+    <Compile Include="Entities\Orders\OrderExtentions.cs" />
+    <Compile Include="Entities\Orders\OrderItem.cs" />
+    <Compile Include="Entities\Products\Product.cs" />
     <Compile Include="Entities\Users\Permission.cs" />
     <Compile Include="Entities\Users\Role.cs" />
     <Compile Include="Entities\Users\User.cs" />
