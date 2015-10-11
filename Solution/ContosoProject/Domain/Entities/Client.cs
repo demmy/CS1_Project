@@ -27,26 +27,6 @@ namespace Domain.Entities
             }
         }
 
-
-        protected bool Equals(Client other)
-        {
-            return Equals(_telephones, other._telephones) && Equals(ClientLocation, other.ClientLocation);
-        }
-
-        public override bool Equals(object obj)
-        {
-            if (ReferenceEquals(null, obj)) return false;
-            if (ReferenceEquals(this, obj)) return true;
-            if (obj.GetType() != this.GetType()) return false;
-            return Equals((Client)obj);
-        }
-        public override int GetHashCode()
-        {
-            unchecked
-            {
-                return ((_telephones != null ? _telephones.GetHashCode() : 0) * 397) ^ (ClientLocation != null ? ClientLocation.GetHashCode() : 0);
-            }
-        }
     }
 
 }

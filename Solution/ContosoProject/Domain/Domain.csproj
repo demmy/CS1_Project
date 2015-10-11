@@ -51,6 +51,8 @@
     <Compile Include="Entities\Client.cs" />
     <Compile Include="Entities\Entity.cs" />
     <Compile Include="Entities\ExtendedEntity.cs" />
+    <Compile Include="Entities\Location.cs" />
+    <Compile Include="Entities\Person.cs" />
     <Compile Include="Entities\Users\Permission.cs" />
     <Compile Include="Entities\Users\Role.cs" />
     <Compile Include="Entities\Users\User.cs" />
