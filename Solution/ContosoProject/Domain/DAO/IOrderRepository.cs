@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Domain.Entities.Clients;
+using Domain.Entities;
 using Domain.Entities.Products;
 using Domain.Entities.Orders;
 
