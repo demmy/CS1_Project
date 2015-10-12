@@ -48,9 +48,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-<<<<<<< HEAD
     <Compile Include="DummyData\Storage.cs" />
-=======
     <Compile Include="EFData\EFDAOForCategory.cs" />
     <Compile Include="EFData\EFDAOForClient.cs" />
     <Compile Include="EFData\EFDAOForComment.cs" />
@@ -60,7 +58,6 @@
     <Compile Include="EFData\EFDAO.cs" />
     <Compile Include="EFData\EFDAOForRole.cs" />
     <Compile Include="EFData\EFDAOForUser.cs" />
->>>>>>> 5039a9c897393a9132d90f43d35b1680a2c1c6df
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
