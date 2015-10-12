@@ -12,7 +12,7 @@ namespace Domain.Entities
         public string MiddleName { get; set; }
         public string LastName { get; set; }
 
-        protected Person()
+        public Person()
         {
 
         }
