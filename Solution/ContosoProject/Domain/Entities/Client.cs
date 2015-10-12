@@ -3,13 +3,15 @@ using Domain.Entities.Comments;
 
 namespace Domain.Entities
 {
-    public class Client : ExtendedEntity
+    public class Client : ExtendedEntity, ICommentable
     {
         public Location ClientLocation { get; set; }
         private ICollection<string> _telephones;
-        public Client(ICollection<string> telephones)
+        private ICollection<Comment> _comments;
+        public Client(ICollection<string> telephones, ICollection<Comment> comments)
         {
             _telephones = telephones;
+            _comments = comments;
         }
 
         public Client()
@@ -23,6 +25,11 @@ namespace Domain.Entities
             {
                 return (IReadOnlyCollection<string>)_telephones;
             }
+        }
+
+        public IReadOnlyCollection<Comment> Comments
+        {
+            get { return (IReadOnlyCollection<Comment>)_comments; }
         }
     }
 }
