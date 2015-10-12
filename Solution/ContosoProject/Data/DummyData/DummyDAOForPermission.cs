@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using Domain.DAO;
 using Domain.Entities.Users;
 
@@ -10,11 +8,7 @@ namespace Data.DummyData
     {
         public ICollection<Permission> GetByTitle(string title)
         {
-            if (_collection.Any(x => x.Title == title))
-            {
-                return _collection.Where(x => x.Title == title).ToList();
-            }
-            throw new Exception();
+            throw new System.NotImplementedException();
         }
     }
 }

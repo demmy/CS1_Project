@@ -1,65 +1,55 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Security.Cryptography.X509Certificates;
 using Domain.DAO;
-using Domain.Entities;
 using Domain.Entities.Users;
 
 namespace Data.DummyData
 {
-    class DummyDAO<T> : IRepository<T> where T : Entity, new()
+    class DummyDAO<T> : IRepository<T>
     {
-        protected IList<T> _collection = new List<T>(); 
         public void Create(T entity)
         {
-            if(!(_collection.Any(x => x == entity)))
-            _collection.Add(new T());
+            throw new NotImplementedException();
+        }
+
+        public ICollection<T> ReadAll()
+        {
+            throw new NotImplementedException();
         }
 
         public T Find(int id)
         {
-            if (!(_collection.Any(x => x.Id == id)))
-            {
-                return _collection.First(x => x.Id == id);
-            }
-            throw new Exception();
+            throw new NotImplementedException();
         }
 
         public ICollection<T> GetAll()
         {
-            return _collection;
+            throw new NotImplementedException();
         }
 
         public ICollection<T> GetByIsActive(bool isActive)
         {
-            return (ICollection<T>) _collection.Select(x => x.IsActive == isActive).ToList();
+            throw new NotImplementedException();
+        }
+
+        public ICollection<T> GetByUser(User user)
+        {
+            throw new NotImplementedException();
+        }
+
+        public ICollection<T> GetByDate(DateTime date)
+        {
+            throw new NotImplementedException();
         }
 
         public void Save(T entity)
         {
-            T oldEntity = _collection.First(x => x.Id == entity.Id);
-            oldEntity.Id = entity.Id;
-            oldEntity.IsActive = entity.IsActive;
+            throw new NotImplementedException();
         }
 
         public void Delete(T entity)
         {
-            if (!(_collection.Any(x => x == entity)))
-            {
-                _collection.Remove(entity);
-            }
-            throw new Exception();
-
-        }
-
-        public void Delete(int id)
-        {
-            if (!(_collection.Any(x => x.Id == id)))
-            {
-                _collection.RemoveAt(id);
-            }
-            throw new Exception();
+            throw new NotImplementedException();
         }
     }
 }
