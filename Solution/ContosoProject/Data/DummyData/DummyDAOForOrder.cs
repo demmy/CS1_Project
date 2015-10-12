@@ -4,9 +4,9 @@ using Domain.Entities;
 using Domain.Entities.Orders;
 using Domain.Entities.Products;
 
-namespace Data.EFData
+namespace Data.DummyData
 {
-    class EFDAOForOrder<T> : EFDAO<Order>, IOrderRepository
+    class DummyDAOForOrder : DummyDAO<Order>, IOrderRepository
     {
         public ICollection<Order> GetByClient(Client client)
         {

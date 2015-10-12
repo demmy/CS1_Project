@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using Domain.DAO;
 using Domain.Entities.Users;
 
-namespace Data.EFData
+namespace Data.DummyData
 {
-    class EFDAO<T> : IRepository<T>
+    class DummyDAO<T> : IRepository<T>
     {
         public void Create(T entity)
         {

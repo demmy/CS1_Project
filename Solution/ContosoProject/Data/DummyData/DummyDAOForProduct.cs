@@ -2,9 +2,9 @@
 using Domain.DAO;
 using Domain.Entities.Products;
 
-namespace Data.EFData
+namespace Data.DummyData
 {
-    class EFDAOForProduct<T> : EFDAO<Product>, IProductRepository
+    class DummyDAOForProduct: DummyDAO<Product>, IProductRepository
     {
         public ICollection<Product> GetBySKU(string sku)
         {
