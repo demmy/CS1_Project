@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
-using System.Threading.Tasks;
 using Domain.DAO;
 using Domain.Entities;
 using Domain.Entities.Users;
@@ -27,6 +24,7 @@ namespace Data.DummyData
             {
                 return (ICollection<T>)_collection.Select(x => x.Date).ToList();
             }
+            throw new Exception();
         }
     }
 }
