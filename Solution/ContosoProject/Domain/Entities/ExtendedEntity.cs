@@ -1,22 +1,19 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Data.SqlTypes;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.Win32;
+using Domain.Entities.Users;
+using System.Net.Configuration;
 
 namespace Domain.Entities
 {
-    abstract class ExtendedEntity : Entity
+    public abstract class ExtendedEntity : Entity
     {
-        public User User { get; set; }
-        public DateTime Date { get; set; }
-
         protected ExtendedEntity()
         {
-            Date = DateTime.Now;
+            
         }
+
+        public User User { get; set; }
+
+        public DateTime Date { get; set; }
 
      } 
 }
