@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Domain.Entities
 {
-    class Location
+    public class Location
     {
         public string City { get; set; }
         public string Adress { get; set; }
