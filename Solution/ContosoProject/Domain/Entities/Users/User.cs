@@ -13,6 +13,7 @@ namespace Domain.Entities.Users
 
         public User()
         {
+
         }
 
         public string Login { get; set; }
