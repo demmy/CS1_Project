@@ -1,0 +1,20 @@
+﻿namespace Domain.Entities
+{
+    public abstract class Entity
+    {
+<<<<<<< HEAD
+        public bool IsActive { get; set; }
+
+        protected Entity(bool isActive)
+        {
+            IsActive = isActive;
+=======
+        protected Entity()
+        {
+>>>>>>> pr/3
+        }
+
+        public int Id { get; set; }
+        public bool IsActive { get; set; }
+    }
+}

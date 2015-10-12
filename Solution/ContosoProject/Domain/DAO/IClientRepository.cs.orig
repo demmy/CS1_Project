@@ -1,0 +1,19 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+<<<<<<< HEAD
+using Domain.Entities.Clients;
+=======
+using Domain.Entities;
+>>>>>>> TEntities
+
+namespace Domain.DAO
+{
+    public interface IClientRepository : IRepository<Client>
+    {
+        ICollection<Client> GetByName(string name);
+        ICollection<Client> GetByCity(string city);
+    }
+}
