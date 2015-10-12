@@ -48,15 +48,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EFData\EFDAOForCategory.cs" />
-    <Compile Include="EFData\EFDAOForClient.cs" />
-    <Compile Include="EFData\EFDAOForComment.cs" />
-    <Compile Include="EFData\EFDAOForOrder.cs" />
-    <Compile Include="EFData\EFDAOForPermission.cs" />
-    <Compile Include="EFData\EFDAOForProduct.cs" />
-    <Compile Include="EFData\EFDAO.cs" />
-    <Compile Include="EFData\EFDAOForRole.cs" />
-    <Compile Include="EFData\EFDAOForUser.cs" />
+    <Compile Include="DummyData\DummyDAOForCategory.cs" />
+    <Compile Include="DummyData\DummyDAOForClient.cs" />
+    <Compile Include="DummyData\DummyDAOForComment.cs" />
+    <Compile Include="DummyData\DummyDAOForOrder.cs" />
+    <Compile Include="DummyData\DummyDAOForPermission.cs" />
+    <Compile Include="DummyData\DummyDAOForProduct.cs" />
+    <Compile Include="DummyData\DummyDAO.cs" />
+    <Compile Include="DummyData\DummyDAOForRole.cs" />
+    <Compile Include="DummyData\DummyDAOForUser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
