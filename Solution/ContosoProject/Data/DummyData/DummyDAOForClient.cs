@@ -1,19 +1,23 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using Domain.DAO;
 using Domain.Entities;
 
 namespace Data.DummyData
 {
-    class DummyDAOForClient : DummyDAO<Client>, IClientRepository
+    class DummyDAOForClient : DummyDAOExtension<Client>, IClientRepository
     {
         public ICollection<Client> GetByName(string name)
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
 
         public ICollection<Client> GetByCity(string city)
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
     }
 }
