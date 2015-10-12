@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Domain.DAO;
+using Domain.Entities.Users;
 
 namespace Data.EFData
 {
@@ -17,6 +18,26 @@ namespace Data.EFData
         }
 
         public T Find(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public ICollection<T> GetAll()
+        {
+            throw new NotImplementedException();
+        }
+
+        public ICollection<T> GetByIsActive(bool isActive)
+        {
+            throw new NotImplementedException();
+        }
+
+        public ICollection<T> GetByUser(User user)
+        {
+            throw new NotImplementedException();
+        }
+
+        public ICollection<T> GetByDate(DateTime date)
         {
             throw new NotImplementedException();
         }

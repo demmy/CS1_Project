@@ -1,5 +1,5 @@
 ﻿using Domain.DAO;
-using Domain.Entities;
+using Domain.Entities.Comments;
 
 namespace Data.EFData
 {

@@ -41,6 +41,7 @@
   <ItemGroup>
     <Compile Include="DAO\ICategoryRepository.cs" />
     <Compile Include="DAO\IClientRepository.cs" />
+    <Compile Include="DAO\ICommentRepository.cs" />
     <Compile Include="DAO\IOrderRepository.cs" />
     <Compile Include="DAO\IPermissionRepository.cs" />
     <Compile Include="DAO\IProductRepository.cs" />

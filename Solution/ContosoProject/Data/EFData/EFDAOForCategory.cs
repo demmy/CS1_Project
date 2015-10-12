@@ -1,5 +1,5 @@
 ﻿using Domain.DAO;
-using Domain.Entities;
+using Domain.Entities.Products;
 
 namespace Data.EFData
 {

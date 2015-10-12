@@ -5,7 +5,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Domain.Entities.Comments;
-using Domain.Entities.Clients;
 
 namespace Domain.Entities.Orders
 {
