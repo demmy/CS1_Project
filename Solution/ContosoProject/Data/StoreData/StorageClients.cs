@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Domain.Entities;
 using Domain.Entities.Comments;
 
-namespace Data.DummyData
+namespace Data.StoreData
 {
     static partial class Storage
     {

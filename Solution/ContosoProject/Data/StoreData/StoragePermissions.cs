@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using Domain.Entities.Comments;
+﻿using System.Collections.Generic;
 using Domain.Entities.Users;
 
-namespace Data.DummyData
+namespace Data.StoreData
 {
     static partial class Storage
     {

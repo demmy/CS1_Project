@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.ObjectModel;
 using Domain.Entities.Products;
 using Domain.Entities.Users;
 
-namespace Data.DummyData
+namespace Data.StoreData
 {
     class PermissionDictionary : KeyedCollection<string, Permission>
     {

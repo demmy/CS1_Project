@@ -48,12 +48,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DummyData\KeyedCollections.cs" />
-    <Compile Include="DummyData\StorageClients.cs" />
-    <Compile Include="DummyData\StoragePermissions.cs" />
-    <Compile Include="DummyData\StorageOrders.cs" />
-    <Compile Include="DummyData\Storage.cs" />
-    <Compile Include="DummyData\StorageProducts.cs" />
+    <Compile Include="StoreData\KeyedCollections.cs" />
+    <Compile Include="StoreData\StorageClients.cs" />
+    <Compile Include="StoreData\StoragePermissions.cs" />
+    <Compile Include="StoreData\StorageOrders.cs" />
+    <Compile Include="StoreData\Storage.cs" />
+    <Compile Include="StoreData\StorageProducts.cs" />
     <Compile Include="EFData\EFDAOForCategory.cs" />
     <Compile Include="EFData\EFDAOForClient.cs" />
     <Compile Include="EFData\EFDAOForComment.cs" />
