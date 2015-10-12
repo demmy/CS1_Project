@@ -4,7 +4,7 @@ using Domain.Entities;
 
 namespace Data.DummyData
 {
-    class DummyDAOForClient : DummyDAO<Client>, IClientRepository
+    class DummyDAOForClient : DummyDAOExtension<Client>, IClientRepository
     {
         public ICollection<Client> GetByName(string name)
         {

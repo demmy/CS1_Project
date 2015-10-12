@@ -1,55 +1,51 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using Domain.DAO;
+using Domain.Entities;
 using Domain.Entities.Users;
 
 namespace Data.DummyData
 {
-    class DummyDAO<T> : IRepository<T>
+    class DummyDAO<T> : IRepository<T> where T : Entity, new()
     {
+        protected IList<T> _collection = new List<T>(); 
         public void Create(T entity)
         {
-            throw new NotImplementedException();
-        }
-
-        public ICollection<T> ReadAll()
-        {
-            throw new NotImplementedException();
+            if(!(_collection.All(x => x == entity)))
+            _collection.Add(new T());
         }
 
         public T Find(int id)
         {
-            throw new NotImplementedException();
+            return _collection.First(x => x.Id==id);
         }
 
         public ICollection<T> GetAll()
         {
-            throw new NotImplementedException();
+            return _collection;
         }
 
         public ICollection<T> GetByIsActive(bool isActive)
         {
-            throw new NotImplementedException();
-        }
-
-        public ICollection<T> GetByUser(User user)
-        {
-            throw new NotImplementedException();
-        }
-
-        public ICollection<T> GetByDate(DateTime date)
-        {
-            throw new NotImplementedException();
+            return (ICollection<T>) _collection.Select(x => x.IsActive == isActive).ToList();
         }
 
         public void Save(T entity)
         {
-            throw new NotImplementedException();
+            T oldEntity = _collection.First(x => x.Id == entity.Id);
+            oldEntity.Id = entity.Id;
+            oldEntity.IsActive = entity.IsActive;
         }
 
         public void Delete(T entity)
         {
-            throw new NotImplementedException();
+            _collection.Remove(entity);
+        }
+        public void Delete(int id)
+        {
+           _collection.RemoveAt(id);
         }
     }
 }

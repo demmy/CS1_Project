@@ -3,7 +3,7 @@ using Domain.Entities.Comments;
 
 namespace Data.DummyData
 {
-    class DummyDAOForComment : DummyDAO<Comment>, ICommentRepository
+    class DummyDAOForComment : DummyDAOExtension<Comment>, ICommentRepository
     {
     }
 }
