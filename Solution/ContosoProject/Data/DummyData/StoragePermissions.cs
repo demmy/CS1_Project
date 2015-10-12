@@ -6,15 +6,10 @@ using Domain.Entities.Users;
 
 namespace Data.DummyData
 {
-    class PermissionDictionary:KeyedCollection<string, Permission>
-    {
-        protected override string GetKeyForItem(Permission item)
-        {
-            return item.Title;
-        }
-    }
     static partial class Storage
     {
+        #region Permissions
+
         public static PermissionDictionary Permissions = new PermissionDictionary
         {
             new Permission {Description = "", Id = 1, IsActive = true, Title = "Add User"},
@@ -86,5 +81,14 @@ namespace Data.DummyData
             Permissions["Activate Order"],
             Permissions["Deactivate order"]
         };
+
+        #endregion
+
+        public static RoleDictionary Roles = new RoleDictionary
+        {
+            new Role(AdminPermissions){Id = 1, IsActive = true, Title = "Admin"},
+            new Role(ManagerPermissions){Id = 2, IsActive = true, Title = "Manager"},
+            new Role(DirectorPermissions){Id = 3, IsActive = true, Title = "Director"}
+        }; 
     }
 }
