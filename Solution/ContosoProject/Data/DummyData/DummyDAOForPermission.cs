@@ -8,6 +8,10 @@ namespace Data.DummyData
 {
     class DummyDAOForPermission: DummyDAO<Permission>, IPermissionRepository
     {
+        public DummyDAOForPermission()
+        {
+            _collection = (IList<Permission>) PermissionsCollection.Target;
+        }
         public ICollection<Permission> GetByTitle(string title)
         {
             if (_collection.Any(x => x.Title == title))

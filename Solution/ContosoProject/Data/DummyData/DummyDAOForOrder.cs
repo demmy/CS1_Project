@@ -11,6 +11,10 @@ namespace Data.DummyData
 {
     class DummyDAOForOrder : DummyDAOExtension<Order>, IOrderRepository
     {
+        public DummyDAOForOrder()
+        {
+            _collection = (IList<Order>) OrdersCollection.Target;
+        }
         public ICollection<Order> GetByClient(Client client)
         {
             if (_collection.Any(x => x.Client == client))

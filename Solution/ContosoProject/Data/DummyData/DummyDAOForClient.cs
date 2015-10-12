@@ -14,7 +14,11 @@ namespace Data.DummyData
         }
         public ICollection<Client> GetByName(string name)
         {
-            throw new System.NotImplementedException();
+            if (_collection.Any(x => x.Person.FirstName == name))
+            {
+                return _collection.Where(x => x.Person.FirstName == name).ToList();
+            }
+            throw new Exception();
         }
 
         public ICollection<Client> GetByCity(string city)

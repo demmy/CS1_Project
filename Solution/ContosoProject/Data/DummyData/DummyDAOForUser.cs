@@ -8,6 +8,10 @@ namespace Data.DummyData
 {
     class DummyDAOForUser : DummyDAOExtension<User>, IUserRepository
     {
+        public DummyDAOForUser()
+        {
+            _collection = (IList<User>) UsersCollection.Target;
+        }
         public ICollection<User> GetByLogin(string login)
         {
             if (_collection.Any(x => x.Login == login))

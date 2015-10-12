@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using Domain.DAO;
 using Domain.Entities.Products;
+using Microsoft.Win32;
 
 namespace Data.DummyData
 {

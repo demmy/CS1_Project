@@ -8,6 +8,10 @@ namespace Data.DummyData
 {
     class DummyDAOForProduct: DummyDAOExtension<Product>, IProductRepository
     {
+        public DummyDAOForProduct()
+        {
+            _collection = (IList<Product>) ProductsCollection.Target;
+        }
         public ICollection<Product> GetBySKU(string sku)
         {
             if (_collection.Any(x => x.SKU == sku))

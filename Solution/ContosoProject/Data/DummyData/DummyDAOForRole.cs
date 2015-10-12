@@ -8,6 +8,10 @@ namespace Data.DummyData
 {
     class DummyDAOForRole: DummyDAO<Role>, IRoleRepository
     {
+        public DummyDAOForRole()
+        {
+            _collection = (IList<Role>) RolesCollection.Target;
+        }
         public ICollection<Role> GetByTitle(string title)
         {
             if (_collection.Any(x => x.Title == title))
