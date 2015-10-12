@@ -41,7 +41,6 @@
   <ItemGroup>
     <Compile Include="DAO\ICategoryRepository.cs" />
     <Compile Include="DAO\IClientRepository.cs" />
-    <Compile Include="DAO\ICommentRepository.cs" />
     <Compile Include="DAO\IOrderRepository.cs" />
     <Compile Include="DAO\IPermissionRepository.cs" />
     <Compile Include="DAO\IProductRepository.cs" />
@@ -53,6 +52,10 @@
     <Compile Include="Entities\ExtendedEntity.cs" />
     <Compile Include="Entities\Location.cs" />
     <Compile Include="Entities\Person.cs" />
+    <Compile Include="Entities\Orders\Order.cs" />
+    <Compile Include="Entities\Orders\OrderExtentions.cs" />
+    <Compile Include="Entities\Orders\OrderItem.cs" />
+    <Compile Include="Entities\Products\Product.cs" />
     <Compile Include="Entities\Users\Permission.cs" />
     <Compile Include="Entities\Users\Role.cs" />
     <Compile Include="Entities\Users\User.cs" />
