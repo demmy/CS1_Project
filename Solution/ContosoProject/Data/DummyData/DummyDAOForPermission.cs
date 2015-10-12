@@ -1,11 +1,10 @@
 ﻿using System.Collections.Generic;
 using Domain.DAO;
-using Domain.Entities;
 using Domain.Entities.Users;
 
-namespace Data.EFData
+namespace Data.DummyData
 {
-    class EFDAOForPermission<T> : EFDAO<Permission>, IPermissionRepository
+    class DummyDAOForPermission: DummyDAO<Permission>, IPermissionRepository
     {
         public ICollection<Permission> GetByTitle(string title)
         {

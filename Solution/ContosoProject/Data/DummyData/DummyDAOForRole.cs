@@ -1,19 +1,17 @@
 ﻿using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 using Domain.DAO;
-using Domain.Entities;
 using Domain.Entities.Users;
 
-namespace Data.EFData
+namespace Data.DummyData
 {
-    class EFDAOForUser : EFDAO<User>, IUserRepository
+    class DummyDAOForRole: DummyDAO<Role>, IRoleRepository
     {
-        public ICollection<User> GetByLogin(string login)
+        public ICollection<Role> GetByTitle(string title)
         {
             throw new System.NotImplementedException();
         }
 
-        public ICollection<User> GetByRole(Role role)
+        public ICollection<Role> GetByPermission(Permission permission)
         {
             throw new System.NotImplementedException();
         }

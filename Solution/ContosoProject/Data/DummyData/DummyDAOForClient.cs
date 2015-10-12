@@ -2,9 +2,9 @@
 using Domain.DAO;
 using Domain.Entities;
 
-namespace Data.EFData
+namespace Data.DummyData
 {
-    class EFDAOForClient : EFDAO<Client>, IClientRepository
+    class DummyDAOForClient : DummyDAO<Client>, IClientRepository
     {
         public ICollection<Client> GetByName(string name)
         {
