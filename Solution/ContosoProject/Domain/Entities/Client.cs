@@ -10,15 +10,10 @@ namespace Domain.Entities
     {
         Location ClientLocation { get; set; }
         private ICollection<string> _telephones;
-
-
-        public Client(ICollection<string> telephones, DateTime date, bool isActive)
-            : base(date, isActive)
+        public Client(ICollection<string> telephones)
         {
             _telephones = telephones;
         }
-
-
         public IReadOnlyCollection<string> Telephones
         {
             get
@@ -26,7 +21,5 @@ namespace Domain.Entities
                 return (IReadOnlyCollection<string>)_telephones;
             }
         }
-
     }
-
 }
