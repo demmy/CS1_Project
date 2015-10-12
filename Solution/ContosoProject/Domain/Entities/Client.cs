@@ -4,7 +4,7 @@ namespace Domain.Entities
 {
     public class Client : ExtendedEntity
     {
-        Location ClientLocation { get; set; }
+        public Location ClientLocation { get; set; }
         private ICollection<string> _telephones;
         public Client(ICollection<string> telephones)
         {
