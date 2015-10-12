@@ -8,6 +8,10 @@ namespace Data.DummyData
 {
     class DummyDAOForClient : DummyDAOExtension<Client>, IClientRepository
     {
+        public DummyDAOForClient()
+        {
+            _collection = (IList<Client>) ClientsCollection.Target;
+        }
         public ICollection<Client> GetByName(string name)
         {
             throw new System.NotImplementedException();
