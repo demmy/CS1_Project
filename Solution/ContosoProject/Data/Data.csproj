@@ -48,7 +48,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-
+    <Compile Include="DummyData\DummyDAOExtension.cs" />
     <Compile Include="StoreData\KeyedCollections.cs" />
     <Compile Include="StoreData\StorageClients.cs" />
     <Compile Include="StoreData\StoragePermissions.cs" />
