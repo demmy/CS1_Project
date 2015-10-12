@@ -9,7 +9,7 @@ using Domain.Entities.Orders;
 
 namespace Domain.DAO
 {
-    public interface IOrderRepository : IRepository<Order>
+    public interface IOrderRepository : IRepositoryExtension<Order>
     {
         ICollection<Order> GetByClient(Client client);
         ICollection<Order> GetByProduct(Product product);

@@ -4,7 +4,7 @@ using Domain.Entities.Products;
 
 namespace Data.DummyData
 {
-    class DummyDAOForProduct: DummyDAO<Product>, IProductRepository
+    class DummyDAOForProduct: DummyDAOExtension<Product>, IProductRepository
     {
         public ICollection<Product> GetBySKU(string sku)
         {

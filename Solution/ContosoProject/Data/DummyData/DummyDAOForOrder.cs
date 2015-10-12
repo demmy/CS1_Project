@@ -6,7 +6,7 @@ using Domain.Entities.Products;
 
 namespace Data.DummyData
 {
-    class DummyDAOForOrder : DummyDAO<Order>, IOrderRepository
+    class DummyDAOForOrder : DummyDAOExtension<Order>, IOrderRepository
     {
         public ICollection<Order> GetByClient(Client client)
         {

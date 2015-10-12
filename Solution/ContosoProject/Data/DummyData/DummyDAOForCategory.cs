@@ -3,7 +3,7 @@ using Domain.Entities.Products;
 
 namespace Data.DummyData
 {
-    class DummyDAOForCategory : DummyDAO<Category>, ICategoryRepository
+    class DummyDAOForCategory : DummyDAOExtension<Category>, ICategoryRepository
     {
         
     }
