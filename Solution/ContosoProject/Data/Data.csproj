@@ -48,7 +48,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <Compile Include="DummyData\Storage.cs" />
+=======
+    <Compile Include="EFData\EFDAOForCategory.cs" />
+    <Compile Include="EFData\EFDAOForClient.cs" />
+    <Compile Include="EFData\EFDAOForComment.cs" />
+    <Compile Include="EFData\EFDAOForOrder.cs" />
+    <Compile Include="EFData\EFDAOForPermission.cs" />
+    <Compile Include="EFData\EFDAOForProduct.cs" />
+    <Compile Include="EFData\EFDAO.cs" />
+    <Compile Include="EFData\EFDAOForRole.cs" />
+    <Compile Include="EFData\EFDAOForUser.cs" />
+>>>>>>> 5039a9c897393a9132d90f43d35b1680a2c1c6df
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -57,7 +69,15 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="DumbData\" />
-    <Folder Include="EFData\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Domain\Domain.csproj">
+      <Project>{39d880e2-2939-497d-8049-5eb6ad7bcb40}</Project>
+      <Name>Domain</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Domain\Domain.csproj">

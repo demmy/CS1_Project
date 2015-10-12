@@ -1,5 +1,6 @@
 ﻿using System;
 using Domain.Entities.Users;
+using System.Net.Configuration;
 
 namespace Domain.Entities
 {
@@ -7,6 +8,7 @@ namespace Domain.Entities
     {
         protected ExtendedEntity()
         {
+            
         }
 
         public User User { get; set; }
