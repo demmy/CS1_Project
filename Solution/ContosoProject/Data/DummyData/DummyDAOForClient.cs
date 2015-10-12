@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using Domain.DAO;
 using Domain.Entities;
 
@@ -13,7 +15,11 @@ namespace Data.DummyData
 
         public ICollection<Client> GetByCity(string city)
         {
-            throw new System.NotImplementedException();
+            if (_collection.Any(x => x.ClientLocation.City == city))
+            {
+                return _collection.Where(x => x.ClientLocation.City == city).ToList();
+            }
+            throw new Exception();
         }
     }
 }

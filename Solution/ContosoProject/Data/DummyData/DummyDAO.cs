@@ -13,13 +13,17 @@ namespace Data.DummyData
         protected IList<T> _collection = new List<T>(); 
         public void Create(T entity)
         {
-            if(!(_collection.All(x => x == entity)))
+            if(!(_collection.Any(x => x == entity)))
             _collection.Add(new T());
         }
 
         public T Find(int id)
         {
-            return _collection.First(x => x.Id==id);
+            if (!(_collection.Any(x => x.Id == id)))
+            {
+                return _collection.First(x => x.Id == id);
+            }
+            throw new Exception();
         }
 
         public ICollection<T> GetAll()
@@ -41,11 +45,21 @@ namespace Data.DummyData
 
         public void Delete(T entity)
         {
-            _collection.Remove(entity);
+            if (!(_collection.Any(x => x == entity)))
+            {
+                _collection.Remove(entity);
+            }
+            throw new Exception();
+
         }
+
         public void Delete(int id)
         {
-           _collection.RemoveAt(id);
+            if (!(_collection.Any(x => x.Id == id)))
+            {
+                _collection.RemoveAt(id);
+            }
+            throw new Exception();
         }
     }
 }
