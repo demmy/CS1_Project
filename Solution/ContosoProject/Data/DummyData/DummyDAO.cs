@@ -48,7 +48,7 @@ namespace Data.DummyData
 
         public void Delete(T entity)
         {
-            if (!(_collection.Any(x => x == entity)))
+            if (_collection.Any(x => x == entity))
             {
                 _collection.First(x => x == entity).IsActive = false;
             }
@@ -58,7 +58,7 @@ namespace Data.DummyData
 
         public void Delete(int id)
         {
-            if (!(_collection.Any(x => x.Id == id)))
+            if (_collection.Any(x => x.Id == id))
             {
                 _collection.RemoveAt(id);
             }

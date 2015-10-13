@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.Entity.Core.Mapping;
 using System.Linq;
 using Data.StoreData;
 using Domain.DAO;
