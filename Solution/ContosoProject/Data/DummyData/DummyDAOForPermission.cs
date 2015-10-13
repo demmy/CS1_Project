@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Data.StoreData;
 using Domain.DAO;
 using Domain.Entities.Users;
 
@@ -10,7 +11,7 @@ namespace Data.DummyData
     {
         public DummyDAOForPermission()
         {
-            _collection = (IList<Permission>) PermissionsCollection.Target;
+            _collection = Storage.Permissions;
         }
         public ICollection<Permission> GetByTitle(string title)
         {

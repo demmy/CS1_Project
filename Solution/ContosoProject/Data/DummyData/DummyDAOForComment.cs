@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Data.StoreData;
 using Domain.DAO;
 using Domain.Entities.Comments;
 using Domain.Entities.Products;
@@ -9,7 +10,7 @@ namespace Data.DummyData
     {
         public DummyDAOForComment()
         {
-            _collection = (IList<Comment>) GodCommentsCollection.Target;
+            _collection = Storage.GodComments;
         }
     }
 }

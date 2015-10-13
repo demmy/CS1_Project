@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Data.StoreData;
 using Domain.DAO;
 using Domain.Entities.Users;
 
@@ -10,7 +11,7 @@ namespace Data.DummyData
     {
         public DummyDAOForUser()
         {
-            _collection = (IList<User>) UsersCollection.Target;
+            _collection = Storage.Users;
         }
         public ICollection<User> GetByLogin(string login)
         {

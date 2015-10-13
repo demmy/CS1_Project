@@ -13,26 +13,6 @@ namespace Data.DummyData
 {
     class DummyDAO<T> : IRepository<T> where T : Entity, new()
     {
-        protected WeakReference AdminPermissionsCollection = new WeakReference(Storage.AdminPermissions);
-        protected WeakReference CategoriesCollection = new WeakReference(Storage.Categories);
-        protected WeakReference ClientTelephonesCollection = new WeakReference(Storage.ClientTelephones);
-        protected WeakReference ClientsCollection = new WeakReference(Storage.Clients);
-        protected WeakReference DirectorPermissionsCollection = new WeakReference(Storage.DirectorPermissions);
-        protected WeakReference GodCommentsCollection = new WeakReference(Storage.GodComments);
-        protected WeakReference LocationsCollection = new WeakReference(Storage.Locations);
-        protected WeakReference ManagerPermissionsCollection = new WeakReference(Storage.ManagerPermissions);
-        protected WeakReference OrderItemsCollection = new WeakReference(Storage.OrderItems);
-        protected WeakReference OrdersCollection = new WeakReference(Storage.Orders);
-        protected WeakReference PermissionsCollection = new WeakReference(Storage.Permissions);
-        protected WeakReference ProductsCollection = new WeakReference(Storage.Products);
-        protected WeakReference RolesCollection = new WeakReference(Storage.Roles);
-        protected WeakReference UsersCollection = new WeakReference(Storage.Users);
-
-        protected WeakReference PermissionDictionary = new WeakReference(new PermissionDictionary());
-        protected WeakReference RoleDictionary = new WeakReference(new RoleDictionary());
-        protected WeakReference CategoryDictionary = new WeakReference(new CategoryDictionary());
-
-
         protected IList<T> _collection = new List<T>(); 
         public void Create(T entity)
         {
@@ -70,7 +50,7 @@ namespace Data.DummyData
         {
             if (!(_collection.Any(x => x == entity)))
             {
-                _collection.Remove(entity);
+                _collection.First(x => x == entity).IsActive = false;
             }
             throw new Exception();
 

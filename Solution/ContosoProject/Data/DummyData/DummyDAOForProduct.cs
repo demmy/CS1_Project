@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Data.StoreData;
 using Domain.DAO;
 using Domain.Entities.Products;
 
@@ -10,7 +11,7 @@ namespace Data.DummyData
     {
         public DummyDAOForProduct()
         {
-            _collection = (IList<Product>) ProductsCollection.Target;
+            _collection = Storage.Products;
         }
         public ICollection<Product> GetBySKU(string sku)
         {

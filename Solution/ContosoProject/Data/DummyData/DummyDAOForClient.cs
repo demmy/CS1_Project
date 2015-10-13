@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.Core.Mapping;
 using System.Linq;
+using Data.StoreData;
 using Domain.DAO;
 using Domain.Entities;
 
@@ -10,7 +12,7 @@ namespace Data.DummyData
     {
         public DummyDAOForClient()
         {
-            _collection = (IList<Client>) ClientsCollection.Target;
+            _collection = Storage.Clients;
         }
         public ICollection<Client> GetByName(string name)
         {

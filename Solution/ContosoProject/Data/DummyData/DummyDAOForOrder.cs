@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Data.StoreData;
 using Domain.DAO;
 using Domain.Entities;
 using Domain.Entities.Comments;
@@ -13,7 +14,7 @@ namespace Data.DummyData
     {
         public DummyDAOForOrder()
         {
-            _collection = (IList<Order>) OrdersCollection.Target;
+            _collection = Storage.Orders;
         }
         public ICollection<Order> GetByClient(Client client)
         {
