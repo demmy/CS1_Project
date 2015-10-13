@@ -27,7 +27,7 @@ namespace Data.DummyData
 
         public ICollection<Order> GetByProduct(Product product)
         {
-            if (_collection.Any(x => x.OrderItems.Any(it =>it.Product==product)))
+            if (Contains(product))
             {
                 return _collection.Where(x => x.OrderItems.Any(it => it.Product == product)).ToList();
             }
@@ -64,7 +64,7 @@ namespace Data.DummyData
         {
             if (Contains(product))
             {
-                _collection.Remove(_collection.First(x=>x.OrderItems.Any(it=>it.Product==product)));
+                _collection.First(x => x.OrderItems.Any(it => it.Product == product)).IsActive = false;
             }
             throw  new Exception();
         }
