@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Domain.Entities.Comments;
 
 namespace Domain.Entities
 {
@@ -7,6 +8,7 @@ namespace Domain.Entities
         public Location ClientLocation { get; set; }
         public Person Person { get; set; }
         private ICollection<string> _telephones;
+
         public Client(ICollection<string> telephones)
         {
             _telephones = telephones;
@@ -18,5 +20,6 @@ namespace Domain.Entities
                 return (IReadOnlyCollection<string>)_telephones;
             }
         }
+
     }
 }
