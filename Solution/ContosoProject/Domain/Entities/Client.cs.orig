@@ -1,10 +1,12 @@
+<<<<<<< HEAD
 ﻿using System.Collections.Generic;
 
 namespace Domain.Entities
 {
     public class Client : ExtendedEntity
     {
-        Location ClientLocation { get; set; }
+        public Location ClientLocation { get; set; }
+        public Person Person { get; set; }
         private ICollection<string> _telephones;
         public Client(ICollection<string> telephones)
         {
@@ -19,3 +21,35 @@ namespace Domain.Entities
         }
     }
 }
+=======
+﻿using System.Collections.Generic;
+using Domain.Entities.Comments;
+
+namespace Domain.Entities
+{
+    public class Client : ExtendedEntity, ICommentable
+    {
+        public Location ClientLocation { get; set; }
+        public Person Person { get; set; }
+        private ICollection<string> _telephones;
+        private ICollection<Comment> _comments;
+        public Client(ICollection<string> telephones, ICollection<Comment> comments)
+        {
+            _telephones = telephones;
+            _comments = comments;
+        }
+        public IReadOnlyCollection<string> Telephones
+        {
+            get
+            {
+                return (IReadOnlyCollection<string>)_telephones;
+            }
+        }
+
+        public IReadOnlyCollection<Comment> Comments
+        {
+            get { return (IReadOnlyCollection<Comment>)_comments; }
+        }
+    }
+}
+>>>>>>> 536725b84fc37b0c491bbe2cc8743e14f606d1aa
