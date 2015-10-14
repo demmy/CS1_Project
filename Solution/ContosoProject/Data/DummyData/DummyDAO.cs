@@ -5,7 +5,7 @@ using Domain.Entities.Users;
 
 namespace Data.DummyData
 {
-    public class DummyDAO<T> : IRepository<T>
+    class DummyDAO<T> : IRepository<T>
     {
         public void Create(T entity)
         {
