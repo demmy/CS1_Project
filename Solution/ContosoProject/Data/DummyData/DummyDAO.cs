@@ -11,7 +11,7 @@ using Domain.Entities.Users;
 
 namespace Data.DummyData
 {
-    class DummyDAO<T> : IRepository<T> where T : Entity, new()
+    public class DummyDAO<T> : IRepository<T> where T : Entity, new()
     {
         protected IList<T> _collection = new List<T>(); 
         public void Create(T entity)
@@ -52,7 +52,8 @@ namespace Data.DummyData
             {
                 _collection.First(x => x == entity).IsActive = false;
             }
-            throw new Exception();
+            else 
+                throw new Exception();
 
         }
 
@@ -62,7 +63,8 @@ namespace Data.DummyData
             {
                 _collection.RemoveAt(id);
             }
-            throw new Exception();
+            else 
+                throw new Exception();
         }
     }
 }

@@ -7,7 +7,7 @@ using Domain.Entities;
 
 namespace Data.DummyData
 {
-    class DummyDAOForClient : DummyDAOExtension<Client>, IClientRepository
+    public class DummyDAOForClient : DummyDAOExtension<Client>, IClientRepository
     {
         public DummyDAOForClient()
         {

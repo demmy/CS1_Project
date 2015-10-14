@@ -7,7 +7,7 @@ using Domain.Entities.Users;
 
 namespace Data.DummyData
 {
-    class DummyDAOForRole: DummyDAO<Role>, IRoleRepository
+    public class DummyDAOForRole: DummyDAO<Role>, IRoleRepository
     {
         public DummyDAOForRole()
         {
