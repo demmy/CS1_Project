@@ -19,7 +19,8 @@ namespace Data.DummyData
             {
                 return _collection.Where(x=>x.Login==login).ToList();
             }
-            throw new Exception();
+            else 
+                throw new Exception();
         }
 
         public ICollection<User> GetByRole(Role role)
@@ -28,7 +29,8 @@ namespace Data.DummyData
             {
                 return _collection.Where(x => x.Role == role).ToList();
             }
-            throw new Exception();
+            else 
+                throw new Exception();
         }
     }
 }

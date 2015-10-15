@@ -13,13 +13,13 @@ namespace Data.DummyData
         {
             _collection = Storage.Clients;
         }
-        public ICollection<Client> GetByName(string name)
+        
+        public ICollection<Client> GetByPerson(Person person)
         {
-            if (_collection.Any(x => x.Person.FirstName == name))
+            if (_collection.Any(x => x.Person == person))//need to override Equals in client
             {
-                return _collection.Where(x => x.Person.FirstName == name).ToList();
+                return _collection.Where(x => x.Person == person).ToList();
             }
-            throw new Exception();
         }
 
         public ICollection<Client> GetByCity(string city)

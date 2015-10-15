@@ -7,6 +7,7 @@ using Data.DummyData;
 using Domain.Entities.Comments;
 using Domain.Entities.Orders;
 using Domain.Entities.Products;
+using Domain.Entities.Users;
 
 namespace DAOQuerryTest
 {
@@ -33,6 +34,18 @@ namespace DAOQuerryTest
             
             DummyDAOForPermission permission = new DummyDAOForPermission();
             var byAddComment = permission.GetByTitle("Add Comment");
+
+            DummyDAOForProduct product = new DummyDAOForProduct();
+            var byCategory = product.GetByCategory(((List<Category>)byDateList)[0]);
+            var bySKU = product.GetBySKU("fhk32x");
+            
+            DummyDAOForRole role = new DummyDAOForRole();
+            var byPermission = role.GetByPermission(((List<Permission>)byAddComment)[0]);
+            var byTitle = role.GetByTitle("Admin");
+            
+            DummyDAOForUser user = new DummyDAOForUser();
+            var byLogin = user.GetByLogin("SecondSimpleAdmin");
+            var byRole = user.GetByRole(((List<Role>)(byTitle))[0]);
 
             Console.ReadKey();
         }
