@@ -20,9 +20,9 @@ namespace Data.DummyData
 
         public ICollection<T> GetByDate(DateTime date)
         {
-            if (_collection.Any(x => x.Date == date))
+            if (_collection.Any(x => String.Equals(x.Date.ToShortDateString(), date.ToShortDateString())))
             {
-                return (ICollection<T>)_collection.Select(x => x.Date).ToList();
+                return _collection.Where(x => String.Equals(x.Date.ToShortDateString(), date.ToShortDateString())).ToList();
             }
             throw new Exception();
         }

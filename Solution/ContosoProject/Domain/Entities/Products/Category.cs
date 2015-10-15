@@ -18,7 +18,7 @@ namespace Domain.Entities.Products
         public Category()
         {
         }
-
+        
         public string Title { get; set; }
 
         public IReadOnlyCollection<Comment> Comments
@@ -28,5 +28,11 @@ namespace Domain.Entities.Products
                 return (IReadOnlyCollection<Comment>)_comments;
             }
         }
+
+        public override string ToString()
+        {
+            return string.Format("ID: {0}, Is active: {1}< Title: {2}", Id,IsActive, Title);
+        }
     }
+
 }
