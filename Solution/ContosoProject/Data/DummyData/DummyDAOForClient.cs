@@ -20,6 +20,7 @@ namespace Data.DummyData
             {
                 return _collection.Where(x => x.Person == person).ToList();
             }
+            throw new Exception();
         }
 
         public ICollection<Client> GetByCity(string city)

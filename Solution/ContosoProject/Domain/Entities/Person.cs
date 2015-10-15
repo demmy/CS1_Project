@@ -1,4 +1,9 @@
-﻿using System;  namespace Domain.Entities {     public class Person     {
+﻿using System;
+
+namespace Domain.Entities
+{
+    public class Person
+    {
 
         public string FirstName { get; set; }
         public string MiddleName { get; set; }
@@ -14,7 +19,7 @@
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
             if (obj.GetType() != this.GetType()) return false;
-            return Equals((Person)obj);
+            return Equals((Person) obj);
         }
 
         protected bool Equals(Person other)
@@ -32,6 +37,5 @@
                 return hashCode;
             }
         }
-
-        
-    } }
+    }
+}
