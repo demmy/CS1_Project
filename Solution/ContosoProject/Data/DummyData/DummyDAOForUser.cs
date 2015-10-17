@@ -24,6 +24,11 @@ namespace Data.DummyData
 
         public ICollection<User> GetByRole(Role role)
         {
+            throw new System.NotImplementedException();
+        }
+
+        public ICollection<User> GetByName(string fn, string ln)
+        {
             if (_collection.Any(x => x.Role == role))
             {
                 return _collection.Where(x => x.Role == role).ToList();
