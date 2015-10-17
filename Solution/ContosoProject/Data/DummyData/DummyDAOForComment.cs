@@ -6,7 +6,7 @@ using Domain.Entities.Products;
 
 namespace Data.DummyData
 {
-    class DummyDAOForComment : DummyDAOExtension<Comment>, ICommentRepository
+    public class DummyDAOForComment : DummyDAOExtension<Comment>, ICommentRepository
     {
         public DummyDAOForComment()
         {

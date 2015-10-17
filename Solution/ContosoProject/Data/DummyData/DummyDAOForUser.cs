@@ -7,12 +7,13 @@ using Domain.Entities.Users;
 
 namespace Data.DummyData
 {
-    class DummyDAOForUser : DummyDAOExtension<User>, IUserRepository
+    public class DummyDAOForUser : DummyDAOExtension<User>, IUserRepository
     {
         public DummyDAOForUser()
         {
             _collection = Storage.Users;
         }
+
         public ICollection<User> GetByLogin(string login)
         {
             if (_collection.Any(x => x.Login == login))

@@ -29,77 +29,55 @@
         private void InitializeComponent()
         {
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
-            this.checkEdit1 = new DevExpress.XtraEditors.CheckEdit();
-            this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.LoginTextEdit = new DevExpress.XtraEditors.TextEdit();
+            this.UsersGridControl = new DevExpress.XtraGrid.GridControl();
+            this.UserGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.LoginColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn7 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn8 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton4 = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
+            this.LastNameLabelControl = new DevExpress.XtraEditors.LabelControl();
+            this.LastNameTextEdit = new DevExpress.XtraEditors.TextEdit();
+            this.LoginLabelControl = new DevExpress.XtraEditors.LabelControl();
+            this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.SearchUserButton = new DevExpress.XtraEditors.SimpleButton();
+            this.AddUserButton = new DevExpress.XtraEditors.SimpleButton();
+            this.EditUserButton = new DevExpress.XtraEditors.SimpleButton();
+            this.CancelUserButton = new DevExpress.XtraEditors.SimpleButton();
+            this.FirstNameLabelControl = new DevExpress.XtraEditors.LabelControl();
+            this.FirstNameTextEdit = new DevExpress.XtraEditors.TextEdit();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.layoutControlActiveCheckEdit = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlClientsGrid = new DevExpress.XtraLayout.LayoutControlItem();
-            this.emptySpaceItem9 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.layoutControlCancelBtn = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlEditClientBtn = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlAddClientBtn = new DevExpress.XtraLayout.LayoutControlItem();
-            this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.textEdit4 = new DevExpress.XtraEditors.TextEdit();
-            this.comboBoxEdit1 = new DevExpress.XtraEditors.ComboBoxEdit();
-            this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
-            this.layoutControlFirstNameTextEdit1 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.simpleButton5 = new DevExpress.XtraEditors.SimpleButton();
-            this.layoutControlSearchBtn = new DevExpress.XtraLayout.LayoutControlItem();
-            this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
-            this.layoutControlCityLabel = new DevExpress.XtraLayout.LayoutControlItem();
-            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.layoutControlCityTextEdit = new DevExpress.XtraLayout.LayoutControlItem();
-            this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
-            this.layoutControlLastNameTextEdit = new DevExpress.XtraLayout.LayoutControlItem();
-            this.textEdit2 = new DevExpress.XtraEditors.TextEdit();
+            this.layoutControlLoginTextEdit = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlUsersGrid = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlLastNameLabel = new DevExpress.XtraLayout.LayoutControlItem();
-            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
+            this.layoutControlLastNameTextEdit = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlLoginLabel = new DevExpress.XtraLayout.LayoutControlItem();
-            this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
+            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlFirstNameLabel = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlFirstNameTextEdit = new DevExpress.XtraLayout.LayoutControlItem();
-            this.textEdit3 = new DevExpress.XtraEditors.TextEdit();
+            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.checkEdit1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LoginTextEdit.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.UsersGridControl)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.UserGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LastNameTextEdit.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
+            this.panelControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.FirstNameTextEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlActiveCheckEdit)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlClientsGrid)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem9)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlCancelBtn)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlEditClientBtn)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlAddClientBtn)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit4.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlFirstNameTextEdit1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlSearchBtn)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlCityLabel)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlCityTextEdit)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlLastNameTextEdit)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlLoginTextEdit)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlUsersGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlLastNameLabel)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlLastNameTextEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlLoginLabel)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlFirstNameLabel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlFirstNameTextEdit)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit3.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
@@ -107,536 +85,394 @@
             this.layoutControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.layoutControl1.Controls.Add(this.textEdit3);
-            this.layoutControl1.Controls.Add(this.checkEdit1);
-            this.layoutControl1.Controls.Add(this.simpleButton3);
-            this.layoutControl1.Controls.Add(this.gridControl1);
-            this.layoutControl1.Controls.Add(this.labelControl2);
-            this.layoutControl1.Controls.Add(this.textEdit2);
-            this.layoutControl1.Controls.Add(this.textEdit1);
-            this.layoutControl1.Controls.Add(this.simpleButton2);
-            this.layoutControl1.Controls.Add(this.simpleButton4);
-            this.layoutControl1.Controls.Add(this.simpleButton1);
-            this.layoutControl1.Controls.Add(this.labelControl1);
-            this.layoutControl1.Controls.Add(this.labelControl3);
-            this.layoutControl1.Controls.Add(this.textEdit4);
-            this.layoutControl1.Controls.Add(this.labelControl5);
-            this.layoutControl1.Controls.Add(this.labelControl4);
-            this.layoutControl1.Controls.Add(this.simpleButton5);
-            this.layoutControl1.Controls.Add(this.comboBoxEdit1);
-            this.layoutControl1.Location = new System.Drawing.Point(0, -1);
+            this.layoutControl1.Controls.Add(this.LoginTextEdit);
+            this.layoutControl1.Controls.Add(this.UsersGridControl);
+            this.layoutControl1.Controls.Add(this.LastNameLabelControl);
+            this.layoutControl1.Controls.Add(this.LastNameTextEdit);
+            this.layoutControl1.Controls.Add(this.LoginLabelControl);
+            this.layoutControl1.Controls.Add(this.panelControl1);
+            this.layoutControl1.Controls.Add(this.FirstNameLabelControl);
+            this.layoutControl1.Controls.Add(this.FirstNameTextEdit);
+            this.layoutControl1.Location = new System.Drawing.Point(2, -1);
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.Root = this.layoutControlGroup1;
-            this.layoutControl1.Size = new System.Drawing.Size(908, 566);
+            this.layoutControl1.Size = new System.Drawing.Size(1010, 730);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
-            // checkEdit1
+            // LoginTextEdit
             // 
-            this.checkEdit1.Location = new System.Drawing.Point(45, 123);
-            this.checkEdit1.Name = "checkEdit1";
-            this.checkEdit1.Properties.Caption = "Active";
-            this.checkEdit1.Size = new System.Drawing.Size(52, 19);
-            this.checkEdit1.StyleController = this.layoutControl1;
-            this.checkEdit1.TabIndex = 56;
+            this.LoginTextEdit.Location = new System.Drawing.Point(5, 105);
+            this.LoginTextEdit.Name = "LoginTextEdit";
+            this.LoginTextEdit.Size = new System.Drawing.Size(328, 20);
+            this.LoginTextEdit.StyleController = this.layoutControl1;
+            this.LoginTextEdit.TabIndex = 52;
             // 
-            // gridControl1
+            // UsersGridControl
             // 
-            this.gridControl1.Location = new System.Drawing.Point(45, 174);
-            this.gridControl1.MainView = this.gridView1;
-            this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(814, 254);
-            this.gridControl1.TabIndex = 57;
-            this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView1,
+            this.UsersGridControl.Location = new System.Drawing.Point(5, 136);
+            this.UsersGridControl.MainView = this.UserGridView;
+            this.UsersGridControl.Name = "UsersGridControl";
+            this.UsersGridControl.Size = new System.Drawing.Size(996, 589);
+            this.UsersGridControl.TabIndex = 57;
+            this.UsersGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.UserGridView,
             this.gridView2});
             // 
-            // gridView1
+            // UserGridView
             // 
-            this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.gridColumn1,
+            this.UserGridView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.LoginColumn,
             this.gridColumn2,
             this.gridColumn3,
             this.gridColumn4,
-            this.gridColumn5,
             this.gridColumn6,
-            this.gridColumn7});
-            this.gridView1.GridControl = this.gridControl1;
-            this.gridView1.Name = "gridView1";
-            this.gridView1.OptionsView.ShowGroupPanel = false;
+            this.gridColumn8,
+            this.gridColumn1});
+            this.UserGridView.GridControl = this.UsersGridControl;
+            this.UserGridView.Name = "UserGridView";
+            this.UserGridView.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.False;
+            this.UserGridView.OptionsBehavior.AllowDeleteRows = DevExpress.Utils.DefaultBoolean.False;
+            this.UserGridView.OptionsBehavior.Editable = false;
+            this.UserGridView.OptionsView.ShowGroupPanel = false;
+            this.UserGridView.DoubleClick += new System.EventHandler(this.UserGridView_DoubleClick);
             // 
-            // gridColumn1
+            // LoginColumn
             // 
-            this.gridColumn1.Caption = "#";
-            this.gridColumn1.Name = "gridColumn1";
-            this.gridColumn1.Visible = true;
-            this.gridColumn1.VisibleIndex = 0;
-            this.gridColumn1.Width = 21;
+            this.LoginColumn.Caption = "Login";
+            this.LoginColumn.FieldName = "Login";
+            this.LoginColumn.Name = "LoginColumn";
+            this.LoginColumn.Visible = true;
+            this.LoginColumn.VisibleIndex = 0;
+            this.LoginColumn.Width = 112;
             // 
             // gridColumn2
             // 
-            this.gridColumn2.Caption = "Login";
+            this.gridColumn2.Caption = "Last Name";
+            this.gridColumn2.FieldName = "Person.LastName";
             this.gridColumn2.Name = "gridColumn2";
             this.gridColumn2.Visible = true;
             this.gridColumn2.VisibleIndex = 1;
-            this.gridColumn2.Width = 121;
+            this.gridColumn2.Width = 155;
             // 
             // gridColumn3
             // 
-            this.gridColumn3.Caption = "Last Name";
+            this.gridColumn3.Caption = "First Name";
+            this.gridColumn3.FieldName = "Person.FirstName";
             this.gridColumn3.Name = "gridColumn3";
             this.gridColumn3.Visible = true;
             this.gridColumn3.VisibleIndex = 2;
-            this.gridColumn3.Width = 155;
+            this.gridColumn3.Width = 162;
             // 
             // gridColumn4
             // 
-            this.gridColumn4.Caption = "First Name";
+            this.gridColumn4.Caption = "Middle Name";
+            this.gridColumn4.FieldName = "Person.MiddleName";
             this.gridColumn4.Name = "gridColumn4";
             this.gridColumn4.Visible = true;
             this.gridColumn4.VisibleIndex = 3;
-            this.gridColumn4.Width = 162;
-            // 
-            // gridColumn5
-            // 
-            this.gridColumn5.Caption = "Middle Name";
-            this.gridColumn5.Name = "gridColumn5";
-            this.gridColumn5.Visible = true;
-            this.gridColumn5.VisibleIndex = 4;
-            this.gridColumn5.Width = 159;
+            this.gridColumn4.Width = 159;
             // 
             // gridColumn6
             // 
             this.gridColumn6.Caption = "Role";
+            this.gridColumn6.FieldName = "Role.Title";
             this.gridColumn6.Name = "gridColumn6";
             this.gridColumn6.Visible = true;
-            this.gridColumn6.VisibleIndex = 5;
-            this.gridColumn6.Width = 132;
+            this.gridColumn6.VisibleIndex = 4;
+            this.gridColumn6.Width = 133;
             // 
-            // gridColumn7
+            // gridColumn8
             // 
-            this.gridColumn7.Caption = "Active";
-            this.gridColumn7.Name = "gridColumn7";
-            this.gridColumn7.Visible = true;
-            this.gridColumn7.VisibleIndex = 6;
-            this.gridColumn7.Width = 50;
+            this.gridColumn8.Caption = "Active";
+            this.gridColumn8.FieldName = "IsActive";
+            this.gridColumn8.Name = "gridColumn8";
+            this.gridColumn8.Visible = true;
+            this.gridColumn8.VisibleIndex = 5;
             // 
             // gridView2
             // 
-            this.gridView2.GridControl = this.gridControl1;
+            this.gridView2.GridControl = this.UsersGridControl;
             this.gridView2.Name = "gridView2";
             // 
-            // simpleButton2
+            // LastNameLabelControl
             // 
-            this.simpleButton2.Location = new System.Drawing.Point(764, 455);
-            this.simpleButton2.Name = "simpleButton2";
-            this.simpleButton2.Size = new System.Drawing.Size(95, 22);
-            this.simpleButton2.StyleController = this.layoutControl1;
-            this.simpleButton2.TabIndex = 60;
-            this.simpleButton2.Text = "Cancel";
+            this.LastNameLabelControl.Location = new System.Drawing.Point(690, 71);
+            this.LastNameLabelControl.Name = "LastNameLabelControl";
+            this.LastNameLabelControl.Size = new System.Drawing.Size(296, 30);
+            this.LastNameLabelControl.StyleController = this.layoutControl1;
+            this.LastNameLabelControl.TabIndex = 53;
+            this.LastNameLabelControl.Text = "Last Name";
             // 
-            // simpleButton4
+            // LastNameTextEdit
             // 
-            this.simpleButton4.Location = new System.Drawing.Point(659, 455);
-            this.simpleButton4.Name = "simpleButton4";
-            this.simpleButton4.Size = new System.Drawing.Size(95, 22);
-            this.simpleButton4.StyleController = this.layoutControl1;
-            this.simpleButton4.TabIndex = 59;
-            this.simpleButton4.Text = "Edit user";
+            this.LastNameTextEdit.Location = new System.Drawing.Point(680, 105);
+            this.LastNameTextEdit.Name = "LastNameTextEdit";
+            this.LastNameTextEdit.Size = new System.Drawing.Size(321, 20);
+            this.LastNameTextEdit.StyleController = this.layoutControl1;
+            this.LastNameTextEdit.TabIndex = 61;
             // 
-            // simpleButton1
+            // LoginLabelControl
             // 
-            this.simpleButton1.Location = new System.Drawing.Point(554, 455);
-            this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(95, 22);
-            this.simpleButton1.StyleController = this.layoutControl1;
-            this.simpleButton1.TabIndex = 58;
-            this.simpleButton1.Text = "Add user";
+            this.LoginLabelControl.Location = new System.Drawing.Point(15, 71);
+            this.LoginLabelControl.Name = "LoginLabelControl";
+            this.LoginLabelControl.Size = new System.Drawing.Size(293, 30);
+            this.LoginLabelControl.StyleController = this.layoutControl1;
+            this.LoginLabelControl.TabIndex = 62;
+            this.LoginLabelControl.Text = "Login";
+            // 
+            // panelControl1
+            // 
+            this.panelControl1.Appearance.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panelControl1.Appearance.Options.UseBackColor = true;
+            this.panelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.panelControl1.Controls.Add(this.SearchUserButton);
+            this.panelControl1.Controls.Add(this.AddUserButton);
+            this.panelControl1.Controls.Add(this.EditUserButton);
+            this.panelControl1.Controls.Add(this.CancelUserButton);
+            this.panelControl1.Location = new System.Drawing.Point(2, 4);
+            this.panelControl1.Name = "panelControl1";
+            this.panelControl1.Size = new System.Drawing.Size(1002, 63);
+            this.panelControl1.TabIndex = 64;
+            // 
+            // SearchUserButton
+            // 
+            this.SearchUserButton.Appearance.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.SearchUserButton.Appearance.Font = new System.Drawing.Font("Tahoma", 12.25F, System.Drawing.FontStyle.Bold);
+            this.SearchUserButton.Appearance.ForeColor = System.Drawing.Color.White;
+            this.SearchUserButton.Appearance.Options.UseBackColor = true;
+            this.SearchUserButton.Appearance.Options.UseFont = true;
+            this.SearchUserButton.Appearance.Options.UseForeColor = true;
+            this.SearchUserButton.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat;
+            this.SearchUserButton.Location = new System.Drawing.Point(262, 5);
+            this.SearchUserButton.Name = "SearchUserButton";
+            this.SearchUserButton.Size = new System.Drawing.Size(120, 53);
+            this.SearchUserButton.TabIndex = 55;
+            this.SearchUserButton.Text = "Search";
+            this.SearchUserButton.Click += new System.EventHandler(this.SearchUserButton_Click);
+            // 
+            // AddUserButton
+            // 
+            this.AddUserButton.Appearance.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.AddUserButton.Appearance.BackColor2 = System.Drawing.Color.LightSteelBlue;
+            this.AddUserButton.Appearance.Font = new System.Drawing.Font("Tahoma", 12.25F, System.Drawing.FontStyle.Bold);
+            this.AddUserButton.Appearance.ForeColor = System.Drawing.Color.White;
+            this.AddUserButton.Appearance.Options.UseBackColor = true;
+            this.AddUserButton.Appearance.Options.UseFont = true;
+            this.AddUserButton.Appearance.Options.UseForeColor = true;
+            this.AddUserButton.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat;
+            this.AddUserButton.Location = new System.Drawing.Point(10, 5);
+            this.AddUserButton.Name = "AddUserButton";
+            this.AddUserButton.Size = new System.Drawing.Size(120, 53);
+            this.AddUserButton.TabIndex = 58;
+            this.AddUserButton.Text = "Add user";
+            this.AddUserButton.Click += new System.EventHandler(this.AddUserButton_Click);
+            // 
+            // EditUserButton
+            // 
+            this.EditUserButton.Appearance.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.EditUserButton.Appearance.Font = new System.Drawing.Font("Tahoma", 12.25F, System.Drawing.FontStyle.Bold);
+            this.EditUserButton.Appearance.ForeColor = System.Drawing.Color.White;
+            this.EditUserButton.Appearance.Options.UseBackColor = true;
+            this.EditUserButton.Appearance.Options.UseFont = true;
+            this.EditUserButton.Appearance.Options.UseForeColor = true;
+            this.EditUserButton.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat;
+            this.EditUserButton.Location = new System.Drawing.Point(136, 5);
+            this.EditUserButton.Name = "EditUserButton";
+            this.EditUserButton.Size = new System.Drawing.Size(120, 53);
+            this.EditUserButton.TabIndex = 59;
+            this.EditUserButton.Text = "Edit user";
+            this.EditUserButton.Click += new System.EventHandler(this.EditUserButton_Click);
+            // 
+            // CancelUserButton
+            // 
+            this.CancelUserButton.Appearance.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.CancelUserButton.Appearance.Font = new System.Drawing.Font("Tahoma", 12.25F, System.Drawing.FontStyle.Bold);
+            this.CancelUserButton.Appearance.ForeColor = System.Drawing.Color.White;
+            this.CancelUserButton.Appearance.Options.UseBackColor = true;
+            this.CancelUserButton.Appearance.Options.UseFont = true;
+            this.CancelUserButton.Appearance.Options.UseForeColor = true;
+            this.CancelUserButton.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat;
+            this.CancelUserButton.Location = new System.Drawing.Point(388, 5);
+            this.CancelUserButton.Name = "CancelUserButton";
+            this.CancelUserButton.Size = new System.Drawing.Size(120, 53);
+            this.CancelUserButton.TabIndex = 60;
+            this.CancelUserButton.Text = "Cancel";
+            this.CancelUserButton.Click += new System.EventHandler(this.CancelButton_Click);
+            // 
+            // FirstNameLabelControl
+            // 
+            this.FirstNameLabelControl.Location = new System.Drawing.Point(350, 71);
+            this.FirstNameLabelControl.Name = "FirstNameLabelControl";
+            this.FirstNameLabelControl.Size = new System.Drawing.Size(293, 30);
+            this.FirstNameLabelControl.StyleController = this.layoutControl1;
+            this.FirstNameLabelControl.TabIndex = 62;
+            this.FirstNameLabelControl.Text = "First Name";
+            // 
+            // FirstNameTextEdit
+            // 
+            this.FirstNameTextEdit.Location = new System.Drawing.Point(345, 105);
+            this.FirstNameTextEdit.Name = "FirstNameTextEdit";
+            this.FirstNameTextEdit.Size = new System.Drawing.Size(323, 20);
+            this.FirstNameTextEdit.StyleController = this.layoutControl1;
+            this.FirstNameTextEdit.TabIndex = 63;
             // 
             // layoutControlGroup1
             // 
             this.layoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
             this.layoutControlGroup1.GroupBordersVisible = false;
             this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlFirstNameTextEdit,
-            this.layoutControlActiveCheckEdit,
-            this.layoutControlSearchBtn,
-            this.layoutControlClientsGrid,
+            this.layoutControlLoginTextEdit,
+            this.layoutControlUsersGrid,
             this.layoutControlLastNameLabel,
             this.layoutControlLastNameTextEdit,
-            this.layoutControlCityTextEdit,
-            this.emptySpaceItem9,
-            this.layoutControlCancelBtn,
-            this.layoutControlEditClientBtn,
-            this.layoutControlAddClientBtn,
-            this.layoutControlCityLabel,
-            this.emptySpaceItem1,
             this.layoutControlLoginLabel,
-            this.layoutControlFirstNameTextEdit1,
-            this.layoutControlItem1});
+            this.layoutControlItem1,
+            this.layoutControlFirstNameLabel,
+            this.layoutControlFirstNameTextEdit});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "Root";
             this.layoutControlGroup1.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 4, 2, 0);
-            this.layoutControlGroup1.Size = new System.Drawing.Size(908, 566);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(1010, 730);
             this.layoutControlGroup1.TextVisible = false;
             // 
-            // layoutControlActiveCheckEdit
+            // layoutControlLoginTextEdit
             // 
-            this.layoutControlActiveCheckEdit.Control = this.checkEdit1;
-            this.layoutControlActiveCheckEdit.CustomizationFormText = "layoutControlActiveCheckEdit";
-            this.layoutControlActiveCheckEdit.Location = new System.Drawing.Point(0, 119);
-            this.layoutControlActiveCheckEdit.MinSize = new System.Drawing.Size(99, 23);
-            this.layoutControlActiveCheckEdit.Name = "layoutControlActiveCheckEdit";
-            this.layoutControlActiveCheckEdit.Padding = new DevExpress.XtraLayout.Utils.Padding(45, 2, 2, 2);
-            this.layoutControlActiveCheckEdit.Size = new System.Drawing.Size(99, 28);
-            this.layoutControlActiveCheckEdit.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.layoutControlActiveCheckEdit.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlActiveCheckEdit.TextVisible = false;
+            this.layoutControlLoginTextEdit.Control = this.LoginTextEdit;
+            this.layoutControlLoginTextEdit.CustomizationFormText = "layoutControlFirstNameTextEdit";
+            this.layoutControlLoginTextEdit.Location = new System.Drawing.Point(0, 101);
+            this.layoutControlLoginTextEdit.MinSize = new System.Drawing.Size(57, 24);
+            this.layoutControlLoginTextEdit.Name = "layoutControlLoginTextEdit";
+            this.layoutControlLoginTextEdit.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 2, 2, 2);
+            this.layoutControlLoginTextEdit.Size = new System.Drawing.Size(335, 28);
+            this.layoutControlLoginTextEdit.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.layoutControlLoginTextEdit.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlLoginTextEdit.TextVisible = false;
             // 
-            // layoutControlClientsGrid
+            // layoutControlUsersGrid
             // 
-            this.layoutControlClientsGrid.Control = this.gridControl1;
-            this.layoutControlClientsGrid.CustomizationFormText = "layoutControlClientsGrid";
-            this.layoutControlClientsGrid.Location = new System.Drawing.Point(0, 147);
-            this.layoutControlClientsGrid.MinSize = new System.Drawing.Size(190, 70);
-            this.layoutControlClientsGrid.Name = "layoutControlClientsGrid";
-            this.layoutControlClientsGrid.Padding = new DevExpress.XtraLayout.Utils.Padding(45, 45, 25, 25);
-            this.layoutControlClientsGrid.Size = new System.Drawing.Size(904, 304);
-            this.layoutControlClientsGrid.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.layoutControlClientsGrid.Text = "layoutControlUsersGrid";
-            this.layoutControlClientsGrid.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlClientsGrid.TextVisible = false;
-            // 
-            // emptySpaceItem9
-            // 
-            this.emptySpaceItem9.AllowHotTrack = false;
-            this.emptySpaceItem9.CustomizationFormText = "emptySpaceItem2";
-            this.emptySpaceItem9.Location = new System.Drawing.Point(0, 0);
-            this.emptySpaceItem9.MaxSize = new System.Drawing.Size(904, 39);
-            this.emptySpaceItem9.MinSize = new System.Drawing.Size(904, 39);
-            this.emptySpaceItem9.Name = "emptySpaceItem9";
-            this.emptySpaceItem9.Size = new System.Drawing.Size(904, 39);
-            this.emptySpaceItem9.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.emptySpaceItem9.Text = "emptySpaceItem2";
-            this.emptySpaceItem9.TextSize = new System.Drawing.Size(0, 0);
-            // 
-            // layoutControlCancelBtn
-            // 
-            this.layoutControlCancelBtn.Control = this.simpleButton2;
-            this.layoutControlCancelBtn.CustomizationFormText = "layoutControlCancelBtn";
-            this.layoutControlCancelBtn.Location = new System.Drawing.Point(759, 451);
-            this.layoutControlCancelBtn.MinSize = new System.Drawing.Size(93, 49);
-            this.layoutControlCancelBtn.Name = "layoutControlCancelBtn";
-            this.layoutControlCancelBtn.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 45, 2, 25);
-            this.layoutControlCancelBtn.Size = new System.Drawing.Size(145, 49);
-            this.layoutControlCancelBtn.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.layoutControlCancelBtn.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlCancelBtn.TextVisible = false;
-            // 
-            // layoutControlEditClientBtn
-            // 
-            this.layoutControlEditClientBtn.Control = this.simpleButton4;
-            this.layoutControlEditClientBtn.CustomizationFormText = "  ";
-            this.layoutControlEditClientBtn.Location = new System.Drawing.Point(654, 451);
-            this.layoutControlEditClientBtn.MinSize = new System.Drawing.Size(69, 49);
-            this.layoutControlEditClientBtn.Name = "layoutControlEditClientBtn";
-            this.layoutControlEditClientBtn.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 5, 2, 25);
-            this.layoutControlEditClientBtn.Size = new System.Drawing.Size(105, 49);
-            this.layoutControlEditClientBtn.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.layoutControlEditClientBtn.Text = "  ";
-            this.layoutControlEditClientBtn.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlEditClientBtn.TextVisible = false;
-            // 
-            // layoutControlAddClientBtn
-            // 
-            this.layoutControlAddClientBtn.Control = this.simpleButton1;
-            this.layoutControlAddClientBtn.CustomizationFormText = "layoutControlAddClientBtn";
-            this.layoutControlAddClientBtn.Location = new System.Drawing.Point(549, 451);
-            this.layoutControlAddClientBtn.MinSize = new System.Drawing.Size(68, 49);
-            this.layoutControlAddClientBtn.Name = "layoutControlAddClientBtn";
-            this.layoutControlAddClientBtn.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 5, 2, 25);
-            this.layoutControlAddClientBtn.Size = new System.Drawing.Size(105, 49);
-            this.layoutControlAddClientBtn.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.layoutControlAddClientBtn.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlAddClientBtn.TextVisible = false;
-            // 
-            // emptySpaceItem1
-            // 
-            this.emptySpaceItem1.AllowHotTrack = false;
-            this.emptySpaceItem1.CustomizationFormText = "emptySpaceItem1";
-            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 451);
-            this.emptySpaceItem1.MinSize = new System.Drawing.Size(104, 24);
-            this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(549, 49);
-            this.emptySpaceItem1.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
-            // 
-            // textEdit4
-            // 
-            this.textEdit4.Location = new System.Drawing.Point(45, 521);
-            this.textEdit4.Name = "textEdit4";
-            this.textEdit4.Size = new System.Drawing.Size(857, 20);
-            this.textEdit4.StyleController = this.layoutControl1;
-            this.textEdit4.TabIndex = 52;
-            // 
-            // comboBoxEdit1
-            // 
-            this.comboBoxEdit1.Location = new System.Drawing.Point(407, 521);
-            this.comboBoxEdit1.Name = "comboBoxEdit1";
-            this.comboBoxEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.comboBoxEdit1.Size = new System.Drawing.Size(250, 20);
-            this.comboBoxEdit1.StyleController = this.layoutControl1;
-            this.comboBoxEdit1.TabIndex = 64;
-            // 
-            // labelControl4
-            // 
-            this.labelControl4.Location = new System.Drawing.Point(45, 504);
-            this.labelControl4.Name = "labelControl4";
-            this.labelControl4.Size = new System.Drawing.Size(171, 13);
-            this.labelControl4.StyleController = this.layoutControl1;
-            this.labelControl4.TabIndex = 62;
-            this.labelControl4.Text = "Order Number";
-            // 
-            // labelControl5
-            // 
-            this.labelControl5.Location = new System.Drawing.Point(111, 504);
-            this.labelControl5.Name = "labelControl5";
-            this.labelControl5.Size = new System.Drawing.Size(710, 13);
-            this.labelControl5.StyleController = this.layoutControl1;
-            this.labelControl5.TabIndex = 62;
-            this.labelControl5.Text = "Status";
-            // 
-            // layoutControlFirstNameTextEdit1
-            // 
-            this.layoutControlFirstNameTextEdit1.Control = this.textEdit4;
-            this.layoutControlFirstNameTextEdit1.CustomizationFormText = "layoutControlFirstNameTextEdit";
-            this.layoutControlFirstNameTextEdit1.Location = new System.Drawing.Point(0, 517);
-            this.layoutControlFirstNameTextEdit1.MinSize = new System.Drawing.Size(97, 47);
-            this.layoutControlFirstNameTextEdit1.Name = "layoutControlFirstNameTextEdit1";
-            this.layoutControlFirstNameTextEdit1.Padding = new DevExpress.XtraLayout.Utils.Padding(45, 2, 2, 25);
-            this.layoutControlFirstNameTextEdit1.Size = new System.Drawing.Size(904, 47);
-            this.layoutControlFirstNameTextEdit1.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.layoutControlFirstNameTextEdit1.Text = "layoutControlOrderNumberTextEdit";
-            this.layoutControlFirstNameTextEdit1.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlFirstNameTextEdit1.TextVisible = false;
-            // 
-            // layoutControlItem1
-            // 
-            this.layoutControlItem1.Control = this.labelControl5;
-            this.layoutControlItem1.CustomizationFormText = "layoutControlLastNameLabel";
-            this.layoutControlItem1.Location = new System.Drawing.Point(0, 500);
-            this.layoutControlItem1.MinSize = new System.Drawing.Size(245, 17);
-            this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Padding = new DevExpress.XtraLayout.Utils.Padding(111, 83, 2, 2);
-            this.layoutControlItem1.Size = new System.Drawing.Size(904, 17);
-            this.layoutControlItem1.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.layoutControlItem1.Text = "layoutControlStatusLabel";
-            this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem1.TextVisible = false;
-            // 
-            // simpleButton5
-            // 
-            this.simpleButton5.Location = new System.Drawing.Point(764, 530);
-            this.simpleButton5.Name = "simpleButton5";
-            this.simpleButton5.Size = new System.Drawing.Size(95, 9);
-            this.simpleButton5.StyleController = this.layoutControl1;
-            this.simpleButton5.TabIndex = 55;
-            this.simpleButton5.Text = "Search";
-            // 
-            // layoutControlSearchBtn
-            // 
-            this.layoutControlSearchBtn.Control = this.simpleButton3;
-            this.layoutControlSearchBtn.CustomizationFormText = "layoutControlSearchBtn";
-            this.layoutControlSearchBtn.Location = new System.Drawing.Point(99, 119);
-            this.layoutControlSearchBtn.MinSize = new System.Drawing.Size(754, 26);
-            this.layoutControlSearchBtn.Name = "layoutControlSearchBtn";
-            this.layoutControlSearchBtn.Padding = new DevExpress.XtraLayout.Utils.Padding(665, 45, 2, 2);
-            this.layoutControlSearchBtn.Size = new System.Drawing.Size(805, 28);
-            this.layoutControlSearchBtn.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.layoutControlSearchBtn.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlSearchBtn.TextVisible = false;
-            // 
-            // simpleButton3
-            // 
-            this.simpleButton3.Location = new System.Drawing.Point(764, 123);
-            this.simpleButton3.Name = "simpleButton3";
-            this.simpleButton3.Size = new System.Drawing.Size(95, 24);
-            this.simpleButton3.StyleController = this.layoutControl1;
-            this.simpleButton3.TabIndex = 55;
-            this.simpleButton3.Text = "Search";
-            // 
-            // layoutControlCityLabel
-            // 
-            this.layoutControlCityLabel.Control = this.labelControl1;
-            this.layoutControlCityLabel.CustomizationFormText = "layoutControlCityLabel";
-            this.layoutControlCityLabel.Location = new System.Drawing.Point(559, 39);
-            this.layoutControlCityLabel.MinSize = new System.Drawing.Size(167, 17);
-            this.layoutControlCityLabel.Name = "layoutControlCityLabel";
-            this.layoutControlCityLabel.Padding = new DevExpress.XtraLayout.Utils.Padding(103, 45, 2, 2);
-            this.layoutControlCityLabel.Size = new System.Drawing.Size(345, 30);
-            this.layoutControlCityLabel.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.layoutControlCityLabel.Text = "layoutControlLastNameLabel";
-            this.layoutControlCityLabel.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlCityLabel.TextVisible = false;
-            // 
-            // labelControl1
-            // 
-            this.labelControl1.Location = new System.Drawing.Point(662, 43);
-            this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(197, 26);
-            this.labelControl1.StyleController = this.layoutControl1;
-            this.labelControl1.TabIndex = 53;
-            this.labelControl1.Text = "Last Name";
-            // 
-            // layoutControlCityTextEdit
-            // 
-            this.layoutControlCityTextEdit.Control = this.textEdit1;
-            this.layoutControlCityTextEdit.CustomizationFormText = "layoutControlCityTextEdit";
-            this.layoutControlCityTextEdit.Location = new System.Drawing.Point(559, 69);
-            this.layoutControlCityTextEdit.MinSize = new System.Drawing.Size(195, 24);
-            this.layoutControlCityTextEdit.Name = "layoutControlCityTextEdit";
-            this.layoutControlCityTextEdit.Padding = new DevExpress.XtraLayout.Utils.Padding(100, 45, 2, 2);
-            this.layoutControlCityTextEdit.Size = new System.Drawing.Size(345, 50);
-            this.layoutControlCityTextEdit.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.layoutControlCityTextEdit.Text = "layoutControlLastNameTextEdit";
-            this.layoutControlCityTextEdit.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlCityTextEdit.TextVisible = false;
-            // 
-            // textEdit1
-            // 
-            this.textEdit1.Location = new System.Drawing.Point(659, 73);
-            this.textEdit1.Name = "textEdit1";
-            this.textEdit1.Size = new System.Drawing.Size(200, 20);
-            this.textEdit1.StyleController = this.layoutControl1;
-            this.textEdit1.TabIndex = 61;
-            // 
-            // layoutControlLastNameTextEdit
-            // 
-            this.layoutControlLastNameTextEdit.Control = this.textEdit2;
-            this.layoutControlLastNameTextEdit.CustomizationFormText = "layoutControlLastNameTextEdit";
-            this.layoutControlLastNameTextEdit.Location = new System.Drawing.Point(247, 69);
-            this.layoutControlLastNameTextEdit.MinSize = new System.Drawing.Size(162, 24);
-            this.layoutControlLastNameTextEdit.Name = "layoutControlLastNameTextEdit";
-            this.layoutControlLastNameTextEdit.Padding = new DevExpress.XtraLayout.Utils.Padding(110, 2, 2, 2);
-            this.layoutControlLastNameTextEdit.Size = new System.Drawing.Size(312, 50);
-            this.layoutControlLastNameTextEdit.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.layoutControlLastNameTextEdit.Text = "layoutControlFirstNameTextEdit";
-            this.layoutControlLastNameTextEdit.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlLastNameTextEdit.TextVisible = false;
-            // 
-            // textEdit2
-            // 
-            this.textEdit2.Location = new System.Drawing.Point(357, 73);
-            this.textEdit2.Name = "textEdit2";
-            this.textEdit2.Size = new System.Drawing.Size(200, 20);
-            this.textEdit2.StyleController = this.layoutControl1;
-            this.textEdit2.TabIndex = 63;
+            this.layoutControlUsersGrid.Control = this.UsersGridControl;
+            this.layoutControlUsersGrid.CustomizationFormText = "layoutControlClientsGrid";
+            this.layoutControlUsersGrid.Location = new System.Drawing.Point(0, 129);
+            this.layoutControlUsersGrid.MinSize = new System.Drawing.Size(190, 70);
+            this.layoutControlUsersGrid.Name = "layoutControlUsersGrid";
+            this.layoutControlUsersGrid.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
+            this.layoutControlUsersGrid.Size = new System.Drawing.Size(1006, 599);
+            this.layoutControlUsersGrid.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.layoutControlUsersGrid.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlUsersGrid.TextVisible = false;
             // 
             // layoutControlLastNameLabel
             // 
-            this.layoutControlLastNameLabel.Control = this.labelControl2;
-            this.layoutControlLastNameLabel.CustomizationFormText = "layoutControlLastNameLabel";
-            this.layoutControlLastNameLabel.Location = new System.Drawing.Point(247, 39);
-            this.layoutControlLastNameLabel.MinSize = new System.Drawing.Size(244, 17);
+            this.layoutControlLastNameLabel.Control = this.LastNameLabelControl;
+            this.layoutControlLastNameLabel.CustomizationFormText = "layoutControlCityLabel";
+            this.layoutControlLastNameLabel.Location = new System.Drawing.Point(670, 67);
+            this.layoutControlLastNameLabel.MinSize = new System.Drawing.Size(54, 17);
             this.layoutControlLastNameLabel.Name = "layoutControlLastNameLabel";
-            this.layoutControlLastNameLabel.Padding = new DevExpress.XtraLayout.Utils.Padding(111, 83, 2, 2);
-            this.layoutControlLastNameLabel.Size = new System.Drawing.Size(312, 30);
+            this.layoutControlLastNameLabel.Padding = new DevExpress.XtraLayout.Utils.Padding(20, 20, 2, 2);
+            this.layoutControlLastNameLabel.Size = new System.Drawing.Size(336, 34);
             this.layoutControlLastNameLabel.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.layoutControlLastNameLabel.Text = "layoutControlFirstNameLabel";
             this.layoutControlLastNameLabel.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlLastNameLabel.TextVisible = false;
             // 
-            // labelControl2
+            // layoutControlLastNameTextEdit
             // 
-            this.labelControl2.Location = new System.Drawing.Point(358, 43);
-            this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(118, 26);
-            this.labelControl2.StyleController = this.layoutControl1;
-            this.labelControl2.TabIndex = 62;
-            this.labelControl2.Text = "First Name";
+            this.layoutControlLastNameTextEdit.Control = this.LastNameTextEdit;
+            this.layoutControlLastNameTextEdit.CustomizationFormText = "layoutControlCityTextEdit";
+            this.layoutControlLastNameTextEdit.Location = new System.Drawing.Point(670, 101);
+            this.layoutControlLastNameTextEdit.MinSize = new System.Drawing.Size(62, 24);
+            this.layoutControlLastNameTextEdit.Name = "layoutControlLastNameTextEdit";
+            this.layoutControlLastNameTextEdit.Padding = new DevExpress.XtraLayout.Utils.Padding(10, 5, 2, 2);
+            this.layoutControlLastNameTextEdit.Size = new System.Drawing.Size(336, 28);
+            this.layoutControlLastNameTextEdit.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.layoutControlLastNameTextEdit.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlLastNameTextEdit.TextVisible = false;
             // 
             // layoutControlLoginLabel
             // 
-            this.layoutControlLoginLabel.Control = this.labelControl3;
+            this.layoutControlLoginLabel.Control = this.LoginLabelControl;
             this.layoutControlLoginLabel.CustomizationFormText = "layoutControlFirstNameLabel";
-            this.layoutControlLoginLabel.Location = new System.Drawing.Point(0, 39);
-            this.layoutControlLoginLabel.MinSize = new System.Drawing.Size(176, 17);
+            this.layoutControlLoginLabel.Location = new System.Drawing.Point(0, 67);
+            this.layoutControlLoginLabel.MinSize = new System.Drawing.Size(81, 17);
             this.layoutControlLoginLabel.Name = "layoutControlLoginLabel";
-            this.layoutControlLoginLabel.Padding = new DevExpress.XtraLayout.Utils.Padding(45, 81, 2, 2);
-            this.layoutControlLoginLabel.Size = new System.Drawing.Size(247, 30);
+            this.layoutControlLoginLabel.Padding = new DevExpress.XtraLayout.Utils.Padding(15, 27, 2, 2);
+            this.layoutControlLoginLabel.Size = new System.Drawing.Size(335, 34);
             this.layoutControlLoginLabel.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlLoginLabel.Text = "layoutControlLastNameLabel";
             this.layoutControlLoginLabel.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlLoginLabel.TextVisible = false;
             // 
-            // labelControl3
+            // layoutControlItem1
             // 
-            this.labelControl3.Location = new System.Drawing.Point(45, 43);
-            this.labelControl3.Name = "labelControl3";
-            this.labelControl3.Size = new System.Drawing.Size(121, 26);
-            this.labelControl3.StyleController = this.layoutControl1;
-            this.labelControl3.TabIndex = 62;
-            this.labelControl3.Text = "Login";
+            this.layoutControlItem1.Control = this.panelControl1;
+            this.layoutControlItem1.CustomizationFormText = "layoutControlItem1";
+            this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem1.Name = "layoutControlItem1";
+            this.layoutControlItem1.Size = new System.Drawing.Size(1006, 67);
+            this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem1.TextVisible = false;
+            // 
+            // layoutControlFirstNameLabel
+            // 
+            this.layoutControlFirstNameLabel.Control = this.FirstNameLabelControl;
+            this.layoutControlFirstNameLabel.CustomizationFormText = "layoutControlLastNameLabel";
+            this.layoutControlFirstNameLabel.Location = new System.Drawing.Point(335, 67);
+            this.layoutControlFirstNameLabel.MinSize = new System.Drawing.Size(148, 17);
+            this.layoutControlFirstNameLabel.Name = "layoutControlFirstNameLabel";
+            this.layoutControlFirstNameLabel.Padding = new DevExpress.XtraLayout.Utils.Padding(15, 27, 2, 2);
+            this.layoutControlFirstNameLabel.Size = new System.Drawing.Size(335, 34);
+            this.layoutControlFirstNameLabel.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.layoutControlFirstNameLabel.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlFirstNameLabel.TextVisible = false;
             // 
             // layoutControlFirstNameTextEdit
             // 
-            this.layoutControlFirstNameTextEdit.Control = this.textEdit3;
-            this.layoutControlFirstNameTextEdit.CustomizationFormText = "layoutControlFirstNameTextEdit";
-            this.layoutControlFirstNameTextEdit.Location = new System.Drawing.Point(0, 69);
-            this.layoutControlFirstNameTextEdit.MinSize = new System.Drawing.Size(97, 47);
+            this.layoutControlFirstNameTextEdit.Control = this.FirstNameTextEdit;
+            this.layoutControlFirstNameTextEdit.CustomizationFormText = "layoutControlLastNameTextEdit";
+            this.layoutControlFirstNameTextEdit.Location = new System.Drawing.Point(335, 101);
+            this.layoutControlFirstNameTextEdit.MinSize = new System.Drawing.Size(57, 24);
             this.layoutControlFirstNameTextEdit.Name = "layoutControlFirstNameTextEdit";
-            this.layoutControlFirstNameTextEdit.Padding = new DevExpress.XtraLayout.Utils.Padding(45, 2, 2, 25);
-            this.layoutControlFirstNameTextEdit.Size = new System.Drawing.Size(247, 50);
+            this.layoutControlFirstNameTextEdit.Padding = new DevExpress.XtraLayout.Utils.Padding(10, 2, 2, 2);
+            this.layoutControlFirstNameTextEdit.Size = new System.Drawing.Size(335, 28);
             this.layoutControlFirstNameTextEdit.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.layoutControlFirstNameTextEdit.Text = "layoutControlLoginTextEdit";
             this.layoutControlFirstNameTextEdit.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlFirstNameTextEdit.TextVisible = false;
             // 
-            // textEdit3
+            // gridColumn1
             // 
-            this.textEdit3.Location = new System.Drawing.Point(45, 73);
-            this.textEdit3.Name = "textEdit3";
-            this.textEdit3.Size = new System.Drawing.Size(200, 20);
-            this.textEdit3.StyleController = this.layoutControl1;
-            this.textEdit3.TabIndex = 52;
+            this.gridColumn1.Caption = "ID";
+            this.gridColumn1.FieldName = "Id";
+            this.gridColumn1.Name = "gridColumn1";
+            this.gridColumn1.Visible = true;
+            this.gridColumn1.VisibleIndex = 6;
             // 
             // UserSearchForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(904, 561);
+            this.ClientSize = new System.Drawing.Size(1008, 729);
             this.Controls.Add(this.layoutControl1);
             this.Name = "UserSearchForm";
-            this.Text = "UserSearchForm";
+            this.Text = "User Search Form";
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.checkEdit1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LoginTextEdit.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.UsersGridControl)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.UserGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LastNameTextEdit.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
+            this.panelControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.FirstNameTextEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlActiveCheckEdit)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlClientsGrid)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem9)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlCancelBtn)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlEditClientBtn)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlAddClientBtn)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit4.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlFirstNameTextEdit1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlSearchBtn)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlCityLabel)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlCityTextEdit)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlLastNameTextEdit)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlLoginTextEdit)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlUsersGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlLastNameLabel)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlLastNameTextEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlLoginLabel)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlFirstNameLabel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlFirstNameTextEdit)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit3.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -645,48 +481,35 @@
 
         private DevExpress.XtraLayout.LayoutControl layoutControl1;
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup1;
-        private DevExpress.XtraEditors.CheckEdit checkEdit1;
-        private DevExpress.XtraGrid.GridControl gridControl1;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
+        private DevExpress.XtraEditors.TextEdit LoginTextEdit;
+        private DevExpress.XtraGrid.GridControl UsersGridControl;
+        private DevExpress.XtraGrid.Views.Grid.GridView UserGridView;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn3;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn4;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn5;
+        private DevExpress.XtraGrid.Columns.GridColumn LoginColumn;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn6;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn7;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn8;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView2;
-        private DevExpress.XtraEditors.SimpleButton simpleButton2;
-        private DevExpress.XtraEditors.SimpleButton simpleButton4;
-        private DevExpress.XtraEditors.SimpleButton simpleButton1;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlActiveCheckEdit;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlClientsGrid;
-        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem9;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlCancelBtn;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlEditClientBtn;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlAddClientBtn;
-        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
-        private DevExpress.XtraEditors.TextEdit textEdit4;
-        private DevExpress.XtraEditors.LabelControl labelControl5;
-        private DevExpress.XtraEditors.LabelControl labelControl4;
-        private DevExpress.XtraEditors.ComboBoxEdit comboBoxEdit1;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlFirstNameTextEdit1;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
-        private DevExpress.XtraEditors.TextEdit textEdit3;
-        private DevExpress.XtraEditors.SimpleButton simpleButton3;
-        private DevExpress.XtraEditors.LabelControl labelControl2;
-        private DevExpress.XtraEditors.TextEdit textEdit2;
-        private DevExpress.XtraEditors.TextEdit textEdit1;
-        private DevExpress.XtraEditors.LabelControl labelControl1;
-        private DevExpress.XtraEditors.LabelControl labelControl3;
-        private DevExpress.XtraEditors.SimpleButton simpleButton5;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlFirstNameTextEdit;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlSearchBtn;
+        private DevExpress.XtraEditors.LabelControl LastNameLabelControl;
+        private DevExpress.XtraEditors.TextEdit LastNameTextEdit;
+        private DevExpress.XtraEditors.LabelControl LoginLabelControl;
+        private DevExpress.XtraEditors.PanelControl panelControl1;
+        private DevExpress.XtraEditors.SimpleButton SearchUserButton;
+        private DevExpress.XtraEditors.SimpleButton AddUserButton;
+        private DevExpress.XtraEditors.SimpleButton EditUserButton;
+        private DevExpress.XtraEditors.SimpleButton CancelUserButton;
+        private DevExpress.XtraEditors.LabelControl FirstNameLabelControl;
+        private DevExpress.XtraEditors.TextEdit FirstNameTextEdit;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlLoginTextEdit;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlUsersGrid;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlLastNameLabel;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlLastNameTextEdit;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlCityTextEdit;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlCityLabel;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlLoginLabel;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlFirstNameLabel;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlFirstNameTextEdit;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
 
 
     }

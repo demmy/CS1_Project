@@ -11,7 +11,7 @@ using Domain.Entities.Users;
 
 namespace Data.DummyData
 {
-    class DummyDAO<T> : IRepository<T> where T : Entity, new()
+    public class DummyDAO<T> : IRepository<T> where T : Entity, new()
     {
         protected IList<T> _collection = new List<T>(); 
         public void Create(T entity)

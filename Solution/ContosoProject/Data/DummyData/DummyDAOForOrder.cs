@@ -10,7 +10,7 @@ using Domain.Entities.Products;
 
 namespace Data.DummyData
 {
-    class DummyDAOForOrder : DummyDAOExtension<Order>, IOrderRepository
+    public class DummyDAOForOrder : DummyDAOExtension<Order>, IOrderRepository
     {
         public DummyDAOForOrder()
         {

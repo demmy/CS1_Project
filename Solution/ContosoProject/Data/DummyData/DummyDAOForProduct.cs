@@ -7,7 +7,7 @@ using Domain.Entities.Products;
 
 namespace Data.DummyData
 {
-    class DummyDAOForProduct: DummyDAOExtension<Product>, IProductRepository
+    public class DummyDAOForProduct : DummyDAOExtension<Product>, IProductRepository
     {
         public DummyDAOForProduct()
         {
