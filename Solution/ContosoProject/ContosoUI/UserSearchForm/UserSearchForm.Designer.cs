@@ -58,6 +58,7 @@
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlFirstNameLabel = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlFirstNameTextEdit = new DevExpress.XtraLayout.LayoutControlItem();
+            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LoginTextEdit.Properties)).BeginInit();
@@ -126,10 +127,15 @@
             this.gridColumn3,
             this.gridColumn4,
             this.gridColumn6,
-            this.gridColumn8});
+            this.gridColumn8,
+            this.gridColumn1});
             this.UserGridView.GridControl = this.UsersGridControl;
             this.UserGridView.Name = "UserGridView";
+            this.UserGridView.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.False;
+            this.UserGridView.OptionsBehavior.AllowDeleteRows = DevExpress.Utils.DefaultBoolean.False;
+            this.UserGridView.OptionsBehavior.Editable = false;
             this.UserGridView.OptionsView.ShowGroupPanel = false;
+            this.UserGridView.DoubleClick += new System.EventHandler(this.UserGridView_DoubleClick);
             // 
             // LoginColumn
             // 
@@ -170,7 +176,7 @@
             // gridColumn6
             // 
             this.gridColumn6.Caption = "Role";
-            this.gridColumn6.FieldName = "Role";
+            this.gridColumn6.FieldName = "Role.Title";
             this.gridColumn6.Name = "gridColumn6";
             this.gridColumn6.Visible = true;
             this.gridColumn6.VisibleIndex = 4;
@@ -276,6 +282,7 @@
             this.EditUserButton.Size = new System.Drawing.Size(120, 53);
             this.EditUserButton.TabIndex = 59;
             this.EditUserButton.Text = "Edit user";
+            this.EditUserButton.Click += new System.EventHandler(this.EditUserButton_Click);
             // 
             // CancelUserButton
             // 
@@ -431,6 +438,14 @@
             this.layoutControlFirstNameTextEdit.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlFirstNameTextEdit.TextVisible = false;
             // 
+            // gridColumn1
+            // 
+            this.gridColumn1.Caption = "ID";
+            this.gridColumn1.FieldName = "Id";
+            this.gridColumn1.Name = "gridColumn1";
+            this.gridColumn1.Visible = true;
+            this.gridColumn1.VisibleIndex = 6;
+            // 
             // UserSearchForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -494,6 +509,7 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlFirstNameLabel;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlFirstNameTextEdit;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
 
 
     }

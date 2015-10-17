@@ -7,7 +7,7 @@ using Domain.Entities.Users;
 
 namespace ContosoUI.UserSearchForm
 {
-    interface IUserView
+    interface IUserSearchView
     {
         string Login { get; set; }
         string FirstName { get; set; }

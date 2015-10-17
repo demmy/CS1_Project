@@ -7,7 +7,7 @@ using Microsoft.Win32;
 
 namespace Data.DummyData
 {
-    class DummyDAOForCategory : DummyDAOExtension<Category>, ICategoryRepository
+    public class DummyDAOForCategory : DummyDAOExtension<Category>, ICategoryRepository
     {
         public DummyDAOForCategory()
         {
