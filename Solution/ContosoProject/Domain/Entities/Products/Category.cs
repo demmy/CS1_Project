@@ -14,7 +14,11 @@ namespace Domain.Entities.Products
         {
             _comments = comments;
         }
-        
+
+        public Category()
+        {
+        }
+
         public string Title { get; set; }
 
         public IReadOnlyCollection<Comment> Comments
