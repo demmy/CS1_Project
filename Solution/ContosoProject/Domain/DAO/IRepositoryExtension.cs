@@ -7,9 +7,9 @@ using Domain.Entities.Users;
 
 namespace Domain.DAO
 {
-    public interface IUserRepository : IRepositoryExtension<User>
+    public interface IRepositoryExtension<T> : IRepository<T>
     {
-        ICollection<User> GetByLogin(string login);
-        ICollection<User> GetByRole(Role role);
+        ICollection<T> GetByUser(User user);
+        ICollection<T> GetByDate(DateTime date);
     }
 }

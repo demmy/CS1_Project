@@ -23,6 +23,11 @@ namespace Domain.Entities.Orders
             orderItems = orders;
         }
 
+        public Order()
+        {
+            
+        }
+
         public List<OrderItem> OrderItems
         {
             get { return orderItems; }
