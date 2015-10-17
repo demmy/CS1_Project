@@ -13,15 +13,16 @@ namespace ContosoUI.UserSearchForm
         private readonly UserSearchModel model;
         private readonly UserForm.IUserView viewUserForm;
 
-        public UserSearchPresenter (IUserSearchView view, UserSearchModel model)
+        public UserSearchPresenter(IUserSearchView view, UserSearchModel model, UserForm.IUserView viewUserForm)
         {
             this.view = view;
             this.model = model;
+            this.viewUserForm = viewUserForm;
         }
 
         public void AddUser()
         {
-            ContosoUI.ClientForm addUserForm = new ContosoUI.ClientForm(null);
+            UserForm.UserForm addUserForm = new UserForm.UserForm();
             addUserForm.Show();
         }
 
@@ -37,11 +38,10 @@ namespace ContosoUI.UserSearchForm
             viewUserForm.LastName = CurrentUser.Person.LastName;
             viewUserForm.Role = CurrentUser.Role.Title;
             viewUserForm.Active = CurrentUser.IsActive;
-            viewUserForm.Comments = CurrentUser.Comments;
+            viewUserForm.Comments = (ICollection<Domain.Entities.Comments.Comment>)CurrentUser.Comments;
 
-            ContosoUI.ClientForm addUserForm = new ContosoUI.ClientForm(null);
+            UserForm.UserForm addUserForm = new UserForm.UserForm();
             addUserForm.Show();
-
         }
 
         public void Search()

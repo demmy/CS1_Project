@@ -10,11 +10,6 @@ namespace ContosoUI.UserSearchForm
 {
     class UserSearchModel
     {
-        public void EditUser (int id)
-        {
-            
-        }
-
         public ICollection<User> SearchUser(string login, string firstName, string lastName)
         {
             DummyDAOForUser user = new DummyDAOForUser();
