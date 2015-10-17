@@ -31,9 +31,9 @@
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.SearchClientButton = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton6 = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton7 = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton8 = new DevExpress.XtraEditors.SimpleButton();
+            this.AddClientButton = new DevExpress.XtraEditors.SimpleButton();
+            this.EditClientButton = new DevExpress.XtraEditors.SimpleButton();
+            this.CancelButton = new DevExpress.XtraEditors.SimpleButton();
             this.LastNameTextEdit = new DevExpress.XtraEditors.TextEdit();
             this.CityTextEdit = new DevExpress.XtraEditors.TextEdit();
             this.LastNameLabelControl = new DevExpress.XtraEditors.LabelControl();
@@ -57,7 +57,7 @@
             this.layoutControlCityLabel = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlCityTextEdit = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlFirstNameLabel = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlPanelControl = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlLastNameLabel = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlLastNameTextEdit = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
@@ -76,7 +76,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlCityLabel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlCityTextEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlFirstNameLabel)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlPanelControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlLastNameLabel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlLastNameTextEdit)).BeginInit();
             this.SuspendLayout();
@@ -104,10 +104,13 @@
             // 
             // panelControl1
             // 
+            this.panelControl1.Appearance.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panelControl1.Appearance.Options.UseBackColor = true;
+            this.panelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.panelControl1.Controls.Add(this.SearchClientButton);
-            this.panelControl1.Controls.Add(this.simpleButton6);
-            this.panelControl1.Controls.Add(this.simpleButton7);
-            this.panelControl1.Controls.Add(this.simpleButton8);
+            this.panelControl1.Controls.Add(this.AddClientButton);
+            this.panelControl1.Controls.Add(this.EditClientButton);
+            this.panelControl1.Controls.Add(this.CancelButton);
             this.panelControl1.Location = new System.Drawing.Point(5, 2);
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Size = new System.Drawing.Size(1002, 63);
@@ -115,35 +118,63 @@
             // 
             // SearchClientButton
             // 
+            this.SearchClientButton.Appearance.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.SearchClientButton.Appearance.Font = new System.Drawing.Font("Tahoma", 12.25F, System.Drawing.FontStyle.Bold);
+            this.SearchClientButton.Appearance.ForeColor = System.Drawing.Color.White;
+            this.SearchClientButton.Appearance.Options.UseBackColor = true;
+            this.SearchClientButton.Appearance.Options.UseFont = true;
+            this.SearchClientButton.Appearance.Options.UseForeColor = true;
+            this.SearchClientButton.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat;
             this.SearchClientButton.Location = new System.Drawing.Point(262, 5);
             this.SearchClientButton.Name = "SearchClientButton";
-            this.SearchClientButton.Size = new System.Drawing.Size(120, 45);
+            this.SearchClientButton.Size = new System.Drawing.Size(120, 53);
             this.SearchClientButton.TabIndex = 55;
             this.SearchClientButton.Text = "Search";
             // 
-            // simpleButton6
+            // AddClientButton
             // 
-            this.simpleButton6.Location = new System.Drawing.Point(10, 5);
-            this.simpleButton6.Name = "simpleButton6";
-            this.simpleButton6.Size = new System.Drawing.Size(120, 45);
-            this.simpleButton6.TabIndex = 58;
-            this.simpleButton6.Text = "Add client";
+            this.AddClientButton.Appearance.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.AddClientButton.Appearance.Font = new System.Drawing.Font("Tahoma", 12.25F, System.Drawing.FontStyle.Bold);
+            this.AddClientButton.Appearance.ForeColor = System.Drawing.Color.White;
+            this.AddClientButton.Appearance.Options.UseBackColor = true;
+            this.AddClientButton.Appearance.Options.UseFont = true;
+            this.AddClientButton.Appearance.Options.UseForeColor = true;
+            this.AddClientButton.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat;
+            this.AddClientButton.Location = new System.Drawing.Point(10, 5);
+            this.AddClientButton.Name = "AddClientButton";
+            this.AddClientButton.Size = new System.Drawing.Size(120, 53);
+            this.AddClientButton.TabIndex = 58;
+            this.AddClientButton.Text = "Add client";
             // 
-            // simpleButton7
+            // EditClientButton
             // 
-            this.simpleButton7.Location = new System.Drawing.Point(136, 5);
-            this.simpleButton7.Name = "simpleButton7";
-            this.simpleButton7.Size = new System.Drawing.Size(120, 45);
-            this.simpleButton7.TabIndex = 59;
-            this.simpleButton7.Text = "Edit Client";
+            this.EditClientButton.Appearance.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.EditClientButton.Appearance.Font = new System.Drawing.Font("Tahoma", 12.25F, System.Drawing.FontStyle.Bold);
+            this.EditClientButton.Appearance.ForeColor = System.Drawing.Color.White;
+            this.EditClientButton.Appearance.Options.UseBackColor = true;
+            this.EditClientButton.Appearance.Options.UseFont = true;
+            this.EditClientButton.Appearance.Options.UseForeColor = true;
+            this.EditClientButton.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat;
+            this.EditClientButton.Location = new System.Drawing.Point(136, 5);
+            this.EditClientButton.Name = "EditClientButton";
+            this.EditClientButton.Size = new System.Drawing.Size(120, 53);
+            this.EditClientButton.TabIndex = 59;
+            this.EditClientButton.Text = "Edit client";
             // 
-            // simpleButton8
+            // CancelButton
             // 
-            this.simpleButton8.Location = new System.Drawing.Point(388, 5);
-            this.simpleButton8.Name = "simpleButton8";
-            this.simpleButton8.Size = new System.Drawing.Size(120, 45);
-            this.simpleButton8.TabIndex = 60;
-            this.simpleButton8.Text = "Cancel";
+            this.CancelButton.Appearance.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.CancelButton.Appearance.Font = new System.Drawing.Font("Tahoma", 12.25F, System.Drawing.FontStyle.Bold);
+            this.CancelButton.Appearance.ForeColor = System.Drawing.Color.White;
+            this.CancelButton.Appearance.Options.UseBackColor = true;
+            this.CancelButton.Appearance.Options.UseFont = true;
+            this.CancelButton.Appearance.Options.UseForeColor = true;
+            this.CancelButton.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat;
+            this.CancelButton.Location = new System.Drawing.Point(388, 5);
+            this.CancelButton.Name = "CancelButton";
+            this.CancelButton.Size = new System.Drawing.Size(120, 53);
+            this.CancelButton.TabIndex = 60;
+            this.CancelButton.Text = "Cancel";
             // 
             // LastNameTextEdit
             // 
@@ -300,7 +331,7 @@
             this.layoutControlCityLabel,
             this.layoutControlCityTextEdit,
             this.layoutControlFirstNameLabel,
-            this.layoutControlItem1,
+            this.layoutControlPanelControl,
             this.layoutControlLastNameLabel,
             this.layoutControlLastNameTextEdit});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
@@ -371,14 +402,16 @@
             this.layoutControlFirstNameLabel.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlFirstNameLabel.TextVisible = false;
             // 
-            // layoutControlItem1
+            // layoutControlPanelControl
             // 
-            this.layoutControlItem1.Control = this.panelControl1;
-            this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(1006, 67);
-            this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem1.TextVisible = false;
+            this.layoutControlPanelControl.AppearanceItemCaption.BackColor = System.Drawing.Color.GhostWhite;
+            this.layoutControlPanelControl.AppearanceItemCaption.Options.UseBackColor = true;
+            this.layoutControlPanelControl.Control = this.panelControl1;
+            this.layoutControlPanelControl.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlPanelControl.Name = "layoutControlPanelControl";
+            this.layoutControlPanelControl.Size = new System.Drawing.Size(1006, 67);
+            this.layoutControlPanelControl.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlPanelControl.TextVisible = false;
             // 
             // layoutControlLastNameLabel
             // 
@@ -428,7 +461,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlCityLabel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlCityTextEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlFirstNameLabel)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlPanelControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlLastNameLabel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlLastNameTextEdit)).EndInit();
             this.ResumeLayout(false);
@@ -442,9 +475,9 @@
         private DevExpress.XtraEditors.TextEdit LastNameTextEdit;
         private DevExpress.XtraEditors.LabelControl LastNameLabelControl;
         private DevExpress.XtraEditors.TextEdit CityTextEdit;
-        private DevExpress.XtraEditors.SimpleButton simpleButton6;
-        private DevExpress.XtraEditors.SimpleButton simpleButton7;
-        private DevExpress.XtraEditors.SimpleButton simpleButton8;
+        private DevExpress.XtraEditors.SimpleButton AddClientButton;
+        private DevExpress.XtraEditors.SimpleButton EditClientButton;
+        private DevExpress.XtraEditors.SimpleButton CancelButton;
         private DevExpress.XtraGrid.GridControl ClientsGridControl;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView2;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
@@ -468,7 +501,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn3;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn8;
         private DevExpress.XtraEditors.PanelControl panelControl1;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlPanelControl;
 
     }
 }

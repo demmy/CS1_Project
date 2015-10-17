@@ -54,7 +54,7 @@
             this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.layoutControlCategoryLabel = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlCategoryComboBoxEdit = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlPanelControl = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlProductsGrid = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlTitleLabel = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlTitleTextEdit = new DevExpress.XtraLayout.LayoutControlItem();
@@ -73,7 +73,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlCategoryLabel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlCategoryComboBoxEdit)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlPanelControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlProductsGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlTitleLabel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlTitleTextEdit)).BeginInit();
@@ -88,7 +88,7 @@
             this.layoutControlSKULabel,
             this.layoutControlCategoryLabel,
             this.layoutControlCategoryComboBoxEdit,
-            this.layoutControlItem5,
+            this.layoutControlPanelControl,
             this.layoutControlProductsGrid,
             this.layoutControlTitleLabel,
             this.layoutControlTitleTextEdit,
@@ -103,7 +103,7 @@
             // 
             this.layoutControlSKULabel.Control = this.SKULabelControl;
             this.layoutControlSKULabel.CustomizationFormText = "layoutControlFirstNameLabel";
-            this.layoutControlSKULabel.Location = new System.Drawing.Point(0, 63);
+            this.layoutControlSKULabel.Location = new System.Drawing.Point(0, 67);
             this.layoutControlSKULabel.MinSize = new System.Drawing.Size(110, 27);
             this.layoutControlSKULabel.Name = "layoutControlSKULabel";
             this.layoutControlSKULabel.Padding = new DevExpress.XtraLayout.Utils.Padding(15, 27, 2, 2);
@@ -115,7 +115,7 @@
             // 
             // SKULabelControl
             // 
-            this.SKULabelControl.Location = new System.Drawing.Point(15, 65);
+            this.SKULabelControl.Location = new System.Drawing.Point(15, 69);
             this.SKULabelControl.Name = "SKULabelControl";
             this.SKULabelControl.Size = new System.Drawing.Size(291, 23);
             this.SKULabelControl.StyleController = this.layoutControl1;
@@ -145,7 +145,7 @@
             // 
             // textEdit3
             // 
-            this.textEdit3.Location = new System.Drawing.Point(5, 92);
+            this.textEdit3.Location = new System.Drawing.Point(5, 96);
             this.textEdit3.Name = "textEdit3";
             this.textEdit3.Size = new System.Drawing.Size(326, 20);
             this.textEdit3.StyleController = this.layoutControl1;
@@ -153,7 +153,7 @@
             // 
             // textEdit2
             // 
-            this.textEdit2.Location = new System.Drawing.Point(343, 92);
+            this.textEdit2.Location = new System.Drawing.Point(343, 96);
             this.textEdit2.Name = "textEdit2";
             this.textEdit2.Size = new System.Drawing.Size(321, 20);
             this.textEdit2.StyleController = this.layoutControl1;
@@ -161,7 +161,7 @@
             // 
             // TitleLabelControl
             // 
-            this.TitleLabelControl.Location = new System.Drawing.Point(348, 65);
+            this.TitleLabelControl.Location = new System.Drawing.Point(348, 69);
             this.TitleLabelControl.Name = "TitleLabelControl";
             this.TitleLabelControl.Size = new System.Drawing.Size(291, 23);
             this.TitleLabelControl.StyleController = this.layoutControl1;
@@ -170,7 +170,7 @@
             // 
             // CategoryLabelControl
             // 
-            this.CategoryLabelControl.Location = new System.Drawing.Point(681, 65);
+            this.CategoryLabelControl.Location = new System.Drawing.Point(681, 69);
             this.CategoryLabelControl.Name = "CategoryLabelControl";
             this.CategoryLabelControl.Size = new System.Drawing.Size(297, 23);
             this.CategoryLabelControl.StyleController = this.layoutControl1;
@@ -179,7 +179,7 @@
             // 
             // comboBoxEdit1
             // 
-            this.comboBoxEdit1.Location = new System.Drawing.Point(676, 92);
+            this.comboBoxEdit1.Location = new System.Drawing.Point(676, 96);
             this.comboBoxEdit1.Name = "comboBoxEdit1";
             this.comboBoxEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -189,54 +189,85 @@
             // 
             // panelControl1
             // 
+            this.panelControl1.Appearance.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panelControl1.Appearance.Options.UseBackColor = true;
+            this.panelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.panelControl1.Controls.Add(this.SearchProductButton);
             this.panelControl1.Controls.Add(this.EditButton);
             this.panelControl1.Controls.Add(this.CancelButton);
             this.panelControl1.Controls.Add(this.AddButton);
             this.panelControl1.Location = new System.Drawing.Point(2, 2);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(1001, 59);
+            this.panelControl1.Size = new System.Drawing.Size(1001, 63);
             this.panelControl1.TabIndex = 65;
             // 
             // SearchProductButton
             // 
+            this.SearchProductButton.Appearance.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.SearchProductButton.Appearance.Font = new System.Drawing.Font("Tahoma", 12.25F, System.Drawing.FontStyle.Bold);
+            this.SearchProductButton.Appearance.ForeColor = System.Drawing.Color.White;
+            this.SearchProductButton.Appearance.Options.UseBackColor = true;
+            this.SearchProductButton.Appearance.Options.UseFont = true;
+            this.SearchProductButton.Appearance.Options.UseForeColor = true;
+            this.SearchProductButton.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat;
             this.SearchProductButton.Location = new System.Drawing.Point(262, 5);
             this.SearchProductButton.Name = "SearchProductButton";
-            this.SearchProductButton.Size = new System.Drawing.Size(120, 45);
+            this.SearchProductButton.Size = new System.Drawing.Size(120, 53);
             this.SearchProductButton.TabIndex = 55;
             this.SearchProductButton.Text = "Search";
             // 
             // EditButton
             // 
+            this.EditButton.Appearance.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.EditButton.Appearance.Font = new System.Drawing.Font("Tahoma", 12.25F, System.Drawing.FontStyle.Bold);
+            this.EditButton.Appearance.ForeColor = System.Drawing.Color.White;
+            this.EditButton.Appearance.Options.UseBackColor = true;
+            this.EditButton.Appearance.Options.UseFont = true;
+            this.EditButton.Appearance.Options.UseForeColor = true;
+            this.EditButton.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat;
             this.EditButton.Location = new System.Drawing.Point(136, 5);
             this.EditButton.Name = "EditButton";
-            this.EditButton.Size = new System.Drawing.Size(120, 45);
+            this.EditButton.Size = new System.Drawing.Size(120, 53);
             this.EditButton.TabIndex = 59;
             this.EditButton.Text = "Edit product";
             // 
             // CancelButton
             // 
+            this.CancelButton.Appearance.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.CancelButton.Appearance.Font = new System.Drawing.Font("Tahoma", 12.25F, System.Drawing.FontStyle.Bold);
+            this.CancelButton.Appearance.ForeColor = System.Drawing.Color.White;
+            this.CancelButton.Appearance.Options.UseBackColor = true;
+            this.CancelButton.Appearance.Options.UseFont = true;
+            this.CancelButton.Appearance.Options.UseForeColor = true;
+            this.CancelButton.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat;
             this.CancelButton.Location = new System.Drawing.Point(388, 5);
             this.CancelButton.Name = "CancelButton";
-            this.CancelButton.Size = new System.Drawing.Size(120, 45);
+            this.CancelButton.Size = new System.Drawing.Size(120, 53);
             this.CancelButton.TabIndex = 60;
             this.CancelButton.Text = "Cancel";
             // 
             // AddButton
             // 
+            this.AddButton.Appearance.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.AddButton.Appearance.Font = new System.Drawing.Font("Tahoma", 12.25F, System.Drawing.FontStyle.Bold);
+            this.AddButton.Appearance.ForeColor = System.Drawing.Color.White;
+            this.AddButton.Appearance.Options.UseBackColor = true;
+            this.AddButton.Appearance.Options.UseFont = true;
+            this.AddButton.Appearance.Options.UseForeColor = true;
+            this.AddButton.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat;
             this.AddButton.Location = new System.Drawing.Point(10, 5);
             this.AddButton.Name = "AddButton";
-            this.AddButton.Size = new System.Drawing.Size(120, 45);
+            this.AddButton.Size = new System.Drawing.Size(120, 53);
             this.AddButton.TabIndex = 58;
             this.AddButton.Text = "Add product";
             // 
             // gridControl1
             // 
-            this.gridControl1.Location = new System.Drawing.Point(5, 124);
+            this.gridControl1.Location = new System.Drawing.Point(5, 128);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
             this.gridControl1.Padding = new System.Windows.Forms.Padding(5);
-            this.gridControl1.Size = new System.Drawing.Size(995, 599);
+            this.gridControl1.Size = new System.Drawing.Size(995, 595);
             this.gridControl1.TabIndex = 57;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1,
@@ -321,7 +352,7 @@
             // 
             this.layoutControlCategoryLabel.Control = this.CategoryLabelControl;
             this.layoutControlCategoryLabel.CustomizationFormText = "layoutControlFirstNameLabel";
-            this.layoutControlCategoryLabel.Location = new System.Drawing.Point(666, 63);
+            this.layoutControlCategoryLabel.Location = new System.Drawing.Point(666, 67);
             this.layoutControlCategoryLabel.MinSize = new System.Drawing.Size(73, 27);
             this.layoutControlCategoryLabel.Name = "layoutControlCategoryLabel";
             this.layoutControlCategoryLabel.Padding = new DevExpress.XtraLayout.Utils.Padding(15, 27, 2, 2);
@@ -335,7 +366,7 @@
             // 
             this.layoutControlCategoryComboBoxEdit.Control = this.comboBoxEdit1;
             this.layoutControlCategoryComboBoxEdit.CustomizationFormText = "layoutControlStatusComboBoxEdit";
-            this.layoutControlCategoryComboBoxEdit.Location = new System.Drawing.Point(666, 90);
+            this.layoutControlCategoryComboBoxEdit.Location = new System.Drawing.Point(666, 94);
             this.layoutControlCategoryComboBoxEdit.MinSize = new System.Drawing.Size(62, 24);
             this.layoutControlCategoryComboBoxEdit.Name = "layoutControlCategoryComboBoxEdit";
             this.layoutControlCategoryComboBoxEdit.Padding = new DevExpress.XtraLayout.Utils.Padding(10, 2, 2, 2);
@@ -344,25 +375,27 @@
             this.layoutControlCategoryComboBoxEdit.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlCategoryComboBoxEdit.TextVisible = false;
             // 
-            // layoutControlItem5
+            // layoutControlPanelControl
             // 
-            this.layoutControlItem5.Control = this.panelControl1;
-            this.layoutControlItem5.CustomizationFormText = "layoutControlItem5";
-            this.layoutControlItem5.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(1005, 63);
-            this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem5.TextVisible = false;
+            this.layoutControlPanelControl.AppearanceItemCaption.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.layoutControlPanelControl.AppearanceItemCaption.Options.UseBackColor = true;
+            this.layoutControlPanelControl.Control = this.panelControl1;
+            this.layoutControlPanelControl.CustomizationFormText = "layoutControlItem5";
+            this.layoutControlPanelControl.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlPanelControl.Name = "layoutControlPanelControl";
+            this.layoutControlPanelControl.Size = new System.Drawing.Size(1005, 67);
+            this.layoutControlPanelControl.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlPanelControl.TextVisible = false;
             // 
             // layoutControlProductsGrid
             // 
             this.layoutControlProductsGrid.Control = this.gridControl1;
             this.layoutControlProductsGrid.CustomizationFormText = "layoutControlClientsGrid";
-            this.layoutControlProductsGrid.Location = new System.Drawing.Point(0, 114);
+            this.layoutControlProductsGrid.Location = new System.Drawing.Point(0, 118);
             this.layoutControlProductsGrid.MinSize = new System.Drawing.Size(190, 70);
             this.layoutControlProductsGrid.Name = "layoutControlProductsGrid";
             this.layoutControlProductsGrid.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 5, 10, 5);
-            this.layoutControlProductsGrid.Size = new System.Drawing.Size(1005, 614);
+            this.layoutControlProductsGrid.Size = new System.Drawing.Size(1005, 610);
             this.layoutControlProductsGrid.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlProductsGrid.Text = "layoutControlUsersGrid";
             this.layoutControlProductsGrid.TextSize = new System.Drawing.Size(0, 0);
@@ -371,7 +404,7 @@
             // layoutControlTitleLabel
             // 
             this.layoutControlTitleLabel.Control = this.TitleLabelControl;
-            this.layoutControlTitleLabel.Location = new System.Drawing.Point(333, 63);
+            this.layoutControlTitleLabel.Location = new System.Drawing.Point(333, 67);
             this.layoutControlTitleLabel.MinSize = new System.Drawing.Size(62, 27);
             this.layoutControlTitleLabel.Name = "layoutControlTitleLabel";
             this.layoutControlTitleLabel.Padding = new DevExpress.XtraLayout.Utils.Padding(15, 27, 2, 2);
@@ -383,7 +416,7 @@
             // layoutControlTitleTextEdit
             // 
             this.layoutControlTitleTextEdit.Control = this.textEdit2;
-            this.layoutControlTitleTextEdit.Location = new System.Drawing.Point(333, 90);
+            this.layoutControlTitleTextEdit.Location = new System.Drawing.Point(333, 94);
             this.layoutControlTitleTextEdit.Name = "layoutControlTitleTextEdit";
             this.layoutControlTitleTextEdit.Padding = new DevExpress.XtraLayout.Utils.Padding(10, 2, 2, 2);
             this.layoutControlTitleTextEdit.Size = new System.Drawing.Size(333, 24);
@@ -393,7 +426,7 @@
             // layoutControlSKUTextEdit
             // 
             this.layoutControlSKUTextEdit.Control = this.textEdit3;
-            this.layoutControlSKUTextEdit.Location = new System.Drawing.Point(0, 90);
+            this.layoutControlSKUTextEdit.Location = new System.Drawing.Point(0, 94);
             this.layoutControlSKUTextEdit.Name = "layoutControlSKUTextEdit";
             this.layoutControlSKUTextEdit.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 2, 2, 2);
             this.layoutControlSKUTextEdit.Size = new System.Drawing.Size(333, 24);
@@ -422,7 +455,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlCategoryLabel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlCategoryComboBoxEdit)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlPanelControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlProductsGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlTitleLabel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlTitleTextEdit)).EndInit();
@@ -456,7 +489,7 @@
         private DevExpress.XtraGrid.Views.Grid.GridView gridView2;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlCategoryLabel;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlCategoryComboBoxEdit;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem5;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlPanelControl;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlProductsGrid;
         private DevExpress.XtraEditors.TextEdit textEdit3;
         private DevExpress.XtraEditors.TextEdit textEdit2;

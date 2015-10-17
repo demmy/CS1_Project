@@ -33,10 +33,10 @@
             this.UsersGridControl = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn8 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -141,6 +141,14 @@
             this.gridColumn1.VisibleIndex = 0;
             this.gridColumn1.Width = 21;
             // 
+            // gridColumn5
+            // 
+            this.gridColumn5.Caption = "Login";
+            this.gridColumn5.Name = "gridColumn5";
+            this.gridColumn5.Visible = true;
+            this.gridColumn5.VisibleIndex = 4;
+            this.gridColumn5.Width = 112;
+            // 
             // gridColumn2
             // 
             this.gridColumn2.Caption = "Last Name";
@@ -164,14 +172,6 @@
             this.gridColumn4.Visible = true;
             this.gridColumn4.VisibleIndex = 3;
             this.gridColumn4.Width = 159;
-            // 
-            // gridColumn5
-            // 
-            this.gridColumn5.Caption = "Login";
-            this.gridColumn5.Name = "gridColumn5";
-            this.gridColumn5.Visible = true;
-            this.gridColumn5.VisibleIndex = 4;
-            this.gridColumn5.Width = 112;
             // 
             // gridColumn6
             // 
@@ -221,6 +221,9 @@
             // 
             // panelControl1
             // 
+            this.panelControl1.Appearance.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panelControl1.Appearance.Options.UseBackColor = true;
+            this.panelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.panelControl1.Controls.Add(this.SearchUserButton);
             this.panelControl1.Controls.Add(this.AddUserButton);
             this.panelControl1.Controls.Add(this.EditUserButton);
@@ -232,33 +235,62 @@
             // 
             // SearchUserButton
             // 
+            this.SearchUserButton.Appearance.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.SearchUserButton.Appearance.Font = new System.Drawing.Font("Tahoma", 12.25F, System.Drawing.FontStyle.Bold);
+            this.SearchUserButton.Appearance.ForeColor = System.Drawing.Color.White;
+            this.SearchUserButton.Appearance.Options.UseBackColor = true;
+            this.SearchUserButton.Appearance.Options.UseFont = true;
+            this.SearchUserButton.Appearance.Options.UseForeColor = true;
+            this.SearchUserButton.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat;
             this.SearchUserButton.Location = new System.Drawing.Point(262, 5);
             this.SearchUserButton.Name = "SearchUserButton";
-            this.SearchUserButton.Size = new System.Drawing.Size(120, 45);
+            this.SearchUserButton.Size = new System.Drawing.Size(120, 53);
             this.SearchUserButton.TabIndex = 55;
             this.SearchUserButton.Text = "Search";
             // 
             // AddUserButton
             // 
+            this.AddUserButton.Appearance.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.AddUserButton.Appearance.BackColor2 = System.Drawing.Color.LightSteelBlue;
+            this.AddUserButton.Appearance.Font = new System.Drawing.Font("Tahoma", 12.25F, System.Drawing.FontStyle.Bold);
+            this.AddUserButton.Appearance.ForeColor = System.Drawing.Color.White;
+            this.AddUserButton.Appearance.Options.UseBackColor = true;
+            this.AddUserButton.Appearance.Options.UseFont = true;
+            this.AddUserButton.Appearance.Options.UseForeColor = true;
+            this.AddUserButton.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat;
             this.AddUserButton.Location = new System.Drawing.Point(10, 5);
             this.AddUserButton.Name = "AddUserButton";
-            this.AddUserButton.Size = new System.Drawing.Size(120, 45);
+            this.AddUserButton.Size = new System.Drawing.Size(120, 53);
             this.AddUserButton.TabIndex = 58;
             this.AddUserButton.Text = "Add user";
             // 
             // EditUserButton
             // 
+            this.EditUserButton.Appearance.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.EditUserButton.Appearance.Font = new System.Drawing.Font("Tahoma", 12.25F, System.Drawing.FontStyle.Bold);
+            this.EditUserButton.Appearance.ForeColor = System.Drawing.Color.White;
+            this.EditUserButton.Appearance.Options.UseBackColor = true;
+            this.EditUserButton.Appearance.Options.UseFont = true;
+            this.EditUserButton.Appearance.Options.UseForeColor = true;
+            this.EditUserButton.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat;
             this.EditUserButton.Location = new System.Drawing.Point(136, 5);
             this.EditUserButton.Name = "EditUserButton";
-            this.EditUserButton.Size = new System.Drawing.Size(120, 45);
+            this.EditUserButton.Size = new System.Drawing.Size(120, 53);
             this.EditUserButton.TabIndex = 59;
             this.EditUserButton.Text = "Edit user";
             // 
             // CancelButton
             // 
+            this.CancelButton.Appearance.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.CancelButton.Appearance.Font = new System.Drawing.Font("Tahoma", 12.25F, System.Drawing.FontStyle.Bold);
+            this.CancelButton.Appearance.ForeColor = System.Drawing.Color.White;
+            this.CancelButton.Appearance.Options.UseBackColor = true;
+            this.CancelButton.Appearance.Options.UseFont = true;
+            this.CancelButton.Appearance.Options.UseForeColor = true;
+            this.CancelButton.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat;
             this.CancelButton.Location = new System.Drawing.Point(388, 5);
             this.CancelButton.Name = "CancelButton";
-            this.CancelButton.Size = new System.Drawing.Size(120, 45);
+            this.CancelButton.Size = new System.Drawing.Size(120, 53);
             this.CancelButton.TabIndex = 60;
             this.CancelButton.Text = "Cancel";
             // 
