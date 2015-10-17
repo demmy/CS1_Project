@@ -119,9 +119,6 @@
     <EmbeddedResource Include="ClientSearchForm\ClientSearchForm.resx">
       <DependentUpon>ClientSearchForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainForm.resx">
-      <DependentUpon>MainForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="OrderSearchForm\OrderSearchForm.resx">
       <DependentUpon>OrderSearchForm.cs</DependentUpon>
     </EmbeddedResource>
