@@ -5,7 +5,7 @@ using Domain.Entities.Orders;
 
 namespace Data.StoreData
 {
-    static partial class Storage
+    public static partial class Storage
     {
         public static List<List<OrderItem>> OrderItems = new List<List<OrderItem>>
         {

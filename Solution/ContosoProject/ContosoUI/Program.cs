@@ -16,10 +16,10 @@ namespace ContosoUI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new ClientSearchForm.ClientSearchForm());
+            //Application.Run(new ClientSearchForm.ClientSearchForm());
             Application.Run(new UserSearchForm.UserSearchForm());
-            Application.Run(new ProductSearchForm.ProductSearchForm());
-            Application.Run(new OrderSearchForm.OrderSearchForm());
+//Application.Run(new ProductSearchForm.ProductSearchForm());
+            //Application.Run(new OrderSearchForm.OrderSearchForm());
 
         }
     }

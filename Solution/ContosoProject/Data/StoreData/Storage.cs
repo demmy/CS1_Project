@@ -6,7 +6,7 @@ using Domain.Entities.Users;
 
 namespace Data.StoreData
 {
-    static partial class Storage
+    public static partial class Storage
     {
         public static List<Comment> GodComments = new List<Comment>
         {

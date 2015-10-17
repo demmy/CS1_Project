@@ -5,7 +5,7 @@ using Domain.Entities.Products;
 
 namespace Data.StoreData
 {
-    static partial class Storage
+    public static partial class Storage
     {
         public static CategoryDictionary Categories = new CategoryDictionary
         {

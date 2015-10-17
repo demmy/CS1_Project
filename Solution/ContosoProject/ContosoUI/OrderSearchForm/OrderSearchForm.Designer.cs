@@ -32,7 +32,7 @@
             this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
             this.SearchOrderButton = new DevExpress.XtraEditors.SimpleButton();
             this.EditOrderButton = new DevExpress.XtraEditors.SimpleButton();
-            this.CancelButton = new DevExpress.XtraEditors.SimpleButton();
+            this.CancelOderButton = new DevExpress.XtraEditors.SimpleButton();
             this.AddOrderButton = new DevExpress.XtraEditors.SimpleButton();
             this.StatusComboBoxEdit = new DevExpress.XtraEditors.ComboBoxEdit();
             this.OrderNumberTextEdit = new DevExpress.XtraEditors.TextEdit();
@@ -117,7 +117,7 @@
             this.panelControl3.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.panelControl3.Controls.Add(this.SearchOrderButton);
             this.panelControl3.Controls.Add(this.EditOrderButton);
-            this.panelControl3.Controls.Add(this.CancelButton);
+            this.panelControl3.Controls.Add(this.CancelOderButton);
             this.panelControl3.Controls.Add(this.AddOrderButton);
             this.panelControl3.Location = new System.Drawing.Point(2, 2);
             this.panelControl3.Name = "panelControl3";
@@ -154,20 +154,20 @@
             this.EditOrderButton.TabIndex = 59;
             this.EditOrderButton.Text = "Edit order";
             // 
-            // CancelButton
+            // CancelOderButton
             // 
-            this.CancelButton.Appearance.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.CancelButton.Appearance.Font = new System.Drawing.Font("Tahoma", 12.25F, System.Drawing.FontStyle.Bold);
-            this.CancelButton.Appearance.ForeColor = System.Drawing.Color.White;
-            this.CancelButton.Appearance.Options.UseBackColor = true;
-            this.CancelButton.Appearance.Options.UseFont = true;
-            this.CancelButton.Appearance.Options.UseForeColor = true;
-            this.CancelButton.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat;
-            this.CancelButton.Location = new System.Drawing.Point(388, 5);
-            this.CancelButton.Name = "CancelButton";
-            this.CancelButton.Size = new System.Drawing.Size(120, 53);
-            this.CancelButton.TabIndex = 60;
-            this.CancelButton.Text = "Cancel";
+            this.CancelOderButton.Appearance.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.CancelOderButton.Appearance.Font = new System.Drawing.Font("Tahoma", 12.25F, System.Drawing.FontStyle.Bold);
+            this.CancelOderButton.Appearance.ForeColor = System.Drawing.Color.White;
+            this.CancelOderButton.Appearance.Options.UseBackColor = true;
+            this.CancelOderButton.Appearance.Options.UseFont = true;
+            this.CancelOderButton.Appearance.Options.UseForeColor = true;
+            this.CancelOderButton.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat;
+            this.CancelOderButton.Location = new System.Drawing.Point(388, 5);
+            this.CancelOderButton.Name = "CancelOderButton";
+            this.CancelOderButton.Size = new System.Drawing.Size(120, 53);
+            this.CancelOderButton.TabIndex = 60;
+            this.CancelOderButton.Text = "Cancel";
             // 
             // AddOrderButton
             // 
@@ -551,7 +551,7 @@
         private DevExpress.XtraEditors.PanelControl panelControl3;
         private DevExpress.XtraEditors.SimpleButton SearchOrderButton;
         private DevExpress.XtraEditors.SimpleButton EditOrderButton;
-        private DevExpress.XtraEditors.SimpleButton CancelButton;
+        private DevExpress.XtraEditors.SimpleButton CancelOderButton;
         private DevExpress.XtraEditors.SimpleButton AddOrderButton;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem5;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn9;

@@ -33,7 +33,7 @@
             this.SearchClientButton = new DevExpress.XtraEditors.SimpleButton();
             this.AddClientButton = new DevExpress.XtraEditors.SimpleButton();
             this.EditClientButton = new DevExpress.XtraEditors.SimpleButton();
-            this.CancelButton = new DevExpress.XtraEditors.SimpleButton();
+            this.CancelClientButton = new DevExpress.XtraEditors.SimpleButton();
             this.LastNameTextEdit = new DevExpress.XtraEditors.TextEdit();
             this.CityTextEdit = new DevExpress.XtraEditors.TextEdit();
             this.LastNameLabelControl = new DevExpress.XtraEditors.LabelControl();
@@ -110,7 +110,7 @@
             this.panelControl1.Controls.Add(this.SearchClientButton);
             this.panelControl1.Controls.Add(this.AddClientButton);
             this.panelControl1.Controls.Add(this.EditClientButton);
-            this.panelControl1.Controls.Add(this.CancelButton);
+            this.panelControl1.Controls.Add(this.CancelClientButton);
             this.panelControl1.Location = new System.Drawing.Point(5, 2);
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Size = new System.Drawing.Size(1002, 63);
@@ -161,20 +161,20 @@
             this.EditClientButton.TabIndex = 59;
             this.EditClientButton.Text = "Edit client";
             // 
-            // CancelButton
+            // CancelClientButton
             // 
-            this.CancelButton.Appearance.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.CancelButton.Appearance.Font = new System.Drawing.Font("Tahoma", 12.25F, System.Drawing.FontStyle.Bold);
-            this.CancelButton.Appearance.ForeColor = System.Drawing.Color.White;
-            this.CancelButton.Appearance.Options.UseBackColor = true;
-            this.CancelButton.Appearance.Options.UseFont = true;
-            this.CancelButton.Appearance.Options.UseForeColor = true;
-            this.CancelButton.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat;
-            this.CancelButton.Location = new System.Drawing.Point(388, 5);
-            this.CancelButton.Name = "CancelButton";
-            this.CancelButton.Size = new System.Drawing.Size(120, 53);
-            this.CancelButton.TabIndex = 60;
-            this.CancelButton.Text = "Cancel";
+            this.CancelClientButton.Appearance.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.CancelClientButton.Appearance.Font = new System.Drawing.Font("Tahoma", 12.25F, System.Drawing.FontStyle.Bold);
+            this.CancelClientButton.Appearance.ForeColor = System.Drawing.Color.White;
+            this.CancelClientButton.Appearance.Options.UseBackColor = true;
+            this.CancelClientButton.Appearance.Options.UseFont = true;
+            this.CancelClientButton.Appearance.Options.UseForeColor = true;
+            this.CancelClientButton.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat;
+            this.CancelClientButton.Location = new System.Drawing.Point(388, 5);
+            this.CancelClientButton.Name = "CancelClientButton";
+            this.CancelClientButton.Size = new System.Drawing.Size(120, 53);
+            this.CancelClientButton.TabIndex = 60;
+            this.CancelClientButton.Text = "Cancel";
             // 
             // LastNameTextEdit
             // 
@@ -477,7 +477,7 @@
         private DevExpress.XtraEditors.TextEdit CityTextEdit;
         private DevExpress.XtraEditors.SimpleButton AddClientButton;
         private DevExpress.XtraEditors.SimpleButton EditClientButton;
-        private DevExpress.XtraEditors.SimpleButton CancelButton;
+        private DevExpress.XtraEditors.SimpleButton CancelClientButton;
         private DevExpress.XtraGrid.GridControl ClientsGridControl;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView2;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;

@@ -5,7 +5,7 @@ using Domain.Entities.Comments;
 
 namespace Data.StoreData
 {
-    static partial class Storage
+    public static partial class Storage
     {
         public static List<Location> Locations = new List<Location>
         {

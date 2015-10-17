@@ -3,7 +3,7 @@ using Domain.Entities.Users;
 
 namespace Data.StoreData
 {
-    static partial class Storage
+    public static partial class Storage
     {
         #region Permissions
 
