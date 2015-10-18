@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using Data.StoreData;
 using Domain.DAO;
@@ -7,28 +6,32 @@ using Domain.Entities;
 
 namespace Data.DummyData
 {
-    class DummyDAOForClient : DummyDAOExtension<Client>, IClientRepository
+    public class DummyDAOForClient : DummyDAOExtension<Client>, IClientRepository
     {
         public DummyDAOForClient()
         {
             _collection = Storage.Clients;
         }
-        public ICollection<Client> GetByName(string name)
+        public ICollection<Client> GetBy(Person person, string city)
         {
-            if (_collection.Any(x => x.Person.FirstName == name))
+            var result = _collection.AsQueryable();
+            if (!string.IsNullOrWhiteSpace(person.FirstName))
             {
-                return _collection.Where(x => x.Person.FirstName == name).ToList();
+                result = result.Where(x=>x.Person.FirstName==person.FirstName);
             }
-            throw new Exception();
-        }
-
-        public ICollection<Client> GetByCity(string city)
-        {
-            if (_collection.Any(x => x.ClientLocation.City == city))
+            if (!string.IsNullOrWhiteSpace(person.MiddleName))
             {
-                return _collection.Where(x => x.ClientLocation.City == city).ToList();
+                result = result.Where(x => x.Person.MiddleName == person.MiddleName);
             }
-            throw new Exception();
+            if (!string.IsNullOrWhiteSpace(person.LastName))
+            {
+                result = result.Where(x => x.Person.LastName == person.LastName);
+            }
+            if (!string.IsNullOrWhiteSpace(city))
+            {
+                result = result.Where(x => x.ClientLocation.City == city);
+            }
+            return result.ToList();
         }
     }
 }

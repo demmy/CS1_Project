@@ -18,6 +18,11 @@ namespace Domain.Entities.Products
         public Category()
         {
         }
+        
+        public static bool IsNullOrEmpty(Category category)
+        {
+            return category == null || category.Title == "";
+        }
 
         public string Title { get; set; }
 
@@ -28,5 +33,11 @@ namespace Domain.Entities.Products
                 return (IReadOnlyCollection<Comment>)_comments;
             }
         }
+
+        public override string ToString()
+        {
+            return string.Format("ID: {0}, Is active: {1}< Title: {2}", Id,IsActive, Title);
+        }
     }
+
 }

@@ -11,22 +11,25 @@ using Domain.Entities.Users;
 
 namespace Data.DummyData
 {
-    class DummyDAO<T> : IRepository<T> where T : Entity, new()
+    public class DummyDAO<T> : IRepository<T> where T : Entity, new()
     {
         protected IList<T> _collection = new List<T>(); 
         public void Create(T entity)
         {
             if(!(_collection.Any(x => x == entity)))
-            _collection.Add(new T());
+                _collection.Add(entity);
+            else 
+                throw new Exception();
         }
 
         public T Find(int id)
         {
-            if (!(_collection.Any(x => x.Id == id)))
+            if (_collection.Any(x => x.Id == id))
             {
                 return _collection.First(x => x.Id == id);
             }
-            throw new Exception();
+            else
+                throw new Exception();
         }
 
         public ICollection<T> GetAll()
@@ -36,7 +39,7 @@ namespace Data.DummyData
 
         public ICollection<T> GetByIsActive(bool isActive)
         {
-            return (ICollection<T>) _collection.Select(x => x.IsActive == isActive).ToList();
+            return _collection.Where(x => x.IsActive == isActive).ToList();
         }
 
         public void Save(T entity)
@@ -52,7 +55,8 @@ namespace Data.DummyData
             {
                 _collection.First(x => x == entity).IsActive = false;
             }
-            throw new Exception();
+            else 
+                throw new Exception();
 
         }
 
@@ -60,9 +64,10 @@ namespace Data.DummyData
         {
             if (_collection.Any(x => x.Id == id))
             {
-                _collection.RemoveAt(id);
+                _collection.First(x => x.Id == id).IsActive = false;
             }
-            throw new Exception();
+            else 
+                throw new Exception();
         }
     }
 }

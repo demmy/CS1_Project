@@ -7,7 +7,7 @@ using Domain.Entities.Users;
 
 namespace Data.DummyData
 {
-    class DummyDAOForRole: DummyDAO<Role>, IRoleRepository
+    public class DummyDAOForRole: DummyDAO<Role>, IRoleRepository
     {
         public DummyDAOForRole()
         {
@@ -19,7 +19,8 @@ namespace Data.DummyData
             {
                 return _collection.Where(x => x.Title == title).ToList();
             }
-            throw new Exception();
+            else 
+                throw new Exception();
         }
 
         public ICollection<Role> GetByPermission(Permission permission)
@@ -28,7 +29,8 @@ namespace Data.DummyData
             {
                 return _collection.Where(x =>x.Permissions.Any(perm=>perm == permission)).ToList();
             }
-            throw new Exception();
+            else
+                throw new Exception();
         }
     }
 }

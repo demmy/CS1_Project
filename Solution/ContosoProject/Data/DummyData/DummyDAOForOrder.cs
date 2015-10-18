@@ -10,12 +10,18 @@ using Domain.Entities.Products;
 
 namespace Data.DummyData
 {
-    class DummyDAOForOrder : DummyDAOExtension<Order>, IOrderRepository
+    public class DummyDAOForOrder : DummyDAOExtension<Order>, IOrderRepository
     {
         public DummyDAOForOrder()
         {
             _collection = Storage.Orders;
         }
+
+        public ICollection<Order> GetBy(string orderNumber, Status status)
+        {
+            return !string.IsNullOrWhiteSpace(orderNumber) ? _collection.Where(x => x.OrderNumber == orderNumber).ToList() : _collection.Where(x => x.Status == status).ToList();
+        }
+
         public ICollection<Order> GetByClient(Client client)
         {
             if (_collection.Any(x => x.Client == client))
@@ -30,15 +36,6 @@ namespace Data.DummyData
             if (Contains(product))
             {
                 return _collection.Where(x => x.OrderItems.Any(it => it.Product == product)).ToList();
-            }
-            throw new Exception();
-        }
-
-        public ICollection<Order> GetByStatus(Status status)
-        {
-            if (_collection.Any(x => x.Status == status))
-            {
-                return _collection.Where(x => x.Status== status).ToList();
             }
             throw new Exception();
         }

@@ -9,7 +9,6 @@ namespace Domain.DAO
 {
     public interface IClientRepository : IRepositoryExtension<Client>
     {
-        ICollection<Client> GetByName(string name);
-        ICollection<Client> GetByCity(string city);
+        ICollection<Client> GetBy(Person person, string city);
     }
 }
