@@ -7,6 +7,7 @@ using Data.DummyData;
 using Data.StoreData;
 using Domain.Entities;
 using Domain.Entities.Orders;
+using Domain.Entities.Products;
 using Domain.Entities.Users;
 using NUnit.Framework;
 
@@ -69,7 +70,8 @@ namespace Test
         [Test]
         public void TestDAOForProduct()
         {
-
+            DummyDAOForProduct product = new DummyDAOForProduct();
+            CollectionAssert.AreEqual(new List<Product> { Storage.Products[1] }, product.GetBySKU("sfdfh3"));
         }
         [Test]
         public void TestDAOForRole()
