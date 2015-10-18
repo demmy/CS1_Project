@@ -25,7 +25,7 @@ namespace Data.DummyData
             {
                 result = result.Where(x => x.Title ==title);
             }
-            if (category.IsNullOrEmpty())
+            if (Category.IsNullOrEmpty(category))
             {
                 result = result.Where(x =>x.Category == category);
             }

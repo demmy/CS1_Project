@@ -1,9 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Data.Entity.Core.Mapping;
 using System.Linq;
 using Data.StoreData;
 using System.Text;
-using System.Threading.Tasks;
+using System.Threading.Tasks;   
 using Domain.DAO;
 using Domain.Entities.Products;
 using Microsoft.Win32;
@@ -23,6 +24,7 @@ namespace Data.DummyData
             {
                 return _collection.Where(x=>x.Title==title).ToList();
             }
+            throw new Exception();
         }
     }
 }
