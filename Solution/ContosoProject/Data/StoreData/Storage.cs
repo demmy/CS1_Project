@@ -157,7 +157,7 @@ namespace Data.StoreData
         };
 
         #endregion
-
+        
         public static List<User> Users = new List<User>
         {
             new User(GodComments)         {Date = DateTime.Now.AddDays(-5), Role = Roles[0], Id = 1, IsActive = true,   Login = "God",                  Password = "safe342g",      Person = Persons[0]},

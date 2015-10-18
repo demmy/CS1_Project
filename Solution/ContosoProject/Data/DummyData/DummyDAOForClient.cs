@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using Data.StoreData;
 using Domain.DAO;
@@ -13,23 +12,27 @@ namespace Data.DummyData
         {
             _collection = Storage.Clients;
         }
-        
+        public ICollection<Client> FindBy(Person person, string city)
         public ICollection<Client> GetByPerson(Person person)
         {
-            if (_collection.Any(x => x.Person == person))//need to override Equals in client
+            var result = _collection.AsQueryable();
+            if (!string.IsNullOrWhiteSpace(person.FirstName))
             {
-                return _collection.Where(x => x.Person == person).ToList();
+                result = result.Where(x=>x.Person.FirstName==person.FirstName);
             }
-            throw new Exception();
-        }
-
-        public ICollection<Client> GetByCity(string city)
-        {
-            if (_collection.Any(x => x.ClientLocation.City == city))
+            if (!string.IsNullOrWhiteSpace(person.MiddleName))
             {
-                return _collection.Where(x => x.ClientLocation.City == city).ToList();
+                result = result.Where(x => x.Person.MiddleName == person.MiddleName);
             }
-            throw new Exception();
+            if (!string.IsNullOrWhiteSpace(person.LastName))
+            {
+                result = result.Where(x => x.Person.LastName == person.LastName);
+            }
+            if (!string.IsNullOrWhiteSpace(city))
+            {
+                result = result.Where(x => x.ClientLocation.City == city);
+            }
+            return result.ToList();
         }
     }
 }

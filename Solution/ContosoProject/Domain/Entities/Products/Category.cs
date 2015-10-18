@@ -19,6 +19,11 @@ namespace Domain.Entities.Products
         {
         }
         
+        public static bool IsNullOrEmpty(Category category)
+        {
+            return category == null || category.Title == "";
+        }
+
         public string Title { get; set; }
 
         public IReadOnlyCollection<Comment> Comments
