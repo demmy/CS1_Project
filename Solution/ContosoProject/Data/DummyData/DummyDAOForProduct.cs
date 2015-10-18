@@ -16,6 +16,7 @@ namespace Data.DummyData
 
         public ICollection<Product> GetBy(string sku, string title, Category category)
         {
+            if(string.IsNullOrWhiteSpace(sku) && string.IsNullOrWhiteSpace(title) &&  category ==null) return new List<Product>();
             var result = _collection.AsQueryable();
             if (!string.IsNullOrWhiteSpace(sku))
             {
@@ -25,7 +26,7 @@ namespace Data.DummyData
             {
                 result = result.Where(x => x.Title ==title);
             }
-            if (Category.IsNullOrEmpty(category))
+            if (!Category.IsNullOrEmpty(category))
             {
                 result = result.Where(x =>x.Category == category);
             }

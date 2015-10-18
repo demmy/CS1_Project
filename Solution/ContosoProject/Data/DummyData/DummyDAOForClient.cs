@@ -12,7 +12,7 @@ namespace Data.DummyData
         {
             _collection = Storage.Clients;
         }
-        public ICollection<Client> FindBy(Person person, string city)
+        public ICollection<Client> GetBy(Person person, string city)
         {
             var result = _collection.AsQueryable();
             if (!string.IsNullOrWhiteSpace(person.FirstName))
