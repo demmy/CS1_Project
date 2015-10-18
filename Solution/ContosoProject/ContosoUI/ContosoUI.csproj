@@ -143,7 +143,14 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserForm\UserForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserForm\UserForm.Designer.cs">
+      <DependentUpon>UserForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserForm\IUserView.cs" />
+    <Compile Include="UserForm\UserPresenter.cs" />
     <Compile Include="UserSearchForm\IUserSearchView.cs" />
     <Compile Include="UserSearchForm\UserSearchModel.cs" />
     <Compile Include="UserSearchForm\UserSearchPresenter.cs" />
@@ -184,6 +191,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="UserForm\UserForm.resx">
+      <DependentUpon>UserForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserSearchForm\UserSearchForm.resx">
       <DependentUpon>UserSearchForm.cs</DependentUpon>
     </EmbeddedResource>

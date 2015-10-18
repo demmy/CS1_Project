@@ -38,6 +38,7 @@
             this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn8 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.LastNameLabelControl = new DevExpress.XtraEditors.LabelControl();
             this.LastNameTextEdit = new DevExpress.XtraEditors.TextEdit();
@@ -58,7 +59,6 @@
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlFirstNameLabel = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlFirstNameTextEdit = new DevExpress.XtraLayout.LayoutControlItem();
-            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LoginTextEdit.Properties)).BeginInit();
@@ -189,6 +189,14 @@
             this.gridColumn8.Name = "gridColumn8";
             this.gridColumn8.Visible = true;
             this.gridColumn8.VisibleIndex = 5;
+            // 
+            // gridColumn1
+            // 
+            this.gridColumn1.Caption = "ID";
+            this.gridColumn1.FieldName = "Id";
+            this.gridColumn1.Name = "gridColumn1";
+            this.gridColumn1.Visible = true;
+            this.gridColumn1.VisibleIndex = 6;
             // 
             // gridView2
             // 
@@ -437,14 +445,6 @@
             this.layoutControlFirstNameTextEdit.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlFirstNameTextEdit.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlFirstNameTextEdit.TextVisible = false;
-            // 
-            // gridColumn1
-            // 
-            this.gridColumn1.Caption = "ID";
-            this.gridColumn1.FieldName = "Id";
-            this.gridColumn1.Name = "gridColumn1";
-            this.gridColumn1.Visible = true;
-            this.gridColumn1.VisibleIndex = 6;
             // 
             // UserSearchForm
             // 

@@ -19,7 +19,7 @@ namespace ContosoUI.UserSearchForm
         public UserSearchForm()
         {
             InitializeComponent();
-            presenter = new UserSearchPresenter(this, new UserSearchModel(), new UserForm.UserForm());
+            presenter = new UserSearchPresenter(this, new UserSearchModel());
             UsersGridControl.DataSource = Data.StoreData.Storage.Users;
             Domain.Entities.Users.User user = new Domain.Entities.Users.User();
         }

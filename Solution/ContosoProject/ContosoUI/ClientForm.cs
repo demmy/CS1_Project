@@ -17,10 +17,9 @@ namespace ContosoUI
     {
         private static readonly int GENERATED_ID = 5;
         private Client _client;
-        private DummyDAOForOrder _orders;// = new DummyDAOForOrder();
-        private DummyDAOForComment _comments;// = new DummyDAOForComment();
-        private DummyDAOForClient _clients;// = new DummyDAOForClient();
-
+        private DummyDAOForOrder _orders = new DummyDAOForOrder();
+        private DummyDAOForComment _comments = new DummyDAOForComment();
+        private DummyDAOForClient _clients = new DummyDAOForClient();
         public ClientForm(Client clientToShow)
         {
             _client = clientToShow;

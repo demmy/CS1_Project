@@ -38,7 +38,7 @@ namespace Data.DummyData
         {
             if (_collection.Any(x => x.Status == status))
             {
-                return _collection.Where(x => x.Status== status).ToList();
+                return _collection.Where(x => x.Status == status).ToList();
             }
             throw new Exception();
         }
@@ -50,7 +50,7 @@ namespace Data.DummyData
                 _collection.Add(new Order(new List<Comment>(), new List<OrderItem>()
                 {
                     new OrderItem(product, quantity, product.Price)
-                } ));
+                }));
             }
             throw new Exception();
         }
@@ -66,7 +66,7 @@ namespace Data.DummyData
             {
                 _collection.First(x => x.OrderItems.Any(it => it.Product == product)).IsActive = false;
             }
-            throw  new Exception();
+            throw new Exception();
         }
 
         public void EditOrder(Product product, int quantity)

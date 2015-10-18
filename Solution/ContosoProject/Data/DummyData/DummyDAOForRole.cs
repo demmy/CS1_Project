@@ -19,16 +19,18 @@ namespace Data.DummyData
             {
                 return _collection.Where(x => x.Title == title).ToList();
             }
-            throw new Exception();
+            else
+                throw new Exception();
         }
 
         public ICollection<Role> GetByPermission(Permission permission)
         {
-            if (_collection.Any(x =>x.Permissions.Any(perm=>perm == permission)))
+            if (_collection.Any(x => x.Permissions.Any(perm => perm == permission)))
             {
-                return _collection.Where(x =>x.Permissions.Any(perm=>perm == permission)).ToList();
+                return _collection.Where(x => x.Permissions.Any(perm => perm == permission)).ToList();
             }
-            throw new Exception();
+            else
+                throw new Exception();
         }
     }
 }

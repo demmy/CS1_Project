@@ -13,14 +13,14 @@ namespace Data.DummyData
         {
             _collection = Storage.Users;
         }
-
         public ICollection<User> GetByLogin(string login)
         {
             if (_collection.Any(x => x.Login == login))
             {
-                return _collection.Where(x=>x.Login==login).ToList();
+                return _collection.Where(x => x.Login == login).ToList();
             }
-            throw new Exception();
+            else
+                throw new Exception();
         }
 
         public ICollection<User> GetByRole(Role role)
@@ -29,7 +29,8 @@ namespace Data.DummyData
             {
                 return _collection.Where(x => x.Role == role).ToList();
             }
-            throw new Exception();
+            else
+                throw new Exception();
         }
     }
 }
