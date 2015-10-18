@@ -18,7 +18,7 @@ namespace Data.DummyData
 
         public ICollection<User> GetBy(string login, Person person)
         {
-            IQueryable<User> result = new EnumerableQuery<User>(_collection);
+            var result = _collection.AsQueryable();
             if (!string.IsNullOrWhiteSpace(login))
             {
                 result = result.Where(x => x.Login == login);
@@ -35,7 +35,6 @@ namespace Data.DummyData
             {
                 result = result.Where(x => x.Person.LastName == person.LastName);
             }
-            
             return result.ToList();
         }
 
