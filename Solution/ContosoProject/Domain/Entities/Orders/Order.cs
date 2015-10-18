@@ -12,14 +12,22 @@ namespace Domain.Entities.Orders
 
     public class Order : ExtendedEntity, ICommentable
     {        
-        Client Client { get; set; }
-        Status Status { get; set; }
-        public List<OrderItem> orderItems = new List<OrderItem>();
+        public Client Client { get; set; }
+        public Status Status { get; set; }
+        public string OrderNumber { get; set; }
+
+        private List<OrderItem> orderItems;
         private ICollection<Comment> comments;
 
-        public Order(ICollection<Comment> comments)
+        public Order(ICollection<Comment> comments, List<OrderItem> orders)
         {
             this.comments = comments;
+            orderItems = orders;
+        }
+
+        public Order()
+        {
+            
         }
 
         public List<OrderItem> OrderItems
