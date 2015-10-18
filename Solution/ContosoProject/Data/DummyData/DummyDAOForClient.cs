@@ -8,15 +8,13 @@ namespace Data.DummyData
 {
     class DummyDAOForClient : DummyDAOExtension<Client>, IClientRepository
     {
-        
         public DummyDAOForClient()
         {
             _collection = Storage.Clients;
         }
-
         public ICollection<Client> FindBy(Person person, string city)
         {
-            IQueryable<Client> result = new EnumerableQuery<Client>(_collection);
+            var result = _collection.AsQueryable();
             if (!string.IsNullOrWhiteSpace(person.FirstName))
             {
                 result = result.Where(x=>x.Person.FirstName==person.FirstName);
