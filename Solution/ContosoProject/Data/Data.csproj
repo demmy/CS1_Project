@@ -48,11 +48,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DummyData\DummyDAOExtension.cs" />
-    <Compile Include="StoreData\KeyedCollections.cs" />
     <Compile Include="DummyData\DummyDAOForCategory.cs" />
     <Compile Include="DummyData\DummyDAOForClient.cs" />
     <Compile Include="DummyData\DummyDAOForComment.cs" />
+    <Compile Include="StoreData\KeyedCollections.cs" />
+    <Compile Include="DummyData\DummyDAOExtension.cs" />
     <Compile Include="DummyData\DummyDAOForOrder.cs" />
     <Compile Include="DummyData\DummyDAOForPermission.cs" />
     <Compile Include="DummyData\DummyDAOForProduct.cs" />
