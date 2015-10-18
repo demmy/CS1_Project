@@ -20,11 +20,6 @@ namespace Data.DummyData
             _collection.Add(new T());
         }
 
-        public void Delete(int id)
-        {
-            throw new NotImplementedException();
-        }
-
         public T Find(int id)
         {
             if (!(_collection.Any(x => x.Id == id)))
