@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Domain.Entities
 {
-    public static class PersonExstention
+    public static class PersonExtention
     {
         public enum InformationAmount
         {
