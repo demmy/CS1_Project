@@ -48,19 +48,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Accessibility" />
-    <Reference Include="DevExpress.Data.v15.1, Version=15.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.Office.v15.1.Core, Version=15.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.Printing.v15.1.Core, Version=15.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.RichEdit.v15.1.Core, Version=15.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.Sparkline.v15.1.Core, Version=15.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.Utils.v15.1, Version=15.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.XtraBars.v15.1, Version=15.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.XtraEditors.v15.1, Version=15.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraGrid.v15.1, Version=15.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraLayout.v15.1, Version=15.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.XtraPrinting.v15.1, Version=15.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.XtraRichEdit.v15.1, Version=15.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraVerticalGrid.v15.1, Version=15.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
@@ -78,60 +65,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ClientSearchForm\ClientSearchForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ClientSearchForm\ClientSearchForm.Designer.cs">
-      <DependentUpon>ClientSearchForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="OrderSearchForm\OrderSearchForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="OrderSearchForm\OrderSearchForm.Designer.cs">
-      <DependentUpon>OrderSearchForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ProductForm\ProductForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ProductForm\ProductForm.Designer.cs">
-      <DependentUpon>ProductForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ProductSearchForm\ProductSearchForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ProductSearchForm\ProductSearchForm.Designer.cs">
-      <DependentUpon>ProductSearchForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UserSearchForm\UserSearchForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UserSearchForm\UserSearchForm.Designer.cs">
-      <DependentUpon>UserSearchForm.cs</DependentUpon>
-    </Compile>
-    <EmbeddedResource Include="ClientSearchForm\ClientSearchForm.resx">
-      <DependentUpon>ClientSearchForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MainForm.resx">
-      <DependentUpon>MainForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="OrderSearchForm\OrderSearchForm.resx">
-      <DependentUpon>OrderSearchForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ProductForm\ProductForm.resx">
-      <DependentUpon>ProductForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ProductSearchForm\ProductSearchForm.resx">
-      <DependentUpon>ProductSearchForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -141,9 +82,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="UserSearchForm\UserSearchForm.resx">
-      <DependentUpon>UserSearchForm.cs</DependentUpon>
-    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
