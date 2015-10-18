@@ -51,11 +51,6 @@
     <Compile Include="DummyData\DummyDAOForCategory.cs" />
     <Compile Include="DummyData\DummyDAOForClient.cs" />
     <Compile Include="StoreData\KeyedCollections.cs" />
-    <Compile Include="StoreData\StorageClients.cs" />
-    <Compile Include="StoreData\StoragePermissions.cs" />
-    <Compile Include="StoreData\StorageOrders.cs" />
-    <Compile Include="StoreData\Storage.cs" />
-    <Compile Include="StoreData\StorageProducts.cs" />
     <Compile Include="DummyData\DummyDAOExtension.cs" />
     <Compile Include="DummyData\DummyDAOForOrder.cs" />
     <Compile Include="DummyData\DummyDAOForPermission.cs" />
