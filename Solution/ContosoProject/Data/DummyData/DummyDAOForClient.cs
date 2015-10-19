@@ -1,19 +1,35 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using Data.StoreData;
 using Domain.DAO;
 using Domain.Entities;
 
 namespace Data.DummyData
 {
-    class DummyDAOForClient : DummyDAO<Client>, IClientRepository
+    public class DummyDAOForClient : DummyDAOExtension<Client>, IClientRepository
     {
-        public ICollection<Client> GetByName(string name)
+        public DummyDAOForClient()
         {
-            throw new System.NotImplementedException();
+            _collection = Storage.Clients;
+        }
+
+        public ICollection<Client> GetByPerson(Person person)
+        {
+            if (_collection.Any(x => x.Person == person))//need to override Equals in client
+            {
+                return _collection.Where(x => x.Person == person).ToList();
+            }
+            throw new Exception();
         }
 
         public ICollection<Client> GetByCity(string city)
         {
-            throw new System.NotImplementedException();
+            if (_collection.Any(x => x.ClientLocation.City == city))
+            {
+                return _collection.Where(x => x.ClientLocation.City == city).ToList();
+            }
+            throw new Exception();
         }
     }
 }
