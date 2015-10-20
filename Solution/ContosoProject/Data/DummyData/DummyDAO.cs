@@ -34,14 +34,14 @@ namespace Data.DummyData
                 throw new Exception();
         }
 
-        public ICollection<T> GetAll()
+        public IQueryable<T> GetAll()
         {
-            return _collection;
+            return _collection.AsQueryable<T>();
         }
 
-        public ICollection<T> GetByIsActive(bool isActive)
+        public IQueryable<T> GetByIsActive(bool isActive)
         {
-            return _collection.Where(x => x.IsActive == isActive).ToList();
+            return _collection.Where(x => x.IsActive == isActive).AsQueryable<T>();
         }
 
         public void Save(T entity)
@@ -70,6 +70,11 @@ namespace Data.DummyData
             }
             else
                 throw new Exception();
+        }
+
+        public IQueryable<T> FindBy(System.Linq.Expressions.Expression<Func<T, bool>> predicate)
+        {
+            throw new NotImplementedException();
         }
     }
 }
