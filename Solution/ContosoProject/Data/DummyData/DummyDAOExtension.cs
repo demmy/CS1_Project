@@ -11,9 +11,9 @@ namespace Data.DummyData
     {
         public ICollection<T> GetByUser(User user)
         {
-            if (_collection.Any(x => x.User == user))
+            if (_collection.Any(x => x.Operator == user))
             {
-                return (ICollection<T>)_collection.Select(x => x.User).ToList();
+                return (ICollection<T>)_collection.Select(x => x.Operator).ToList();
             }
             throw new Exception();
         }

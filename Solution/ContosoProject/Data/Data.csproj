@@ -49,6 +49,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DummyData\DummyDAOExtension.cs" />
+    <Compile Include="EFRepository\EFBaseDao.cs" />
+    <Compile Include="EFRepository\ProjectContext.cs" />
+    <Compile Include="Migrations\201510200912476_Init.cs" />
+    <Compile Include="Migrations\201510200912476_Init.Designer.cs">
+      <DependentUpon>201510200912476_Init.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="StoreData\KeyedCollections.cs" />
     <Compile Include="DummyData\DummyDAOForCategory.cs" />
     <Compile Include="DummyData\DummyDAOForClient.cs" />
@@ -67,10 +74,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="DumbData\" />
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadata Include="Service References\" />
+    <EmbeddedResource Include="Migrations\201510200912476_Init.resx">
+      <DependentUpon>201510200912476_Init.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Domain\Domain.csproj">
