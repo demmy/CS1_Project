@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Domain.Entities.Users;
 using Data.DummyData;
+using Domain.Entities;
 
 namespace ContosoUI.UserSearchForm
 {
@@ -14,8 +15,7 @@ namespace ContosoUI.UserSearchForm
         {
             DummyDAOForUser user = new DummyDAOForUser();
 
-            user.GetByLogin(login);
-            return user.GetByLogin(login);            
+            return user.GetBy(login, new Person{FirstName = firstName, LastName = lastName});            
         }
 
     }

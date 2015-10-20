@@ -16,6 +16,12 @@ namespace Data.DummyData
         {
             _collection = Storage.Orders;
         }
+
+        public ICollection<Order> GetBy(string orderNumber, Status status)
+        {
+            return !string.IsNullOrWhiteSpace(orderNumber) ? _collection.Where(x => x.OrderNumber == orderNumber).ToList() : _collection.Where(x => x.Status == status).ToList();
+        }
+
         public ICollection<Order> GetByClient(Client client)
         {
             if (_collection.Any(x => x.Client == client))
@@ -34,15 +40,6 @@ namespace Data.DummyData
             throw new Exception();
         }
 
-        public ICollection<Order> GetByStatus(Status status)
-        {
-            if (_collection.Any(x => x.Status == status))
-            {
-                return _collection.Where(x => x.Status == status).ToList();
-            }
-            throw new Exception();
-        }
-
         public void AddOrder(Product product, int quantity)
         {
             if (!Contains(product))
@@ -50,7 +47,7 @@ namespace Data.DummyData
                 _collection.Add(new Order(new List<Comment>(), new List<OrderItem>()
                 {
                     new OrderItem(product, quantity, product.Price)
-                }));
+                } ));
             }
             throw new Exception();
         }
