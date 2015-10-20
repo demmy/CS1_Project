@@ -49,6 +49,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DummyData\DummyDAOExtension.cs" />
+    <Compile Include="EFRepository\EFBaseDao.cs" />
     <Compile Include="EFRepository\ProjectContext.cs" />
     <Compile Include="Migrations\201510200912476_Init.cs" />
     <Compile Include="Migrations\201510200912476_Init.Designer.cs">
