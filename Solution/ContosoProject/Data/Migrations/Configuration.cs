@@ -1,5 +1,7 @@
 namespace Data.Migrations
 {
+    using Domain.Entities;
+    using Domain.Entities.Users;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
@@ -14,18 +16,14 @@ namespace Data.Migrations
 
         protected override void Seed(Data.EFRepository.ProjectContext context)
         {
-            //  This method will be called after migrating to the latest version.
 
-            //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
-            //  to avoid creating duplicate seed data. E.g.
-            //
-            //    context.People.AddOrUpdate(
-            //      p => p.FullName,
-            //      new Person { FullName = "Andrew Peters" },
-            //      new Person { FullName = "Brice Lambson" },
-            //      new Person { FullName = "Rowan Miller" }
-            //    );
-            //
+            // seed first user
+            var person = new Person() { FirstName = "John", LastName = "Doe", MiddleName = "Anonim" };
+            var role = new Role(){Title="test role", IsActive = true};
+            var user = new User() { Login = "test", Password = "pass", Person = person, Role = role, IsActive = true };
+
+            context.Users.Add(user);
+            context.SaveChanges();
         }
     }
 }

@@ -13,9 +13,14 @@ namespace Data.EFRepository
 {
     public class ProjectContext : DbContext
     {
-        DbSet<Order> Oders { get; set; }
-        DbSet<Product> Products { get; set; }
-        DbSet<User> Users { get; set; }
-        DbSet<Client> Clients { get; set; }
+        public ProjectContext()
+        {
+            Database.SetInitializer<ProjectContext>(new DropCreateDatabaseAlways<ProjectContext>());
+        }
+
+        public DbSet<Order> Oders { get; set; }
+        public DbSet<Product> Products { get; set; }
+        public DbSet<User> Users { get; set; }
+        public DbSet<Client> Clients { get; set; }
     }
 }
