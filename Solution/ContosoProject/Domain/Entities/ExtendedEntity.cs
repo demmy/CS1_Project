@@ -11,7 +11,7 @@ namespace Domain.Entities
             
         }
 
-        public User User { get; set; }
+        public User Operator { get; set; }
 
         public DateTime Date { get; set; }
 

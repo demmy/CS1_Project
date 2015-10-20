@@ -50,7 +50,7 @@ namespace ContosoUI
         private void addCommentButton_Click(object sender, EventArgs e)
         {
             if(!String.IsNullOrEmpty(newCommentTextEdit.Text))
-            _comments.Create(new Comment() { Date = DateTime.Now, EntityType = EntityType.Client, Id = GENERATED_ID, IsActive = true, Text = newCommentTextEdit.Text, User = null});
+            _comments.Create(new Comment() { Date = DateTime.Now, EntityType = EntityType.Client, Id = GENERATED_ID, IsActive = true, Text = newCommentTextEdit.Text, Operator = null});
         }
 
        }
