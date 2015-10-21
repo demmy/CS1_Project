@@ -17,62 +17,67 @@ namespace ContosoUI.UserForm
         public UserForm()
         {
             InitializeComponent();
-            presenter = new UserPresenter(this);
+            presenter = new UserPresenter(this, new UserModel());
+            roleComboBoxEdit.Properties.Items.AddRange(presenter.RoleList.Select(x => x.Title).ToList());
+            BindingSource binding = new BindingSource();
+            binding.DataSource = presenter;
+
+            loginTextEdit.DataBindings.Add("EditValue", binding, "Login");
+            firstNameTextEdit.DataBindings.Add("EditValue", binding, "FirstName");
+            middleNameTextEdit.DataBindings.Add("EditValue", binding, "MiddleName");
+            lastNameTextEdit.DataBindings.Add("EditValue", binding, "LastName");
+            passwordTextEdit.DataBindings.Add("EditValue", binding, "Password");
+            roleComboBoxEdit.DataBindings.Add("EditValue", binding, "RoleTitle");
         }
 
         public UserForm(int id)
         {
             InitializeComponent();
-            presenter = new UserPresenter(this);
+            presenter = new UserPresenter(this, new UserModel());
             presenter.GetUser(id);
+            RefreshForm();           
         }
 
-        public string Login
+        public void RefreshForm()
         {
-            get { return loginTextEdit.Text; }
-            set { loginTextEdit.Text = value; }
+            loginTextEdit.Text = presenter.Login;
+            firstNameTextEdit.Text = presenter.FirstName;
+            middleNameTextEdit.Text = presenter.MiddleName;
+            lastNameTextEdit.Text = presenter.LastName;
+            roleComboBoxEdit.Text = presenter.Role.Title;
+            passwordTextEdit.Text = presenter.Password;
+            stateButtonText();
         }
 
-        public string FirstName
+        private void closeButton_Click(object sender, EventArgs e)
         {
-            get { return firstNameTextEdit.Text; }
-            set { firstNameTextEdit.Text = value; }
-        }
-        
-        public string MiddleName
-        {
-            get { return middleNameTextEdit.Text; }
-            set { middleNameTextEdit.Text = value; }
-        }
-        
-        public string LastName
-        {
-            get { return lastNameTextEdit.Text; }
-            set { lastNameTextEdit.Text = value; }
+            presenter.Clear(); 
+            RefreshForm();
         }
 
-        public string Password
+        private void stateButton_Click(object sender, EventArgs e)
         {
-            get { return passwordTextEdit.Text; }
-            set { passwordTextEdit.Text = value; }
+            // Reset / revert
+            presenter.State = !presenter.State;
+            RefreshForm();            
         }
 
-        public string Role
+        private void stateButtonText()
         {
-            get { return roleComboBoxEdit.Text; }
-            set { roleComboBoxEdit.Text = value; }
+            if (presenter.State)
+                stateButton.Text = "Remove";
+            else
+                stateButton.Text = "Revert";
         }
 
-        public bool Active
+        private void saveButton_Click(object sender, EventArgs e)
         {
-            get { return isActiveCheckEdit.Checked; }
-            set { isActiveCheckEdit.Checked = value; }
+            presenter.Save();
         }
 
-        public string Comments
+        private void saveCloseButton_Click(object sender, EventArgs e)
         {
-            get { return commentsRichTextBox.Text; }
-            set { commentsRichTextBox.Text = value; }
+            presenter.SaveAndNew();
         }
     }
 }

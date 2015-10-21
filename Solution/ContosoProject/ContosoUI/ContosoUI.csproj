@@ -138,6 +138,7 @@
       <DependentUpon>UserForm.cs</DependentUpon>
     </Compile>
     <Compile Include="UserForm\IUserView.cs" />
+    <Compile Include="UserForm\UserModel.cs" />
     <Compile Include="UserForm\UserPresenter.cs" />
     <Compile Include="UserSearchForm\IUserSearchView.cs" />
     <Compile Include="UserSearchForm\UserSearchModel.cs" />

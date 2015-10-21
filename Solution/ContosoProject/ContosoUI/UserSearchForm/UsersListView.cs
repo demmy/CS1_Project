@@ -23,7 +23,6 @@ namespace ContosoUI.UserSearchForm
             InitializeComponent();
             presenter = new UserSearchPresenter(this, new UserSearchModel());
             usersGridControl.DataSource = presenter.Users;
-            User user = new User();
 
             BindingSource binding = new BindingSource();
             binding.DataSource = presenter;
@@ -78,7 +77,5 @@ namespace ContosoUI.UserSearchForm
             presenter.Search();
             RefreshForm();
         }
-
-
     }
 }

@@ -1,14 +1,9 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
-using System.Security.Cryptography.X509Certificates;
-using Data.StoreData;
+using System.Linq.Expressions;
 using Domain.DAO;
 using Domain.Entities;
-using Domain.Entities.Products;
-using Domain.Entities.Users;
 
 namespace Data.DummyData
 {
@@ -34,14 +29,14 @@ namespace Data.DummyData
                 throw new Exception();
         }
 
-        public ICollection<T> GetAll()
+        public IQueryable<T> GetAll()
         {
-            return _collection;
+            return _collection.AsQueryable<T>();
         }
 
-        public ICollection<T> GetByIsActive(bool isActive)
+        public IQueryable<T> GetByIsActive(bool isActive)
         {
-            return _collection.Where(x => x.IsActive == isActive).ToList();
+            return _collection.Where(x => x.IsActive == isActive).AsQueryable<T>();
         }
 
         public void Save(T entity)
@@ -70,6 +65,11 @@ namespace Data.DummyData
             }
             else
                 throw new Exception();
+        }
+
+        public IQueryable<T> FindBy(Expression<Func<T, bool>> predicate)
+        {
+            throw new NotImplementedException();
         }
     }
 }

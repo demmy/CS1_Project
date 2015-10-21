@@ -85,7 +85,6 @@ namespace ContosoUI.UserSearchForm
             if (PropertyChanged != null)
             {
                 PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-                Search();
             }
         }
 
