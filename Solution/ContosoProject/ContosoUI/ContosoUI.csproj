@@ -99,12 +99,6 @@
     <Compile Include="ClientSearchForm\ClientListView.Designer.cs">
       <DependentUpon>ClientListView.cs</DependentUpon>
     </Compile>
-    <Compile Include="ClientForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ClientForm.Designer.cs">
-      <DependentUpon>ClientForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -117,12 +111,6 @@
     <Compile Include="OrderSearchForm\OrderListView.Designer.cs">
       <DependentUpon>OrderListView.cs</DependentUpon>
     </Compile>
-    <Compile Include="OrderForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="OrderForm.Designer.cs">
-      <DependentUpon>OrderForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="ProductSearchForm\ProductListView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -131,14 +119,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="MainForm.resx">
-      <DependentUpon>MainForm.cs</DependentUpon>
-    <Compile Include="UserForm\UserForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UserForm\UserForm.Designer.cs">
-      <DependentUpon>UserForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="UserForm\IUserView.cs" />
     <Compile Include="UserForm\UserModel.cs" />
     <Compile Include="UserForm\UserPresenter.cs" />
@@ -148,17 +128,20 @@
     <Compile Include="UserSearchForm\UsersListView.cs">
       <SubType>Form</SubType>
     </Compile>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <Compile Include="UserForm\UserForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserForm\UserForm.Designer.cs">
+      <DependentUpon>UserForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserSearchForm\UsersListView.Designer.cs">
       <DependentUpon>UsersListView.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="ClientSearchForm\ClientListView.resx">
       <DependentUpon>ClientListView.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ClientForm.resx">
-      <DependentUpon>ClientForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="OrderForm.resx">
-      <DependentUpon>OrderForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="OrderSearchForm\OrderListView.resx">
       <DependentUpon>OrderListView.cs</DependentUpon>
@@ -176,9 +159,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="UserForm\UserForm.resx">
-      <DependentUpon>UserForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="UserSearchForm\UsersListView.resx">
       <DependentUpon>UsersListView.cs</DependentUpon>
     </EmbeddedResource>
