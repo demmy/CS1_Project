@@ -105,6 +105,12 @@
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="NicksForms\Client form\ClientViewList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NicksForms\Client form\ClientViewList.Designer.cs">
+      <DependentUpon>ClientViewList.cs</DependentUpon>
+    </Compile>
     <Compile Include="OrderSearchForm\OrderListView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -116,6 +122,24 @@
     </Compile>
     <Compile Include="ProductSearchForm\ProductListView.Designer.cs">
       <DependentUpon>ProductListView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NicksForms\User form\UserViewList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NicksForms\User form\UserViewList.Designer.cs">
+      <DependentUpon>UserViewList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NicksForms\Order form\OrderViewList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NicksForms\Order form\OrderViewList.Designer.cs">
+      <DependentUpon>OrderViewList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NicksForms\Product form\ProductViewList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NicksForms\Product form\ProductViewList.Designer.cs">
+      <DependentUpon>ProductViewList.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -142,6 +166,10 @@
     </Compile>
     <EmbeddedResource Include="ClientSearchForm\ClientListView.resx">
       <DependentUpon>ClientListView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NicksForms\User form\UserViewList.resx">
+      <DependentUpon>UserViewList.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="OrderSearchForm\OrderListView.resx">
       <DependentUpon>OrderListView.cs</DependentUpon>
