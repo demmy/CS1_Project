@@ -32,5 +32,15 @@ namespace Data.DummyData
             }
             return result.ToList();
         }
+
+
+        public ICollection<User> GetByRole(Role role)
+        {
+            if (_collection.Any(x => x.Role == role))
+            {
+                return _collection.Where(x => x.Role == role).ToList();
+            }
+            throw new Exception();
+        }
     }
 }
