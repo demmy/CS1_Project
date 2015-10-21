@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using Domain.Entities;
 using Domain.Entities.Users;
 
 namespace Domain.DAO
@@ -10,5 +7,6 @@ namespace Domain.DAO
     public interface IUserRepository : IRepositoryExtension<User>
     {
         ICollection<User> GetBy(string login, string firstName, string lastName);
+        ICollection<User> GetByRole(Role role);
     }
 }

@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using Data.StoreData;
 using Domain.DAO;
-using Domain.Entities.Users;
 using Domain.Entities;
+using Domain.Entities.Users;
 
 namespace Data.DummyData
 {
