@@ -1,22 +1,22 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using ContosoUI.NicksForms.User_form;
 
-namespace ContosoUI.UserForm
+namespace ContosoUI.NicksForms.User_form
 {
-    public partial class UserForm : Form, IUserView
+    public partial class UserForm : DevExpress.XtraBars.Ribbon.RibbonForm, IUserView
     {
         private readonly UserPresenter presenter;
+
+        private void UserForm_Load(object sender, EventArgs e)
+        {
+
+        }
 
         public UserForm()
         {
             InitializeComponent();
+            
             presenter = new UserPresenter(this, new UserModel());
             BindingSource binding = new BindingSource();
             binding.DataSource = presenter;
@@ -38,7 +38,7 @@ namespace ContosoUI.UserForm
             InitializeComponent();
             presenter = new UserPresenter(this, new UserModel());
             presenter.GetUser(id);
-            RefreshForm();           
+            RefreshForm();
         }
 
         public void RefreshForm()
@@ -54,38 +54,35 @@ namespace ContosoUI.UserForm
 
         private void closeButton_Click(object sender, EventArgs e)
         {
-            presenter.Clear(); 
+            presenter.Clear();
             RefreshForm();
         }
 
-        private void stateButton_Click(object sender, EventArgs e)
+        private void stateButton_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            // Reset / revert
             presenter.State = !presenter.State;
-            RefreshForm();            
+            RefreshForm();
         }
-
         private void stateButtonText()
         {
             if (presenter.State)
-                stateButton.Text = "Remove";
+                stateButton.Caption = "Remove";
             else
-                stateButton.Text = "Revert";
+                stateButton.Caption = "Revert";
         }
-
-        private void saveButton_Click(object sender, EventArgs e)
+        private void barSaveButton_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             presenter.Save();
         }
-
-        private void saveCloseButton_Click(object sender, EventArgs e)
+        private void barSaveAndNewButton_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             presenter.SaveAndNew();
-        }
-
-        private void roleLookUpEdit_EditValueChanged(object sender, EventArgs e)
-        {
 
         }
+    
+    
+        
+
+        
     }
 }

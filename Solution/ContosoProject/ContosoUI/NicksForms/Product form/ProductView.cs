@@ -1,19 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Text;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using DevExpress.XtraBars;
 
-namespace ContosoUI.NicksForms
+namespace ContosoUI.NicksForms.Product_form
 {
-    public partial class productViewList : DevExpress.XtraBars.Ribbon.RibbonForm
+    public partial class ProductView : DevExpress.XtraBars.Ribbon.RibbonForm
     {
-        public productViewList()
+        public ProductView()
         {
             InitializeComponent();
         }
@@ -32,6 +25,11 @@ namespace ContosoUI.NicksForms
             flyoutPanel1.OwnerControl = newCategorySimpleButton;
             flyoutPanel1.Options.Location = new Point(Location.X + 290, Location.Y + 144);
             flyoutPanel1.ShowPopup();
+        }
+
+        private void ProductAddView_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

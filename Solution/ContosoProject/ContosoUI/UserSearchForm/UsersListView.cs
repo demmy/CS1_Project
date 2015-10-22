@@ -17,20 +17,23 @@ namespace ContosoUI.UserSearchForm
     public partial class UsersListView : DevExpress.XtraBars.Ribbon.RibbonForm, IUserSearchView
     {
         private readonly UserSearchPresenter presenter;
-
+        BindingSource binding = new BindingSource();
+         
         public UsersListView()
         {
             InitializeComponent();
-            presenter = new UserSearchPresenter(this, new UserSearchModel());
-            usersGridControl.DataSource = presenter.Users;
+            presenter = new UserSearchPresenter(this);
+        }
 
-            BindingSource binding = new BindingSource();
+        private void UsersListView_Load(object sender, EventArgs e)
+        {
             binding.DataSource = presenter;
 
             loginTextEdit.DataBindings.Add("EditValue", binding, "Login");
             firstNameTextEdit.DataBindings.Add("EditValue", binding, "FirstName");
             lastNameTextEdit.DataBindings.Add("EditValue", binding, "LastName");
             usersGridControl.DataBindings.Add("DataSource", binding, "Users");
+            usersGridControl.RefreshDataSource();
         }
 
         private void addUserBarButton_ItemClick(object sender, ItemClickEventArgs e)
@@ -40,24 +43,17 @@ namespace ContosoUI.UserSearchForm
 
         private void searchUserBarButton_ItemClick(object sender, ItemClickEventArgs e)
         {
+            binding.EndEdit();
             presenter.Search();
-            RefreshForm();
         }
 
         private void clearUserBarButton_ItemClick(object sender, ItemClickEventArgs e)
         {
             presenter.Clear();
-            RefreshForm();
         }
 
         public void RefreshForm()
         {
-            loginTextEdit.Text = presenter.Login;
-            firstNameTextEdit.Text = presenter.FirstName;
-            lastNameTextEdit.Text = presenter.LastName;
-            usersGridControl.DataSource = presenter.Users; // spike            
-            //usersGridControl.RefreshDataSource();
-            //usersGridControl.Refresh();
         }
 
         private void usersGridView_DoubleClick(object sender, EventArgs e)
@@ -76,6 +72,12 @@ namespace ContosoUI.UserSearchForm
         {
             presenter.Search();
             RefreshForm();
+        }
+
+        
+        private void userSearchRibbon_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

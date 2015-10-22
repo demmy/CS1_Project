@@ -1,4 +1,6 @@
 ﻿using System;
+using ContosoUI.NicksForms.Order_form;
+using Data.StoreData;
 using DevExpress.XtraBars;
 using DevExpress.XtraBars.Ribbon;
 
@@ -35,7 +37,26 @@ namespace ContosoUI
 
         }
 
+        private void barUserButton_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            var form = new NicksForms.User_form.UserForm();
+            form.MdiParent = this;
+            form.Show();
+        }
+
         private void barButtonItem1_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            OrderPresenter presenter = new OrderPresenter(new OrderModel(), new OrderForm() { MdiParent = this}, Storage.Orders[2]);
+            presenter.ShowView();
+
+        }
+
+        private void barButtonItem2_ItemClick(object sender, ItemClickEventArgs e)
+        {
+
+        }
+
+        private void UsersListBarButtonItem_ItemClick(object sender, ItemClickEventArgs e)
         {
             var form = new UserSearchForm.UsersListView();
             form.MdiParent = this;

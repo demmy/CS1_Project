@@ -678,6 +678,7 @@
             this.Controls.Add(this.layoutControl);
             this.Name = "UserForm";
             this.Text = "UserForm";
+            this.Load += new System.EventHandler(this.UserForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl)).EndInit();
             this.layoutControl.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.roleLookUpEdit.Properties)).EndInit();

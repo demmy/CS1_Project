@@ -39,12 +39,14 @@ namespace ContosoUI
             this.clientsMenuBtn = new DevExpress.XtraBars.BarButtonItem();
             this.ordersMenuBtn = new DevExpress.XtraBars.BarButtonItem();
             this.exitMenuBtn = new DevExpress.XtraBars.BarButtonItem();
+            this.barUserButton = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             this.Р = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.workRibbonPageGroup = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.systemRibbonGroup = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.applicationMenu1 = new DevExpress.XtraBars.Ribbon.ApplicationMenu(this.components);
             this.xtraTabbedMdiManager1 = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
-            this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
+            this.UsersListBarButtonItem = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.mainRibbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.applicationMenu1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabbedMdiManager1)).BeginInit();
@@ -58,13 +60,15 @@ namespace ContosoUI
             this.clientsMenuBtn,
             this.ordersMenuBtn,
             this.exitMenuBtn,
-            this.barButtonItem1});
+            this.barUserButton,
+            this.barButtonItem1,
+            this.UsersListBarButtonItem});
             this.mainRibbon.Location = new System.Drawing.Point(0, 0);
-            this.mainRibbon.MaxItemId = 2;
+            this.mainRibbon.MaxItemId = 4;
             this.mainRibbon.Name = "mainRibbon";
             this.mainRibbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.Р});
-            this.mainRibbon.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.OfficeUniversal;
+            this.mainRibbon.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.Office2013;
             this.mainRibbon.ShowApplicationButton = DevExpress.Utils.DefaultBoolean.False;
             this.mainRibbon.ShowCategoryInCaption = false;
             this.mainRibbon.ShowExpandCollapseButton = DevExpress.Utils.DefaultBoolean.False;
@@ -72,7 +76,7 @@ namespace ContosoUI
             this.mainRibbon.ShowPageHeadersMode = DevExpress.XtraBars.Ribbon.ShowPageHeadersMode.Hide;
             this.mainRibbon.ShowQatLocationSelector = false;
             this.mainRibbon.ShowToolbarCustomizeItem = false;
-            this.mainRibbon.Size = new System.Drawing.Size(890, 79);
+            this.mainRibbon.Size = new System.Drawing.Size(890, 143);
             this.mainRibbon.Toolbar.ShowCustomizeItem = false;
             // 
             // clientsMenuBtn
@@ -102,6 +106,22 @@ namespace ContosoUI
             this.exitMenuBtn.Name = "exitMenuBtn";
             this.exitMenuBtn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.exitMenuBtn_ItemClick);
             // 
+            // barUserButton
+            // 
+            this.barUserButton.Caption = "User";
+            this.barUserButton.Glyph = ((System.Drawing.Image)(resources.GetObject("barUserButton.Glyph")));
+            this.barUserButton.Id = 1;
+            this.barUserButton.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barUserButton.LargeGlyph")));
+            this.barUserButton.Name = "barUserButton";
+            this.barUserButton.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barUserButton_ItemClick);
+            // 
+            // barButtonItem1
+            // 
+            this.barButtonItem1.Caption = "barButtonItem1";
+            this.barButtonItem1.Id = 2;
+            this.barButtonItem1.Name = "barButtonItem1";
+            this.barButtonItem1.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem1_ItemClick);
+            // 
             // Р
             // 
             this.Р.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -114,13 +134,15 @@ namespace ContosoUI
             // 
             this.workRibbonPageGroup.ItemLinks.Add(this.clientsMenuBtn, "К");
             this.workRibbonPageGroup.ItemLinks.Add(this.ordersMenuBtn, "З");
+            this.workRibbonPageGroup.ItemLinks.Add(this.barUserButton);
+            this.workRibbonPageGroup.ItemLinks.Add(this.barButtonItem1);
+            this.workRibbonPageGroup.ItemLinks.Add(this.UsersListBarButtonItem);
             this.workRibbonPageGroup.KeyTip = "Р";
             this.workRibbonPageGroup.Name = "workRibbonPageGroup";
             this.workRibbonPageGroup.Text = "Работа";
             // 
             // systemRibbonGroup
             // 
-            this.systemRibbonGroup.ItemLinks.Add(this.barButtonItem1);
             this.systemRibbonGroup.ItemLinks.Add(this.exitMenuBtn, "В");
             this.systemRibbonGroup.KeyTip = "0";
             this.systemRibbonGroup.MergeOrder = 999;
@@ -139,12 +161,12 @@ namespace ContosoUI
             this.xtraTabbedMdiManager1.HeaderButtonsShowMode = DevExpress.XtraTab.TabButtonShowMode.WhenNeeded;
             this.xtraTabbedMdiManager1.MdiParent = this;
             // 
-            // barButtonItem1
+            // UsersListBarButtonItem
             // 
-            this.barButtonItem1.Caption = "Users";
-            this.barButtonItem1.Id = 1;
-            this.barButtonItem1.Name = "barButtonItem1";
-            this.barButtonItem1.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem1_ItemClick);
+            this.UsersListBarButtonItem.Caption = "barButtonItem2";
+            this.UsersListBarButtonItem.Id = 3;
+            this.UsersListBarButtonItem.Name = "UsersListBarButtonItem";
+            this.UsersListBarButtonItem.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.UsersListBarButtonItem_ItemClick);
             // 
             // MainForm
             // 
@@ -158,7 +180,6 @@ namespace ContosoUI
             this.mainRibbon.SetPopupContextMenu(this, this.applicationMenu1);
             this.Ribbon = this.mainRibbon;
             this.Text = "Form1";
-            this.TopMost = true;
             this.Load += new System.EventHandler(this.MainForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.mainRibbon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.applicationMenu1)).EndInit();
@@ -179,7 +200,9 @@ namespace ContosoUI
         private RibbonPageGroup systemRibbonGroup;
         private XtraTabbedMdiManager xtraTabbedMdiManager1;
         private ApplicationMenu applicationMenu1;
+        private BarButtonItem barUserButton;
         private BarButtonItem barButtonItem1;
+        private BarButtonItem UsersListBarButtonItem;
     }
 }
 

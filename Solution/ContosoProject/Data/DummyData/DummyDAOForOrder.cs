@@ -17,9 +17,16 @@ namespace Data.DummyData
             _collection = Storage.Orders;
         }
 
-        public ICollection<Order> GetBy(string orderNumber, Status status)
+        public Order GetByNumber(string orderNumber)
         {
-            return !string.IsNullOrWhiteSpace(orderNumber) ? _collection.Where(x => x.OrderNumber == orderNumber).ToList() : _collection.Where(x => x.Status == status).ToList();
+            if(string.IsNullOrWhiteSpace(orderNumber)) 
+                return _collection.FirstOrDefault(x => x.OrderNumber == orderNumber);
+            throw new Exception();
+        }
+
+        public ICollection<Order> GetByStatus(Status status)
+        {
+            return _collection.Where(x => x.Status == status).ToList();
         }
 
         public ICollection<Order> GetByClient(Client client)

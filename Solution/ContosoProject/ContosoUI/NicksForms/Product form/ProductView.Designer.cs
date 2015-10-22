@@ -1,9 +1,8 @@
-﻿using System.Windows.Forms;
-using DevExpress.XtraBars;
+﻿using DevExpress.XtraBars;
 
-namespace ContosoUI.NicksForms
+namespace ContosoUI.NicksForms.Product_form
 {
-    partial class productViewList
+    partial class ProductView
     {
         /// <summary>
         /// Required designer variable.
@@ -31,7 +30,6 @@ namespace ContosoUI.NicksForms
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(productViewList));
             this.ribbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.barSaveProductButton = new DevExpress.XtraBars.BarButtonItem();
             this.barSaveAndNewProductButton = new DevExpress.XtraBars.BarButtonItem();
@@ -173,73 +171,55 @@ namespace ContosoUI.NicksForms
             // barSaveProductButton
             // 
             this.barSaveProductButton.Caption = "Save";
-            this.barSaveProductButton.Glyph = ((System.Drawing.Image)(resources.GetObject("barSaveProductButton.Glyph")));
             this.barSaveProductButton.Id = 3;
-            this.barSaveProductButton.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barSaveProductButton.LargeGlyph")));
             this.barSaveProductButton.Name = "barSaveProductButton";
             // 
             // barSaveAndNewProductButton
             // 
             this.barSaveAndNewProductButton.Caption = "Save and New";
-            this.barSaveAndNewProductButton.Glyph = ((System.Drawing.Image)(resources.GetObject("barSaveAndNewProductButton.Glyph")));
             this.barSaveAndNewProductButton.Id = 4;
-            this.barSaveAndNewProductButton.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barSaveAndNewProductButton.LargeGlyph")));
             this.barSaveAndNewProductButton.Name = "barSaveAndNewProductButton";
             // 
             // barClearProductButton
             // 
             this.barClearProductButton.Caption = "Clear";
-            this.barClearProductButton.Glyph = ((System.Drawing.Image)(resources.GetObject("barClearProductButton.Glyph")));
             this.barClearProductButton.Id = 5;
-            this.barClearProductButton.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barClearProductButton.LargeGlyph")));
             this.barClearProductButton.Name = "barClearProductButton";
             // 
             // barProductRemoveRevertButton
             // 
             this.barProductRemoveRevertButton.Caption = "Remove(Revert)";
-            this.barProductRemoveRevertButton.Glyph = ((System.Drawing.Image)(resources.GetObject("barProductRemoveRevertButton.Glyph")));
             this.barProductRemoveRevertButton.Id = 6;
-            this.barProductRemoveRevertButton.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barProductRemoveRevertButton.LargeGlyph")));
             this.barProductRemoveRevertButton.Name = "barProductRemoveRevertButton";
             // 
             // barCategorySaveButton
             // 
             this.barCategorySaveButton.Caption = "Save";
-            this.barCategorySaveButton.Glyph = ((System.Drawing.Image)(resources.GetObject("barCategorySaveButton.Glyph")));
             this.barCategorySaveButton.Id = 7;
-            this.barCategorySaveButton.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barCategorySaveButton.LargeGlyph")));
             this.barCategorySaveButton.Name = "barCategorySaveButton";
             // 
             // barSaveAndNewCategoryButton
             // 
             this.barSaveAndNewCategoryButton.Caption = "Save and New";
-            this.barSaveAndNewCategoryButton.Glyph = ((System.Drawing.Image)(resources.GetObject("barSaveAndNewCategoryButton.Glyph")));
             this.barSaveAndNewCategoryButton.Id = 8;
-            this.barSaveAndNewCategoryButton.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barSaveAndNewCategoryButton.LargeGlyph")));
             this.barSaveAndNewCategoryButton.Name = "barSaveAndNewCategoryButton";
             // 
             // barClearCategoryButton
             // 
             this.barClearCategoryButton.Caption = "Clear";
-            this.barClearCategoryButton.Glyph = ((System.Drawing.Image)(resources.GetObject("barClearCategoryButton.Glyph")));
             this.barClearCategoryButton.Id = 9;
-            this.barClearCategoryButton.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barClearCategoryButton.LargeGlyph")));
             this.barClearCategoryButton.Name = "barClearCategoryButton";
             // 
             // barRemoveRevertCategoryButton
             // 
             this.barRemoveRevertCategoryButton.Caption = "Remove(Revert)";
-            this.barRemoveRevertCategoryButton.Glyph = ((System.Drawing.Image)(resources.GetObject("barRemoveRevertCategoryButton.Glyph")));
             this.barRemoveRevertCategoryButton.Id = 11;
-            this.barRemoveRevertCategoryButton.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barRemoveRevertCategoryButton.LargeGlyph")));
             this.barRemoveRevertCategoryButton.Name = "barRemoveRevertCategoryButton";
             // 
             // barNewCategoryButton
             // 
             this.barNewCategoryButton.Caption = "New";
-            this.barNewCategoryButton.Glyph = ((System.Drawing.Image)(resources.GetObject("barNewCategoryButton.Glyph")));
             this.barNewCategoryButton.Id = 12;
-            this.barNewCategoryButton.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barNewCategoryButton.LargeGlyph")));
             this.barNewCategoryButton.Name = "barNewCategoryButton";
             this.barNewCategoryButton.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem1_ItemClick);
             // 
@@ -821,7 +801,7 @@ namespace ContosoUI.NicksForms
             this.layoutControlNewCategoryCancelButton.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlNewCategoryCancelButton.TextVisible = false;
             // 
-            // productViewList
+            // ProductView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -830,10 +810,11 @@ namespace ContosoUI.NicksForms
             this.Controls.Add(this.layoutControl1);
             this.Controls.Add(this.ribbonStatusBar);
             this.Controls.Add(this.ribbon);
-            this.Name = "productViewList";
+            this.Name = "ProductView";
             this.Ribbon = this.ribbon;
             this.StatusBar = this.ribbonStatusBar;
             this.Text = "ProductViewList";
+            this.Load += new System.EventHandler(this.ProductAddView_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);

@@ -1,6 +1,6 @@
-﻿namespace ContosoUI.NicksForms
+﻿namespace ContosoUI.NicksForms.User_form
 {
-    partial class userViewList
+    partial class UserForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(userViewList));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserForm));
             this.ribbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.barSaveButton = new DevExpress.XtraBars.BarButtonItem();
             this.barSaveAndNewButton = new DevExpress.XtraBars.BarButtonItem();
             this.barClearButton = new DevExpress.XtraBars.BarButtonItem();
-            this.barRemoveRevertButton = new DevExpress.XtraBars.BarButtonItem();
+            this.stateButton = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageUserGroup = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageUserFileGroup = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -46,7 +46,6 @@
             this.lastNameTextEdit = new DevExpress.XtraEditors.TextEdit();
             this.middleNameTextEdit = new DevExpress.XtraEditors.TextEdit();
             this.firstNameTextEdit = new DevExpress.XtraEditors.TextEdit();
-            this.roleComboBoxEdit = new DevExpress.XtraEditors.ComboBoxEdit();
             this.passwordTextEdit = new DevExpress.XtraEditors.TextEdit();
             this.loginTextEdit = new DevExpress.XtraEditors.TextEdit();
             this.layoutControlEntireGroup = new DevExpress.XtraLayout.LayoutControlGroup();
@@ -67,6 +66,7 @@
             this.middleNameLayoutControl = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlLastNameTextEdit = new DevExpress.XtraLayout.LayoutControlItem();
             this.splitterItem1 = new DevExpress.XtraLayout.SplitterItem();
+            this.roleLookUpEdit = new DevExpress.XtraEditors.LookUpEdit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl)).BeginInit();
             this.layoutControl.SuspendLayout();
@@ -75,7 +75,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.lastNameTextEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.middleNameTextEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.firstNameTextEdit.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.roleComboBoxEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.passwordTextEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.loginTextEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlEntireGroup)).BeginInit();
@@ -96,6 +95,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.middleNameLayoutControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlLastNameTextEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitterItem1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.roleLookUpEdit.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // ribbon
@@ -106,7 +106,7 @@
             this.barSaveButton,
             this.barSaveAndNewButton,
             this.barClearButton,
-            this.barRemoveRevertButton});
+            this.stateButton});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
             this.ribbon.MaxItemId = 7;
             this.ribbon.Name = "ribbon";
@@ -123,6 +123,7 @@
             this.barSaveButton.Id = 2;
             this.barSaveButton.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barSaveButton.LargeGlyph")));
             this.barSaveButton.Name = "barSaveButton";
+            this.barSaveButton.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barSaveButton_ItemClick);
             // 
             // barSaveAndNewButton
             // 
@@ -131,6 +132,7 @@
             this.barSaveAndNewButton.Id = 4;
             this.barSaveAndNewButton.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barSaveAndNewButton.LargeGlyph")));
             this.barSaveAndNewButton.Name = "barSaveAndNewButton";
+            this.barSaveAndNewButton.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barSaveAndNewButton_ItemClick);
             // 
             // barClearButton
             // 
@@ -140,13 +142,14 @@
             this.barClearButton.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barClearButton.LargeGlyph")));
             this.barClearButton.Name = "barClearButton";
             // 
-            // barRemoveRevertButton
+            // stateButton
             // 
-            this.barRemoveRevertButton.Caption = "Remove(revert)";
-            this.barRemoveRevertButton.Glyph = ((System.Drawing.Image)(resources.GetObject("barRemoveRevertButton.Glyph")));
-            this.barRemoveRevertButton.Id = 6;
-            this.barRemoveRevertButton.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barRemoveRevertButton.LargeGlyph")));
-            this.barRemoveRevertButton.Name = "barRemoveRevertButton";
+            this.stateButton.Caption = "Remove(revert)";
+            this.stateButton.Glyph = ((System.Drawing.Image)(resources.GetObject("stateButton.Glyph")));
+            this.stateButton.Id = 6;
+            this.stateButton.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("stateButton.LargeGlyph")));
+            this.stateButton.Name = "stateButton";
+            this.stateButton.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.stateButton_ItemClick);
             // 
             // ribbonPage
             // 
@@ -166,7 +169,7 @@
             // 
             // ribbonPageUserFileGroup
             // 
-            this.ribbonPageUserFileGroup.ItemLinks.Add(this.barRemoveRevertButton);
+            this.ribbonPageUserFileGroup.ItemLinks.Add(this.stateButton);
             this.ribbonPageUserFileGroup.Name = "ribbonPageUserFileGroup";
             this.ribbonPageUserFileGroup.Text = "User";
             // 
@@ -186,9 +189,9 @@
             this.layoutControl.Controls.Add(this.lastNameTextEdit);
             this.layoutControl.Controls.Add(this.middleNameTextEdit);
             this.layoutControl.Controls.Add(this.firstNameTextEdit);
-            this.layoutControl.Controls.Add(this.roleComboBoxEdit);
             this.layoutControl.Controls.Add(this.passwordTextEdit);
             this.layoutControl.Controls.Add(this.loginTextEdit);
+            this.layoutControl.Controls.Add(this.roleLookUpEdit);
             this.layoutControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl.Location = new System.Drawing.Point(0, 143);
             this.layoutControl.Name = "layoutControl";
@@ -257,17 +260,6 @@
             this.firstNameTextEdit.Size = new System.Drawing.Size(325, 20);
             this.firstNameTextEdit.StyleController = this.layoutControl;
             this.firstNameTextEdit.TabIndex = 7;
-            // 
-            // roleComboBoxEdit
-            // 
-            this.roleComboBoxEdit.Location = new System.Drawing.Point(29, 363);
-            this.roleComboBoxEdit.MenuManager = this.ribbon;
-            this.roleComboBoxEdit.Name = "roleComboBoxEdit";
-            this.roleComboBoxEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.roleComboBoxEdit.Size = new System.Drawing.Size(325, 20);
-            this.roleComboBoxEdit.StyleController = this.layoutControl;
-            this.roleComboBoxEdit.TabIndex = 6;
             // 
             // passwordTextEdit
             // 
@@ -349,7 +341,7 @@
             // 
             // layoutControlRoleComboBox
             // 
-            this.layoutControlRoleComboBox.Control = this.roleComboBoxEdit;
+            this.layoutControlRoleComboBox.Control = this.roleLookUpEdit;
             this.layoutControlRoleComboBox.Location = new System.Drawing.Point(0, 100);
             this.layoutControlRoleComboBox.Name = "layoutControlRoleComboBox";
             this.layoutControlRoleComboBox.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
@@ -489,7 +481,21 @@
             this.splitterItem1.Name = "splitterItem1";
             this.splitterItem1.Size = new System.Drawing.Size(5, 573);
             // 
-            // userViewList
+            // roleLookUpEdit
+            // 
+            this.roleLookUpEdit.Location = new System.Drawing.Point(29, 363);
+            this.roleLookUpEdit.MenuManager = this.ribbon;
+            this.roleLookUpEdit.Name = "roleLookUpEdit";
+            this.roleLookUpEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.roleLookUpEdit.Properties.NullText = "";
+            this.roleLookUpEdit.Properties.PopupSizeable = false;
+            this.roleLookUpEdit.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
+            this.roleLookUpEdit.Size = new System.Drawing.Size(325, 20);
+            this.roleLookUpEdit.StyleController = this.layoutControl;
+            this.roleLookUpEdit.TabIndex = 6;
+            // 
+            // UserForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -497,10 +503,11 @@
             this.Controls.Add(this.layoutControl);
             this.Controls.Add(this.ribbonStatusBar);
             this.Controls.Add(this.ribbon);
-            this.Name = "userViewList";
+            this.Name = "UserForm";
             this.Ribbon = this.ribbon;
             this.StatusBar = this.ribbonStatusBar;
             this.Text = "UserViewList";
+            this.Load += new System.EventHandler(this.UserForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl)).EndInit();
             this.layoutControl.ResumeLayout(false);
@@ -509,7 +516,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.lastNameTextEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.middleNameTextEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.firstNameTextEdit.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.roleComboBoxEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.passwordTextEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.loginTextEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlEntireGroup)).EndInit();
@@ -530,6 +536,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.middleNameLayoutControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlLastNameTextEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitterItem1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.roleLookUpEdit.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -547,7 +554,6 @@
         private DevExpress.XtraEditors.TextEdit lastNameTextEdit;
         private DevExpress.XtraEditors.TextEdit middleNameTextEdit;
         private DevExpress.XtraEditors.TextEdit firstNameTextEdit;
-        private DevExpress.XtraEditors.ComboBoxEdit roleComboBoxEdit;
         private DevExpress.XtraEditors.TextEdit passwordTextEdit;
         private DevExpress.XtraEditors.TextEdit loginTextEdit;
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlEntireGroup;
@@ -573,7 +579,8 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlFirstNameTextEdit;
         private DevExpress.XtraLayout.LayoutControlItem middleNameLayoutControl;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlLastNameTextEdit;
-        private DevExpress.XtraBars.BarButtonItem barRemoveRevertButton;
+        private DevExpress.XtraBars.BarButtonItem stateButton;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageUserFileGroup;
+        private DevExpress.XtraEditors.LookUpEdit roleLookUpEdit;
     }
 }

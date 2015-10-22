@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Domain.Entities.Comments;
 
 namespace Domain.Entities.Products
@@ -11,20 +12,29 @@ namespace Domain.Entities.Products
         public string Title { get; set; }
         public string SKU { get; set; }
         public Category Category { get; set; }
-        private ICollection<Comment> comments;
+        private ICollection<Comment> _comments = new List<Comment>();
 
-        public Product(ICollection<Comment> comments)
+        public Product(ICollection<Comment> comments) : this()
         {
-            this.comments = comments;
+            _comments.ToList().AddRange(comments);
         }
 
         public Product()
         {
+            _comments.Add(new Comment()
+            {
+                Author = null,
+                Date = DateTime.Now,
+                EntityType = EntityType.Product,
+                Id = -1,
+                IsActive = true,
+                Text = string.Format("Client has been added {0}", DateTime.Now.ToShortDateString())
+            });
         }
 
         public IReadOnlyCollection<Comment> Comments
         {
-            get { return (IReadOnlyCollection<Comment>)comments; }
+            get { return (IReadOnlyCollection<Comment>)_comments; }
         }
 
         public override bool Equals(Object obj)

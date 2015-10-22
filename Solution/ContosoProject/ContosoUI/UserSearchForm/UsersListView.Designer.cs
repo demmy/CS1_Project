@@ -80,6 +80,7 @@
             this.userSearchRibbonPage});
             this.userSearchRibbon.Size = new System.Drawing.Size(1014, 143);
             this.userSearchRibbon.StatusBar = this.ribbonStatusBar;
+            this.userSearchRibbon.Click += new System.EventHandler(this.userSearchRibbon_Click);
             // 
             // addUserBarButton
             // 
@@ -166,13 +167,13 @@
             this.usersGridControl.TabIndex = 7;
             this.usersGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.usersGridView});
-            this.usersGridView.DoubleClick += new System.EventHandler(this.usersGridView_DoubleClick);
             // 
             // usersGridView
             // 
             this.usersGridView.GridControl = this.usersGridControl;
             this.usersGridView.Name = "usersGridView";
             this.usersGridView.OptionsBehavior.Editable = false;
+            this.usersGridView.DoubleClick += new System.EventHandler(this.usersGridView_DoubleClick);
             // 
             // lastNameTextEdit
             // 
@@ -283,6 +284,7 @@
             this.Ribbon = this.userSearchRibbon;
             this.StatusBar = this.ribbonStatusBar;
             this.Text = "User Search";
+            this.Load += new System.EventHandler(this.UsersListView_Load);
             ((System.ComponentModel.ISupportInitialize)(this.userSearchRibbon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlUsers)).EndInit();
             this.layoutControlUsers.ResumeLayout(false);

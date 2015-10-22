@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using Domain.Entities.Comments;
 
@@ -13,17 +15,25 @@ namespace Domain.Entities.Orders
         public string OrderNumber { get; set; }
 
         private List<OrderItem> orderItems;
-        private ICollection<Comment> comments;
+        private ICollection<Comment> _comments= new List<Comment>();
 
-        public Order(ICollection<Comment> comments, List<OrderItem> orders)
+        public Order(ICollection<Comment> comments, List<OrderItem> orders) : this()
         {
-            this.comments = comments;
+            _comments.ToList().AddRange(comments);
             orderItems = orders;
         }
 
         public Order()
         {
-            
+            _comments.Add(new Comment()
+            {
+                Author = null,
+                Date = DateTime.Now,
+                EntityType = EntityType.Order,
+                Id = -1,
+                IsActive = true,
+                Text = string.Format("Client has been added {0}", DateTime.Now.ToShortDateString())
+            });
         }
 
         public List<OrderItem> OrderItems
@@ -33,7 +43,7 @@ namespace Domain.Entities.Orders
 
         public IReadOnlyCollection<Comment> Comments
         {
-            get { return (IReadOnlyCollection<Comment>)comments; }
+            get { return (IReadOnlyCollection<Comment>)_comments; }
         }
 
         public double Sum
