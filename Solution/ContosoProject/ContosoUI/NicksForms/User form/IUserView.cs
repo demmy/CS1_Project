@@ -2,6 +2,5 @@
 {
     interface IUserView
     {
-        void RefreshForm();
     }
 }

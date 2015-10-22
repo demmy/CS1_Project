@@ -25,6 +25,8 @@ namespace ContosoUI.NicksForms.Order_form
             orderDateEdit.DataBindings.Add("EditValue", binding, "Date");
             orderGridControl.DataBindings.Add("DataSource", binding, "OrderItems");
             orderGridControl.RefreshDataSource();
+            orderGridControl.DataSource = presenter.OrderItems;
+
             commentsListBox.DataBindings.Add("DataSource", binding, "Comments");            
         }
 

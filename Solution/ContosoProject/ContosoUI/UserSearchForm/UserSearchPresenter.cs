@@ -91,13 +91,13 @@ namespace ContosoUI.UserSearchForm
 
         public void AddUser()
         {
-            UserForm.UserForm addUserForm = new UserForm.UserForm();
+            NicksForms.User_form.UserForm addUserForm = new NicksForms.User_form.UserForm();
             addUserForm.Show();
         }
 
         public void EditUser(int id)
         {
-            UserForm.UserForm editUserForm = new UserForm.UserForm(id);           
+            NicksForms.User_form.UserForm editUserForm = new NicksForms.User_form.UserForm(id);           
             editUserForm.Show();
         }
 

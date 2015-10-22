@@ -16,15 +16,13 @@ namespace ContosoUI.NicksForms.User_form
         public event PropertyChangedEventHandler PropertyChanged = delegate(object sender, PropertyChangedEventArgs args) {  };
 
         IUserRepository DefaultUser = new DummyDAOForUser(); 
-        public Role Role = new Role();
-        private bool state;
-        public List<Role> RoleList = new List<Role>(Storage.Roles);
 
         public UserPresenter(IUserView view, UserModel model)
         {
             this.view = view;
             this.model = model;
         }
+
         private string login = string.Empty;
         public string Login
         {
@@ -38,6 +36,7 @@ namespace ContosoUI.NicksForms.User_form
                 }
             }
         }
+
         private string firstName = string.Empty;
         public string FirstName
         {
@@ -51,6 +50,7 @@ namespace ContosoUI.NicksForms.User_form
                 }
             }
         }
+
         private string middleName = string.Empty;
         public string MiddleName
         {
@@ -64,6 +64,7 @@ namespace ContosoUI.NicksForms.User_form
                 }
             }
         }
+
         private string lastName = string.Empty;
         public string LastName
         {
@@ -77,6 +78,7 @@ namespace ContosoUI.NicksForms.User_form
                 }
             }
         }
+
         private string password = string.Empty;
         public string Password
         {
@@ -91,6 +93,8 @@ namespace ContosoUI.NicksForms.User_form
             }
         }
 
+        public Role Role = new Role();
+        public List<Role> RoleList = new List<Role>(Storage.Roles);
         public int RoleID
         {
             get { return (Role == null) ? 0 : Role.Id; }
@@ -101,6 +105,7 @@ namespace ContosoUI.NicksForms.User_form
             }
         }
 
+        private bool state;
         public bool State
         {
             get { return state; }
@@ -146,9 +151,7 @@ namespace ContosoUI.NicksForms.User_form
             user.Person.FirstName = FirstName;
             user.Person.LastName = LastName;
             user.Person.MiddleName = MiddleName;
-
             user.Role = Role;
-
             user.IsActive = State;
 
             if (existingUser.Count > 0)

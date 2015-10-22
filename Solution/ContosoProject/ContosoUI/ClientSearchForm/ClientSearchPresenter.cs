@@ -89,14 +89,14 @@ namespace ContosoUI.ClientSearchForm
 
         public void AddClient()
         {
-            UserForm.UserForm addClientForm = new UserForm.UserForm();
-            addClientForm.Show();
+            //UserForm.UserForm addClientForm = new UserForm.UserForm();
+            //addClientForm.Show();
         }
 
         public void EditClient(int id)
         {
-            UserForm.UserForm editClientForm = new UserForm.UserForm(id);           
-            editClientForm.Show();
+            //UserForm.UserForm editClientForm = new UserForm.UserForm(id);           
+            //editClientForm.Show();
         }
 
         public void Search()

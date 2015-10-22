@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Windows.Forms;
-using ContosoUI.UserForm;
-using ContosoUI.UserSearchForm;
 
 namespace ContosoUI
 {
