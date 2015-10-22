@@ -122,17 +122,17 @@ namespace ContosoUI.NicksForms.Order_form
 
         public BindingList<OrderItem> OrderItems
         {
-            get { return new BindingList<OrderItem>(_orderItems);}
+            get { return _orderItems;}
             set
             {
-                //need to implement the comparing of lists
-                _orderItems = value;
-                NotifyPropertyChanged("OrderItems");
+                    //need to implement the comparing of lists
+                    _orderItems = value;
+                    NotifyPropertyChanged("OrderItems");                
             }
         }
         public BindingList<Comment> Comments
         {
-            get { return new BindingList<Comment>(_comments); }
+            get { return _comments; }
             set
             {
                 //need to implement the comparing of lists
