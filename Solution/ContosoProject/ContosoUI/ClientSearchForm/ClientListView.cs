@@ -16,45 +16,38 @@ namespace ContosoUI.ClientSearchForm
     public partial class ClientListView : DevExpress.XtraBars.Ribbon.RibbonForm, IClientSearchView
     {
         private readonly ClientSearchPresenter presenter;
+        BindingSource binding = new BindingSource();
 
         public ClientListView()
         {
             InitializeComponent();
-            presenter = new ClientSearchPresenter(this, new ClientSearchModel());
-            clientsGridControl.DataSource = presenter.Clients;
+            presenter = new ClientSearchPresenter(this);
+        }
 
-            BindingSource binding = new BindingSource();
+        private void ClientListView_Load(object sender, EventArgs e)
+        {
             binding.DataSource = presenter;
 
-            clientCityTextEdit.DataBindings.Add("EditValue", binding, "City");
-            clientFirstNameTextEdit.DataBindings.Add("EditValue", binding, "FirstName");
-            clientLastNameTextEdit.DataBindings.Add("EditValue", binding, "LastName");
-            clientsGridControl.DataBindings.Add("DataSource", binding, "Clients");
+            clientCityTextEdit.DataBindings.Add("EditValue", binding, "City", false, DataSourceUpdateMode.OnPropertyChanged);
+            clientFirstNameTextEdit.DataBindings.Add("EditValue", binding, "FirstName", false, DataSourceUpdateMode.OnPropertyChanged);
+            clientLastNameTextEdit.DataBindings.Add("EditValue", binding, "LastName", false, DataSourceUpdateMode.OnPropertyChanged);
+            clientsGridControl.DataBindings.Add("DataSource", binding, "Clients", false, DataSourceUpdateMode.OnPropertyChanged);
         }
 
         private void addClientBarButton_ItemClick(object sender, ItemClickEventArgs e)
         {
-            presenter.AddClient();
+            presenter.Add();
         }
 
         private void searchClientBarButton_ItemClick(object sender, ItemClickEventArgs e)
         {
+            binding.EndEdit();
             presenter.Search();
-            RefreshForm();
         }
 
         private void clearClientBarButton_ItemClick(object sender, ItemClickEventArgs e)
         {
             presenter.Clear();
-            RefreshForm();
-        }
-
-        public void RefreshForm()
-        {
-            clientCityTextEdit.Text = presenter.City;
-            clientFirstNameTextEdit.Text = presenter.FirstName;
-            clientLastNameTextEdit.Text = presenter.LastName;
-            clientsGridControl.DataSource = presenter.Clients;
         }
 
         private void clientsGridView_DoubleClick(object sender, EventArgs e)
@@ -65,7 +58,7 @@ namespace ContosoUI.ClientSearchForm
             if (info.InRow || info.InRowCell)
             {
                 int id = (int)view.GetRowCellValue(info.RowHandle, "Id");
-                presenter.EditClient(id);
+                presenter.Edit(id);
             }
         }
     }

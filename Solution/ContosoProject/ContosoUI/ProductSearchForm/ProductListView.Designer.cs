@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProductListView));
-            this.ribbonProductView = new DevExpress.XtraBars.Ribbon.RibbonControl();
+            this.mainRibbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.addProductBarButton = new DevExpress.XtraBars.BarButtonItem();
             this.searchProductBarButton = new DevExpress.XtraBars.BarButtonItem();
             this.clearProductBarButton = new DevExpress.XtraBars.BarButtonItem();
@@ -37,6 +37,7 @@
             this.productFileRibbonPageGroup = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBarProductView = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.layoutControlProductView = new DevExpress.XtraLayout.LayoutControl();
+            this.categoryLookUpEdit = new DevExpress.XtraEditors.LookUpEdit();
             this.productsGridControl = new DevExpress.XtraGrid.GridControl();
             this.productsGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.productTitleTextEdit = new DevExpress.XtraEditors.TextEdit();
@@ -45,11 +46,17 @@
             this.layoutControlSKUTextEdit = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlProductTitleTextEdit = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlProductsGridView = new DevExpress.XtraLayout.LayoutControlItem();
-            this.categoryComboBoxEdit = new DevExpress.XtraEditors.ComboBoxEdit();
-            this.layoutControlCategoryComboBoxEdit = new DevExpress.XtraLayout.LayoutControlItem();
-            ((System.ComponentModel.ISupportInitialize)(this.ribbonProductView)).BeginInit();
+            this.layoutControlCategoryLookUpEdit = new DevExpress.XtraLayout.LayoutControlItem();
+            this.skuGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.categoryGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.quantityGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.priceGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.titleGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.productStateGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.mainRibbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlProductView)).BeginInit();
             this.layoutControlProductView.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.categoryLookUpEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productsGridControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productsGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productTitleTextEdit.Properties)).BeginInit();
@@ -58,25 +65,32 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlSKUTextEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlProductTitleTextEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlProductsGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.categoryComboBoxEdit.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlCategoryComboBoxEdit)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlCategoryLookUpEdit)).BeginInit();
             this.SuspendLayout();
             // 
-            // ribbonProductView
+            // mainRibbon
             // 
-            this.ribbonProductView.ExpandCollapseItem.Id = 0;
-            this.ribbonProductView.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
-            this.ribbonProductView.ExpandCollapseItem,
+            this.mainRibbon.ExpandCollapseItem.Id = 0;
+            this.mainRibbon.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
+            this.mainRibbon.ExpandCollapseItem,
             this.addProductBarButton,
             this.searchProductBarButton,
             this.clearProductBarButton});
-            this.ribbonProductView.Location = new System.Drawing.Point(0, 0);
-            this.ribbonProductView.MaxItemId = 4;
-            this.ribbonProductView.Name = "ribbonProductView";
-            this.ribbonProductView.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
+            this.mainRibbon.Location = new System.Drawing.Point(0, 0);
+            this.mainRibbon.MaxItemId = 4;
+            this.mainRibbon.Name = "mainRibbon";
+            this.mainRibbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPageProductView});
-            this.ribbonProductView.Size = new System.Drawing.Size(1014, 143);
-            this.ribbonProductView.StatusBar = this.ribbonStatusBarProductView;
+            this.mainRibbon.ShowApplicationButton = DevExpress.Utils.DefaultBoolean.False;
+            this.mainRibbon.ShowCategoryInCaption = false;
+            this.mainRibbon.ShowExpandCollapseButton = DevExpress.Utils.DefaultBoolean.False;
+            this.mainRibbon.ShowFullScreenButton = DevExpress.Utils.DefaultBoolean.False;
+            this.mainRibbon.ShowPageHeadersMode = DevExpress.XtraBars.Ribbon.ShowPageHeadersMode.Hide;
+            this.mainRibbon.ShowQatLocationSelector = false;
+            this.mainRibbon.ShowToolbarCustomizeItem = false;
+            this.mainRibbon.Size = new System.Drawing.Size(1014, 122);
+            this.mainRibbon.StatusBar = this.ribbonStatusBarProductView;
+            this.mainRibbon.Toolbar.ShowCustomizeItem = false;
             // 
             // addProductBarButton
             // 
@@ -85,6 +99,7 @@
             this.addProductBarButton.Id = 1;
             this.addProductBarButton.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("addProductBarButton.LargeGlyph")));
             this.addProductBarButton.Name = "addProductBarButton";
+            this.addProductBarButton.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.addProductBarButton_ItemClick);
             // 
             // searchProductBarButton
             // 
@@ -93,6 +108,7 @@
             this.searchProductBarButton.Id = 2;
             this.searchProductBarButton.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("searchProductBarButton.LargeGlyph")));
             this.searchProductBarButton.Name = "searchProductBarButton";
+            this.searchProductBarButton.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.searchProductBarButton_ItemClick);
             // 
             // clearProductBarButton
             // 
@@ -101,13 +117,14 @@
             this.clearProductBarButton.Id = 3;
             this.clearProductBarButton.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("clearProductBarButton.LargeGlyph")));
             this.clearProductBarButton.Name = "clearProductBarButton";
+            this.clearProductBarButton.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.clearProductBarButton_ItemClick);
             // 
             // ribbonPageProductView
             // 
             this.ribbonPageProductView.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.productFileRibbonPageGroup});
             this.ribbonPageProductView.Name = "ribbonPageProductView";
-            this.ribbonPageProductView.Text = "Product search";
+            this.ribbonPageProductView.Text = "RibbonMerge";
             // 
             // productFileRibbonPageGroup
             // 
@@ -121,43 +138,66 @@
             // 
             this.ribbonStatusBarProductView.Location = new System.Drawing.Point(0, 736);
             this.ribbonStatusBarProductView.Name = "ribbonStatusBarProductView";
-            this.ribbonStatusBarProductView.Ribbon = this.ribbonProductView;
+            this.ribbonStatusBarProductView.Ribbon = this.mainRibbon;
             this.ribbonStatusBarProductView.Size = new System.Drawing.Size(1014, 31);
             // 
             // layoutControlProductView
             // 
-            this.layoutControlProductView.Controls.Add(this.categoryComboBoxEdit);
+            this.layoutControlProductView.Controls.Add(this.categoryLookUpEdit);
             this.layoutControlProductView.Controls.Add(this.productsGridControl);
             this.layoutControlProductView.Controls.Add(this.productTitleTextEdit);
             this.layoutControlProductView.Controls.Add(this.skuTextEdit);
             this.layoutControlProductView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.layoutControlProductView.Location = new System.Drawing.Point(0, 143);
+            this.layoutControlProductView.Location = new System.Drawing.Point(0, 122);
             this.layoutControlProductView.Name = "layoutControlProductView";
             this.layoutControlProductView.Root = this.layoutControlGroupProductView;
-            this.layoutControlProductView.Size = new System.Drawing.Size(1014, 593);
+            this.layoutControlProductView.Size = new System.Drawing.Size(1014, 614);
             this.layoutControlProductView.TabIndex = 2;
             this.layoutControlProductView.Text = "layoutControl1";
+            // 
+            // categoryLookUpEdit
+            // 
+            this.categoryLookUpEdit.Location = new System.Drawing.Point(680, 33);
+            this.categoryLookUpEdit.MenuManager = this.mainRibbon;
+            this.categoryLookUpEdit.Name = "categoryLookUpEdit";
+            this.categoryLookUpEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.categoryLookUpEdit.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Title", "Title")});
+            this.categoryLookUpEdit.Properties.DisplayMember = "Title";
+            this.categoryLookUpEdit.Properties.ValueMember = "Id";
+            this.categoryLookUpEdit.Size = new System.Drawing.Size(317, 20);
+            this.categoryLookUpEdit.StyleController = this.layoutControlProductView;
+            this.categoryLookUpEdit.TabIndex = 9;
             // 
             // productsGridControl
             // 
             this.productsGridControl.Location = new System.Drawing.Point(17, 67);
             this.productsGridControl.MainView = this.productsGridView;
-            this.productsGridControl.MenuManager = this.ribbonProductView;
+            this.productsGridControl.MenuManager = this.mainRibbon;
             this.productsGridControl.Name = "productsGridControl";
-            this.productsGridControl.Size = new System.Drawing.Size(980, 509);
+            this.productsGridControl.Size = new System.Drawing.Size(980, 530);
             this.productsGridControl.TabIndex = 7;
             this.productsGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.productsGridView});
             // 
             // productsGridView
             // 
+            this.productsGridView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.skuGridColumn,
+            this.titleGridColumn,
+            this.categoryGridColumn,
+            this.quantityGridColumn,
+            this.priceGridColumn,
+            this.productStateGridColumn});
             this.productsGridView.GridControl = this.productsGridControl;
             this.productsGridView.Name = "productsGridView";
+            this.productsGridView.DoubleClick += new System.EventHandler(this.productsGridView_DoubleClick);
             // 
             // productTitleTextEdit
             // 
             this.productTitleTextEdit.Location = new System.Drawing.Point(349, 33);
-            this.productTitleTextEdit.MenuManager = this.ribbonProductView;
+            this.productTitleTextEdit.MenuManager = this.mainRibbon;
             this.productTitleTextEdit.Name = "productTitleTextEdit";
             this.productTitleTextEdit.Size = new System.Drawing.Size(317, 20);
             this.productTitleTextEdit.StyleController = this.layoutControlProductView;
@@ -166,7 +206,7 @@
             // skuTextEdit
             // 
             this.skuTextEdit.Location = new System.Drawing.Point(17, 33);
-            this.skuTextEdit.MenuManager = this.ribbonProductView;
+            this.skuTextEdit.MenuManager = this.mainRibbon;
             this.skuTextEdit.Name = "skuTextEdit";
             this.skuTextEdit.Size = new System.Drawing.Size(318, 20);
             this.skuTextEdit.StyleController = this.layoutControlProductView;
@@ -180,10 +220,10 @@
             this.layoutControlSKUTextEdit,
             this.layoutControlProductTitleTextEdit,
             this.layoutControlProductsGridView,
-            this.layoutControlCategoryComboBoxEdit});
+            this.layoutControlCategoryLookUpEdit});
             this.layoutControlGroupProductView.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroupProductView.Name = "layoutControlGroupProductView";
-            this.layoutControlGroupProductView.Size = new System.Drawing.Size(1014, 593);
+            this.layoutControlGroupProductView.Size = new System.Drawing.Size(1014, 614);
             this.layoutControlGroupProductView.TextVisible = false;
             // 
             // layoutControlSKUTextEdit
@@ -216,33 +256,70 @@
             this.layoutControlProductsGridView.Location = new System.Drawing.Point(0, 50);
             this.layoutControlProductsGridView.Name = "layoutControlProductsGridView";
             this.layoutControlProductsGridView.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
-            this.layoutControlProductsGridView.Size = new System.Drawing.Size(994, 523);
+            this.layoutControlProductsGridView.Size = new System.Drawing.Size(994, 544);
             this.layoutControlProductsGridView.Spacing = new DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 2);
             this.layoutControlProductsGridView.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlProductsGridView.TextVisible = false;
             // 
-            // categoryComboBoxEdit
+            // layoutControlCategoryLookUpEdit
             // 
-            this.categoryComboBoxEdit.Location = new System.Drawing.Point(680, 33);
-            this.categoryComboBoxEdit.MenuManager = this.ribbonProductView;
-            this.categoryComboBoxEdit.Name = "categoryComboBoxEdit";
-            this.categoryComboBoxEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.categoryComboBoxEdit.Size = new System.Drawing.Size(317, 20);
-            this.categoryComboBoxEdit.StyleController = this.layoutControlProductView;
-            this.categoryComboBoxEdit.TabIndex = 8;
+            this.layoutControlCategoryLookUpEdit.Control = this.categoryLookUpEdit;
+            this.layoutControlCategoryLookUpEdit.Location = new System.Drawing.Point(663, 0);
+            this.layoutControlCategoryLookUpEdit.Name = "layoutControlCategoryLookUpEdit";
+            this.layoutControlCategoryLookUpEdit.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
+            this.layoutControlCategoryLookUpEdit.Size = new System.Drawing.Size(331, 50);
+            this.layoutControlCategoryLookUpEdit.Spacing = new DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 2);
+            this.layoutControlCategoryLookUpEdit.Text = "Category";
+            this.layoutControlCategoryLookUpEdit.TextLocation = DevExpress.Utils.Locations.Top;
+            this.layoutControlCategoryLookUpEdit.TextSize = new System.Drawing.Size(45, 13);
             // 
-            // layoutControlCategoryComboBoxEdit
+            // skuGridColumn
             // 
-            this.layoutControlCategoryComboBoxEdit.Control = this.categoryComboBoxEdit;
-            this.layoutControlCategoryComboBoxEdit.Location = new System.Drawing.Point(663, 0);
-            this.layoutControlCategoryComboBoxEdit.Name = "layoutControlCategoryComboBoxEdit";
-            this.layoutControlCategoryComboBoxEdit.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
-            this.layoutControlCategoryComboBoxEdit.Size = new System.Drawing.Size(331, 50);
-            this.layoutControlCategoryComboBoxEdit.Spacing = new DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 2);
-            this.layoutControlCategoryComboBoxEdit.Text = "Category";
-            this.layoutControlCategoryComboBoxEdit.TextLocation = DevExpress.Utils.Locations.Top;
-            this.layoutControlCategoryComboBoxEdit.TextSize = new System.Drawing.Size(45, 13);
+            this.skuGridColumn.Caption = "SKU";
+            this.skuGridColumn.FieldName = "SKU";
+            this.skuGridColumn.Name = "skuGridColumn";
+            this.skuGridColumn.Visible = true;
+            this.skuGridColumn.VisibleIndex = 1;
+            // 
+            // categoryGridColumn
+            // 
+            this.categoryGridColumn.Caption = "Category";
+            this.categoryGridColumn.FieldName = "Category.Title";
+            this.categoryGridColumn.Name = "categoryGridColumn";
+            this.categoryGridColumn.Visible = true;
+            this.categoryGridColumn.VisibleIndex = 2;
+            // 
+            // quantityGridColumn
+            // 
+            this.quantityGridColumn.Caption = "Quantity";
+            this.quantityGridColumn.FieldName = "Quantity";
+            this.quantityGridColumn.Name = "quantityGridColumn";
+            this.quantityGridColumn.Visible = true;
+            this.quantityGridColumn.VisibleIndex = 3;
+            // 
+            // priceGridColumn
+            // 
+            this.priceGridColumn.Caption = "Price";
+            this.priceGridColumn.FieldName = "Price";
+            this.priceGridColumn.Name = "priceGridColumn";
+            this.priceGridColumn.Visible = true;
+            this.priceGridColumn.VisibleIndex = 4;
+            // 
+            // titleGridColumn
+            // 
+            this.titleGridColumn.Caption = "Title";
+            this.titleGridColumn.FieldName = "Title";
+            this.titleGridColumn.Name = "titleGridColumn";
+            this.titleGridColumn.Visible = true;
+            this.titleGridColumn.VisibleIndex = 0;
+            // 
+            // productStateGridColumn
+            // 
+            this.productStateGridColumn.Caption = "State";
+            this.productStateGridColumn.FieldName = "IsActive";
+            this.productStateGridColumn.Name = "productStateGridColumn";
+            this.productStateGridColumn.Visible = true;
+            this.productStateGridColumn.VisibleIndex = 5;
             // 
             // ProductListView
             // 
@@ -251,14 +328,16 @@
             this.ClientSize = new System.Drawing.Size(1014, 767);
             this.Controls.Add(this.layoutControlProductView);
             this.Controls.Add(this.ribbonStatusBarProductView);
-            this.Controls.Add(this.ribbonProductView);
+            this.Controls.Add(this.mainRibbon);
             this.Name = "ProductListView";
-            this.Ribbon = this.ribbonProductView;
+            this.Ribbon = this.mainRibbon;
             this.StatusBar = this.ribbonStatusBarProductView;
             this.Text = "ProductListView";
-            ((System.ComponentModel.ISupportInitialize)(this.ribbonProductView)).EndInit();
+            this.Load += new System.EventHandler(this.ProductListView_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.mainRibbon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlProductView)).EndInit();
             this.layoutControlProductView.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.categoryLookUpEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.productsGridControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.productsGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.productTitleTextEdit.Properties)).EndInit();
@@ -267,8 +346,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlSKUTextEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlProductTitleTextEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlProductsGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.categoryComboBoxEdit.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlCategoryComboBoxEdit)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlCategoryLookUpEdit)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -276,7 +354,7 @@
 
         #endregion
 
-        private DevExpress.XtraBars.Ribbon.RibbonControl ribbonProductView;
+        private DevExpress.XtraBars.Ribbon.RibbonControl mainRibbon;
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPageProductView;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup productFileRibbonPageGroup;
         private DevExpress.XtraBars.Ribbon.RibbonStatusBar ribbonStatusBarProductView;
@@ -292,7 +370,13 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlSKUTextEdit;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlProductTitleTextEdit;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlProductsGridView;
-        private DevExpress.XtraEditors.ComboBoxEdit categoryComboBoxEdit;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlCategoryComboBoxEdit;
+        private DevExpress.XtraEditors.LookUpEdit categoryLookUpEdit;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlCategoryLookUpEdit;
+        private DevExpress.XtraGrid.Columns.GridColumn skuGridColumn;
+        private DevExpress.XtraGrid.Columns.GridColumn titleGridColumn;
+        private DevExpress.XtraGrid.Columns.GridColumn categoryGridColumn;
+        private DevExpress.XtraGrid.Columns.GridColumn quantityGridColumn;
+        private DevExpress.XtraGrid.Columns.GridColumn priceGridColumn;
+        private DevExpress.XtraGrid.Columns.GridColumn productStateGridColumn;
     }
 }

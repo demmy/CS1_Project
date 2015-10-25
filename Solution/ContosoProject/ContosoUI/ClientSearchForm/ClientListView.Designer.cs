@@ -39,9 +39,12 @@
             this.layoutControlClientView = new DevExpress.XtraLayout.LayoutControl();
             this.clientsGridControl = new DevExpress.XtraGrid.GridControl();
             this.clientsGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.lastNameGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.firstNameGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.middleNameGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.cityGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.addreddGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.telephonesGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.clientCityTextEdit = new DevExpress.XtraEditors.TextEdit();
             this.clientLastNameTextEdit = new DevExpress.XtraEditors.TextEdit();
             this.clientFirstNameTextEdit = new DevExpress.XtraEditors.TextEdit();
@@ -50,6 +53,7 @@
             this.layoutControlClientsGridControl = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlClientLastName = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlClientCity = new DevExpress.XtraLayout.LayoutControlItem();
+            this.clientStateGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonClientView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlClientView)).BeginInit();
             this.layoutControlClientView.SuspendLayout();
@@ -78,6 +82,7 @@
             this.ribbonClientView.Name = "ribbonClientView";
             this.ribbonClientView.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPageClientView});
+            this.ribbonClientView.ShowPageHeadersMode = DevExpress.XtraBars.Ribbon.ShowPageHeadersMode.Hide;
             this.ribbonClientView.Size = new System.Drawing.Size(1014, 143);
             this.ribbonClientView.StatusBar = this.ribbonStatusBar;
             // 
@@ -113,7 +118,7 @@
             this.ribbonPageClientView.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.ClientFileRibbonPageGroup});
             this.ribbonPageClientView.Name = "ribbonPageClientView";
-            this.ribbonPageClientView.Text = "Client search";
+            this.ribbonPageClientView.Text = "RibbonMerge";
             // 
             // ClientFileRibbonPageGroup
             // 
@@ -158,36 +163,65 @@
             // clientsGridView
             // 
             this.clientsGridView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.gridColumn1,
-            this.gridColumn2,
-            this.gridColumn3});
+            this.lastNameGridColumn,
+            this.firstNameGridColumn,
+            this.middleNameGridColumn,
+            this.cityGridColumn,
+            this.addreddGridColumn,
+            this.telephonesGridColumn,
+            this.clientStateGridColumn});
             this.clientsGridView.GridControl = this.clientsGridControl;
             this.clientsGridView.Name = "clientsGridView";
+            this.clientsGridView.OptionsBehavior.Editable = false;
             this.clientsGridView.DoubleClick += new System.EventHandler(this.clientsGridView_DoubleClick);
             // 
-            // gridColumn1
+            // lastNameGridColumn
             // 
-            this.gridColumn1.Caption = "Last name";
-            this.gridColumn1.FieldName = "Person.LastName";
-            this.gridColumn1.Name = "gridColumn1";
-            this.gridColumn1.Visible = true;
-            this.gridColumn1.VisibleIndex = 0;
+            this.lastNameGridColumn.Caption = "Last name";
+            this.lastNameGridColumn.FieldName = "Person.LastName";
+            this.lastNameGridColumn.Name = "lastNameGridColumn";
+            this.lastNameGridColumn.Visible = true;
+            this.lastNameGridColumn.VisibleIndex = 0;
             // 
-            // gridColumn2
+            // firstNameGridColumn
             // 
-            this.gridColumn2.Caption = "First Name";
-            this.gridColumn2.FieldName = "Person.FirstName";
-            this.gridColumn2.Name = "gridColumn2";
-            this.gridColumn2.Visible = true;
-            this.gridColumn2.VisibleIndex = 1;
+            this.firstNameGridColumn.Caption = "First name";
+            this.firstNameGridColumn.FieldName = "Person.FirstName";
+            this.firstNameGridColumn.Name = "firstNameGridColumn";
+            this.firstNameGridColumn.Visible = true;
+            this.firstNameGridColumn.VisibleIndex = 1;
             // 
-            // gridColumn3
+            // middleNameGridColumn
             // 
-            this.gridColumn3.Caption = "City";
-            this.gridColumn3.FieldName = "ClientLocation.City";
-            this.gridColumn3.Name = "gridColumn3";
-            this.gridColumn3.Visible = true;
-            this.gridColumn3.VisibleIndex = 2;
+            this.middleNameGridColumn.Caption = "Middle name";
+            this.middleNameGridColumn.FieldName = "Person.MiddleName";
+            this.middleNameGridColumn.Name = "middleNameGridColumn";
+            this.middleNameGridColumn.Visible = true;
+            this.middleNameGridColumn.VisibleIndex = 2;
+            // 
+            // cityGridColumn
+            // 
+            this.cityGridColumn.Caption = "City";
+            this.cityGridColumn.FieldName = "ClientLocation.City";
+            this.cityGridColumn.Name = "cityGridColumn";
+            this.cityGridColumn.Visible = true;
+            this.cityGridColumn.VisibleIndex = 3;
+            // 
+            // addreddGridColumn
+            // 
+            this.addreddGridColumn.Caption = "Address";
+            this.addreddGridColumn.FieldName = "ClientLocation.Address";
+            this.addreddGridColumn.Name = "addreddGridColumn";
+            this.addreddGridColumn.Visible = true;
+            this.addreddGridColumn.VisibleIndex = 4;
+            // 
+            // telephonesGridColumn
+            // 
+            this.telephonesGridColumn.Caption = "Telephones";
+            this.telephonesGridColumn.FieldName = "Telephones";
+            this.telephonesGridColumn.Name = "telephonesGridColumn";
+            this.telephonesGridColumn.Visible = true;
+            this.telephonesGridColumn.VisibleIndex = 5;
             // 
             // clientCityTextEdit
             // 
@@ -277,6 +311,14 @@
             this.layoutControlClientCity.TextLocation = DevExpress.Utils.Locations.Top;
             this.layoutControlClientCity.TextSize = new System.Drawing.Size(50, 13);
             // 
+            // clientStateGridColumn
+            // 
+            this.clientStateGridColumn.Caption = "State";
+            this.clientStateGridColumn.FieldName = "IsActive";
+            this.clientStateGridColumn.Name = "clientStateGridColumn";
+            this.clientStateGridColumn.Visible = true;
+            this.clientStateGridColumn.VisibleIndex = 6;
+            // 
             // ClientListView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -288,7 +330,8 @@
             this.Name = "ClientListView";
             this.Ribbon = this.ribbonClientView;
             this.StatusBar = this.ribbonStatusBar;
-            this.Text = "ClientListView";
+            this.Text = "Client search";
+            this.Load += new System.EventHandler(this.ClientListView_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ribbonClientView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlClientView)).EndInit();
             this.layoutControlClientView.ResumeLayout(false);
@@ -327,8 +370,12 @@
         private DevExpress.XtraGrid.GridControl clientsGridControl;
         private DevExpress.XtraGrid.Views.Grid.GridView clientsGridView;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlClientsGridControl;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn3;
+        private DevExpress.XtraGrid.Columns.GridColumn lastNameGridColumn;
+        private DevExpress.XtraGrid.Columns.GridColumn firstNameGridColumn;
+        private DevExpress.XtraGrid.Columns.GridColumn cityGridColumn;
+        private DevExpress.XtraGrid.Columns.GridColumn middleNameGridColumn;
+        private DevExpress.XtraGrid.Columns.GridColumn addreddGridColumn;
+        private DevExpress.XtraGrid.Columns.GridColumn telephonesGridColumn;
+        private DevExpress.XtraGrid.Columns.GridColumn clientStateGridColumn;
     }
 }

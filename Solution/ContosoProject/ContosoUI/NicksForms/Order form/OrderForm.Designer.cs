@@ -303,7 +303,7 @@
             this.layoutControlStatusComboBox.Name = "layoutControlStatusComboBox";
             this.layoutControlStatusComboBox.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
             this.layoutControlStatusComboBox.Size = new System.Drawing.Size(336, 46);
-            this.layoutControlStatusComboBox.Text = "Status";
+            this.layoutControlStatusComboBox.Text = "status";
             this.layoutControlStatusComboBox.TextLocation = DevExpress.Utils.Locations.Top;
             this.layoutControlStatusComboBox.TextSize = new System.Drawing.Size(67, 13);
             // 

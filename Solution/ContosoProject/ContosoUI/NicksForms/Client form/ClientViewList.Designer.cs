@@ -1,6 +1,6 @@
 ﻿namespace ContosoUI.NicksForms
 {
-    partial class clientViewList
+    partial class ClientViewList
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(clientViewList));
             this.сlientRibbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.clientBarSaveButton = new DevExpress.XtraBars.BarButtonItem();
             this.clientBarSaveAndNewButton = new DevExpress.XtraBars.BarButtonItem();
@@ -62,12 +61,12 @@
             this.clientLayoutControlCityTextEdit = new DevExpress.XtraLayout.LayoutControlItem();
             this.clientLayoutControlAddressTextEdit = new DevExpress.XtraLayout.LayoutControlItem();
             this.сlientTabbedControlOrdersCommentsGroup = new DevExpress.XtraLayout.TabbedControlGroup();
+            this.сlientLayoutControlOrdersGroup = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.сlientLayoutControlOrdersGrid = new DevExpress.XtraLayout.LayoutControlItem();
             this.clientLayoutControlCommentsGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.clientLayoutControlCommentsListBox = new DevExpress.XtraLayout.LayoutControlItem();
             this.clientLayoutControlAddNewCommentButton = new DevExpress.XtraLayout.LayoutControlItem();
             this.сlientLayoutControlNewCommentTextEdit = new DevExpress.XtraLayout.LayoutControlItem();
-            this.сlientLayoutControlOrdersGroup = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.сlientLayoutControlOrdersGrid = new DevExpress.XtraLayout.LayoutControlItem();
             this.сlientSplitter = new DevExpress.XtraLayout.SplitterItem();
             ((System.ComponentModel.ISupportInitialize)(this.сlientRibbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientLayoutControl)).BeginInit();
@@ -92,12 +91,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.clientLayoutControlCityTextEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientLayoutControlAddressTextEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.сlientTabbedControlOrdersCommentsGroup)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.сlientLayoutControlOrdersGroup)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.сlientLayoutControlOrdersGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientLayoutControlCommentsGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientLayoutControlCommentsListBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientLayoutControlAddNewCommentButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.сlientLayoutControlNewCommentTextEdit)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.сlientLayoutControlOrdersGroup)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.сlientLayoutControlOrdersGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.сlientSplitter)).BeginInit();
             this.SuspendLayout();
             // 
@@ -121,33 +120,25 @@
             // clientBarSaveButton
             // 
             this.clientBarSaveButton.Caption = "Save";
-            this.clientBarSaveButton.Glyph = ((System.Drawing.Image)(resources.GetObject("clientBarSaveButton.Glyph")));
             this.clientBarSaveButton.Id = 4;
-            this.clientBarSaveButton.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("clientBarSaveButton.LargeGlyph")));
             this.clientBarSaveButton.Name = "clientBarSaveButton";
             // 
             // clientBarSaveAndNewButton
             // 
             this.clientBarSaveAndNewButton.Caption = "Save and New";
-            this.clientBarSaveAndNewButton.Glyph = ((System.Drawing.Image)(resources.GetObject("clientBarSaveAndNewButton.Glyph")));
             this.clientBarSaveAndNewButton.Id = 5;
-            this.clientBarSaveAndNewButton.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("clientBarSaveAndNewButton.LargeGlyph")));
             this.clientBarSaveAndNewButton.Name = "clientBarSaveAndNewButton";
             // 
             // clientBarClearButton
             // 
             this.clientBarClearButton.Caption = "Clear";
-            this.clientBarClearButton.Glyph = ((System.Drawing.Image)(resources.GetObject("clientBarClearButton.Glyph")));
             this.clientBarClearButton.Id = 6;
-            this.clientBarClearButton.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("clientBarClearButton.LargeGlyph")));
             this.clientBarClearButton.Name = "clientBarClearButton";
             // 
             // clientBarRemoveRevertButton
             // 
             this.clientBarRemoveRevertButton.Caption = "Remove(revert)";
-            this.clientBarRemoveRevertButton.Glyph = ((System.Drawing.Image)(resources.GetObject("clientBarRemoveRevertButton.Glyph")));
             this.clientBarRemoveRevertButton.Id = 7;
-            this.clientBarRemoveRevertButton.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("clientBarRemoveRevertButton.LargeGlyph")));
             this.clientBarRemoveRevertButton.Name = "clientBarRemoveRevertButton";
             // 
             // сlientRibbonClientPage
@@ -434,6 +425,24 @@
             this.сlientLayoutControlOrdersGroup,
             this.clientLayoutControlCommentsGroup});
             // 
+            // сlientLayoutControlOrdersGroup
+            // 
+            this.сlientLayoutControlOrdersGroup.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.сlientLayoutControlOrdersGrid});
+            this.сlientLayoutControlOrdersGroup.Location = new System.Drawing.Point(0, 0);
+            this.сlientLayoutControlOrdersGroup.Name = "сlientLayoutControlOrdersGroup";
+            this.сlientLayoutControlOrdersGroup.Size = new System.Drawing.Size(591, 527);
+            this.сlientLayoutControlOrdersGroup.Text = "Orders";
+            // 
+            // сlientLayoutControlOrdersGrid
+            // 
+            this.сlientLayoutControlOrdersGrid.Control = this.сlientOrdersGridControl;
+            this.сlientLayoutControlOrdersGrid.Location = new System.Drawing.Point(0, 0);
+            this.сlientLayoutControlOrdersGrid.Name = "сlientLayoutControlOrdersGrid";
+            this.сlientLayoutControlOrdersGrid.Size = new System.Drawing.Size(591, 527);
+            this.сlientLayoutControlOrdersGrid.TextSize = new System.Drawing.Size(0, 0);
+            this.сlientLayoutControlOrdersGrid.TextVisible = false;
+            // 
             // clientLayoutControlCommentsGroup
             // 
             this.clientLayoutControlCommentsGroup.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
@@ -476,24 +485,6 @@
             this.сlientLayoutControlNewCommentTextEdit.TextSize = new System.Drawing.Size(0, 0);
             this.сlientLayoutControlNewCommentTextEdit.TextVisible = false;
             // 
-            // сlientLayoutControlOrdersGroup
-            // 
-            this.сlientLayoutControlOrdersGroup.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.сlientLayoutControlOrdersGrid});
-            this.сlientLayoutControlOrdersGroup.Location = new System.Drawing.Point(0, 0);
-            this.сlientLayoutControlOrdersGroup.Name = "сlientLayoutControlOrdersGroup";
-            this.сlientLayoutControlOrdersGroup.Size = new System.Drawing.Size(591, 527);
-            this.сlientLayoutControlOrdersGroup.Text = "Orders";
-            // 
-            // сlientLayoutControlOrdersGrid
-            // 
-            this.сlientLayoutControlOrdersGrid.Control = this.сlientOrdersGridControl;
-            this.сlientLayoutControlOrdersGrid.Location = new System.Drawing.Point(0, 0);
-            this.сlientLayoutControlOrdersGrid.Name = "сlientLayoutControlOrdersGrid";
-            this.сlientLayoutControlOrdersGrid.Size = new System.Drawing.Size(591, 527);
-            this.сlientLayoutControlOrdersGrid.TextSize = new System.Drawing.Size(0, 0);
-            this.сlientLayoutControlOrdersGrid.TextVisible = false;
-            // 
             // сlientSplitter
             // 
             this.сlientSplitter.AllowHotTrack = true;
@@ -501,7 +492,7 @@
             this.сlientSplitter.Name = "сlientSplitter";
             this.сlientSplitter.Size = new System.Drawing.Size(5, 573);
             // 
-            // clientViewList
+            // ClientViewList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -509,7 +500,7 @@
             this.Controls.Add(this.clientLayoutControl);
             this.Controls.Add(this.сlientRibbonStatusBar);
             this.Controls.Add(this.сlientRibbon);
-            this.Name = "clientViewList";
+            this.Name = "ClientViewList";
             this.Ribbon = this.сlientRibbon;
             this.StatusBar = this.сlientRibbonStatusBar;
             this.Text = "ClientViewList";
@@ -537,12 +528,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.clientLayoutControlCityTextEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientLayoutControlAddressTextEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.сlientTabbedControlOrdersCommentsGroup)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.сlientLayoutControlOrdersGroup)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.сlientLayoutControlOrdersGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientLayoutControlCommentsGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientLayoutControlCommentsListBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientLayoutControlAddNewCommentButton)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.сlientLayoutControlNewCommentTextEdit)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.сlientLayoutControlOrdersGroup)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.сlientLayoutControlOrdersGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.сlientSplitter)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

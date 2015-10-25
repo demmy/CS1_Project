@@ -8,6 +8,5 @@ namespace ContosoUI.ClientSearchForm
 {
     public interface IClientSearchView
     {
-        void RefreshForm();
     }
 }

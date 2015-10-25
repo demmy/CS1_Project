@@ -9,26 +9,21 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using Data.DummyData;
 using Domain.DAO;
+using ContosoUI.Annotations;
 
 namespace ContosoUI.UserSearchForm
 {
-    public class UserSearchPresenter: INotifyPropertyChanged
+    public class UserSearchPresenter: Presenter, ISearchPresenter
     {
         private readonly IUserSearchView view;
         private readonly IUserRepository model = new DummyDAOForUser();
-        public event PropertyChangedEventHandler PropertyChanged =delegate(object sender, PropertyChangedEventArgs args) {  };
-
-        private string login = string.Empty;
-        private string firstName = string.Empty;
-        private string lastName = string.Empty;
-        private BindingList<User> usersList;
 
         public UserSearchPresenter(IUserSearchView view)
         {
             this.view = view;
-            usersList = new BindingList<User>(model.GetAll().ToList());
         }
 
+        private string login = string.Empty;
         public string Login 
         {
             get { return login; }
@@ -37,11 +32,12 @@ namespace ContosoUI.UserSearchForm
                 if (value != this.login)
                 {
                     this.login = value;
-                    NotifyPropertyChanged("Login");
+                    NotifyPropertyChanged();
                 }
             }
         }
 
+        private string firstName = string.Empty;
         public string FirstName
         {
             get { return firstName; }
@@ -50,11 +46,12 @@ namespace ContosoUI.UserSearchForm
                 if (value != this.firstName)
                 {
                     this.firstName = value;
-                    NotifyPropertyChanged("FirstName");
+                    NotifyPropertyChanged();
                 }
             }
         }
 
+        private string lastName = string.Empty;
         public string LastName
         {
             get { return lastName; }
@@ -63,11 +60,12 @@ namespace ContosoUI.UserSearchForm
                 if (value != this.lastName)
                 {
                     this.lastName = value;
-                    NotifyPropertyChanged("LastName");
+                    NotifyPropertyChanged();
                 }
             }
         }
 
+        private BindingList<User> usersList = new BindingList<User>();
         public BindingList<User> Users
         {
             get { return usersList; }
@@ -76,36 +74,34 @@ namespace ContosoUI.UserSearchForm
                 if (value != this.usersList)
                 {
                     this.usersList = value;
-                    NotifyPropertyChanged("Users");
+                    NotifyPropertyChanged();
                 }
             }
         }
 
-        private void NotifyPropertyChanged(string propertyName)
-        {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-            }
-        }
-
-        public void AddUser()
+        public void Add()
         {
             NicksForms.User_form.UserForm addUserForm = new NicksForms.User_form.UserForm();
+            addUserForm.MdiParent = ContosoUI.MainForm.ActiveForm;
             addUserForm.Show();
         }
 
-        public void EditUser(int id)
+        public void Edit(int id)
         {
-            NicksForms.User_form.UserForm editUserForm = new NicksForms.User_form.UserForm(id);           
+            NicksForms.User_form.UserForm editUserForm = new NicksForms.User_form.UserForm(id);
+            editUserForm.MdiParent = ContosoUI.MainForm.ActiveForm;
             editUserForm.Show();
         }
 
         public void Search()
         {
-            var users = model.GetBy(Login, FirstName, LastName).ToList();
+            List<User> users; 
+            if (Login != null && FirstName != null && LastName != null)
+                users = model.GetBy(Login, FirstName, LastName).ToList();
+            else
+                users = model.GetAll().ToList();
+
             Users = new BindingList<User>(users);
-            NotifyPropertyChanged("Users");
         }
 
         public void Clear()
@@ -113,7 +109,7 @@ namespace ContosoUI.UserSearchForm
             Login = "";
             FirstName = "";
             LastName = "";
-            Users = new BindingList<User>(Storage.Users);
+            Users.Clear();
         }
     }
 }

@@ -3,11 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Domain.Entities.Users;
 
-namespace ContosoUI.UserSearchForm
+namespace ContosoUI.OrderSearchForm
 {
-    public interface IUserSearchView
+    public interface IOrderListView
     {
     }
 }

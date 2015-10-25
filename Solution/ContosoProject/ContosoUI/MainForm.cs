@@ -51,14 +51,30 @@ namespace ContosoUI
 
         }
 
-        private void barButtonItem2_ItemClick(object sender, ItemClickEventArgs e)
-        {
-
-        }
-
         private void UsersListBarButtonItem_ItemClick(object sender, ItemClickEventArgs e)
         {
             var form = new UserSearchForm.UsersListView();
+            form.MdiParent = this;
+            form.Show();
+        }
+
+        private void ProductsBarButtonItem_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            var form = new ProductSearchForm.ProductListView();
+            form.MdiParent = this;
+            form.Show();
+        }
+
+        private void ClientBarButtonItem_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            //var form = new NicksForms.Client_form.();
+            //form.MdiParent = this;
+            //form.Show();
+        }
+
+        private void ProductBarButtonItem_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            var form = new NicksForms.Product_form.ProductView();
             form.MdiParent = this;
             form.Show();
         }

@@ -58,7 +58,6 @@ namespace ContosoUI.NicksForms.User_form
             if (presenter.State)
             {
                 stateButton.Caption = "Remove";
-                stateButton.LargeGlyph = (System.Drawing.Image)
             }
             else
                 stateButton.Caption = "Revert";

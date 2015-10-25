@@ -3,11 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Domain.Entities.Users;
 
-namespace ContosoUI.UserSearchForm
+namespace ContosoUI.NicksForms.Client_form
 {
-    public interface IUserSearchView
+    interface IClientView
     {
     }
 }

@@ -18,7 +18,7 @@ namespace ContosoUI.UserSearchForm
     {
         private readonly UserSearchPresenter presenter;
         BindingSource binding = new BindingSource();
-         
+
         public UsersListView()
         {
             InitializeComponent();
@@ -29,16 +29,15 @@ namespace ContosoUI.UserSearchForm
         {
             binding.DataSource = presenter;
 
-            loginTextEdit.DataBindings.Add("EditValue", binding, "Login");
-            firstNameTextEdit.DataBindings.Add("EditValue", binding, "FirstName");
-            lastNameTextEdit.DataBindings.Add("EditValue", binding, "LastName");
-            usersGridControl.DataBindings.Add("DataSource", binding, "Users");
-            usersGridControl.RefreshDataSource();
+            loginTextEdit.DataBindings.Add("EditValue", binding, "Login", false, DataSourceUpdateMode.OnPropertyChanged);
+            firstNameTextEdit.DataBindings.Add("EditValue", binding, "FirstName", false, DataSourceUpdateMode.OnPropertyChanged);
+            lastNameTextEdit.DataBindings.Add("EditValue", binding, "LastName", false, DataSourceUpdateMode.OnPropertyChanged);
+            usersGridControl.DataBindings.Add("DataSource", binding, "Users", false, DataSourceUpdateMode.OnPropertyChanged);
         }
 
         private void addUserBarButton_ItemClick(object sender, ItemClickEventArgs e)
         {
-            presenter.AddUser();
+            presenter.Add();
         }
 
         private void searchUserBarButton_ItemClick(object sender, ItemClickEventArgs e)
@@ -52,10 +51,6 @@ namespace ContosoUI.UserSearchForm
             presenter.Clear();
         }
 
-        public void RefreshForm()
-        {
-        }
-
         private void usersGridView_DoubleClick(object sender, EventArgs e)
         {
             GridView view = (GridView)sender;
@@ -64,20 +59,8 @@ namespace ContosoUI.UserSearchForm
             if (info.InRow || info.InRowCell)
             {
                 int id = (int)view.GetRowCellValue(info.RowHandle, "Id");
-                presenter.EditUser(id);
+                presenter.Edit(id);
             }
-        }
-
-        private void simpleButton1_Click(object sender, EventArgs e)
-        {
-            presenter.Search();
-            RefreshForm();
-        }
-
-        
-        private void userSearchRibbon_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

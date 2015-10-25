@@ -29,27 +29,30 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UsersListView));
-            this.userSearchRibbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
+            this.mainRibbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.addUserBarButton = new DevExpress.XtraBars.BarButtonItem();
             this.searchUserBarButton = new DevExpress.XtraBars.BarButtonItem();
             this.clearUserBarButton = new DevExpress.XtraBars.BarButtonItem();
             this.userSearchRibbonPage = new DevExpress.XtraBars.Ribbon.RibbonPage();
-            this.userSearchFileRibbonPageGroup = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
+            this.userRibbonPageGroup = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.usersRibbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.layoutControlUsers = new DevExpress.XtraLayout.LayoutControl();
-            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.usersGridControl = new DevExpress.XtraGrid.GridControl();
             this.usersGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.loginGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.lastNameGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.firstNameGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.roleGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.userStateGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.lastNameTextEdit = new DevExpress.XtraEditors.TextEdit();
             this.firstNameTextEdit = new DevExpress.XtraEditors.TextEdit();
             this.loginTextEdit = new DevExpress.XtraEditors.TextEdit();
             this.layoutControlGroupUsers = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.layoutControlLogin = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlFirstName = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlLastName = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlLoginTextEdit = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlFirstNameTextEdit = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlLastNameTextEdit = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlUsersGrid = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
-            ((System.ComponentModel.ISupportInitialize)(this.userSearchRibbon)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mainRibbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlUsers)).BeginInit();
             this.layoutControlUsers.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.usersGridControl)).BeginInit();
@@ -58,29 +61,36 @@
             ((System.ComponentModel.ISupportInitialize)(this.firstNameTextEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.loginTextEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroupUsers)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlLogin)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlFirstName)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlLastName)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlLoginTextEdit)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlFirstNameTextEdit)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlLastNameTextEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlUsersGrid)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             this.SuspendLayout();
             // 
-            // userSearchRibbon
+            // mainRibbon
             // 
-            this.userSearchRibbon.ExpandCollapseItem.Id = 0;
-            this.userSearchRibbon.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
-            this.userSearchRibbon.ExpandCollapseItem,
+            this.mainRibbon.ExpandCollapseItem.Id = 0;
+            this.mainRibbon.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
+            this.mainRibbon.ExpandCollapseItem,
             this.addUserBarButton,
             this.searchUserBarButton,
             this.clearUserBarButton});
-            this.userSearchRibbon.Location = new System.Drawing.Point(0, 0);
-            this.userSearchRibbon.MaxItemId = 5;
-            this.userSearchRibbon.Name = "userSearchRibbon";
-            this.userSearchRibbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
+            this.mainRibbon.Location = new System.Drawing.Point(0, 0);
+            this.mainRibbon.MaxItemId = 5;
+            this.mainRibbon.MdiMergeStyle = DevExpress.XtraBars.Ribbon.RibbonMdiMergeStyle.Always;
+            this.mainRibbon.Name = "mainRibbon";
+            this.mainRibbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.userSearchRibbonPage});
-            this.userSearchRibbon.Size = new System.Drawing.Size(1014, 143);
-            this.userSearchRibbon.StatusBar = this.ribbonStatusBar;
-            this.userSearchRibbon.Click += new System.EventHandler(this.userSearchRibbon_Click);
+            this.mainRibbon.ShowApplicationButton = DevExpress.Utils.DefaultBoolean.False;
+            this.mainRibbon.ShowCategoryInCaption = false;
+            this.mainRibbon.ShowExpandCollapseButton = DevExpress.Utils.DefaultBoolean.False;
+            this.mainRibbon.ShowFullScreenButton = DevExpress.Utils.DefaultBoolean.False;
+            this.mainRibbon.ShowPageHeadersMode = DevExpress.XtraBars.Ribbon.ShowPageHeadersMode.Hide;
+            this.mainRibbon.ShowQatLocationSelector = false;
+            this.mainRibbon.ShowToolbarCustomizeItem = false;
+            this.mainRibbon.Size = new System.Drawing.Size(1014, 122);
+            this.mainRibbon.StatusBar = this.usersRibbonStatusBar;
+            this.mainRibbon.Toolbar.ShowCustomizeItem = false;
             // 
             // addUserBarButton
             // 
@@ -112,73 +122,108 @@
             // userSearchRibbonPage
             // 
             this.userSearchRibbonPage.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.userSearchFileRibbonPageGroup});
+            this.userRibbonPageGroup});
             this.userSearchRibbonPage.Name = "userSearchRibbonPage";
-            this.userSearchRibbonPage.Text = "User search";
+            this.userSearchRibbonPage.Text = "RibbonMerge";
             // 
-            // userSearchFileRibbonPageGroup
+            // userRibbonPageGroup
             // 
-            this.userSearchFileRibbonPageGroup.ItemLinks.Add(this.addUserBarButton);
-            this.userSearchFileRibbonPageGroup.ItemLinks.Add(this.searchUserBarButton);
-            this.userSearchFileRibbonPageGroup.ItemLinks.Add(this.clearUserBarButton);
-            this.userSearchFileRibbonPageGroup.Name = "userSearchFileRibbonPageGroup";
-            this.userSearchFileRibbonPageGroup.Text = "File";
+            this.userRibbonPageGroup.ItemLinks.Add(this.addUserBarButton);
+            this.userRibbonPageGroup.ItemLinks.Add(this.searchUserBarButton);
+            this.userRibbonPageGroup.ItemLinks.Add(this.clearUserBarButton);
+            this.userRibbonPageGroup.Name = "userRibbonPageGroup";
+            this.userRibbonPageGroup.Text = "File";
             // 
-            // ribbonStatusBar
+            // usersRibbonStatusBar
             // 
-            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 736);
-            this.ribbonStatusBar.Name = "ribbonStatusBar";
-            this.ribbonStatusBar.Ribbon = this.userSearchRibbon;
-            this.ribbonStatusBar.Size = new System.Drawing.Size(1014, 31);
+            this.usersRibbonStatusBar.Location = new System.Drawing.Point(0, 736);
+            this.usersRibbonStatusBar.Name = "usersRibbonStatusBar";
+            this.usersRibbonStatusBar.Ribbon = this.mainRibbon;
+            this.usersRibbonStatusBar.Size = new System.Drawing.Size(1014, 31);
             // 
             // layoutControlUsers
             // 
-            this.layoutControlUsers.Controls.Add(this.simpleButton1);
             this.layoutControlUsers.Controls.Add(this.usersGridControl);
             this.layoutControlUsers.Controls.Add(this.lastNameTextEdit);
             this.layoutControlUsers.Controls.Add(this.firstNameTextEdit);
             this.layoutControlUsers.Controls.Add(this.loginTextEdit);
             this.layoutControlUsers.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.layoutControlUsers.Location = new System.Drawing.Point(0, 143);
+            this.layoutControlUsers.Location = new System.Drawing.Point(0, 122);
             this.layoutControlUsers.Name = "layoutControlUsers";
             this.layoutControlUsers.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(573, 123, 250, 350);
             this.layoutControlUsers.Root = this.layoutControlGroupUsers;
-            this.layoutControlUsers.Size = new System.Drawing.Size(1014, 593);
+            this.layoutControlUsers.Size = new System.Drawing.Size(1014, 614);
             this.layoutControlUsers.TabIndex = 2;
             this.layoutControlUsers.Text = "layoutControl1";
-            // 
-            // simpleButton1
-            // 
-            this.simpleButton1.Location = new System.Drawing.Point(12, 559);
-            this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(990, 22);
-            this.simpleButton1.StyleController = this.layoutControlUsers;
-            this.simpleButton1.TabIndex = 8;
-            this.simpleButton1.Text = "simpleButton1";
-            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
             // 
             // usersGridControl
             // 
             this.usersGridControl.Location = new System.Drawing.Point(17, 67);
             this.usersGridControl.MainView = this.usersGridView;
-            this.usersGridControl.MenuManager = this.userSearchRibbon;
+            this.usersGridControl.MenuManager = this.mainRibbon;
             this.usersGridControl.Name = "usersGridControl";
-            this.usersGridControl.Size = new System.Drawing.Size(980, 483);
+            this.usersGridControl.Size = new System.Drawing.Size(980, 530);
             this.usersGridControl.TabIndex = 7;
             this.usersGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.usersGridView});
             // 
             // usersGridView
             // 
+            this.usersGridView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.loginGridColumn,
+            this.lastNameGridColumn,
+            this.firstNameGridColumn,
+            this.roleGridColumn,
+            this.userStateGridColumn});
             this.usersGridView.GridControl = this.usersGridControl;
             this.usersGridView.Name = "usersGridView";
             this.usersGridView.OptionsBehavior.Editable = false;
             this.usersGridView.DoubleClick += new System.EventHandler(this.usersGridView_DoubleClick);
             // 
+            // loginGridColumn
+            // 
+            this.loginGridColumn.Caption = "Login";
+            this.loginGridColumn.FieldName = "Login";
+            this.loginGridColumn.Name = "loginGridColumn";
+            this.loginGridColumn.Visible = true;
+            this.loginGridColumn.VisibleIndex = 0;
+            // 
+            // lastNameGridColumn
+            // 
+            this.lastNameGridColumn.Caption = "Last name";
+            this.lastNameGridColumn.FieldName = "Person.LastName";
+            this.lastNameGridColumn.Name = "lastNameGridColumn";
+            this.lastNameGridColumn.Visible = true;
+            this.lastNameGridColumn.VisibleIndex = 1;
+            // 
+            // firstNameGridColumn
+            // 
+            this.firstNameGridColumn.Caption = "First name";
+            this.firstNameGridColumn.FieldName = "Person.FirstName";
+            this.firstNameGridColumn.Name = "firstNameGridColumn";
+            this.firstNameGridColumn.Visible = true;
+            this.firstNameGridColumn.VisibleIndex = 2;
+            // 
+            // roleGridColumn
+            // 
+            this.roleGridColumn.Caption = "Role";
+            this.roleGridColumn.FieldName = "Role.Title";
+            this.roleGridColumn.Name = "roleGridColumn";
+            this.roleGridColumn.Visible = true;
+            this.roleGridColumn.VisibleIndex = 3;
+            // 
+            // userStateGridColumn
+            // 
+            this.userStateGridColumn.Caption = "State";
+            this.userStateGridColumn.FieldName = "IsActive";
+            this.userStateGridColumn.Name = "userStateGridColumn";
+            this.userStateGridColumn.Visible = true;
+            this.userStateGridColumn.VisibleIndex = 4;
+            // 
             // lastNameTextEdit
             // 
             this.lastNameTextEdit.Location = new System.Drawing.Point(680, 33);
-            this.lastNameTextEdit.MenuManager = this.userSearchRibbon;
+            this.lastNameTextEdit.MenuManager = this.mainRibbon;
             this.lastNameTextEdit.Name = "lastNameTextEdit";
             this.lastNameTextEdit.Size = new System.Drawing.Size(317, 20);
             this.lastNameTextEdit.StyleController = this.layoutControlUsers;
@@ -187,7 +232,7 @@
             // firstNameTextEdit
             // 
             this.firstNameTextEdit.Location = new System.Drawing.Point(349, 33);
-            this.firstNameTextEdit.MenuManager = this.userSearchRibbon;
+            this.firstNameTextEdit.MenuManager = this.mainRibbon;
             this.firstNameTextEdit.Name = "firstNameTextEdit";
             this.firstNameTextEdit.Size = new System.Drawing.Size(317, 20);
             this.firstNameTextEdit.StyleController = this.layoutControlUsers;
@@ -206,51 +251,50 @@
             this.layoutControlGroupUsers.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
             this.layoutControlGroupUsers.GroupBordersVisible = false;
             this.layoutControlGroupUsers.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlLogin,
-            this.layoutControlFirstName,
-            this.layoutControlLastName,
-            this.layoutControlUsersGrid,
-            this.layoutControlItem1});
+            this.layoutControlLoginTextEdit,
+            this.layoutControlFirstNameTextEdit,
+            this.layoutControlLastNameTextEdit,
+            this.layoutControlUsersGrid});
             this.layoutControlGroupUsers.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroupUsers.Name = "layoutControlGroupUsers";
-            this.layoutControlGroupUsers.Size = new System.Drawing.Size(1014, 593);
+            this.layoutControlGroupUsers.Size = new System.Drawing.Size(1014, 614);
             this.layoutControlGroupUsers.TextVisible = false;
             // 
-            // layoutControlLogin
+            // layoutControlLoginTextEdit
             // 
-            this.layoutControlLogin.Control = this.loginTextEdit;
-            this.layoutControlLogin.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlLogin.Name = "layoutControlLogin";
-            this.layoutControlLogin.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
-            this.layoutControlLogin.Size = new System.Drawing.Size(332, 50);
-            this.layoutControlLogin.Spacing = new DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 2);
-            this.layoutControlLogin.Text = "City";
-            this.layoutControlLogin.TextLocation = DevExpress.Utils.Locations.Top;
-            this.layoutControlLogin.TextSize = new System.Drawing.Size(50, 13);
+            this.layoutControlLoginTextEdit.Control = this.loginTextEdit;
+            this.layoutControlLoginTextEdit.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlLoginTextEdit.Name = "layoutControlLoginTextEdit";
+            this.layoutControlLoginTextEdit.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
+            this.layoutControlLoginTextEdit.Size = new System.Drawing.Size(332, 50);
+            this.layoutControlLoginTextEdit.Spacing = new DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 2);
+            this.layoutControlLoginTextEdit.Text = "Login";
+            this.layoutControlLoginTextEdit.TextLocation = DevExpress.Utils.Locations.Top;
+            this.layoutControlLoginTextEdit.TextSize = new System.Drawing.Size(50, 13);
             // 
-            // layoutControlFirstName
+            // layoutControlFirstNameTextEdit
             // 
-            this.layoutControlFirstName.Control = this.firstNameTextEdit;
-            this.layoutControlFirstName.Location = new System.Drawing.Point(332, 0);
-            this.layoutControlFirstName.Name = "layoutControlFirstName";
-            this.layoutControlFirstName.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
-            this.layoutControlFirstName.Size = new System.Drawing.Size(331, 50);
-            this.layoutControlFirstName.Spacing = new DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 2);
-            this.layoutControlFirstName.Text = "First name";
-            this.layoutControlFirstName.TextLocation = DevExpress.Utils.Locations.Top;
-            this.layoutControlFirstName.TextSize = new System.Drawing.Size(50, 13);
+            this.layoutControlFirstNameTextEdit.Control = this.firstNameTextEdit;
+            this.layoutControlFirstNameTextEdit.Location = new System.Drawing.Point(332, 0);
+            this.layoutControlFirstNameTextEdit.Name = "layoutControlFirstNameTextEdit";
+            this.layoutControlFirstNameTextEdit.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
+            this.layoutControlFirstNameTextEdit.Size = new System.Drawing.Size(331, 50);
+            this.layoutControlFirstNameTextEdit.Spacing = new DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 2);
+            this.layoutControlFirstNameTextEdit.Text = "First name";
+            this.layoutControlFirstNameTextEdit.TextLocation = DevExpress.Utils.Locations.Top;
+            this.layoutControlFirstNameTextEdit.TextSize = new System.Drawing.Size(50, 13);
             // 
-            // layoutControlLastName
+            // layoutControlLastNameTextEdit
             // 
-            this.layoutControlLastName.Control = this.lastNameTextEdit;
-            this.layoutControlLastName.Location = new System.Drawing.Point(663, 0);
-            this.layoutControlLastName.Name = "layoutControlLastName";
-            this.layoutControlLastName.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
-            this.layoutControlLastName.Size = new System.Drawing.Size(331, 50);
-            this.layoutControlLastName.Spacing = new DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 2);
-            this.layoutControlLastName.Text = "Last name";
-            this.layoutControlLastName.TextLocation = DevExpress.Utils.Locations.Top;
-            this.layoutControlLastName.TextSize = new System.Drawing.Size(50, 13);
+            this.layoutControlLastNameTextEdit.Control = this.lastNameTextEdit;
+            this.layoutControlLastNameTextEdit.Location = new System.Drawing.Point(663, 0);
+            this.layoutControlLastNameTextEdit.Name = "layoutControlLastNameTextEdit";
+            this.layoutControlLastNameTextEdit.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
+            this.layoutControlLastNameTextEdit.Size = new System.Drawing.Size(331, 50);
+            this.layoutControlLastNameTextEdit.Spacing = new DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 2);
+            this.layoutControlLastNameTextEdit.Text = "Last name";
+            this.layoutControlLastNameTextEdit.TextLocation = DevExpress.Utils.Locations.Top;
+            this.layoutControlLastNameTextEdit.TextSize = new System.Drawing.Size(50, 13);
             // 
             // layoutControlUsersGrid
             // 
@@ -258,34 +302,26 @@
             this.layoutControlUsersGrid.Location = new System.Drawing.Point(0, 50);
             this.layoutControlUsersGrid.Name = "layoutControlUsersGrid";
             this.layoutControlUsersGrid.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
-            this.layoutControlUsersGrid.Size = new System.Drawing.Size(994, 497);
+            this.layoutControlUsersGrid.Size = new System.Drawing.Size(994, 544);
             this.layoutControlUsersGrid.Spacing = new DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 2);
             this.layoutControlUsersGrid.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlUsersGrid.TextVisible = false;
             // 
-            // layoutControlItem1
-            // 
-            this.layoutControlItem1.Control = this.simpleButton1;
-            this.layoutControlItem1.Location = new System.Drawing.Point(0, 547);
-            this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(994, 26);
-            this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem1.TextVisible = false;
-            // 
             // UsersListView
             // 
+            this.AllowFormGlass = DevExpress.Utils.DefaultBoolean.True;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1014, 767);
             this.Controls.Add(this.layoutControlUsers);
-            this.Controls.Add(this.ribbonStatusBar);
-            this.Controls.Add(this.userSearchRibbon);
+            this.Controls.Add(this.usersRibbonStatusBar);
+            this.Controls.Add(this.mainRibbon);
             this.Name = "UsersListView";
-            this.Ribbon = this.userSearchRibbon;
-            this.StatusBar = this.ribbonStatusBar;
-            this.Text = "User Search";
+            this.Ribbon = this.mainRibbon;
+            this.StatusBar = this.usersRibbonStatusBar;
+            this.Text = "User search";
             this.Load += new System.EventHandler(this.UsersListView_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.userSearchRibbon)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mainRibbon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlUsers)).EndInit();
             this.layoutControlUsers.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.usersGridControl)).EndInit();
@@ -294,11 +330,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.firstNameTextEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.loginTextEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroupUsers)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlLogin)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlFirstName)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlLastName)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlLoginTextEdit)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlFirstNameTextEdit)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlLastNameTextEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlUsersGrid)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -306,10 +341,10 @@
 
         #endregion
 
-        private DevExpress.XtraBars.Ribbon.RibbonControl userSearchRibbon;
+        private DevExpress.XtraBars.Ribbon.RibbonControl mainRibbon;
         private DevExpress.XtraBars.Ribbon.RibbonPage userSearchRibbonPage;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup userSearchFileRibbonPageGroup;
-        private DevExpress.XtraBars.Ribbon.RibbonStatusBar ribbonStatusBar;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup userRibbonPageGroup;
+        private DevExpress.XtraBars.Ribbon.RibbonStatusBar usersRibbonStatusBar;
         private DevExpress.XtraLayout.LayoutControl layoutControlUsers;
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroupUsers;
         private DevExpress.XtraGrid.GridControl usersGridControl;
@@ -317,14 +352,17 @@
         private DevExpress.XtraEditors.TextEdit lastNameTextEdit;
         private DevExpress.XtraEditors.TextEdit firstNameTextEdit;
         private DevExpress.XtraEditors.TextEdit loginTextEdit;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlLogin;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlFirstName;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlLastName;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlLoginTextEdit;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlFirstNameTextEdit;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlLastNameTextEdit;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlUsersGrid;
         private DevExpress.XtraBars.BarButtonItem addUserBarButton;
         private DevExpress.XtraBars.BarButtonItem searchUserBarButton;
         private DevExpress.XtraBars.BarButtonItem clearUserBarButton;
-        private DevExpress.XtraEditors.SimpleButton simpleButton1;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
+        private DevExpress.XtraGrid.Columns.GridColumn loginGridColumn;
+        private DevExpress.XtraGrid.Columns.GridColumn lastNameGridColumn;
+        private DevExpress.XtraGrid.Columns.GridColumn firstNameGridColumn;
+        private DevExpress.XtraGrid.Columns.GridColumn roleGridColumn;
+        private DevExpress.XtraGrid.Columns.GridColumn userStateGridColumn;
     }
 }

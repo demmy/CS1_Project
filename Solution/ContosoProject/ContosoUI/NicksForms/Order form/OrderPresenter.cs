@@ -71,7 +71,7 @@ namespace ContosoUI.NicksForms.Order_form
                 if (value != _status)
                 {
                     _status = value;
-                    NotifyPropertyChanged("Status");
+                    NotifyPropertyChanged("status");
                 }
             }
         }

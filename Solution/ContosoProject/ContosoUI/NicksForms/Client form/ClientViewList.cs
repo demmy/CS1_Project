@@ -8,12 +8,13 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraBars;
+using ContosoUI.NicksForms.Client_form;
 
 namespace ContosoUI.NicksForms
 {
-    public partial class clientViewList : DevExpress.XtraBars.Ribbon.RibbonForm
+    public partial class ClientViewList : DevExpress.XtraBars.Ribbon.RibbonForm, IClientView
     {
-        public clientViewList()
+        public ClientViewList()
         {
             InitializeComponent();
         }

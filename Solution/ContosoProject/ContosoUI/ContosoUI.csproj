@@ -102,6 +102,7 @@
     <Compile Include="ClientSearchForm\ClientSearchModel.cs" />
     <Compile Include="ClientSearchForm\ClientSearchPresenter.cs" />
     <Compile Include="ClientSearchForm\IClientSearchView.cs" />
+    <Compile Include="ISearchPresenter.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -114,18 +115,24 @@
     <Compile Include="NicksForms\Client form\ClientViewList.Designer.cs">
       <DependentUpon>ClientViewList.cs</DependentUpon>
     </Compile>
+    <Compile Include="NicksForms\Client form\IClientView.cs" />
     <Compile Include="NicksForms\Order form\IOrderView.cs" />
     <Compile Include="NicksForms\Order form\OrderModel.cs" />
     <Compile Include="NicksForms\Order form\OrderPresenter.cs" />
     <Compile Include="NicksForms\User form\IUserView.cs" />
     <Compile Include="NicksForms\User form\UserModel.cs" />
     <Compile Include="NicksForms\User form\UserPresenter.cs" />
+    <Compile Include="OrderSearchForm\IOrderListView.cs" />
+    <Compile Include="OrderSearchForm\OrderListPresenter.cs" />
     <Compile Include="OrderSearchForm\OrderListView.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="OrderSearchForm\OrderListView.Designer.cs">
       <DependentUpon>OrderListView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Presenter.cs" />
+    <Compile Include="ProductSearchForm\IProductListView.cs" />
+    <Compile Include="ProductSearchForm\ProductListPresenter.cs" />
     <Compile Include="ProductSearchForm\ProductListView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -166,6 +173,9 @@
     </Compile>
     <EmbeddedResource Include="ClientSearchForm\ClientListView.resx">
       <DependentUpon>ClientListView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NicksForms\Client form\ClientViewList.resx">
+      <DependentUpon>ClientViewList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NicksForms\Order form\OrderForm.resx">
       <DependentUpon>OrderForm.cs</DependentUpon>

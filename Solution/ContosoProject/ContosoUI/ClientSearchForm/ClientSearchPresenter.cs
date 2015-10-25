@@ -1,68 +1,59 @@
-﻿using Data.StoreData;
+﻿using ContosoUI.Annotations;
+using Data.DummyData;
+using Domain.DAO;
 using Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace ContosoUI.ClientSearchForm
 {
-    public class ClientSearchPresenter : INotifyPropertyChanged
+    public class ClientSearchPresenter : Presenter, ISearchPresenter
     {
         private readonly IClientSearchView view;
-        private readonly ClientSearchModel model;
-        public event PropertyChangedEventHandler PropertyChanged;
+        private readonly IClientRepository model = new DummyDAOForClient();
 
-        private string city;
-        private string firstName;
-        private string lastName;
-        private BindingList<Client> clientsList;
+        private BindingList<Client> clientsList = new BindingList<Client>();
 
-        public ClientSearchPresenter(IClientSearchView view, ClientSearchModel model)
+        public ClientSearchPresenter(IClientSearchView view)
         {
             this.view = view;
-            this.model = model;
-            clientsList = new BindingList<Client>(Storage.Clients);
         }
 
+        private string city;
         public string City 
         {
             get { return city; }
             set
             {
-                if (value != this.city)
-                {
-                    this.city = value;
-                    NotifyPropertyChanged();
-                }
+                this.city = value;
+                NotifyPropertyChanged();
             }
         }
 
+        private string firstName;
         public string FirstName
         {
             get { return firstName; }
             set
             {
-                if (value != this.firstName)
-                {
-                    this.firstName = value;
-                    NotifyPropertyChanged();
-                }
+                this.firstName = value;
+                NotifyPropertyChanged();
             }
         }
 
+        private string lastName;
         public string LastName
         {
             get { return lastName; }
             set
             {
-                if (value != this.lastName)
-                {
-                    this.lastName = value;
-                    NotifyPropertyChanged();
-                }
+                this.lastName = value;
+                NotifyPropertyChanged();             
             }
         }
 
@@ -71,38 +62,34 @@ namespace ContosoUI.ClientSearchForm
             get { return clientsList; }
             set
             {
-                if (value != this.clientsList)
-                {
-                    this.clientsList = value;
-                    //NotifyPropertyChanged();
-                }
+                this.clientsList = value;
+                NotifyPropertyChanged();
             }
         }
 
-        private void NotifyPropertyChanged(string propertyName = "")
+        public void Add()
         {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-            }
-        }
-
-        public void AddClient()
-        {
-            //UserForm.UserForm addClientForm = new UserForm.UserForm();
+            //NicksForms.Client_form.ClientViewList addClientForm = new NicksForms.Client_form.ClientViewList(); // what's going on with Client form???
+            //addClientForm.MdiParent = ContosoUI.MainForm.ActiveForm;
             //addClientForm.Show();
         }
 
-        public void EditClient(int id)
+        public void Edit(int id)
         {
-            //UserForm.UserForm editClientForm = new UserForm.UserForm(id);           
-            //editClientForm.Show();
+            //NicksForms.Client_form.ClientViewList addClientForm = new NicksForms.Client_form.ClientViewList();
+            //addClientForm.MdiParent = ContosoUI.MainForm.ActiveForm;
+            //addClientForm.Show();
         }
 
         public void Search()
         {
-            var clients = model.SearchClient(FirstName, LastName, City);
-            Clients = new BindingList<Client>((IList<Client>)clients);
+            List<Client> clients;
+            if (City != null && FirstName != null && LastName != null)
+                clients = model.FindBy(FirstName, LastName, City).ToList();
+            else
+                clients = model.GetAll().ToList();
+
+            Clients = new BindingList<Client>(clients);
         }
 
         public void Clear()
@@ -110,7 +97,7 @@ namespace ContosoUI.ClientSearchForm
             City = "";
             FirstName = "";
             LastName = "";
-            Clients = new BindingList<Client>(Storage.Clients);
+            Clients.Clear();
         }
 
     }

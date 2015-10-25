@@ -6,7 +6,7 @@ using Domain.Entities.Comments;
 
 namespace Domain.Entities.Orders
 {
-    public enum Status { Opened, PaidUp, Finished, Shipped, Closed }
+    public enum Status { Undefined, Opened, PaidUp, Finished, Shipped, Closed }
 
     public class Order : ExtendedEntity, ICommentable
     {        
