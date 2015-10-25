@@ -72,5 +72,23 @@ namespace ContosoUI.OrderSearchForm
         {
             presenter.StatusEnum = (Status)orderStatusComboBoxEdit.SelectedItem;
         }
+
+        private void orderNumberTextEdit_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            {
+                binding.EndEdit();
+                presenter.Search();
+            }
+        }
+
+        private void orderStatusComboBoxEdit_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            {
+                binding.EndEdit();
+                presenter.Search();
+            }
+        }
     }
 }

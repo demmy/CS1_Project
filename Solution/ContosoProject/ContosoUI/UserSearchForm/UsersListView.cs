@@ -62,5 +62,33 @@ namespace ContosoUI.UserSearchForm
                 presenter.Edit(id);
             }
         }
+
+        private void loginTextEdit_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            {
+                binding.EndEdit();
+                presenter.Search();
+            }
+        }
+
+        private void firstNameTextEdit_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            {
+                binding.EndEdit();
+                presenter.Search();
+            }
+        }
+
+        private void lastNameTextEdit_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            {
+                binding.EndEdit();
+                presenter.Search();
+            }
+        }
+
     }
 }

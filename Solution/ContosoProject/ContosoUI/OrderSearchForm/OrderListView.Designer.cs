@@ -45,13 +45,13 @@
             this.statusGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.clientGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.totalPriceGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.orderStateGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.orderNumberTextEdit = new DevExpress.XtraEditors.TextEdit();
             this.layoutControlGroupOrderView = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlOrderNumberTextEdit = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlOrderItemsGridControl = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlClientLookUpEdit = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlOrderStatus = new DevExpress.XtraLayout.LayoutControlItem();
-            this.orderStateGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.mainRibbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlOrderView)).BeginInit();
             this.layoutControlOrderView.SuspendLayout();
@@ -165,6 +165,7 @@
             this.orderStatusComboBoxEdit.StyleController = this.layoutControlOrderView;
             this.orderStatusComboBoxEdit.TabIndex = 9;
             this.orderStatusComboBoxEdit.SelectedIndexChanged += new System.EventHandler(this.orderStatusComboBoxEdit_SelectedIndexChanged);
+            this.orderStatusComboBoxEdit.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.orderStatusComboBoxEdit_KeyPress);
             // 
             // clientLookUpEdit
             // 
@@ -236,6 +237,14 @@
             this.totalPriceGridColumn.Visible = true;
             this.totalPriceGridColumn.VisibleIndex = 3;
             // 
+            // orderStateGridColumn
+            // 
+            this.orderStateGridColumn.Caption = "State";
+            this.orderStateGridColumn.FieldName = "IsActive";
+            this.orderStateGridColumn.Name = "orderStateGridColumn";
+            this.orderStateGridColumn.Visible = true;
+            this.orderStateGridColumn.VisibleIndex = 4;
+            // 
             // orderNumberTextEdit
             // 
             this.orderNumberTextEdit.Location = new System.Drawing.Point(17, 33);
@@ -244,6 +253,7 @@
             this.orderNumberTextEdit.Size = new System.Drawing.Size(316, 20);
             this.orderNumberTextEdit.StyleController = this.layoutControlOrderView;
             this.orderNumberTextEdit.TabIndex = 4;
+            this.orderNumberTextEdit.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.orderNumberTextEdit_KeyPress);
             // 
             // layoutControlGroupOrderView
             // 
@@ -306,14 +316,6 @@
             this.layoutControlOrderStatus.Text = "Status";
             this.layoutControlOrderStatus.TextLocation = DevExpress.Utils.Locations.Top;
             this.layoutControlOrderStatus.TextSize = new System.Drawing.Size(67, 13);
-            // 
-            // orderStateGridColumn
-            // 
-            this.orderStateGridColumn.Caption = "State";
-            this.orderStateGridColumn.FieldName = "IsActive";
-            this.orderStateGridColumn.Name = "orderStateGridColumn";
-            this.orderStateGridColumn.Visible = true;
-            this.orderStateGridColumn.VisibleIndex = 4;
             // 
             // OrderListView
             // 

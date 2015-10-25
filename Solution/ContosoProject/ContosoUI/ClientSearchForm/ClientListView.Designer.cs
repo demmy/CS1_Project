@@ -45,6 +45,7 @@
             this.cityGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.addreddGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.telephonesGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.clientStateGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.clientCityTextEdit = new DevExpress.XtraEditors.TextEdit();
             this.clientLastNameTextEdit = new DevExpress.XtraEditors.TextEdit();
             this.clientFirstNameTextEdit = new DevExpress.XtraEditors.TextEdit();
@@ -53,7 +54,6 @@
             this.layoutControlClientsGridControl = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlClientLastName = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlClientCity = new DevExpress.XtraLayout.LayoutControlItem();
-            this.clientStateGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonClientView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlClientView)).BeginInit();
             this.layoutControlClientView.SuspendLayout();
@@ -223,6 +223,14 @@
             this.telephonesGridColumn.Visible = true;
             this.telephonesGridColumn.VisibleIndex = 5;
             // 
+            // clientStateGridColumn
+            // 
+            this.clientStateGridColumn.Caption = "State";
+            this.clientStateGridColumn.FieldName = "IsActive";
+            this.clientStateGridColumn.Name = "clientStateGridColumn";
+            this.clientStateGridColumn.Visible = true;
+            this.clientStateGridColumn.VisibleIndex = 6;
+            // 
             // clientCityTextEdit
             // 
             this.clientCityTextEdit.Location = new System.Drawing.Point(680, 33);
@@ -231,6 +239,7 @@
             this.clientCityTextEdit.Size = new System.Drawing.Size(317, 20);
             this.clientCityTextEdit.StyleController = this.layoutControlClientView;
             this.clientCityTextEdit.TabIndex = 6;
+            this.clientCityTextEdit.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.clientCityTextEdit_KeyPress);
             // 
             // clientLastNameTextEdit
             // 
@@ -240,6 +249,7 @@
             this.clientLastNameTextEdit.Size = new System.Drawing.Size(317, 20);
             this.clientLastNameTextEdit.StyleController = this.layoutControlClientView;
             this.clientLastNameTextEdit.TabIndex = 5;
+            this.clientLastNameTextEdit.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.clientLastNameTextEdit_KeyPress);
             // 
             // clientFirstNameTextEdit
             // 
@@ -249,6 +259,7 @@
             this.clientFirstNameTextEdit.Size = new System.Drawing.Size(318, 20);
             this.clientFirstNameTextEdit.StyleController = this.layoutControlClientView;
             this.clientFirstNameTextEdit.TabIndex = 4;
+            this.clientFirstNameTextEdit.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.clientFirstNameTextEdit_KeyPress);
             // 
             // layoutControlGroupClientView
             // 
@@ -310,14 +321,6 @@
             this.layoutControlClientCity.Text = "City";
             this.layoutControlClientCity.TextLocation = DevExpress.Utils.Locations.Top;
             this.layoutControlClientCity.TextSize = new System.Drawing.Size(50, 13);
-            // 
-            // clientStateGridColumn
-            // 
-            this.clientStateGridColumn.Caption = "State";
-            this.clientStateGridColumn.FieldName = "IsActive";
-            this.clientStateGridColumn.Name = "clientStateGridColumn";
-            this.clientStateGridColumn.Visible = true;
-            this.clientStateGridColumn.VisibleIndex = 6;
             // 
             // ClientListView
             // 

@@ -66,5 +66,23 @@ namespace ContosoUI.ProductSearchForm
                 presenter.Edit(id);
             }
         }
+
+        private void skuTextEdit_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            {
+                binding.EndEdit();
+                presenter.Search();
+            }
+        }
+
+        private void productTitleTextEdit_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            {
+                binding.EndEdit();
+                presenter.Search();
+            }
+        }
     }
 }

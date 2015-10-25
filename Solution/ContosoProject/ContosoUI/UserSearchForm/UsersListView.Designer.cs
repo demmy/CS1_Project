@@ -228,6 +228,7 @@
             this.lastNameTextEdit.Size = new System.Drawing.Size(317, 20);
             this.lastNameTextEdit.StyleController = this.layoutControlUsers;
             this.lastNameTextEdit.TabIndex = 6;
+            this.lastNameTextEdit.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.lastNameTextEdit_KeyPress);
             // 
             // firstNameTextEdit
             // 
@@ -237,6 +238,7 @@
             this.firstNameTextEdit.Size = new System.Drawing.Size(317, 20);
             this.firstNameTextEdit.StyleController = this.layoutControlUsers;
             this.firstNameTextEdit.TabIndex = 5;
+            this.firstNameTextEdit.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.firstNameTextEdit_KeyPress);
             // 
             // loginTextEdit
             // 
@@ -245,6 +247,7 @@
             this.loginTextEdit.Size = new System.Drawing.Size(318, 20);
             this.loginTextEdit.StyleController = this.layoutControlUsers;
             this.loginTextEdit.TabIndex = 4;
+            this.loginTextEdit.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.loginTextEdit_KeyPress);
             // 
             // layoutControlGroupUsers
             // 

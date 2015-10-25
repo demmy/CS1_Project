@@ -40,6 +40,12 @@
             this.categoryLookUpEdit = new DevExpress.XtraEditors.LookUpEdit();
             this.productsGridControl = new DevExpress.XtraGrid.GridControl();
             this.productsGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.skuGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.titleGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.categoryGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.quantityGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.priceGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.productStateGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.productTitleTextEdit = new DevExpress.XtraEditors.TextEdit();
             this.skuTextEdit = new DevExpress.XtraEditors.TextEdit();
             this.layoutControlGroupProductView = new DevExpress.XtraLayout.LayoutControlGroup();
@@ -47,12 +53,6 @@
             this.layoutControlProductTitleTextEdit = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlProductsGridView = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlCategoryLookUpEdit = new DevExpress.XtraLayout.LayoutControlItem();
-            this.skuGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.categoryGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.quantityGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.priceGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.titleGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.productStateGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.mainRibbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlProductView)).BeginInit();
             this.layoutControlProductView.SuspendLayout();
@@ -194,6 +194,54 @@
             this.productsGridView.Name = "productsGridView";
             this.productsGridView.DoubleClick += new System.EventHandler(this.productsGridView_DoubleClick);
             // 
+            // skuGridColumn
+            // 
+            this.skuGridColumn.Caption = "SKU";
+            this.skuGridColumn.FieldName = "SKU";
+            this.skuGridColumn.Name = "skuGridColumn";
+            this.skuGridColumn.Visible = true;
+            this.skuGridColumn.VisibleIndex = 1;
+            // 
+            // titleGridColumn
+            // 
+            this.titleGridColumn.Caption = "Title";
+            this.titleGridColumn.FieldName = "Title";
+            this.titleGridColumn.Name = "titleGridColumn";
+            this.titleGridColumn.Visible = true;
+            this.titleGridColumn.VisibleIndex = 0;
+            // 
+            // categoryGridColumn
+            // 
+            this.categoryGridColumn.Caption = "Category";
+            this.categoryGridColumn.FieldName = "Category.Title";
+            this.categoryGridColumn.Name = "categoryGridColumn";
+            this.categoryGridColumn.Visible = true;
+            this.categoryGridColumn.VisibleIndex = 2;
+            // 
+            // quantityGridColumn
+            // 
+            this.quantityGridColumn.Caption = "Quantity";
+            this.quantityGridColumn.FieldName = "Quantity";
+            this.quantityGridColumn.Name = "quantityGridColumn";
+            this.quantityGridColumn.Visible = true;
+            this.quantityGridColumn.VisibleIndex = 3;
+            // 
+            // priceGridColumn
+            // 
+            this.priceGridColumn.Caption = "Price";
+            this.priceGridColumn.FieldName = "Price";
+            this.priceGridColumn.Name = "priceGridColumn";
+            this.priceGridColumn.Visible = true;
+            this.priceGridColumn.VisibleIndex = 4;
+            // 
+            // productStateGridColumn
+            // 
+            this.productStateGridColumn.Caption = "State";
+            this.productStateGridColumn.FieldName = "IsActive";
+            this.productStateGridColumn.Name = "productStateGridColumn";
+            this.productStateGridColumn.Visible = true;
+            this.productStateGridColumn.VisibleIndex = 5;
+            // 
             // productTitleTextEdit
             // 
             this.productTitleTextEdit.Location = new System.Drawing.Point(349, 33);
@@ -202,6 +250,7 @@
             this.productTitleTextEdit.Size = new System.Drawing.Size(317, 20);
             this.productTitleTextEdit.StyleController = this.layoutControlProductView;
             this.productTitleTextEdit.TabIndex = 5;
+            this.productTitleTextEdit.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.productTitleTextEdit_KeyPress);
             // 
             // skuTextEdit
             // 
@@ -211,6 +260,7 @@
             this.skuTextEdit.Size = new System.Drawing.Size(318, 20);
             this.skuTextEdit.StyleController = this.layoutControlProductView;
             this.skuTextEdit.TabIndex = 4;
+            this.skuTextEdit.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.skuTextEdit_KeyPress);
             // 
             // layoutControlGroupProductView
             // 
@@ -272,54 +322,6 @@
             this.layoutControlCategoryLookUpEdit.Text = "Category";
             this.layoutControlCategoryLookUpEdit.TextLocation = DevExpress.Utils.Locations.Top;
             this.layoutControlCategoryLookUpEdit.TextSize = new System.Drawing.Size(45, 13);
-            // 
-            // skuGridColumn
-            // 
-            this.skuGridColumn.Caption = "SKU";
-            this.skuGridColumn.FieldName = "SKU";
-            this.skuGridColumn.Name = "skuGridColumn";
-            this.skuGridColumn.Visible = true;
-            this.skuGridColumn.VisibleIndex = 1;
-            // 
-            // categoryGridColumn
-            // 
-            this.categoryGridColumn.Caption = "Category";
-            this.categoryGridColumn.FieldName = "Category.Title";
-            this.categoryGridColumn.Name = "categoryGridColumn";
-            this.categoryGridColumn.Visible = true;
-            this.categoryGridColumn.VisibleIndex = 2;
-            // 
-            // quantityGridColumn
-            // 
-            this.quantityGridColumn.Caption = "Quantity";
-            this.quantityGridColumn.FieldName = "Quantity";
-            this.quantityGridColumn.Name = "quantityGridColumn";
-            this.quantityGridColumn.Visible = true;
-            this.quantityGridColumn.VisibleIndex = 3;
-            // 
-            // priceGridColumn
-            // 
-            this.priceGridColumn.Caption = "Price";
-            this.priceGridColumn.FieldName = "Price";
-            this.priceGridColumn.Name = "priceGridColumn";
-            this.priceGridColumn.Visible = true;
-            this.priceGridColumn.VisibleIndex = 4;
-            // 
-            // titleGridColumn
-            // 
-            this.titleGridColumn.Caption = "Title";
-            this.titleGridColumn.FieldName = "Title";
-            this.titleGridColumn.Name = "titleGridColumn";
-            this.titleGridColumn.Visible = true;
-            this.titleGridColumn.VisibleIndex = 0;
-            // 
-            // productStateGridColumn
-            // 
-            this.productStateGridColumn.Caption = "State";
-            this.productStateGridColumn.FieldName = "IsActive";
-            this.productStateGridColumn.Name = "productStateGridColumn";
-            this.productStateGridColumn.Visible = true;
-            this.productStateGridColumn.VisibleIndex = 5;
             // 
             // ProductListView
             // 

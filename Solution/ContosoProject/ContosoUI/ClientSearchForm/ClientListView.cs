@@ -61,5 +61,32 @@ namespace ContosoUI.ClientSearchForm
                 presenter.Edit(id);
             }
         }
+
+        private void clientFirstNameTextEdit_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            {
+                binding.EndEdit();
+                presenter.Search();
+            }
+        }
+
+        private void clientLastNameTextEdit_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            {
+                binding.EndEdit();
+                presenter.Search();
+            }
+        }
+
+        private void clientCityTextEdit_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            {
+                binding.EndEdit();
+                presenter.Search();
+            }
+        }
     }
 }
