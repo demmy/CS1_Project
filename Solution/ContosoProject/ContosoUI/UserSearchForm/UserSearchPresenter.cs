@@ -79,17 +79,10 @@ namespace ContosoUI.UserSearchForm
             }
         }
 
-        public void Add()
-        {
-            UserForm.UserForm addUserForm = new UserForm.UserForm();
-            addUserForm.MdiParent = ContosoUI.MainForm.ActiveForm;
-            addUserForm.Show();
-        }
-
         public void Edit(int id)
         {
             UserForm.UserForm editUserForm = new UserForm.UserForm(id);
-            editUserForm.MdiParent = ContosoUI.MainForm.ActiveForm;
+            editUserForm.MdiParent = Program.MainForm;
             editUserForm.Show();
         }
 

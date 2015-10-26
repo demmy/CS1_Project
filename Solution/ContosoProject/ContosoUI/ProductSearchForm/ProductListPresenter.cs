@@ -79,17 +79,10 @@ namespace ContosoUI.ProductSearchForm
             }
         }
 
-        public void Add()
-        {
-            ProductForm.ProductView addProductForm = new ProductForm.ProductView();
-            addProductForm.MdiParent = ContosoUI.MainForm.ActiveForm;
-            addProductForm.Show();
-        }
-
         public void Edit(int id)
         {
             ProductForm.ProductView editProductForm = new ProductForm.ProductView(id);
-            editProductForm.MdiParent = ContosoUI.MainForm.ActiveForm;
+            editProductForm.MdiParent = Program.MainForm;
             editProductForm.Show();
         }
 

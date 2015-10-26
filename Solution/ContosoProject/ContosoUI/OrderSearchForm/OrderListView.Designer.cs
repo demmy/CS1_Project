@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OrderListView));
             this.mainRibbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
-            this.addOrderBarButton = new DevExpress.XtraBars.BarButtonItem();
             this.searchOrderBarButton = new DevExpress.XtraBars.BarButtonItem();
             this.clearOrderBarButton = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPageOrderSearch = new DevExpress.XtraBars.Ribbon.RibbonPage();
@@ -72,7 +71,6 @@
             this.mainRibbon.ExpandCollapseItem.Id = 0;
             this.mainRibbon.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.mainRibbon.ExpandCollapseItem,
-            this.addOrderBarButton,
             this.searchOrderBarButton,
             this.clearOrderBarButton});
             this.mainRibbon.Location = new System.Drawing.Point(0, 0);
@@ -90,15 +88,6 @@
             this.mainRibbon.Size = new System.Drawing.Size(1014, 122);
             this.mainRibbon.StatusBar = this.ribbonStatusBarOrderView;
             this.mainRibbon.Toolbar.ShowCustomizeItem = false;
-            // 
-            // addOrderBarButton
-            // 
-            this.addOrderBarButton.Caption = "Add";
-            this.addOrderBarButton.Glyph = ((System.Drawing.Image)(resources.GetObject("addOrderBarButton.Glyph")));
-            this.addOrderBarButton.Id = 1;
-            this.addOrderBarButton.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("addOrderBarButton.LargeGlyph")));
-            this.addOrderBarButton.Name = "addOrderBarButton";
-            this.addOrderBarButton.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.addOrderBarButton_ItemClick);
             // 
             // searchOrderBarButton
             // 
@@ -122,16 +111,17 @@
             // 
             this.ribbonPageOrderSearch.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.OrderViewFileRibbonPageGroup});
+            this.ribbonPageOrderSearch.MergeOrder = 50;
             this.ribbonPageOrderSearch.Name = "ribbonPageOrderSearch";
             this.ribbonPageOrderSearch.Text = "RibbonMerge";
             // 
             // OrderViewFileRibbonPageGroup
             // 
-            this.OrderViewFileRibbonPageGroup.ItemLinks.Add(this.addOrderBarButton);
             this.OrderViewFileRibbonPageGroup.ItemLinks.Add(this.searchOrderBarButton);
             this.OrderViewFileRibbonPageGroup.ItemLinks.Add(this.clearOrderBarButton);
+            this.OrderViewFileRibbonPageGroup.MergeOrder = 50;
             this.OrderViewFileRibbonPageGroup.Name = "OrderViewFileRibbonPageGroup";
-            this.OrderViewFileRibbonPageGroup.Text = "File";
+            this.OrderViewFileRibbonPageGroup.Text = "Search";
             // 
             // ribbonStatusBarOrderView
             // 
@@ -164,7 +154,7 @@
             this.orderStatusComboBoxEdit.Size = new System.Drawing.Size(316, 20);
             this.orderStatusComboBoxEdit.StyleController = this.layoutControlOrderView;
             this.orderStatusComboBoxEdit.TabIndex = 9;
-            this.orderStatusComboBoxEdit.SelectedIndexChanged += new System.EventHandler(this.orderStatusComboBoxEdit_SelectedIndexChanged);
+            //this.orderStatusComboBoxEdit.SelectedIndexChanged += new System.EventHandler(this.orderStatusComboBoxEdit_SelectedIndexChanged);
             this.orderStatusComboBoxEdit.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.orderStatusComboBoxEdit_KeyPress);
             // 
             // clientLookUpEdit
@@ -361,7 +351,6 @@
         private DevExpress.XtraEditors.TextEdit orderNumberTextEdit;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlOrderNumberTextEdit;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlOrderItemsGridControl;
-        private DevExpress.XtraBars.BarButtonItem addOrderBarButton;
         private DevExpress.XtraBars.BarButtonItem searchOrderBarButton;
         private DevExpress.XtraBars.BarButtonItem clearOrderBarButton;
         private DevExpress.XtraEditors.LookUpEdit clientLookUpEdit;

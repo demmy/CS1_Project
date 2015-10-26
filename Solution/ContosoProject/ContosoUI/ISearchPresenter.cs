@@ -8,7 +8,6 @@ namespace ContosoUI
 {
     interface ISearchPresenter
     {
-        void Add();
         void Edit (int id);
         void Search();
         void Clear();

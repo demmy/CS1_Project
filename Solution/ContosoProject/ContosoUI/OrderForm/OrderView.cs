@@ -33,11 +33,6 @@ namespace ContosoUI.OrderForm
             commentsListBox.DataBindings.Add("DataSource", binding, "Comments");
         }
 
-        private void ribbon_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void orderSaveBarButton_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             binding.EndEdit();

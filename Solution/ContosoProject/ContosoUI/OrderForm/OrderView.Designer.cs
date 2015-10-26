@@ -102,9 +102,16 @@
             this.orderRibbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.orderRibbonPageOrderView});
             this.orderRibbon.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.Office2013;
-            this.orderRibbon.Size = new System.Drawing.Size(1014, 143);
+            this.orderRibbon.ShowApplicationButton = DevExpress.Utils.DefaultBoolean.False;
+            this.orderRibbon.ShowCategoryInCaption = false;
+            this.orderRibbon.ShowExpandCollapseButton = DevExpress.Utils.DefaultBoolean.False;
+            this.orderRibbon.ShowFullScreenButton = DevExpress.Utils.DefaultBoolean.False;
+            this.orderRibbon.ShowPageHeadersMode = DevExpress.XtraBars.Ribbon.ShowPageHeadersMode.Hide;
+            this.orderRibbon.ShowQatLocationSelector = false;
+            this.orderRibbon.ShowToolbarCustomizeItem = false;
+            this.orderRibbon.Size = new System.Drawing.Size(1014, 122);
             this.orderRibbon.StatusBar = this.orderRibbonStatusBar;
-            this.orderRibbon.Click += new System.EventHandler(this.ribbon_Click);
+            this.orderRibbon.Toolbar.ShowCustomizeItem = false;
             // 
             // orderSaveAndNewBarButton
             // 
@@ -146,22 +153,25 @@
             this.orderRibbonPageOrderView.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.orderRibbonPageFileGroup,
             this.orderRibbonPageOrderGroup});
+            this.orderRibbonPageOrderView.MergeOrder = 50;
             this.orderRibbonPageOrderView.Name = "orderRibbonPageOrderView";
-            this.orderRibbonPageOrderView.Text = "Order view";
+            this.orderRibbonPageOrderView.Text = "RibbonMerge";
             // 
             // orderRibbonPageFileGroup
             // 
             this.orderRibbonPageFileGroup.ItemLinks.Add(this.orderSaveBarButton);
             this.orderRibbonPageFileGroup.ItemLinks.Add(this.orderSaveAndNewBarButton);
             this.orderRibbonPageFileGroup.ItemLinks.Add(this.ClearBarButton);
+            this.orderRibbonPageFileGroup.MergeOrder = 50;
             this.orderRibbonPageFileGroup.Name = "orderRibbonPageFileGroup";
             this.orderRibbonPageFileGroup.Text = "File";
             // 
             // orderRibbonPageOrderGroup
             // 
             this.orderRibbonPageOrderGroup.ItemLinks.Add(this.barButtonItem1);
+            this.orderRibbonPageOrderGroup.MergeOrder = 60;
             this.orderRibbonPageOrderGroup.Name = "orderRibbonPageOrderGroup";
-            this.orderRibbonPageOrderGroup.Text = "Order";
+            this.orderRibbonPageOrderGroup.Text = "Edit";
             // 
             // orderRibbonStatusBar
             // 
@@ -181,11 +191,11 @@
             this.orderViewLayoutControl.Controls.Add(this.orderNumberTextEdit);
             this.orderViewLayoutControl.Controls.Add(this.orderStatusLookUpEdit);
             this.orderViewLayoutControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.orderViewLayoutControl.Location = new System.Drawing.Point(0, 143);
+            this.orderViewLayoutControl.Location = new System.Drawing.Point(0, 122);
             this.orderViewLayoutControl.Name = "orderViewLayoutControl";
             this.orderViewLayoutControl.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(606, 162, 405, 343);
             this.orderViewLayoutControl.Root = this.layoutControlGroup;
-            this.orderViewLayoutControl.Size = new System.Drawing.Size(1014, 593);
+            this.orderViewLayoutControl.Size = new System.Drawing.Size(1014, 614);
             this.orderViewLayoutControl.TabIndex = 2;
             this.orderViewLayoutControl.Text = "layoutControl1";
             // 
@@ -202,7 +212,7 @@
             // 
             // addCommentButton
             // 
-            this.addCommentButton.Location = new System.Drawing.Point(842, 464);
+            this.addCommentButton.Location = new System.Drawing.Point(842, 485);
             this.addCommentButton.Name = "addCommentButton";
             this.addCommentButton.Size = new System.Drawing.Size(148, 105);
             this.addCommentButton.StyleController = this.orderViewLayoutControl;
@@ -211,7 +221,7 @@
             // 
             // newCommentTextBox
             // 
-            this.newCommentTextBox.Location = new System.Drawing.Point(365, 464);
+            this.newCommentTextBox.Location = new System.Drawing.Point(365, 485);
             this.newCommentTextBox.Multiline = true;
             this.newCommentTextBox.Name = "newCommentTextBox";
             this.newCommentTextBox.Size = new System.Drawing.Size(473, 105);
@@ -221,7 +231,7 @@
             // 
             this.commentsListBox.Location = new System.Drawing.Point(365, 46);
             this.commentsListBox.Name = "commentsListBox";
-            this.commentsListBox.Size = new System.Drawing.Size(625, 414);
+            this.commentsListBox.Size = new System.Drawing.Size(625, 435);
             this.commentsListBox.StyleController = this.orderViewLayoutControl;
             this.commentsListBox.TabIndex = 9;
             // 
@@ -231,7 +241,7 @@
             this.orderGridControl.MainView = this.orderGridView;
             this.orderGridControl.MenuManager = this.orderRibbon;
             this.orderGridControl.Name = "orderGridControl";
-            this.orderGridControl.Size = new System.Drawing.Size(625, 523);
+            this.orderGridControl.Size = new System.Drawing.Size(625, 544);
             this.orderGridControl.TabIndex = 8;
             this.orderGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.orderGridView});
@@ -291,7 +301,7 @@
             this.layoutControlClientLookUp});
             this.layoutControlGroup.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup.Name = "layoutControlGroup";
-            this.layoutControlGroup.Size = new System.Drawing.Size(1014, 593);
+            this.layoutControlGroup.Size = new System.Drawing.Size(1014, 614);
             this.layoutControlGroup.TextVisible = false;
             // 
             // layoutControlOrderNumberTextEdit
@@ -333,7 +343,7 @@
             this.orderTabbedControlOrderAndCommentGroup.Name = "orderTabbedControlOrderAndCommentGroup";
             this.orderTabbedControlOrderAndCommentGroup.SelectedTabPage = this.layoutControlCommentsList;
             this.orderTabbedControlOrderAndCommentGroup.SelectedTabPageIndex = 1;
-            this.orderTabbedControlOrderAndCommentGroup.Size = new System.Drawing.Size(653, 573);
+            this.orderTabbedControlOrderAndCommentGroup.Size = new System.Drawing.Size(653, 594);
             this.orderTabbedControlOrderAndCommentGroup.TabPages.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlDataGrid,
             this.layoutControlCommentsList});
@@ -346,7 +356,7 @@
             this.layoutControlAddNewCommentButton});
             this.layoutControlCommentsList.Location = new System.Drawing.Point(0, 0);
             this.layoutControlCommentsList.Name = "layoutControlCommentsList";
-            this.layoutControlCommentsList.Size = new System.Drawing.Size(629, 527);
+            this.layoutControlCommentsList.Size = new System.Drawing.Size(629, 548);
             this.layoutControlCommentsList.Text = "Comments";
             // 
             // layoutControlCommentListBox
@@ -354,14 +364,14 @@
             this.layoutControlCommentListBox.Control = this.commentsListBox;
             this.layoutControlCommentListBox.Location = new System.Drawing.Point(0, 0);
             this.layoutControlCommentListBox.Name = "layoutControlCommentListBox";
-            this.layoutControlCommentListBox.Size = new System.Drawing.Size(629, 418);
+            this.layoutControlCommentListBox.Size = new System.Drawing.Size(629, 439);
             this.layoutControlCommentListBox.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlCommentListBox.TextVisible = false;
             // 
             // layoutControlNewCommentTextBox
             // 
             this.layoutControlNewCommentTextBox.Control = this.newCommentTextBox;
-            this.layoutControlNewCommentTextBox.Location = new System.Drawing.Point(0, 418);
+            this.layoutControlNewCommentTextBox.Location = new System.Drawing.Point(0, 439);
             this.layoutControlNewCommentTextBox.MaxSize = new System.Drawing.Size(477, 109);
             this.layoutControlNewCommentTextBox.MinSize = new System.Drawing.Size(477, 109);
             this.layoutControlNewCommentTextBox.Name = "layoutControlNewCommentTextBox";
@@ -373,7 +383,7 @@
             // layoutControlAddNewCommentButton
             // 
             this.layoutControlAddNewCommentButton.Control = this.addCommentButton;
-            this.layoutControlAddNewCommentButton.Location = new System.Drawing.Point(477, 418);
+            this.layoutControlAddNewCommentButton.Location = new System.Drawing.Point(477, 439);
             this.layoutControlAddNewCommentButton.MaxSize = new System.Drawing.Size(152, 109);
             this.layoutControlAddNewCommentButton.MinSize = new System.Drawing.Size(152, 109);
             this.layoutControlAddNewCommentButton.Name = "layoutControlAddNewCommentButton";
@@ -388,7 +398,7 @@
             this.layoutControlOrderGrid});
             this.layoutControlDataGrid.Location = new System.Drawing.Point(0, 0);
             this.layoutControlDataGrid.Name = "layoutControlDataGrid";
-            this.layoutControlDataGrid.Size = new System.Drawing.Size(629, 527);
+            this.layoutControlDataGrid.Size = new System.Drawing.Size(629, 548);
             this.layoutControlDataGrid.Text = "Order";
             // 
             // layoutControlOrderGrid
@@ -396,7 +406,7 @@
             this.layoutControlOrderGrid.Control = this.orderGridControl;
             this.layoutControlOrderGrid.Location = new System.Drawing.Point(0, 0);
             this.layoutControlOrderGrid.Name = "layoutControlOrderGrid";
-            this.layoutControlOrderGrid.Size = new System.Drawing.Size(629, 527);
+            this.layoutControlOrderGrid.Size = new System.Drawing.Size(629, 548);
             this.layoutControlOrderGrid.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlOrderGrid.TextVisible = false;
             // 
@@ -405,7 +415,7 @@
             this.orderSplitter.AllowHotTrack = true;
             this.orderSplitter.Location = new System.Drawing.Point(336, 0);
             this.orderSplitter.Name = "orderSplitter";
-            this.orderSplitter.Size = new System.Drawing.Size(5, 573);
+            this.orderSplitter.Size = new System.Drawing.Size(5, 594);
             // 
             // layoutControlClientLookUp
             // 
@@ -413,7 +423,7 @@
             this.layoutControlClientLookUp.Location = new System.Drawing.Point(0, 138);
             this.layoutControlClientLookUp.Name = "layoutControlClientLookUp";
             this.layoutControlClientLookUp.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
-            this.layoutControlClientLookUp.Size = new System.Drawing.Size(336, 435);
+            this.layoutControlClientLookUp.Size = new System.Drawing.Size(336, 456);
             this.layoutControlClientLookUp.Text = "Client";
             this.layoutControlClientLookUp.TextLocation = DevExpress.Utils.Locations.Top;
             this.layoutControlClientLookUp.TextSize = new System.Drawing.Size(67, 13);

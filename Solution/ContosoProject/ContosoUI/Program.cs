@@ -5,6 +5,7 @@ namespace ContosoUI
 {
     static class Program
     {
+        public static MainForm MainForm { get; private set; }
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
@@ -13,7 +14,8 @@ namespace ContosoUI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainForm());
+            MainForm = new MainForm();
+            Application.Run(MainForm);
         }
     }
 }

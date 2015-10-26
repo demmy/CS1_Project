@@ -79,17 +79,10 @@ namespace ContosoUI.OrderSearchForm
             }
         }
 
-        public void Add()
-        {
-            OrderForm.OrderForm addOrderForm = new OrderForm.OrderForm();
-            addOrderForm.MdiParent = ContosoUI.MainForm.ActiveForm;
-            addOrderForm.Show();
-        }
-
         public void Edit(int id)
         {
             OrderForm.OrderForm editOrderForm = new OrderForm.OrderForm(id);
-            editOrderForm.MdiParent = ContosoUI.MainForm.ActiveForm;
+            editOrderForm.MdiParent = Program.MainForm;
             editOrderForm.Show();
         }
 

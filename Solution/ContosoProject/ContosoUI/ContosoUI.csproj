@@ -102,7 +102,6 @@
     <Compile Include="ClientSearchForm\ClientListView.Designer.cs">
       <DependentUpon>ClientListView.cs</DependentUpon>
     </Compile>
-    <Compile Include="ClientSearchForm\ClientSearchModel.cs" />
     <Compile Include="ClientSearchForm\ClientSearchPresenter.cs" />
     <Compile Include="ClientSearchForm\IClientSearchView.cs" />
     <Compile Include="ISearchPresenter.cs" />

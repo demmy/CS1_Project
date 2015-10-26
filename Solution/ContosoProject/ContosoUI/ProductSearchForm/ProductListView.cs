@@ -50,11 +50,6 @@ namespace ContosoUI.ProductSearchForm
             presenter.Clear();
         }
 
-        private void addProductBarButton_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            presenter.Add();
-        }
-
         private void productsGridView_DoubleClick(object sender, EventArgs e)
         {
             GridView view = (GridView)sender;

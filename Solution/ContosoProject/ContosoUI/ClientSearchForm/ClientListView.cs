@@ -34,11 +34,6 @@ namespace ContosoUI.ClientSearchForm
             clientsGridControl.DataBindings.Add("DataSource", binding, "Clients", false, DataSourceUpdateMode.OnPropertyChanged);
         }
 
-        private void addClientBarButton_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            presenter.Add();
-        }
-
         private void searchClientBarButton_ItemClick(object sender, ItemClickEventArgs e)
         {
             binding.EndEdit();

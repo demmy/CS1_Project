@@ -122,8 +122,16 @@
             this.сlientRibbon.Name = "сlientRibbon";
             this.сlientRibbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.сlientRibbonClientPage});
-            this.сlientRibbon.Size = new System.Drawing.Size(1014, 143);
+            this.сlientRibbon.ShowApplicationButton = DevExpress.Utils.DefaultBoolean.False;
+            this.сlientRibbon.ShowCategoryInCaption = false;
+            this.сlientRibbon.ShowExpandCollapseButton = DevExpress.Utils.DefaultBoolean.False;
+            this.сlientRibbon.ShowFullScreenButton = DevExpress.Utils.DefaultBoolean.False;
+            this.сlientRibbon.ShowPageHeadersMode = DevExpress.XtraBars.Ribbon.ShowPageHeadersMode.Hide;
+            this.сlientRibbon.ShowQatLocationSelector = false;
+            this.сlientRibbon.ShowToolbarCustomizeItem = false;
+            this.сlientRibbon.Size = new System.Drawing.Size(1014, 122);
             this.сlientRibbon.StatusBar = this.сlientRibbonStatusBar;
+            this.сlientRibbon.Toolbar.ShowCustomizeItem = false;
             // 
             // clientBarSaveButton
             // 
@@ -165,22 +173,25 @@
             this.сlientRibbonClientPage.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.сlientRibbonPageClientGroup,
             this.сlientRibbonPageClientFileGroup});
+            this.сlientRibbonClientPage.MergeOrder = 50;
             this.сlientRibbonClientPage.Name = "сlientRibbonClientPage";
-            this.сlientRibbonClientPage.Text = "Client";
+            this.сlientRibbonClientPage.Text = "RibbonMerge";
             // 
             // сlientRibbonPageClientGroup
             // 
             this.сlientRibbonPageClientGroup.ItemLinks.Add(this.clientBarSaveButton);
             this.сlientRibbonPageClientGroup.ItemLinks.Add(this.clientBarSaveAndNewButton);
             this.сlientRibbonPageClientGroup.ItemLinks.Add(this.clientBarClearButton);
+            this.сlientRibbonPageClientGroup.MergeOrder = 50;
             this.сlientRibbonPageClientGroup.Name = "сlientRibbonPageClientGroup";
             this.сlientRibbonPageClientGroup.Text = "File";
             // 
             // сlientRibbonPageClientFileGroup
             // 
             this.сlientRibbonPageClientFileGroup.ItemLinks.Add(this.clientBarRemoveRevertButton);
+            this.сlientRibbonPageClientFileGroup.MergeOrder = 60;
             this.сlientRibbonPageClientFileGroup.Name = "сlientRibbonPageClientFileGroup";
-            this.сlientRibbonPageClientFileGroup.Text = "Client";
+            this.сlientRibbonPageClientFileGroup.Text = "Edit";
             // 
             // clientLayoutControl
             // 
@@ -195,27 +206,27 @@
             this.clientLayoutControl.Controls.Add(this.сlientMiddleNameTextEdit);
             this.clientLayoutControl.Controls.Add(this.clientFirstNameTextEdit);
             this.clientLayoutControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.clientLayoutControl.Location = new System.Drawing.Point(0, 143);
+            this.clientLayoutControl.Location = new System.Drawing.Point(0, 122);
             this.clientLayoutControl.Name = "clientLayoutControl";
             this.clientLayoutControl.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(673, 336, 250, 350);
             this.clientLayoutControl.Root = this.сlientLayoutControlEntireClientGroup;
-            this.clientLayoutControl.Size = new System.Drawing.Size(1014, 593);
+            this.clientLayoutControl.Size = new System.Drawing.Size(1014, 614);
             this.clientLayoutControl.TabIndex = 2;
             this.clientLayoutControl.Text = "layoutControl";
             // 
             // сlientNewCommentTextBox
             // 
-            this.сlientNewCommentTextBox.Location = new System.Drawing.Point(403, 482);
+            this.сlientNewCommentTextBox.Location = new System.Drawing.Point(403, 499);
             this.сlientNewCommentTextBox.Multiline = true;
             this.сlientNewCommentTextBox.Name = "сlientNewCommentTextBox";
-            this.сlientNewCommentTextBox.Size = new System.Drawing.Size(404, 87);
+            this.сlientNewCommentTextBox.Size = new System.Drawing.Size(404, 91);
             this.сlientNewCommentTextBox.TabIndex = 14;
             // 
             // сlientAddCommentButton
             // 
-            this.сlientAddCommentButton.Location = new System.Drawing.Point(811, 482);
+            this.сlientAddCommentButton.Location = new System.Drawing.Point(811, 499);
             this.сlientAddCommentButton.Name = "сlientAddCommentButton";
-            this.сlientAddCommentButton.Size = new System.Drawing.Size(179, 87);
+            this.сlientAddCommentButton.Size = new System.Drawing.Size(179, 91);
             this.сlientAddCommentButton.StyleController = this.clientLayoutControl;
             this.сlientAddCommentButton.TabIndex = 15;
             this.сlientAddCommentButton.Text = "Add comment";
@@ -225,7 +236,7 @@
             this.clientCommentsListBoxControl.Location = new System.Drawing.Point(403, 46);
             this.clientCommentsListBoxControl.Name = "clientCommentsListBoxControl";
             this.clientCommentsListBoxControl.Padding = new System.Windows.Forms.Padding(2);
-            this.clientCommentsListBoxControl.Size = new System.Drawing.Size(587, 432);
+            this.clientCommentsListBoxControl.Size = new System.Drawing.Size(587, 449);
             this.clientCommentsListBoxControl.StyleController = this.clientLayoutControl;
             this.clientCommentsListBoxControl.TabIndex = 11;
             // 
@@ -236,7 +247,7 @@
             this.сlientOrdersGridControl.MenuManager = this.сlientRibbon;
             this.сlientOrdersGridControl.Name = "сlientOrdersGridControl";
             this.сlientOrdersGridControl.Padding = new System.Windows.Forms.Padding(2);
-            this.сlientOrdersGridControl.Size = new System.Drawing.Size(587, 523);
+            this.сlientOrdersGridControl.Size = new System.Drawing.Size(587, 544);
             this.сlientOrdersGridControl.TabIndex = 10;
             this.сlientOrdersGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.сlientOrderGridView});
@@ -249,9 +260,9 @@
             // 
             // сlientTelephonesListBoxControl
             // 
-            this.сlientTelephonesListBoxControl.Location = new System.Drawing.Point(29, 440);
+            this.сlientTelephonesListBoxControl.Location = new System.Drawing.Point(29, 449);
             this.сlientTelephonesListBoxControl.Name = "сlientTelephonesListBoxControl";
-            this.сlientTelephonesListBoxControl.Size = new System.Drawing.Size(336, 124);
+            this.сlientTelephonesListBoxControl.Size = new System.Drawing.Size(336, 136);
             this.сlientTelephonesListBoxControl.StyleController = this.clientLayoutControl;
             this.сlientTelephonesListBoxControl.TabIndex = 9;
             // 
@@ -260,7 +271,7 @@
             this.clientAddressTextBox.Location = new System.Drawing.Point(29, 313);
             this.clientAddressTextBox.Multiline = true;
             this.clientAddressTextBox.Name = "clientAddressTextBox";
-            this.clientAddressTextBox.Size = new System.Drawing.Size(336, 97);
+            this.clientAddressTextBox.Size = new System.Drawing.Size(336, 106);
             this.clientAddressTextBox.TabIndex = 8;
             // 
             // clientCityTextEdit
@@ -310,7 +321,7 @@
             this.сlientSplitter});
             this.сlientLayoutControlEntireClientGroup.Location = new System.Drawing.Point(0, 0);
             this.сlientLayoutControlEntireClientGroup.Name = "сlientLayoutControlEntireClientGroup";
-            this.сlientLayoutControlEntireClientGroup.Size = new System.Drawing.Size(1014, 593);
+            this.сlientLayoutControlEntireClientGroup.Size = new System.Drawing.Size(1014, 614);
             this.сlientLayoutControlEntireClientGroup.TextVisible = false;
             // 
             // сlientTabbedControlPersonDataGroup
@@ -376,7 +387,7 @@
             this.сlientTabbedControlClientInfoGroup.Name = "сlientTabbedControlClientInfoGroup";
             this.сlientTabbedControlClientInfoGroup.SelectedTabPage = this.clientLayoutControlClientInfoGroup;
             this.сlientTabbedControlClientInfoGroup.SelectedTabPageIndex = 0;
-            this.сlientTabbedControlClientInfoGroup.Size = new System.Drawing.Size(374, 377);
+            this.сlientTabbedControlClientInfoGroup.Size = new System.Drawing.Size(374, 398);
             this.сlientTabbedControlClientInfoGroup.TabPages.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.clientLayoutControlClientInfoGroup});
             // 
@@ -388,16 +399,16 @@
             this.clientLayoutControlAddressTextEdit});
             this.clientLayoutControlClientInfoGroup.Location = new System.Drawing.Point(0, 0);
             this.clientLayoutControlClientInfoGroup.Name = "clientLayoutControlClientInfoGroup";
-            this.clientLayoutControlClientInfoGroup.Size = new System.Drawing.Size(350, 331);
+            this.clientLayoutControlClientInfoGroup.Size = new System.Drawing.Size(350, 352);
             this.clientLayoutControlClientInfoGroup.Text = "Client information";
             // 
             // сlientLayoutControlTelephonesListBox
             // 
             this.сlientLayoutControlTelephonesListBox.Control = this.сlientTelephonesListBoxControl;
-            this.сlientLayoutControlTelephonesListBox.Location = new System.Drawing.Point(0, 177);
+            this.сlientLayoutControlTelephonesListBox.Location = new System.Drawing.Point(0, 186);
             this.сlientLayoutControlTelephonesListBox.Name = "сlientLayoutControlTelephonesListBox";
             this.сlientLayoutControlTelephonesListBox.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
-            this.сlientLayoutControlTelephonesListBox.Size = new System.Drawing.Size(350, 154);
+            this.сlientLayoutControlTelephonesListBox.Size = new System.Drawing.Size(350, 166);
             this.сlientLayoutControlTelephonesListBox.Spacing = new DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 2);
             this.сlientLayoutControlTelephonesListBox.Text = "Telephones";
             this.сlientLayoutControlTelephonesListBox.TextLocation = DevExpress.Utils.Locations.Top;
@@ -421,7 +432,7 @@
             this.clientLayoutControlAddressTextEdit.Location = new System.Drawing.Point(0, 50);
             this.clientLayoutControlAddressTextEdit.Name = "clientLayoutControlAddressTextEdit";
             this.clientLayoutControlAddressTextEdit.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
-            this.clientLayoutControlAddressTextEdit.Size = new System.Drawing.Size(350, 127);
+            this.clientLayoutControlAddressTextEdit.Size = new System.Drawing.Size(350, 136);
             this.clientLayoutControlAddressTextEdit.Spacing = new DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 2);
             this.clientLayoutControlAddressTextEdit.Text = "Address";
             this.clientLayoutControlAddressTextEdit.TextLocation = DevExpress.Utils.Locations.Top;
@@ -433,7 +444,7 @@
             this.сlientTabbedControlOrdersCommentsGroup.Name = "сlientTabbedControlOrdersCommentsGroup";
             this.сlientTabbedControlOrdersCommentsGroup.SelectedTabPage = this.сlientLayoutControlOrdersGroup;
             this.сlientTabbedControlOrdersCommentsGroup.SelectedTabPageIndex = 0;
-            this.сlientTabbedControlOrdersCommentsGroup.Size = new System.Drawing.Size(615, 573);
+            this.сlientTabbedControlOrdersCommentsGroup.Size = new System.Drawing.Size(615, 594);
             this.сlientTabbedControlOrdersCommentsGroup.TabPages.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.сlientLayoutControlOrdersGroup,
             this.clientLayoutControlCommentsGroup});
@@ -444,7 +455,7 @@
             this.сlientLayoutControlOrdersGrid});
             this.сlientLayoutControlOrdersGroup.Location = new System.Drawing.Point(0, 0);
             this.сlientLayoutControlOrdersGroup.Name = "сlientLayoutControlOrdersGroup";
-            this.сlientLayoutControlOrdersGroup.Size = new System.Drawing.Size(591, 527);
+            this.сlientLayoutControlOrdersGroup.Size = new System.Drawing.Size(591, 548);
             this.сlientLayoutControlOrdersGroup.Text = "Orders";
             // 
             // сlientLayoutControlOrdersGrid
@@ -452,7 +463,7 @@
             this.сlientLayoutControlOrdersGrid.Control = this.сlientOrdersGridControl;
             this.сlientLayoutControlOrdersGrid.Location = new System.Drawing.Point(0, 0);
             this.сlientLayoutControlOrdersGrid.Name = "сlientLayoutControlOrdersGrid";
-            this.сlientLayoutControlOrdersGrid.Size = new System.Drawing.Size(591, 527);
+            this.сlientLayoutControlOrdersGrid.Size = new System.Drawing.Size(591, 548);
             this.сlientLayoutControlOrdersGrid.TextSize = new System.Drawing.Size(0, 0);
             this.сlientLayoutControlOrdersGrid.TextVisible = false;
             // 
@@ -464,7 +475,7 @@
             this.сlientLayoutControlNewCommentTextEdit});
             this.clientLayoutControlCommentsGroup.Location = new System.Drawing.Point(0, 0);
             this.clientLayoutControlCommentsGroup.Name = "clientLayoutControlCommentsGroup";
-            this.clientLayoutControlCommentsGroup.Size = new System.Drawing.Size(591, 527);
+            this.clientLayoutControlCommentsGroup.Size = new System.Drawing.Size(591, 548);
             this.clientLayoutControlCommentsGroup.Text = "Comments";
             // 
             // clientLayoutControlCommentsListBox
@@ -472,17 +483,17 @@
             this.clientLayoutControlCommentsListBox.Control = this.clientCommentsListBoxControl;
             this.clientLayoutControlCommentsListBox.Location = new System.Drawing.Point(0, 0);
             this.clientLayoutControlCommentsListBox.Name = "clientLayoutControlCommentsListBox";
-            this.clientLayoutControlCommentsListBox.Size = new System.Drawing.Size(591, 436);
+            this.clientLayoutControlCommentsListBox.Size = new System.Drawing.Size(591, 453);
             this.clientLayoutControlCommentsListBox.TextSize = new System.Drawing.Size(0, 0);
             this.clientLayoutControlCommentsListBox.TextVisible = false;
             // 
             // clientLayoutControlAddNewCommentButton
             // 
             this.clientLayoutControlAddNewCommentButton.Control = this.сlientAddCommentButton;
-            this.clientLayoutControlAddNewCommentButton.Location = new System.Drawing.Point(408, 436);
+            this.clientLayoutControlAddNewCommentButton.Location = new System.Drawing.Point(408, 453);
             this.clientLayoutControlAddNewCommentButton.MinSize = new System.Drawing.Size(183, 26);
             this.clientLayoutControlAddNewCommentButton.Name = "clientLayoutControlAddNewCommentButton";
-            this.clientLayoutControlAddNewCommentButton.Size = new System.Drawing.Size(183, 91);
+            this.clientLayoutControlAddNewCommentButton.Size = new System.Drawing.Size(183, 95);
             this.clientLayoutControlAddNewCommentButton.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.clientLayoutControlAddNewCommentButton.TextSize = new System.Drawing.Size(0, 0);
             this.clientLayoutControlAddNewCommentButton.TextVisible = false;
@@ -490,10 +501,10 @@
             // сlientLayoutControlNewCommentTextEdit
             // 
             this.сlientLayoutControlNewCommentTextEdit.Control = this.сlientNewCommentTextBox;
-            this.сlientLayoutControlNewCommentTextEdit.Location = new System.Drawing.Point(0, 436);
+            this.сlientLayoutControlNewCommentTextEdit.Location = new System.Drawing.Point(0, 453);
             this.сlientLayoutControlNewCommentTextEdit.MinSize = new System.Drawing.Size(127, 24);
             this.сlientLayoutControlNewCommentTextEdit.Name = "сlientLayoutControlNewCommentTextEdit";
-            this.сlientLayoutControlNewCommentTextEdit.Size = new System.Drawing.Size(408, 91);
+            this.сlientLayoutControlNewCommentTextEdit.Size = new System.Drawing.Size(408, 95);
             this.сlientLayoutControlNewCommentTextEdit.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.сlientLayoutControlNewCommentTextEdit.TextSize = new System.Drawing.Size(0, 0);
             this.сlientLayoutControlNewCommentTextEdit.TextVisible = false;

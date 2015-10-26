@@ -48,6 +48,7 @@ namespace ContosoUI.OrderSearchForm
 
         private void clearButton_ItemClick(object sender, ItemClickEventArgs e)
         {
+            binding.EndEdit();
             presenter.Clear();
         }
 
@@ -61,11 +62,6 @@ namespace ContosoUI.OrderSearchForm
                 int id = (int)view.GetRowCellValue(info.RowHandle, "Id");
                 presenter.Edit(id);
             }
-        }
-
-        private void addOrderBarButton_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            presenter.Add();
         }
 
         private void orderStatusComboBoxEdit_SelectedIndexChanged(object sender, EventArgs e)
