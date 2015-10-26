@@ -28,12 +28,15 @@ namespace Data.DummyData
             {
                 result = result.Where(x => x.Client.Equals(client));
             }
-            result = result.Where(x => x.Status == status);
-                if (!Equals(result, Collection.AsQueryable()))
-                {
-                    return result.ToList();
-                }
-                throw new Exception();
+            if (status != Status.Undefined)
+            {
+                result = result.Where(x => x.Status == status);
+            }
+            if (!result.SequenceEqual(Collection.AsQueryable()))
+            {
+                return result.ToList();
+            }
+            throw new Exception();
         }
 
         public Order GetByNumber(string orderNumber)

@@ -82,8 +82,6 @@ namespace ContosoUI.UserSearchForm
             }
         }
 
-       
-
         private void lastNameTextEdit_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == Convert.ToChar(Keys.Enter))

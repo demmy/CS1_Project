@@ -96,10 +96,10 @@ namespace ContosoUI.OrderSearchForm
         public void Search()
         {
             List<Order> orders;
-            if (OrderNumber != null && Client != null && Status != Status.Undefined)
-                orders = model.GetBy(OrderNumber, Status, Client).ToList(); 
-            else
+            if (OrderNumber == null && Client == null && Status == Status.Undefined)
                 orders = model.GetAll().ToList();
+            else
+               orders = model.GetBy(OrderNumber, Status, Client).ToList(); 
 
             OrdersList = new BindingList<Order>(orders);
             NotifyPropertyChanged();

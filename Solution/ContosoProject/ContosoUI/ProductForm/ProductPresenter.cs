@@ -32,7 +32,10 @@ namespace ContosoUI.ProductForm
         //Product ENDs HERE
 
         //Category STARTs HERE
+        private String _searchTitleCategory = string.Empty;
+
         BindingList<Category> _categories = new BindingList<Category>();
+        List<Category> _categoriesToSave = new List<Category>();
         BindingList<Comment> _categoryComments = new BindingList<Comment>(); 
         //Category ENDs HERE
 
@@ -143,8 +146,19 @@ namespace ContosoUI.ProductForm
             get { return _categoryComments; }
             set
             {
-                if (Equals(value, _categoryComments)) return;
+                if (value.SequenceEqual(_categoryComments)) return;
                 _categoryComments = value;
+                NotifyPropertyChanged();
+            }
+        }
+
+        public string SearchTitleCategory
+        {
+            get { return _searchTitleCategory; }
+            set
+            {
+                if (_searchTitleCategory.Equals(value)) return;
+                _searchTitleCategory = value;
                 NotifyPropertyChanged();
             }
         }
@@ -159,9 +173,24 @@ namespace ContosoUI.ProductForm
             _categoryComments = new BindingList<Comment>(_categoryRepository.Find(id).Comments.ToList());
         }
 
+        public void SaveCategories()
+        {
+            foreach (var categoryToSave in _categoriesToSave)
+            {
+                if (!_categoryRepository.FindBy(x => x.Title == categoryToSave.Title).Any())
+                {
+                    _categoryRepository.Create(categoryToSave);
+                }
+                else
+                {
+                    _categoryRepository.Save(categoryToSave);
+                }
+            }
+        }
+
         public void Save()
         {
-            throw new NotImplementedException();
+            SaveCategories();
         }
 
         public void SaveAndNew()
@@ -172,6 +201,24 @@ namespace ContosoUI.ProductForm
         public void Clear()
         {
             throw new NotImplementedException();
+        }
+
+        public void AddCategoryWithTitle(string title)
+        {
+            _categories.Add(new Category() { Title = title});
+            _categoriesToSave.Add(new Category() { Title = title });
+        }
+
+        public void Search()
+        {
+            Categories = new BindingList<Category>(_categoryRepository.GetAll().Where(x=>x.Title.ToLower().StartsWith(_searchTitleCategory.ToLower())).ToList());
+       //    _categories = new BindingList<Category>(_categoryRepository.FindBy(x => x.Title.StartsWith(_searchTitleCategory)).ToList());
+
+        }
+
+        public void ViewAllCategories()
+        {
+            Categories = new BindingList<Category>(_categoryRepository.GetAll().ToList());
         }
     }
 }
