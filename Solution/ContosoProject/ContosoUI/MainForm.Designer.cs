@@ -1,11 +1,16 @@
-﻿namespace ContosoUI
+﻿using System.ComponentModel;
+using DevExpress.XtraBars;
+using DevExpress.XtraBars.Ribbon;
+using DevExpress.XtraTabbedMdi;
+
+namespace ContosoUI
 {
     partial class MainForm
     {
         /// <summary>
         /// Required designer variable.
         /// </summary>
-        private System.ComponentModel.IContainer components = null;
+        private IContainer components = null;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -155,15 +160,15 @@
 
         #endregion
 
-        private DevExpress.XtraBars.Ribbon.RibbonControl mainRibbon;
-        private DevExpress.XtraBars.Ribbon.RibbonPage Р;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup workRibbonPageGroup;
-        private DevExpress.XtraBars.BarButtonItem clientsMenuBtn;
-        private DevExpress.XtraBars.BarButtonItem ordersMenuBtn;
-        private DevExpress.XtraBars.BarButtonItem exitMenuBtn;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup systemRibbonGroup;
-        private DevExpress.XtraTabbedMdi.XtraTabbedMdiManager xtraTabbedMdiManager1;
-        private DevExpress.XtraBars.Ribbon.ApplicationMenu applicationMenu1;
+        private RibbonControl mainRibbon;
+        private RibbonPage Р;
+        private RibbonPageGroup workRibbonPageGroup;
+        private BarButtonItem clientsMenuBtn;
+        private BarButtonItem ordersMenuBtn;
+        private BarButtonItem exitMenuBtn;
+        private RibbonPageGroup systemRibbonGroup;
+        private XtraTabbedMdiManager xtraTabbedMdiManager1;
+        private ApplicationMenu applicationMenu1;
     }
 }
 

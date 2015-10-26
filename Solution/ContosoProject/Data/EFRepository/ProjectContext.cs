@@ -1,13 +1,8 @@
-﻿using Domain.Entities;
+﻿using System.Data.Entity;
+using Domain.Entities;
 using Domain.Entities.Orders;
 using Domain.Entities.Products;
 using Domain.Entities.Users;
-using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Data.EFRepository
 {
@@ -15,7 +10,7 @@ namespace Data.EFRepository
     {
         public ProjectContext()
         {
-            Database.SetInitializer<ProjectContext>(new DropCreateDatabaseAlways<ProjectContext>());
+            Database.SetInitializer(new DropCreateDatabaseAlways<ProjectContext>());
         }
 
         public DbSet<Order> Oders { get; set; }

@@ -2,13 +2,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
-using System.Security.Cryptography.X509Certificates;
-using Data.StoreData;
+using System.Linq.Expressions;
 using Domain.DAO;
 using Domain.Entities;
-using Domain.Entities.Products;
-using Domain.Entities.Users;
 
 namespace Data.DummyData
 {
@@ -72,7 +68,7 @@ namespace Data.DummyData
                 throw new Exception();
         }
 
-        public IQueryable<T> FindBy(System.Linq.Expressions.Expression<Func<T, bool>> predicate)
+        public IQueryable<T> FindBy(Expression<Func<T, bool>> predicate)
         {
             throw new NotImplementedException();
         }

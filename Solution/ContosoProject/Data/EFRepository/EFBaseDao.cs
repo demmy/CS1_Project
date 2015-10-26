@@ -1,13 +1,12 @@
-﻿using Domain.Entities;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Linq.Expressions;
+using Domain.DAO;
+using Domain.Entities;
 
 namespace Data.EFRepository
 {
-    public class EFBaseDao<T> : Domain.DAO.IRepository<T> where T : Entity, new()
+    public class EFBaseDao<T> : IRepository<T> where T : Entity, new()
     {
         ProjectContext dbContext = new ProjectContext();
 
@@ -48,7 +47,7 @@ namespace Data.EFRepository
             throw new NotImplementedException();
         }
 
-        public IQueryable<T> FindBy(System.Linq.Expressions.Expression<Func<T, bool>> predicate)
+        public IQueryable<T> FindBy(Expression<Func<T, bool>> predicate)
         {
             IQueryable<T> query = dbContext.Set<T>().Where(predicate);
             return query;

@@ -1,20 +1,18 @@
+using System.Data.Entity.Migrations;
+using Data.EFRepository;
+using Domain.Entities;
+using Domain.Entities.Users;
+
 namespace Data.Migrations
 {
-    using Domain.Entities;
-    using Domain.Entities.Users;
-    using System;
-    using System.Data.Entity;
-    using System.Data.Entity.Migrations;
-    using System.Linq;
-
-    internal sealed class Configuration : DbMigrationsConfiguration<Data.EFRepository.ProjectContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<ProjectContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(Data.EFRepository.ProjectContext context)
+        protected override void Seed(ProjectContext context)
         {
 
             // seed first user

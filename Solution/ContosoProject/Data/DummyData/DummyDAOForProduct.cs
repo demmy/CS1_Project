@@ -13,6 +13,25 @@ namespace Data.DummyData
         {
             _collection = Storage.Products;
         }
+
+        public ICollection<Product> GetBy(string sku, string title, Category category)
+        {
+            var result = _collection.AsQueryable();
+            if (!string.IsNullOrWhiteSpace(sku))
+            {
+                result = result.Where(x => x.SKU == sku);
+            }
+            if (!string.IsNullOrWhiteSpace(title))
+            {
+                result = result.Where(x => x.Title ==title);
+            }
+            if (Category.IsNullOrEmpty(category))
+            {
+                result = result.Where(x =>x.Category == category);
+            }
+            return result.ToList();
+        }
+
         public ICollection<Product> GetBySKU(string sku)
         {
             if (_collection.Any(x => x.SKU == sku))

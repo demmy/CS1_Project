@@ -48,7 +48,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DummyData\DummyDAOExtension.cs" />
     <Compile Include="EFRepository\EFBaseDao.cs" />
     <Compile Include="EFRepository\ProjectContext.cs" />
     <Compile Include="Migrations\201510200912476_Init.cs" />
@@ -56,10 +55,11 @@
       <DependentUpon>201510200912476_Init.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="StoreData\KeyedCollections.cs" />
     <Compile Include="DummyData\DummyDAOForCategory.cs" />
     <Compile Include="DummyData\DummyDAOForClient.cs" />
     <Compile Include="DummyData\DummyDAOForComment.cs" />
+    <Compile Include="StoreData\KeyedCollections.cs" />
+    <Compile Include="DummyData\DummyDAOExtension.cs" />
     <Compile Include="DummyData\DummyDAOForOrder.cs" />
     <Compile Include="DummyData\DummyDAOForPermission.cs" />
     <Compile Include="DummyData\DummyDAOForProduct.cs" />

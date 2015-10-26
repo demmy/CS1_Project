@@ -1,38 +1,31 @@
-﻿using DevExpress.XtraEditors;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using System;
+using DevExpress.XtraBars;
+using DevExpress.XtraBars.Ribbon;
 
 namespace ContosoUI
 {
-    public partial class MainForm : DevExpress.XtraBars.Ribbon.RibbonForm
+    public partial class MainForm : RibbonForm
     {
         public MainForm()
         {
             InitializeComponent();
         }
 
-        private void clientsMenuBtn_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        private void clientsMenuBtn_ItemClick(object sender, ItemClickEventArgs e)
         {
-            var form = new ClientSearchForm.ClientSearchForm();
-            form.MdiParent = this;
-            form.Show();
+            //var form = new ClientSearchForm.ClientSearchForm();
+            //form.MdiParent = this;
+            //form.Show();
         }
 
-        private void ordersMenuBtn_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        private void ordersMenuBtn_ItemClick(object sender, ItemClickEventArgs e)
         {
-            var form = new OrderSearchForm.OrderSearchForm();
-            form.MdiParent = this;
-            form.Show();
+            //var form = new OrderSearchForm.OrderSearchForm();
+            //form.MdiParent = this;
+            //form.Show();
         }
 
-        private void exitMenuBtn_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        private void exitMenuBtn_ItemClick(object sender, ItemClickEventArgs e)
         {
             this.Close();
         }
