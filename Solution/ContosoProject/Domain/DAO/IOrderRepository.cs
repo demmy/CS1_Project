@@ -13,10 +13,8 @@ namespace Domain.DAO
         ICollection<Order> GetByClient(Client client);
         ICollection<Order> GetByProduct(Product product);
 
-        void AddOrder(Product product, int quantity);
-        bool Contains(Product product);
-        void RemoveOrder(Product product);
-        void EditOrder(Product product, int quantity);
-        double Sum { get; }
+        void AddOrder(Order order, Product product, int quantity);
+        void RemoveOrder(Order order, Product product);
+        void EditOrder(Order order, Product product, int quantity);
     }
 }

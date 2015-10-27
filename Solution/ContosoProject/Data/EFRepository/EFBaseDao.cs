@@ -8,27 +8,31 @@ namespace Data.EFRepository
 {
     public class EFBaseDao<T> : IRepository<T> where T : Entity, new()
     {
-        ProjectContext dbContext = new ProjectContext();
+        protected ProjectContext dbContext = new ProjectContext();
 
         public void Create(T entity)
         {
-            throw new NotImplementedException();
+            dbContext.Set<T>().Add(entity); ;
+            dbContext.SaveChanges();
         }
 
         public void Save(T entity)
         {
-            dbContext.Set<T>().Add(entity);
+            
+            dbContext.SaveChanges();
         }
 
         public void Delete(T entity)
         {
             dbContext.Set<T>().Remove(entity);
+            dbContext.SaveChanges();
         }
 
         public void Delete(int id)
         {
             var ent = dbContext.Set<T>().FirstOrDefault(x=>x.Id == id);
             dbContext.Set<T>().Remove(ent);
+            dbContext.SaveChanges();
         }
 
         public T Find(int id)
