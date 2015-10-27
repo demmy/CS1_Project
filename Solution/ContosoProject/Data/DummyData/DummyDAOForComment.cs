@@ -10,7 +10,7 @@ namespace Data.DummyData
 {
     public class DummyDAOForComment : DummyDAOExtension<Comment>, ICommentRepository
     {
-        public ICollection<Comment> GetByUser(User user)
+        public ICollection<Comment> GetAllByUser(User user)
         {
             if (_collection.Any(x => x.Author == user))
             {

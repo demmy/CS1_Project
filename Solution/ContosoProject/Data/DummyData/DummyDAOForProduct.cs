@@ -31,7 +31,7 @@ namespace Data.DummyData
             }
             return result.ToList();
         }
-
+        [Obsolete]
         public ICollection<Product> GetBySKU(string sku)
         {
             if (_collection.Any(x => x.SKU == sku))
@@ -40,7 +40,7 @@ namespace Data.DummyData
             }
             throw new Exception();
         }
-
+        [Obsolete]
         public ICollection<Product> GetByCategory(Category category)
         {
             if (_collection.Any(x => x.Category == category))
