@@ -7,10 +7,20 @@ namespace Domain.Entities
 {
     public class Client : ExtendedEntity, ICommentable
     {
-        private readonly List<Comment> _comments = new List<Comment>();
+        private readonly List<Comment> _comments = new List<Comment>()
+        {
+            new Comment
+            {
+                Author = null,
+                Date = DateTime.Now,
+                EntityType = EntityType.Client,
+                Text = string.Format("Client has been added ")
+            }
+        };
+
         private readonly List<string> _telephones = new List<string>();
 
-        public Client(ICollection<string> telephones, ICollection<Comment> comments) : this()
+        public Client(ICollection<string> telephones, ICollection<Comment> comments)
         {
             _telephones = telephones.ToList();
             _comments = comments.ToList();
@@ -18,15 +28,6 @@ namespace Domain.Entities
 
         public Client()
         {
-            _comments.Add(new Comment
-            {
-                Author = null,
-                Date = DateTime.Now,
-                EntityType = EntityType.Client,
-                Id = -1,
-                IsActive = true,
-                Text = string.Format("Client has been added ")
-            });
         }
 
         public Location ClientLocation { get; set; }

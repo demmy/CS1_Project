@@ -18,6 +18,7 @@ namespace ContosoUI.OrderForm
         {
             InitializeComponent();
             _presenter = new OrderPresenter(new OrderModel(), this);
+            _presenter.UseOrderWithID(id);
         }
 
         private void OrderViewList_Load(object sender, EventArgs e)
@@ -57,12 +58,6 @@ namespace ContosoUI.OrderForm
 
         public void ShowView()
         {
-            Show();
-        }
-
-        public void ShowView(OrderPresenter presenter)
-        {
-            _presenter = presenter;
             Show();
         }
     }

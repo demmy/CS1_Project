@@ -1,12 +1,13 @@
 ﻿using System;
-using System.Drawing;
+using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Windows.Forms;
 using DevExpress.XtraBars;
 using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraGrid.Views.Grid.ViewInfo;
 using Domain.Entities.Comments;
-using Domain.Entities.Products;
+using Comment = Domain.Entities.Comments.Comment;
 
 namespace ContosoUI.ProductForm
 {
@@ -18,17 +19,14 @@ namespace ContosoUI.ProductForm
         public ProductView()
         {
             InitializeComponent();
+            _presenter = new ProductPresenter(this, new ProductModel());
         }
 
         public ProductView(int id)
         {
             InitializeComponent();
-            ShowView(new ProductPresenter(this, new ProductModel()), id);
-        }
-
-        private void barButtonItem1_ItemClick(object sender, ItemClickEventArgs e)
-        {
-        
+            _presenter = new ProductPresenter(this, new ProductModel());
+            _presenter.UseProductWithID(id);
         }
 
         private void ProductAddView_Load(object sender, EventArgs e)
@@ -54,26 +52,7 @@ namespace ContosoUI.ProductForm
 
         public void ShowView()
         {
-            _presenter = new ProductPresenter(this, new ProductModel());
             Show();
-        }
-
-        public void ShowView(ProductPresenter presenter, int id)
-        {
-            _presenter = presenter;
-            _presenter.UseProductWithID(id);
-            Show();
-        }
-
-        private void gridView1_Click(object sender, EventArgs e)
-        {
-            GridView view = (GridView)sender;
-            GridHitInfo info = view.CalcHitInfo(view.GridControl.PointToClient(Control.MousePosition));
-
-            if (info.InRow || info.InRowCell)
-            {
-                int id = (int)view.GetRowCellValue(info.RowHandle, "Id");               
-            }
         }
 
         private void addCommentButton_Click(object sender, EventArgs e)
@@ -82,6 +61,7 @@ namespace ContosoUI.ProductForm
             {
                 Comment comment = new Comment() { Author = null, EntityType = EntityType.Product, Text = newCommentTextBox.Text };
                 _presenter.ProductComments.Add(comment);
+                newCommentTextBox.Text = string.Empty;
             }
         }
 
@@ -89,25 +69,15 @@ namespace ContosoUI.ProductForm
         {
             if (!string.IsNullOrEmpty(categoryNewCommentTextBox.Text) && _presenter.CategoryComments.Count!=0)
             {
-                Comment comment = new Comment() { Author = null, EntityType = EntityType.Category, Text = newCommentTextBox.Text };
-                _presenter.CategoryComments.Add(comment);
+                Comment comment = new Comment() { Author = null, EntityType = EntityType.Category, Text = categoryNewCommentTextBox.Text };
+                List<Comment> newComments = _presenter.CategoryComments.ToList();
+                newComments.Add(comment);
+                _presenter.CategoryComments = new BindingList<Comment>(newComments);
+                _presenter.Save();
+                categoryNewCommentTextBox.Text = string.Empty;
             }
         }
-
-        private void gridView1_RowClick(object sender, RowClickEventArgs e)
-        {
-            GridView view = (GridView)sender;
-            GridHitInfo info = view.CalcHitInfo(view.GridControl.PointToClient(Control.MousePosition));
-            categoryCommentsListBoxControl.DataBindings.Clear();
-            
-            if (e.HitInfo.InRow || e.HitInfo.InColumn)
-            {
-                int id = (int)view.GetRowCellValue(info.RowHandle, "Id");
-                _presenter.UseCategoryCommentsByID(id);
-                categoryCommentsListBoxControl.DataBindings.Add("DataSource", _binding, "CategoryComments");
-            }
-        }
-
+        
         private void categorySearchControl_KeyPress(object sender, KeyPressEventArgs e)
         {
             _binding.EndEdit();
@@ -117,14 +87,9 @@ namespace ContosoUI.ProductForm
                     _presenter.Search();
                 else
                 {
-                    _presenter.ViewAllCategories();
+                    _presenter.AllCategoriesToGrid();
                 }
             }
-        }
-
-        private void barRemoveRevertCategoryButton_ItemClick(object sender, ItemClickEventArgs e)
-        {
-
         }
 
         private void simpleAddTitleButton_Click(object sender, EventArgs e)
@@ -132,20 +97,8 @@ namespace ContosoUI.ProductForm
             if (!string.IsNullOrEmpty(newCategoryTitletextEdit.Text))
             {
                 _presenter.AddCategoryWithTitle(newCategoryTitletextEdit.Text);
-                categoryGridView.Focus();
-                popupControlContainer1.HidePopup();
-                _presenter.SaveCategories();
+                popupControlNewCategoryContainer.HidePopup();
             }
-        }
-
-        private void popupControlContainer1_CloseUp(object sender, EventArgs e)
-        {
-            newCategoryTitletextEdit.Text = string.Empty;
-        }
-
-        private void barSaveProductButton_ItemClick(object sender, ItemClickEventArgs e)
-        {
-
         }
 
         private void newCategoryTitletextEdit_KeyPress(object sender, KeyPressEventArgs e)
@@ -156,20 +109,68 @@ namespace ContosoUI.ProductForm
             }
         }
 
-        private void categoryGridControl_Leave(object sender, EventArgs e)
+        public void popupControlNewCategoryContainer_CloseUp(object sender, EventArgs e)
         {
-            //if(_presenter.)
-            //var messageResult = MessageBox.Show("Changes hasn't been saved. Save category changes?", "Warning!", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
-            //if (messageResult == DialogResult.Yes)
-            //{
-            //    SaveCategories();
-            //    _presenter.ViewAllCategories();
-            //}
+            newCategoryTitletextEdit.Text = string.Empty;
         }
 
-        private void SaveCategories()
+        private void categoryGridView_RowClick(object sender, RowClickEventArgs e)
         {
-            _presenter.SaveCategories();
+            categoryCommentsListBoxControl.DataBindings.Clear();
+            GridView view = (GridView)sender;
+            GridHitInfo info = view.CalcHitInfo(view.GridControl.PointToClient(Control.MousePosition));
+
+            if (e.HitInfo.InRow || e.HitInfo.InColumn)
+            {
+                int id = (int)view.GetRowCellValue(info.RowHandle, "Id");
+                _presenter.UseCategoryWithID(id);
+                categoryCommentsListBoxControl.DataBindings.Add("DataSource", _binding, "CategoryComments");
+            }
+        }
+
+        private void barSaveButton_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            _binding.EndEdit();
+            _presenter.Save();
+        }
+
+        private void barSaveAndNewButton_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            _binding.EndEdit();
+            _presenter.Save();
+            _presenter.Clear();
+        }
+
+        private void barNewButton_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            _presenter.Clear();
+        }
+
+        private void newCommentTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            {
+                addCommentButton_Click(this, e);
+            }
+        }
+
+        private void categoryNewCommentTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            {
+                addCategoryCommetSimpleButton_Click(this, e);
+            }
+        }
+
+        private void categoryGridView_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
+        {
+            categoryCommentsListBoxControl.DataBindings.Clear();
+            GridView view = (GridView)sender;
+
+            int id = (int)view.GetRowCellValue(e.FocusedRowHandle, "Id");
+            _presenter.UseCategoryWithID(id);
+            categoryCommentsListBoxControl.DataBindings.Add("DataSource", _binding, "CategoryComments");
+            
         }
     }
 }

@@ -45,7 +45,6 @@
             this.commentsListBox = new DevExpress.XtraEditors.ListBoxControl();
             this.orderGridControl = new DevExpress.XtraGrid.GridControl();
             this.orderGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.orderDateEdit = new DevExpress.XtraEditors.DateEdit();
             this.orderNumberTextEdit = new DevExpress.XtraEditors.TextEdit();
             this.orderStatusLookUpEdit = new DevExpress.XtraEditors.LookUpEdit();
@@ -239,17 +238,8 @@
             // 
             // orderGridView
             // 
-            this.orderGridView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.gridColumn1});
             this.orderGridView.GridControl = this.orderGridControl;
             this.orderGridView.Name = "orderGridView";
-            // 
-            // gridColumn1
-            // 
-            this.gridColumn1.Caption = "gridColumn1";
-            this.gridColumn1.Name = "gridColumn1";
-            this.gridColumn1.Visible = true;
-            this.gridColumn1.VisibleIndex = 0;
             // 
             // orderDateEdit
             // 
@@ -513,7 +503,6 @@
         private DevExpress.XtraBars.BarButtonItem barButtonItem1;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup orderRibbonPageOrderGroup;
         private DevExpress.XtraEditors.LookUpEdit orderStatusLookUpEdit;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
         private DevExpress.XtraLayout.SplitterItem splitterItem1;
     }
 }

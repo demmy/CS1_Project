@@ -44,12 +44,12 @@ namespace ContosoUI
             this.UsersListBarButtonItem = new DevExpress.XtraBars.BarButtonItem();
             this.ProductsBarButtonItem = new DevExpress.XtraBars.BarButtonItem();
             this.ProductBarButtonItem = new DevExpress.XtraBars.BarButtonItem();
+            this.ClientBarButtonItem = new DevExpress.XtraBars.BarButtonItem();
             this.Р = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.workRibbonPageGroup = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.systemRibbonGroup = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.applicationMenu1 = new DevExpress.XtraBars.Ribbon.ApplicationMenu(this.components);
             this.xtraTabbedMdiManager1 = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
-            this.ClientBarButtonItem = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.mainRibbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.applicationMenu1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabbedMdiManager1)).BeginInit();
@@ -157,6 +157,15 @@ namespace ContosoUI
             this.ProductBarButtonItem.Name = "ProductBarButtonItem";
             this.ProductBarButtonItem.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.ProductBarButtonItem_ItemClick);
             // 
+            // ClientBarButtonItem
+            // 
+            this.ClientBarButtonItem.Caption = "Client";
+            this.ClientBarButtonItem.Glyph = ((System.Drawing.Image)(resources.GetObject("ClientBarButtonItem.Glyph")));
+            this.ClientBarButtonItem.Id = 6;
+            this.ClientBarButtonItem.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("ClientBarButtonItem.LargeGlyph")));
+            this.ClientBarButtonItem.Name = "ClientBarButtonItem";
+            this.ClientBarButtonItem.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.ClientBarButtonItem_ItemClick);
+            // 
             // Р
             // 
             this.Р.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -200,15 +209,6 @@ namespace ContosoUI
             this.xtraTabbedMdiManager1.HeaderButtonsShowMode = DevExpress.XtraTab.TabButtonShowMode.WhenNeeded;
             this.xtraTabbedMdiManager1.MdiParent = this;
             // 
-            // ClientBarButtonItem
-            // 
-            this.ClientBarButtonItem.Caption = "Client";
-            this.ClientBarButtonItem.Glyph = ((System.Drawing.Image)(resources.GetObject("ClientBarButtonItem.Glyph")));
-            this.ClientBarButtonItem.Id = 6;
-            this.ClientBarButtonItem.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("ClientBarButtonItem.LargeGlyph")));
-            this.ClientBarButtonItem.Name = "ClientBarButtonItem";
-            this.ClientBarButtonItem.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.ClientBarButtonItem_ItemClick);
-            // 
             // MainForm
             // 
             this.AllowFormGlass = DevExpress.Utils.DefaultBoolean.True;
@@ -222,6 +222,7 @@ namespace ContosoUI
             this.mainRibbon.SetPopupContextMenu(this, this.applicationMenu1);
             this.Ribbon = this.mainRibbon;
             this.Text = "CHAIRS";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.MainForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.mainRibbon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.applicationMenu1)).EndInit();

@@ -36,7 +36,7 @@ namespace ContosoUI
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         private void barUserButton_ItemClick(object sender, ItemClickEventArgs e)
@@ -48,8 +48,8 @@ namespace ContosoUI
 
         private void barButtonItem1_ItemClick(object sender, ItemClickEventArgs e)
         {
-            OrderPresenter presenter = new OrderPresenter(new OrderModel(), new OrderForm.OrderForm() { MdiParent = this}, Storage.Orders[2]);
-            presenter.ShowView(presenter);
+           IOrderView orderView = new OrderForm.OrderForm(1) { MdiParent = this};
+            orderView.ShowView();
         }
 
         private void UsersListBarButtonItem_ItemClick(object sender, ItemClickEventArgs e)
@@ -74,8 +74,8 @@ namespace ContosoUI
 
         private void ProductBarButtonItem_ItemClick(object sender, ItemClickEventArgs e)
         {
-            ProductPresenter presenter = new ProductPresenter(new ProductView() { MdiParent = this}, new ProductModel() );
-            presenter.ShowView(presenter, 4);
+            IProductView productView = new ProductView(1) {MdiParent = this};
+            productView.ShowView();
         }
     }
 }

@@ -7,23 +7,24 @@ namespace Domain.Entities.Users
 {
     public class User : ExtendedEntity, ICommentable
     {
-        private ICollection<Comment> _comments = new List<Comment>(); 
-        public User(ICollection<Comment> comments) : this()
+        private ICollection<Comment> _comments = new List<Comment>()
         {
-            _comments.ToList().AddRange(comments);
-        }
-
-        public User()
-        {
-            _comments.Add(new Comment()
+            new Comment()
             {
                 Author = null,
                 Date = DateTime.Now,
                 EntityType = EntityType.User,
-                Id = -1,
-                IsActive = true,
                 Text = string.Format("User has been added ")
-            });
+            }
+        };
+
+        public User(ICollection<Comment> comments)
+        {
+            _comments = comments;
+        }
+
+        public User()
+        {
         }
 
         public string Login { get; set; }

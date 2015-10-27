@@ -35,13 +35,16 @@ namespace ContosoUI.OrderForm
             _model = model;
             _view = view;
         }
-        public OrderPresenter(OrderModel model, IOrderView view, Order order)
+
+        public void UseOrderWithID(int id)
         {
-            _model = model;
-            _view = view;
-            _order = order;
+            _order = _model.GetByID(id);
+
             _client = _order.Client;
-            _comments =  new BindingList<Comment>(_order.Comments.ToList());
+            _orderNumber = _order.OrderNumber;
+            _status = _order.Status;
+            _date = _order.Date;
+            _comments = new BindingList<Comment>(_order.Comments.ToList());
             _orderItems = new BindingList<OrderItem>(_order.OrderItems);
         }
 
@@ -109,10 +112,10 @@ namespace ContosoUI.OrderForm
             }
             catch (Exception)
             {
-                _model.Save(orderToSave);
+                _model.Create(orderToSave);
                 return;
             }
-            _model.Create(orderToSave);
+            _model.Save(orderToSave);
         }
 
         public void Clear()
@@ -144,11 +147,6 @@ namespace ContosoUI.OrderForm
             {
                 return Enum.GetValues(typeof(Status)).Cast<Status>().ToList();
             }
-        }
-
-        public void ShowView(OrderPresenter presenter)
-        {
-            _view.ShowView(presenter);
         }
     }
 }

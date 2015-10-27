@@ -2,6 +2,6 @@
 {
     public interface IOrderView
     {
-        void ShowView(OrderPresenter presenter);
+        void ShowView();
     }
 }

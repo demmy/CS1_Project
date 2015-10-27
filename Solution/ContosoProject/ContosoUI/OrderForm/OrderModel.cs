@@ -21,6 +21,11 @@ namespace ContosoUI.OrderForm
         {
             return _repository.GetByNumber(orderNumber);
         }
+
+        public Order GetByID(int id)
+        {
+            return _repository.Find(id);
+        }
          
     }
 }
