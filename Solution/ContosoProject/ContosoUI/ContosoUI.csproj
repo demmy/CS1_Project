@@ -93,96 +93,110 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ClientSearchForm\ClientSearchForm.cs">
+    <Compile Include="ClientForm\ClientModel.cs" />
+    <Compile Include="ClientForm\ClientPresenter.cs" />
+    <Compile Include="ClientForm\IClientView.cs" />
+    <Compile Include="ClientSearchForm\ClientListView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ClientSearchForm\ClientSearchForm.Designer.cs">
-      <DependentUpon>ClientSearchForm.cs</DependentUpon>
+    <Compile Include="ClientSearchForm\ClientListView.Designer.cs">
+      <DependentUpon>ClientListView.cs</DependentUpon>
     </Compile>
-    <Compile Include="ClientForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ClientForm.Designer.cs">
-      <DependentUpon>ClientForm.cs</DependentUpon>
-    </Compile>
+    <Compile Include="ClientSearchForm\ClientSearchPresenter.cs" />
+    <Compile Include="ClientSearchForm\IClientSearchView.cs" />
+    <Compile Include="ISearchPresenter.cs" />
+    <Compile Include="IViewPresenter.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="OrderSearchForm\OrderSearchForm.cs">
+    <Compile Include="ClientForm\ClientView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="OrderSearchForm\OrderSearchForm.Designer.cs">
-      <DependentUpon>OrderSearchForm.cs</DependentUpon>
+    <Compile Include="ClientForm\ClientView.Designer.cs">
+      <DependentUpon>ClientView.cs</DependentUpon>
     </Compile>
-    <Compile Include="OrderForm.cs">
+    <Compile Include="OrderForm\IOrderView.cs" />
+    <Compile Include="OrderForm\OrderModel.cs" />
+    <Compile Include="OrderForm\OrderPresenter.cs" />
+    <Compile Include="ProductForm\IProductView.cs" />
+    <Compile Include="ProductForm\ProductModel.cs" />
+    <Compile Include="ProductForm\ProductPresenter.cs" />
+    <Compile Include="UserForm\IUserView.cs" />
+    <Compile Include="UserForm\UserModel.cs" />
+    <Compile Include="UserForm\UserPresenter.cs" />
+    <Compile Include="OrderSearchForm\IOrderListView.cs" />
+    <Compile Include="OrderSearchForm\OrderListPresenter.cs" />
+    <Compile Include="OrderSearchForm\OrderListView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="OrderForm.Designer.cs">
-      <DependentUpon>OrderForm.cs</DependentUpon>
+    <Compile Include="OrderSearchForm\OrderListView.Designer.cs">
+      <DependentUpon>OrderListView.cs</DependentUpon>
     </Compile>
-    <Compile Include="ProductForm\Form1.cs">
+    <Compile Include="Presenter.cs" />
+    <Compile Include="ProductSearchForm\IProductListView.cs" />
+    <Compile Include="ProductSearchForm\ProductListPresenter.cs" />
+    <Compile Include="ProductSearchForm\ProductListView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ProductForm\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="ProductSearchForm\ProductListView.Designer.cs">
+      <DependentUpon>ProductListView.cs</DependentUpon>
     </Compile>
-    <Compile Include="ProductForm\ProductForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ProductForm\ProductForm.Designer.cs">
-      <DependentUpon>ProductForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ProductSearchForm\ProductSearchForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ProductSearchForm\ProductSearchForm.Designer.cs">
-      <DependentUpon>ProductSearchForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Program.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserForm\UserForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="UserForm\UserForm.Designer.cs">
       <DependentUpon>UserForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserForm\IUserView.cs" />
-    <Compile Include="UserForm\UserPresenter.cs" />
-    <Compile Include="UserSearchForm\IUserSearchView.cs" />
-    <Compile Include="UserSearchForm\UserSearchModel.cs" />
-    <Compile Include="UserSearchForm\UserSearchPresenter.cs" />
-    <Compile Include="UserSearchForm\UserSearchForm.cs">
+    <Compile Include="OrderForm\OrderView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UserSearchForm\UserSearchForm.Designer.cs">
-      <DependentUpon>UserSearchForm.cs</DependentUpon>
+    <Compile Include="OrderForm\OrderView.Designer.cs">
+      <DependentUpon>OrderView.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="ClientSearchForm\ClientSearchForm.resx">
-      <DependentUpon>ClientSearchForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ClientForm.resx">
-      <DependentUpon>ClientForm.cs</DependentUpon>
+    <Compile Include="ProductForm\ProductView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProductForm\ProductView.Designer.cs">
+      <DependentUpon>ProductView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\Annotations.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserSearchForm\IUserSearchView.cs" />
+    <Compile Include="UserSearchForm\UserSearchPresenter.cs" />
+    <Compile Include="UserSearchForm\UsersListView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <EmbeddedResource Include="ClientForm\ClientView.resx">
+      <DependentUpon>ClientView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="OrderForm.resx">
-      <DependentUpon>OrderForm.cs</DependentUpon>
+    <Compile Include="UserSearchForm\UsersListView.Designer.cs">
+      <DependentUpon>UsersListView.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="ClientSearchForm\ClientListView.resx">
+      <DependentUpon>ClientListView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="OrderSearchForm\OrderSearchForm.resx">
-      <DependentUpon>OrderSearchForm.cs</DependentUpon>
+    <EmbeddedResource Include="OrderForm\OrderView.resx">
+      <DependentUpon>OrderView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ProductForm\Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="ProductForm\ProductView.resx">
+      <DependentUpon>ProductView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ProductForm\ProductForm.resx">
-      <DependentUpon>ProductForm.cs</DependentUpon>
+    <EmbeddedResource Include="UserForm\UserForm.resx">
+      <DependentUpon>UserForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="ProductSearchForm\ProductSearchForm.resx">
-      <DependentUpon>ProductSearchForm.cs</DependentUpon>
+    <EmbeddedResource Include="OrderSearchForm\OrderListView.resx">
+      <DependentUpon>OrderListView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProductSearchForm\ProductListView.resx">
+      <DependentUpon>ProductListView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -194,11 +208,8 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="UserForm\UserForm.resx">
-      <DependentUpon>UserForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UserSearchForm\UserSearchForm.resx">
-      <DependentUpon>UserSearchForm.cs</DependentUpon>
+    <EmbeddedResource Include="UserSearchForm\UsersListView.resx">
+      <DependentUpon>UsersListView.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

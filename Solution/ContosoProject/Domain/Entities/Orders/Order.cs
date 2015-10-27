@@ -1,10 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using Domain.Entities.Comments;
 
 namespace Domain.Entities.Orders
 {
-    public enum Status { Opened, PaidUp, Finished, Shipped, Closed }
+    public enum Status { Undefined, Opened, PaidUp, Finished, Shipped, Closed }
 
     public class Order : ExtendedEntity, ICommentable
     {        
@@ -13,17 +15,25 @@ namespace Domain.Entities.Orders
         public string OrderNumber { get; set; }
 
         private List<OrderItem> orderItems;
-        private ICollection<Comment> comments;
+        private List<Comment> _comments= new List<Comment>();
 
-        public Order(ICollection<Comment> comments, List<OrderItem> orders)
+        public Order(ICollection<Comment> comments, List<OrderItem> orders) : this()
         {
-            this.comments = comments;
+            _comments.ToList().AddRange(comments);
             orderItems = orders;
         }
 
         public Order()
         {
-            
+            _comments.Add(new Comment()
+            {
+                Author = null,
+                Date = DateTime.Now,
+                EntityType = EntityType.Order,
+                Id = -1,
+                IsActive = true,
+                Text = string.Format("Client has been added ")
+            });
         }
 
         public List<OrderItem> OrderItems
@@ -33,7 +43,7 @@ namespace Domain.Entities.Orders
 
         public IReadOnlyCollection<Comment> Comments
         {
-            get { return (IReadOnlyCollection<Comment>)comments; }
+            get { return _comments; }
         }
 
         public double Sum

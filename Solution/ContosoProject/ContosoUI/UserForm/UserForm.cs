@@ -1,78 +1,75 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using ContosoUI.UserForm;
 
 namespace ContosoUI.UserForm
 {
-    public partial class UserForm : Form, IUserView
+    public partial class UserForm : DevExpress.XtraBars.Ribbon.RibbonForm, IUserView
     {
         private readonly UserPresenter presenter;
+        BindingSource binding = new BindingSource();
 
         public UserForm()
         {
             InitializeComponent();
-            presenter = new UserPresenter(this);
+            presenter = new UserPresenter(this, new UserModel());
         }
 
         public UserForm(int id)
         {
             InitializeComponent();
-            presenter = new UserPresenter(this);
+            presenter = new UserPresenter(this, new UserModel());
             presenter.GetUser(id);
+            stateButtonText();
+        }      
+  
+        private void UserForm_Load(object sender, EventArgs e)
+        { 
+            binding.DataSource = presenter;
+
+            roleLookUpEdit.Properties.DataSource = presenter.RoleList;
+            roleLookUpEdit.Properties.ValueMember = "Id";
+            roleLookUpEdit.Properties.DisplayMember = "Title";
+
+            loginTextEdit.DataBindings.Add("EditValue", binding, "Login");
+            firstNameTextEdit.DataBindings.Add("EditValue", binding, "FirstName");
+            middleNameTextEdit.DataBindings.Add("EditValue", binding, "MiddleName");
+            lastNameTextEdit.DataBindings.Add("EditValue", binding, "LastName");
+            passwordTextEdit.DataBindings.Add("EditValue", binding, "Password");
+            roleLookUpEdit.DataBindings.Add("EditValue", binding, "RoleID");
         }
 
-        public string Login
+        public void RefreshForm()
         {
-            get { return loginTextEdit.Text; }
-            set { loginTextEdit.Text = value; }
+            stateButtonText();
         }
 
-        public string FirstName
+        private void closeButton_Click(object sender, EventArgs e)
         {
-            get { return firstNameTextEdit.Text; }
-            set { firstNameTextEdit.Text = value; }
-        }
-        
-        public string MiddleName
-        {
-            get { return middleNameTextEdit.Text; }
-            set { middleNameTextEdit.Text = value; }
-        }
-        
-        public string LastName
-        {
-            get { return lastNameTextEdit.Text; }
-            set { lastNameTextEdit.Text = value; }
+            presenter.Clear();
         }
 
-        public string Password
+        private void stateButton_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            get { return passwordTextEdit.Text; }
-            set { passwordTextEdit.Text = value; }
+            presenter.State = !presenter.State;
         }
 
-        public string Role
+        private void stateButtonText()
         {
-            get { return roleComboBoxEdit.Text; }
-            set { roleComboBoxEdit.Text = value; }
+            if (presenter.State)
+                stateButton.Caption = "Remove";
+            else
+                stateButton.Caption = "Revert";
         }
 
-        public bool Active
+        private void barSaveButton_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            get { return isActiveCheckEdit.Checked; }
-            set { isActiveCheckEdit.Checked = value; }
+            presenter.Save();
         }
 
-        public string Comments
+        private void barSaveAndNewButton_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            get { return commentsRichTextBox.Text; }
-            set { commentsRichTextBox.Text = value; }
-        }
+            presenter.SaveAndNew();
+        }     
     }
 }

@@ -11,13 +11,13 @@ namespace Data.DummyData
     {
         public DummyDAOForPermission()
         {
-            _collection = Storage.Permissions;
+            Collection = Storage.Permissions;
         }
         public ICollection<Permission> GetByTitle(string title)
         {
-            if (_collection.Any(x => x.Title == title))
+            if (Collection.Any(x => x.Title == title))
             {
-                return _collection.Where(x => x.Title == title).ToList();
+                return Collection.Where(x => x.Title == title).ToList();
             }
             throw new Exception();
         }

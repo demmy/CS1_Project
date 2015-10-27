@@ -7,11 +7,7 @@ using Domain.Entities.Users;
 
 namespace ContosoUI.UserSearchForm
 {
-    interface IUserSearchView
+    public interface IUserSearchView
     {
-        string Login { get; set; }
-        string FirstName { get; set; }
-        string LastName { get; set; }
-        ICollection<User> UserGrid { get; set; }
     }
 }

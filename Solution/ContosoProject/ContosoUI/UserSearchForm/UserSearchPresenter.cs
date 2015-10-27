@@ -4,44 +4,105 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Domain.Entities.Users;
+using Data.StoreData;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
+using Data.DummyData;
+using Domain.DAO;
+using ContosoUI.Annotations;
 
 namespace ContosoUI.UserSearchForm
 {
-    class UserSearchPresenter
+    public class UserSearchPresenter: Presenter, ISearchPresenter
     {
         private readonly IUserSearchView view;
-        private readonly UserSearchModel model;
+        private readonly IUserRepository model = new DummyDAOForUser();
 
-        public UserSearchPresenter(IUserSearchView view, UserSearchModel model)
+        public UserSearchPresenter(IUserSearchView view)
         {
             this.view = view;
-            this.model = model;
         }
 
-        public void AddUser()
+        private string login = string.Empty;
+        public string Login 
         {
-            UserForm.UserForm addUserForm = new UserForm.UserForm();
-            addUserForm.Show();
+            get { return login; }
+            set
+            {
+                if (value != this.login)
+                {
+                    this.login = value;
+                    NotifyPropertyChanged();
+                }
+            }
         }
 
-        public void EditUser(int id)
+        private string firstName = string.Empty;
+        public string FirstName
         {
-            UserForm.UserForm editUserForm = new UserForm.UserForm(id);           
+            get { return firstName; }
+            set
+            {
+                if (value != this.firstName)
+                {
+                    this.firstName = value;
+                    NotifyPropertyChanged();
+                }
+            }
+        }
+
+        private string lastName = string.Empty;
+        public string LastName
+        {
+            get { return lastName; }
+            set
+            {
+                if (value != this.lastName)
+                {
+                    this.lastName = value;
+                    NotifyPropertyChanged();
+                }
+            }
+        }
+
+        private BindingList<User> usersList = new BindingList<User>();
+        public BindingList<User> Users
+        {
+            get { return usersList; }
+            set
+            {
+                if (value != this.usersList)
+                {
+                    this.usersList = value;
+                    NotifyPropertyChanged();
+                }
+            }
+        }
+
+        public void Edit(int id)
+        {
+            UserForm.UserForm editUserForm = new UserForm.UserForm(id);
+            editUserForm.MdiParent = Program.MainForm;
             editUserForm.Show();
         }
 
         public void Search()
         {
-            var users = model.SearchUser(view.Login, view.FirstName, view.LastName);
-            view.UserGrid = users;
+            List<User> users; 
+            if (Login != null && FirstName != null && LastName != null)
+                users = model.GetBy(Login, FirstName, LastName).ToList();
+            else
+                users = model.GetAll().ToList();
+
+            Users = new BindingList<User>(users);
         }
 
-        public void Cancel()
+        public void Clear()
         {
-            view.Login = null;
-            view.FirstName = null;
-            view.LastName = null;
-            view.UserGrid.Clear(); 
+            Login = "";
+            FirstName = "";
+            LastName = "";
+            Users.Clear();
         }
     }
 }

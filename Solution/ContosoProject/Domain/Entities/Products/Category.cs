@@ -1,5 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using Domain.Entities.Comments;
+using Domain.Entities.Users;
 
 namespace Domain.Entities.Products
 {
@@ -8,15 +11,26 @@ namespace Domain.Entities.Products
     /// </summary>
     public class Category: ExtendedEntity, ICommentable
     {
-        private ICollection<Comment> _comments;
+        public string Title { get; set; }
 
-        public Category(ICollection<Comment> comments)
+        private ICollection<Comment> _comments = new List<Comment>();
+
+        public Category(ICollection<Comment> comments) : this()
         {
-            _comments = comments;
+            _comments.ToList().AddRange(comments);
         }
 
         public Category()
         {
+            _comments.Add(new Comment()
+            {
+                Author = null,
+                Date = DateTime.Now,
+                EntityType = EntityType.Category,
+                Id = -1,
+                IsActive = true,
+                Text = string.Format("Category has been added {0}", DateTime.Now.ToShortDateString())
+            });
         }
 
         public static bool IsNullOrEmpty(Category category)
@@ -24,14 +38,17 @@ namespace Domain.Entities.Products
             return category == null || category.Title == "";
         }
 
-        public string Title { get; set; }
-
         public IReadOnlyCollection<Comment> Comments
         {
             get 
             {
                 return (IReadOnlyCollection<Comment>)_comments;
             }
+        }
+
+        public override string ToString()
+        {
+            return string.Format("{0}", Title);
         }
     }
 }
