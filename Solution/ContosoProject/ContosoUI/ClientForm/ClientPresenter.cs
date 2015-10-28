@@ -177,7 +177,7 @@ namespace ContosoUI.ClientForm
         }
         
 
-        public void Clear()
+        public void New()
         {
             FirstName = string.Empty;
             MiddleName = string.Empty;
@@ -196,7 +196,7 @@ namespace ContosoUI.ClientForm
         public void SaveAndNew()
         {
             Save();
-            Clear();
+            New();
         }
 
         public void ShowView(ClientPresenter presenter, int id)

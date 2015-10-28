@@ -1,168 +1,207 @@
-﻿using Data.DummyData;
+﻿using System.Collections.Generic;
+using System.ComponentModel;
+using System.Linq;
+using Data.DummyData;
 using Data.StoreData;
 using Domain.DAO;
 using Domain.Entities;
+using Domain.Entities.Comments;
 using Domain.Entities.Users;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ContosoUI.UserForm
 {
-    class UserPresenter : Presenter, IViewPresenter
+    internal class UserPresenter : Presenter, IViewPresenter
     {
-        private readonly IUserView view;
-        private readonly UserModel model;
+        private readonly IUserView _view;
+        private readonly UserModel _model;
 
-        IUserRepository DefaultUser = new DummyDAOForUser(); 
+        private readonly IUserRepository _userRepository = new DummyDAOForUser();
 
         public UserPresenter(IUserView view, UserModel model)
         {
-            this.view = view;
-            this.model = model;
-        }
-                
-        private string login;
-        public string Login
-        {
-            get { return login; }
-            set
-            {
-                if (value != this.login)
-                {
-                    this.login = value;
-                    NotifyPropertyChanged();
-                }
-            }
+            _view = view;
+            _model = model;
         }
 
-        private string firstName;
-        public string FirstName
-        {
-            get { return firstName; }
-            set
-            {
-                if (value != this.firstName)
-                {
-                    this.firstName = value;
-                    NotifyPropertyChanged();
-                }
-            }
-        }
-
-        private string middleName;
-        public string MiddleName
-        {
-            get { return middleName; }
-            set
-            {
-                if (value != this.middleName)
-                {
-                    this.middleName = value;
-                    NotifyPropertyChanged();
-                }
-            }
-        }
-
-        private string lastName;
-        public string LastName
-        {
-            get { return lastName; }
-            set
-            {
-                if (value != this.lastName)
-                {
-                    this.lastName = value;
-                    NotifyPropertyChanged();
-                }
-            }
-        }
-
-        private string password;
-        public string Password
-        {
-            get { return password; }
-            set
-            {
-                if (value != this.password)
-                {
-                    this.password = value;
-                    NotifyPropertyChanged();
-                }
-            }
-        }
-
+        User _user = new User();
+        private bool _state;
+        private string _login = string.Empty;
+        private string _firstName = string.Empty;
+        private string _middleName = string.Empty;
+        private string _lastName = string.Empty;
+        private string _password = string.Empty;
         public Role Role = new Role();
         public List<Role> RoleList = new List<Role>(Storage.Roles);
-        public int RoleID
+
+        BindingList<Permission> _permissions = new BindingList<Permission>();
+        BindingList<Comment> _comments = new BindingList<Comment>();
+
+        #region Properties
+        public string Login
+        {
+            get { return _login; }
+            set
+            {
+                if (value != _login)
+                {
+                    _login = value;
+                    NotifyPropertyChanged();
+                }
+            }
+        }
+
+        public string FirstName
+        {
+            get { return _firstName; }
+            set
+            {
+                if (value != _firstName)
+                {
+                    _firstName = value;
+                    NotifyPropertyChanged();
+                }
+            }
+        }
+
+        public string MiddleName
+        {
+            get { return _middleName; }
+            set
+            {
+                if (value != _middleName)
+                {
+                    _middleName = value;
+                    NotifyPropertyChanged();
+                }
+            }
+        }
+
+        public string LastName
+        {
+            get { return _lastName; }
+            set
+            {
+                if (value != _lastName)
+                {
+                    _lastName = value;
+                    NotifyPropertyChanged();
+                }
+            }
+        }
+
+        public string Password
+        {
+            get { return _password; }
+            set
+            {
+                if (value != _password)
+                {
+                    _password = value;
+                    NotifyPropertyChanged();
+                }
+            }
+        }
+
+        public BindingList<Permission> Permissions
+        {
+            get { return _permissions; }
+            set
+            {
+                if (!value.SequenceEqual(_permissions))
+                {
+                    _permissions = value;
+                    NotifyPropertyChanged();
+                }
+                
+            }
+        }
+        public BindingList<Comment> Comments
+        {
+            get { return _comments; }
+            set
+            {
+                if (!value.SequenceEqual(_comments))
+                {
+                    _comments = value;
+                    NotifyPropertyChanged();
+                }
+            }
+        }
+         public int RoleID
         {
             get { return (Role == null) ? 0 : Role.Id; }
             set
             {
-                this.Role = RoleList.Where(x => x.Id == value).FirstOrDefault();
+                Role = RoleList.FirstOrDefault(x => x.Id == value);
                 NotifyPropertyChanged();
             }
         }
-
-        private bool state;
         public bool State
         {
-            get { return state; }
+            get { return _state; }
             set
             {
-                if (value != this.state)
+                if (value != _state)
                 {
-                    this.state = value;
+                    _state = value;
                     NotifyPropertyChanged();
                 }
             }
         }
+        #endregion
 
         public void GetUser(int id)
         {
-            var CurrentUser = DefaultUser.Find(id);
+            _user  = _userRepository.Find(id);
 
-            Login = CurrentUser.Login;
-            Password = CurrentUser.Password;
-            FirstName = CurrentUser.Person.FirstName;
-            MiddleName = CurrentUser.Person.MiddleName;
-            LastName = CurrentUser.Person.LastName;
-            RoleID = CurrentUser.Role.Id;
-            State = CurrentUser.IsActive;
+            Login = _user.Login;
+            Password = _user.Password;
+            FirstName = _user.Person.FirstName;
+            MiddleName = _user.Person.MiddleName;
+            LastName = _user.Person.LastName;
+            RoleID = _user.Role.Id;
+            Permissions = new BindingList<Permission>(_user.Role.Permissions.ToList());
+            State = _user.IsActive;
+            Comments = _comments;
         }
 
         public void Save()
-        {         
-            User user = new User();
-            var existingUser = DefaultUser.GetBy(Login, FirstName, LastName);
+        {
+            User userToSave = new User(_comments)
+            {
+                Id = _user.Id,
+                IsActive = _state,
+                Login = _login,
+                Password = _password,
+                Person = new Person() {FirstName = _firstName, MiddleName = _middleName, LastName = _lastName},
+                Role = Role
+            };
 
-            user.Login = Login;
-            user.Password = Password;
-            user.Person = new Person();
-            user.Person.FirstName = FirstName;
-            user.Person.LastName = LastName;
-            user.Person.MiddleName = MiddleName;
-
-            user.Role = Role;
-
-            user.IsActive = State;
-
-            if (existingUser.Count > 0)
-                model.Save(user);
+            if (userToSave.Id != 0)
+            {
+                if (!_model.Find(userToSave.Id).Equals(userToSave))
+                {
+                    _model.Save(userToSave);
+                    _user = userToSave;
+                }
+            }
             else
-                model.Create(user);
+            {
+                if (_model.Find(userToSave.Id) == null)
+                {
+                    _model.Create(userToSave);
+                    _user = userToSave;
+                }
+            }
         }
 
         public void SaveAndNew()
         {
             Save();
-            Clear();
+            New();
         }
 
-        public void Clear()
+        public void New()
         {
             Login = "";
             Password = "";
@@ -170,7 +209,9 @@ namespace ContosoUI.UserForm
             MiddleName = "";
             LastName = "";
             State = false;
-            Role = null;
+            Role = new Role( );
+            Permissions = new BindingList<Permission>();
+            Comments = new BindingList<Comment>();
         }
     }
 }

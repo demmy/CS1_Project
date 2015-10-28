@@ -143,7 +143,7 @@ namespace ContosoUI.OrderForm
             }
         }
 
-        public void Clear()
+        public void New()
         {
             _order = new Order();
             _client = new Client();
@@ -157,7 +157,7 @@ namespace ContosoUI.OrderForm
         public void SaveAndNew()
         {
             Save();
-            Clear();
+            New();
         }
 
         public BindingList<Client> ClientList

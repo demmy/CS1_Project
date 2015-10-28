@@ -77,7 +77,7 @@ namespace ContosoUI.OrderForm
 
         private void ClearBarButton_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            _presenter.Clear();
+            _presenter.New();
         }
 
         public void ShowView()

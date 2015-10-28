@@ -9,7 +9,7 @@
         public string Description { get; set; }
         public override string ToString()
         {
-            return Title;
+            return Description != string.Empty ? string.Format("{0}: {1}", Title, Description) : Title;
         }
     }
     

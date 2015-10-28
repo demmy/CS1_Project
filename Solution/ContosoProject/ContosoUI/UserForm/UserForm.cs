@@ -1,33 +1,35 @@
 ﻿using System;
 using System.Windows.Forms;
-using ContosoUI.UserForm;
+using DevExpress.XtraBars;
+using DevExpress.XtraBars.Ribbon;
+using Domain.Entities.Comments;
 
 namespace ContosoUI.UserForm
 {
-    public partial class UserForm : DevExpress.XtraBars.Ribbon.RibbonForm, IUserView
+    public partial class UserForm : RibbonForm, IUserView
     {
-        private readonly UserPresenter presenter;
+        private readonly UserPresenter _presenter;
         BindingSource binding = new BindingSource();
 
         public UserForm()
         {
             InitializeComponent();
-            presenter = new UserPresenter(this, new UserModel());
+            _presenter = new UserPresenter(this, new UserModel());
         }
 
         public UserForm(int id)
         {
             InitializeComponent();
-            presenter = new UserPresenter(this, new UserModel());
-            presenter.GetUser(id);
+            _presenter = new UserPresenter(this, new UserModel());
+            _presenter.GetUser(id);
             stateButtonText();
         }      
   
         private void UserForm_Load(object sender, EventArgs e)
         { 
-            binding.DataSource = presenter;
+            binding.DataSource = _presenter;
 
-            roleLookUpEdit.Properties.DataSource = presenter.RoleList;
+            roleLookUpEdit.Properties.DataSource = _presenter.RoleList;
             roleLookUpEdit.Properties.ValueMember = "Id";
             roleLookUpEdit.Properties.DisplayMember = "Title";
 
@@ -37,6 +39,7 @@ namespace ContosoUI.UserForm
             lastNameTextEdit.DataBindings.Add("EditValue", binding, "LastName");
             passwordTextEdit.DataBindings.Add("EditValue", binding, "Password");
             roleLookUpEdit.DataBindings.Add("EditValue", binding, "RoleID");
+            permissionListBoxControl.DataBindings.Add("DataSource", binding, "Permissions");
         }
 
         public void RefreshForm()
@@ -46,35 +49,49 @@ namespace ContosoUI.UserForm
 
         private void closeButton_Click(object sender, EventArgs e)
         {
-            presenter.Clear();
+            _presenter.New();
         }
 
-        private void stateButton_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        private void stateButton_ItemClick(object sender, ItemClickEventArgs e)
         {
-            presenter.State = !presenter.State;
+            _presenter.State = !_presenter.State;
         }
 
         private void stateButtonText()
         {
-            if (presenter.State)
+            if (_presenter.State)
                 stateButton.Caption = "Remove";
             else
                 stateButton.Caption = "Revert";
         }
 
-        private void barSaveButton_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        private void barSaveButton_ItemClick(object sender, ItemClickEventArgs e)
         {
-            presenter.Save();
+            binding.EndEdit();
+            _presenter.Save();
         }
 
-        private void barSaveAndNewButton_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        private void barSaveAndNewButton_ItemClick(object sender, ItemClickEventArgs e)
         {
-            presenter.SaveAndNew();
+            binding.EndEdit();
+            _presenter.SaveAndNew();
         }
 
         private void addCommentButton_Click(object sender, EventArgs e)
         {
+            if (!string.IsNullOrWhiteSpace(newCommentTextBox.Text))
+            {
+                _presenter.Comments.Add(new Comment() {Author = null, EntityType = EntityType.User, Text = newCommentTextBox.Text});
+                newCommentTextBox.Text = string.Empty;
+            }
+        }
 
+        private void newCommentTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            {
+                addCommentButton_Click(this, e);
+            }
         }     
     }
 }

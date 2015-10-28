@@ -143,10 +143,10 @@ namespace ContosoUI.ProductForm
         public void SaveAndNew()
         {
             Save();
-            Clear();
+            New();
         }
 
-        public void Clear()
+        public void New()
         {
             _product = new Product();
 

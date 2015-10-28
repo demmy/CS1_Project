@@ -139,12 +139,12 @@ namespace ContosoUI.ProductForm
         {
             _binding.EndEdit();
             _presenter.Save();
-            _presenter.Clear();
+            _presenter.New();
         }
 
         private void barNewButton_ItemClick(object sender, ItemClickEventArgs e)
         {
-            _presenter.Clear();
+            _presenter.New();
         }
 
         private void newCommentTextBox_KeyPress(object sender, KeyPressEventArgs e)

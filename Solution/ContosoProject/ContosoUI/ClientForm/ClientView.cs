@@ -73,7 +73,7 @@ namespace ContosoUI.ClientForm
         private void clientBarClearButton_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             _binding.EndEdit();
-            _presenter.Clear();
+            _presenter.New();
         }
 
         private void buttonAddNewTelephoneEdit_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)

@@ -112,7 +112,7 @@
             // 
             // clearUserBarButton
             // 
-            this.clearUserBarButton.Caption = "Clear";
+            this.clearUserBarButton.Caption = "New";
             this.clearUserBarButton.Glyph = ((System.Drawing.Image)(resources.GetObject("clearUserBarButton.Glyph")));
             this.clearUserBarButton.Id = 3;
             this.clearUserBarButton.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("clearUserBarButton.LargeGlyph")));

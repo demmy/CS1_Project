@@ -106,7 +106,7 @@
             // 
             // clearClientBarButton
             // 
-            this.clearClientBarButton.Caption = "Clear";
+            this.clearClientBarButton.Caption = "New";
             this.clearClientBarButton.Glyph = ((System.Drawing.Image)(resources.GetObject("clearClientBarButton.Glyph")));
             this.clearClientBarButton.Id = 3;
             this.clearClientBarButton.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("clearClientBarButton.LargeGlyph")));

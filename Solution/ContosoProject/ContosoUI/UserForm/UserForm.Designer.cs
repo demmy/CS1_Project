@@ -1,11 +1,18 @@
-﻿namespace ContosoUI.UserForm
+﻿using System.ComponentModel;
+using System.Windows.Forms;
+using DevExpress.XtraBars;
+using DevExpress.XtraBars.Ribbon;
+using DevExpress.XtraEditors;
+using DevExpress.XtraLayout;
+
+namespace ContosoUI.UserForm
 {
     partial class UserForm
     {
         /// <summary>
         /// Required designer variable.
         /// </summary>
-        private System.ComponentModel.IContainer components = null;
+        private IContainer components = null;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -28,10 +35,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserForm));
             this.ribbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.barSaveButton = new DevExpress.XtraBars.BarButtonItem();
             this.barSaveAndNewButton = new DevExpress.XtraBars.BarButtonItem();
-            this.barClearButton = new DevExpress.XtraBars.BarButtonItem();
+            this.barNewButton = new DevExpress.XtraBars.BarButtonItem();
             this.stateButton = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageUserGroup = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -104,7 +112,7 @@
             this.ribbon.ExpandCollapseItem,
             this.barSaveButton,
             this.barSaveAndNewButton,
-            this.barClearButton,
+            this.barNewButton,
             this.stateButton});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
             this.ribbon.MaxItemId = 7;
@@ -126,27 +134,35 @@
             // barSaveButton
             // 
             this.barSaveButton.Caption = "Save";
+            this.barSaveButton.Glyph = ((System.Drawing.Image)(resources.GetObject("barSaveButton.Glyph")));
             this.barSaveButton.Id = 2;
+            this.barSaveButton.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barSaveButton.LargeGlyph")));
             this.barSaveButton.Name = "barSaveButton";
             this.barSaveButton.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barSaveButton_ItemClick);
             // 
             // barSaveAndNewButton
             // 
             this.barSaveAndNewButton.Caption = "Save and New";
+            this.barSaveAndNewButton.Glyph = ((System.Drawing.Image)(resources.GetObject("barSaveAndNewButton.Glyph")));
             this.barSaveAndNewButton.Id = 4;
+            this.barSaveAndNewButton.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barSaveAndNewButton.LargeGlyph")));
             this.barSaveAndNewButton.Name = "barSaveAndNewButton";
             this.barSaveAndNewButton.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barSaveAndNewButton_ItemClick);
             // 
-            // barClearButton
+            // barNewButton
             // 
-            this.barClearButton.Caption = "Clear";
-            this.barClearButton.Id = 5;
-            this.barClearButton.Name = "barClearButton";
+            this.barNewButton.Caption = "New";
+            this.barNewButton.Glyph = ((System.Drawing.Image)(resources.GetObject("barNewButton.Glyph")));
+            this.barNewButton.Id = 5;
+            this.barNewButton.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barNewButton.LargeGlyph")));
+            this.barNewButton.Name = "barNewButton";
             // 
             // stateButton
             // 
             this.stateButton.Caption = "Remove(revert)";
+            this.stateButton.Glyph = ((System.Drawing.Image)(resources.GetObject("stateButton.Glyph")));
             this.stateButton.Id = 6;
+            this.stateButton.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("stateButton.LargeGlyph")));
             this.stateButton.Name = "stateButton";
             this.stateButton.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.stateButton_ItemClick);
             // 
@@ -156,21 +172,21 @@
             this.ribbonPageUserGroup,
             this.ribbonPageUserFileGroup});
             this.ribbonPage.Name = "ribbonPage";
-            this.ribbonPage.Text = "User view";
+            this.ribbonPage.Text = "RibbonMerge";
             // 
             // ribbonPageUserGroup
             // 
             this.ribbonPageUserGroup.ItemLinks.Add(this.barSaveButton);
             this.ribbonPageUserGroup.ItemLinks.Add(this.barSaveAndNewButton);
-            this.ribbonPageUserGroup.ItemLinks.Add(this.barClearButton);
+            this.ribbonPageUserGroup.ItemLinks.Add(this.barNewButton);
             this.ribbonPageUserGroup.Name = "ribbonPageUserGroup";
-            this.ribbonPageUserGroup.Text = "File";
+            this.ribbonPageUserGroup.Text = "User";
             // 
             // ribbonPageUserFileGroup
             // 
             this.ribbonPageUserFileGroup.ItemLinks.Add(this.stateButton);
             this.ribbonPageUserFileGroup.Name = "ribbonPageUserFileGroup";
-            this.ribbonPageUserFileGroup.Text = "User";
+            this.ribbonPageUserFileGroup.Text = "???";
             // 
             // ribbonStatusBar
             // 
@@ -224,6 +240,7 @@
             this.newCommentTextBox.Name = "newCommentTextBox";
             this.newCommentTextBox.Size = new System.Drawing.Size(420, 23);
             this.newCommentTextBox.TabIndex = 12;
+            this.newCommentTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.newCommentTextBox_KeyPress);
             // 
             // commentsListBoxControl
             // 
@@ -492,7 +509,7 @@
             this.splitterItem1.AllowHotTrack = true;
             this.splitterItem1.Location = new System.Drawing.Point(363, 0);
             this.splitterItem1.Name = "splitterItem1";
-            this.splitterItem1.Size = new System.Drawing.Size(5, 573);
+            this.splitterItem1.Size = new System.Drawing.Size(5, 594);
             // 
             // UserForm
             // 
@@ -543,43 +560,43 @@
 
         #endregion
 
-        private DevExpress.XtraBars.Ribbon.RibbonControl ribbon;
-        private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageUserGroup;
-        private DevExpress.XtraBars.Ribbon.RibbonStatusBar ribbonStatusBar;
-        private DevExpress.XtraBars.BarButtonItem barSaveButton;
-        private DevExpress.XtraLayout.LayoutControl layoutControl;
-        private DevExpress.XtraEditors.ListBoxControl commentsListBoxControl;
-        private DevExpress.XtraEditors.TextEdit lastNameTextEdit;
-        private DevExpress.XtraEditors.TextEdit middleNameTextEdit;
-        private DevExpress.XtraEditors.TextEdit firstNameTextEdit;
-        private DevExpress.XtraEditors.TextEdit passwordTextEdit;
-        private DevExpress.XtraEditors.TextEdit loginTextEdit;
-        private DevExpress.XtraLayout.LayoutControlGroup layoutControlEntireGroup;
-        private DevExpress.XtraLayout.SplitterItem splitterItem1;
-        private DevExpress.XtraLayout.TabbedControlGroup tabbedControlLoginDataGroup;
-        private DevExpress.XtraLayout.LayoutControlGroup layoutControlLoginDataGroup;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlLoginTextEdit;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlPasswordTextEdit;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlRoleComboBox;
-        private DevExpress.XtraLayout.TabbedControlGroup tabbedControlCommentsGroup;
-        private DevExpress.XtraLayout.LayoutControlGroup layoutControlCommentsGroup;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlCommentsListBox;
-        private DevExpress.XtraEditors.SimpleButton addCommentButton;
-        private System.Windows.Forms.TextBox newCommentTextBox;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlNewCommentTextEdit;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlAddCommentButton;
-        private DevExpress.XtraBars.BarButtonItem barSaveAndNewButton;
-        private DevExpress.XtraBars.BarButtonItem barClearButton;
-        private DevExpress.XtraEditors.ListBoxControl permissionListBoxControl;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
-        private DevExpress.XtraLayout.TabbedControlGroup tabbedControlGroup1;
-        private DevExpress.XtraLayout.LayoutControlGroup layoutControlPersonDataGroup;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlFirstNameTextEdit;
-        private DevExpress.XtraLayout.LayoutControlItem middleNameLayoutControl;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlLastNameTextEdit;
-        private DevExpress.XtraBars.BarButtonItem stateButton;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageUserFileGroup;
-        private DevExpress.XtraEditors.LookUpEdit roleLookUpEdit;
+        private RibbonControl ribbon;
+        private RibbonPage ribbonPage;
+        private RibbonPageGroup ribbonPageUserGroup;
+        private RibbonStatusBar ribbonStatusBar;
+        private BarButtonItem barSaveButton;
+        private LayoutControl layoutControl;
+        private ListBoxControl commentsListBoxControl;
+        private TextEdit lastNameTextEdit;
+        private TextEdit middleNameTextEdit;
+        private TextEdit firstNameTextEdit;
+        private TextEdit passwordTextEdit;
+        private TextEdit loginTextEdit;
+        private LayoutControlGroup layoutControlEntireGroup;
+        private SplitterItem splitterItem1;
+        private TabbedControlGroup tabbedControlLoginDataGroup;
+        private LayoutControlGroup layoutControlLoginDataGroup;
+        private LayoutControlItem layoutControlLoginTextEdit;
+        private LayoutControlItem layoutControlPasswordTextEdit;
+        private LayoutControlItem layoutControlRoleComboBox;
+        private TabbedControlGroup tabbedControlCommentsGroup;
+        private LayoutControlGroup layoutControlCommentsGroup;
+        private LayoutControlItem layoutControlCommentsListBox;
+        private SimpleButton addCommentButton;
+        private TextBox newCommentTextBox;
+        private LayoutControlItem layoutControlNewCommentTextEdit;
+        private LayoutControlItem layoutControlAddCommentButton;
+        private BarButtonItem barSaveAndNewButton;
+        private BarButtonItem barNewButton;
+        private ListBoxControl permissionListBoxControl;
+        private LayoutControlItem layoutControlItem1;
+        private TabbedControlGroup tabbedControlGroup1;
+        private LayoutControlGroup layoutControlPersonDataGroup;
+        private LayoutControlItem layoutControlFirstNameTextEdit;
+        private LayoutControlItem middleNameLayoutControl;
+        private LayoutControlItem layoutControlLastNameTextEdit;
+        private BarButtonItem stateButton;
+        private RibbonPageGroup ribbonPageUserFileGroup;
+        private LookUpEdit roleLookUpEdit;
     }
 }

@@ -1,11 +1,6 @@
 ﻿using Data.DummyData;
 using Domain.DAO;
 using Domain.Entities.Users;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ContosoUI.UserForm
 {
@@ -21,6 +16,11 @@ namespace ContosoUI.UserForm
         public void Create(User currentUser)
         {
             user.Create(currentUser);
+        }
+
+        public User Find(int id)
+        {
+            return user.Find(id);
         }
     }
 }

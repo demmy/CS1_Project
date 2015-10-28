@@ -21,11 +21,7 @@ namespace Data.DummyData
 
         public T Find(int id)
         {
-            if (Collection.Any(x => x.Id == id))
-            {
-                return Collection.First(x => x.Id == id);
-            }
-                throw new Exception();
+            return Collection.FirstOrDefault(x => x.Id == id);
         }
 
         public IQueryable<T> GetAll()
