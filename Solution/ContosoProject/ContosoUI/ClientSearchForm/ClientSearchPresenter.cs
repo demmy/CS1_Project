@@ -76,7 +76,7 @@ namespace ContosoUI.ClientSearchForm
 
         public void Edit(int id)
         {
-            ClientForm.ClientView editClientForm = new ClientForm.ClientView(id);
+            ClientForm.ClientView editClientForm = new ClientForm.ClientView(id) { Text = "Client editing.."};
             editClientForm.MdiParent = ContosoUI.MainForm.ActiveForm;
             editClientForm.Show();
         }

@@ -30,7 +30,8 @@ namespace ContosoUI.ClientForm
 
         public Client FindBy(string firstName, string lastName, string city)
         {
-            return _repository.FindBy(firstName, lastName, city).First();
+            var clientList = _repository.FindBy(firstName, lastName, city);
+            return clientList == null ?  null :  clientList.FirstOrDefault();
         }
     }
 }

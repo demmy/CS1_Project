@@ -4,12 +4,14 @@ using System.ComponentModel;
 using System.Data.SqlTypes;
 using System.Linq;
 using System.Runtime.CompilerServices;
+using System.Windows.Forms;
 using ContosoUI.Annotations;
 using Data.DummyData;
 using Domain.DAO;
 using Domain.Entities;
 using Domain.Entities.Comments;
 using Domain.Entities.Orders;
+using Domain.Entities.Products;
 
 namespace ContosoUI.OrderForm
 {
@@ -17,8 +19,13 @@ namespace ContosoUI.OrderForm
     {
         private OrderModel _model;
         private IOrderView _view;
-
+        IProductRepository _produtRepository = new DummyDAOForProduct();
         IClientRepository _clientRepository = new DummyDAOForClient();
+
+        public BindingList<Product> Products
+        {
+            get { return new BindingList<Product>(_produtRepository.GetAll().ToList()); }
+        } 
 
         private Order _order = new Order(new List<Comment>(), new List<OrderItem>());
         private Client _client = new Client();
@@ -105,17 +112,35 @@ namespace ContosoUI.OrderForm
 
         public void Save()
         {
-            Order orderToSave = new Order(_comments, new List<OrderItem>(_orderItems)) { Client = _client, Date = _date, IsActive = true, Status = _status, OrderNumber =  _orderNumber};
-            try
+            Order orderToSave = new Order(_comments, new List<OrderItem>(_orderItems))
             {
-                _model.GetByNumber(_orderNumber);
-            }
-            catch (Exception)
+                Client = _client,
+                Date = _date,
+                IsActive = true,
+                Status = _status,
+                OrderNumber = _orderNumber
+            };
+
+            if (orderToSave.Id != 0)
             {
-                _model.Create(orderToSave);
-                return;
+                if (!_model.GetByNumber(orderToSave.OrderNumber).Equals(orderToSave))
+                {
+                    _model.Save(orderToSave);
+                    _order = orderToSave;
+                }
             }
-            _model.Save(orderToSave);
+            else
+            {
+                if (_model.GetByNumber(orderToSave.OrderNumber) == null)
+                {
+                    _model.Create(orderToSave);
+                    _order = orderToSave;
+                }
+                else
+                {
+                    MessageBox.Show("Order with this number already exists, use another one, please.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+                }
+            }
         }
 
         public void Clear()

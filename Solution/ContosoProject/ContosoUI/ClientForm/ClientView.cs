@@ -1,13 +1,15 @@
 ﻿using System;
+using System.Linq;
 using System.Windows.Forms;
 using DevExpress.XtraGrid.EditForm.Helpers;
+using Domain.Entities.Comments;
 
 namespace ContosoUI.ClientForm
 {
     public partial class ClientView : DevExpress.XtraBars.Ribbon.RibbonForm, IClientView
     {
         private ClientPresenter _presenter;
-        private BindingSource binding;
+        private BindingSource _binding;
         
         public ClientView()
         {
@@ -30,18 +32,18 @@ namespace ContosoUI.ClientForm
 
         private void BindControls()
         {
-            binding = new BindingSource() { DataSource = _presenter};
+            _binding = new BindingSource() { DataSource = _presenter};
 
-            clientFirstNameTextEdit.DataBindings.Add("EditValue", binding, "FirstName", false, DataSourceUpdateMode.OnPropertyChanged);
-            сlientMiddleNameTextEdit.DataBindings.Add("EditValue", binding, "MiddleName");
-            clientLastNameTextEdit.DataBindings.Add("EditValue", binding, "LastName");
+            clientFirstNameTextEdit.DataBindings.Add("EditValue", _binding, "FirstName", false, DataSourceUpdateMode.OnPropertyChanged);
+            сlientMiddleNameTextEdit.DataBindings.Add("EditValue", _binding, "MiddleName");
+            clientLastNameTextEdit.DataBindings.Add("EditValue", _binding, "LastName");
 
-            clientCityTextEdit.DataBindings.Add("EditValue", binding, "City");
-            clientAddressTextBox.DataBindings.Add("Text", binding, "Address");
-            сlientTelephonesListBoxControl.DataBindings.Add("DataSource", binding, "Telephones");
+            clientCityTextEdit.DataBindings.Add("EditValue", _binding, "City");
+            clientAddressTextBox.DataBindings.Add("Text", _binding, "Address");
+            сlientTelephonesListBoxControl.DataBindings.Add("DataSource", _binding, "Telephones");
 
-            сlientOrdersGridControl.DataBindings.Add("DataSource", binding, "Orders");
-            clientCommentsListBoxControl.DataBindings.Add("DataSource", binding, "Comments");
+            сlientOrdersGridControl.DataBindings.Add("DataSource", _binding, "Orders");
+            clientCommentsListBoxControl.DataBindings.Add("DataSource", _binding, "Comments");
         }
 
         public void ShowView()
@@ -58,17 +60,38 @@ namespace ContosoUI.ClientForm
 
         private void clientBarSaveButton_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            _binding.EndEdit();
             _presenter.Save();
         }
 
         private void clientBarSaveAndNewButton_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            _binding.EndEdit();
             _presenter.SaveAndNew();
         }
 
         private void clientBarClearButton_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            _binding.EndEdit();
             _presenter.Clear();
+        }
+
+        private void buttonAddNewTelephoneEdit_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            if (!string.IsNullOrEmpty(buttonAddNewTelephoneEdit.EditValue.ToString()))
+            {
+                _presenter.Telephones.Add(buttonAddNewTelephoneEdit.EditValue.ToString());
+                buttonAddNewTelephoneEdit.EditValue = string.Empty;
+            }
+        }
+
+        private void сlientAddCommentButton_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(сlientNewCommentTextBox.Text))
+            {
+                _presenter.Comments.Add(new Comment() {Text =  сlientNewCommentTextBox.Text, EntityType = EntityType.Client, Author = null });
+                сlientNewCommentTextBox.Text = string.Empty;
+            }
         }
     }
 }

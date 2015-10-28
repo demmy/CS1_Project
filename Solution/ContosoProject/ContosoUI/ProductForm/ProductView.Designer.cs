@@ -284,14 +284,16 @@ namespace ContosoUI.ProductForm
             this.ribbonPageGroup1.ItemLinks.Add(this.barSaveButton);
             this.ribbonPageGroup1.ItemLinks.Add(this.barSaveAndNewButton);
             this.ribbonPageGroup1.ItemLinks.Add(this.barNewButton);
+            this.ribbonPageGroup1.MergeOrder = 50;
             this.ribbonPageGroup1.Name = "ribbonPageGroup1";
-            this.ribbonPageGroup1.Text = "File";
+            this.ribbonPageGroup1.Text = "Category";
             // 
             // ribbonPageGroup2
             // 
             this.ribbonPageGroup2.ItemLinks.Add(this.barAddNewCategoryButton);
+            this.ribbonPageGroup2.MergeOrder = 60;
             this.ribbonPageGroup2.Name = "ribbonPageGroup2";
-            this.ribbonPageGroup2.Text = "Category";
+            this.ribbonPageGroup2.Text = "Edit";
             // 
             // ribbonStatusBar
             // 

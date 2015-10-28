@@ -62,6 +62,7 @@ namespace ContosoUI.ProductForm
                 Comment comment = new Comment() { Author = null, EntityType = EntityType.Product, Text = newCommentTextBox.Text };
                 _presenter.ProductComments.Add(comment);
                 newCommentTextBox.Text = string.Empty;
+                _presenter.Save();
             }
         }
 

@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserForm));
             this.ribbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.barSaveButton = new DevExpress.XtraBars.BarButtonItem();
             this.barSaveAndNewButton = new DevExpress.XtraBars.BarButtonItem();
@@ -48,6 +47,7 @@
             this.firstNameTextEdit = new DevExpress.XtraEditors.TextEdit();
             this.passwordTextEdit = new DevExpress.XtraEditors.TextEdit();
             this.loginTextEdit = new DevExpress.XtraEditors.TextEdit();
+            this.roleLookUpEdit = new DevExpress.XtraEditors.LookUpEdit();
             this.layoutControlEntireGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.tabbedControlLoginDataGroup = new DevExpress.XtraLayout.TabbedControlGroup();
             this.layoutControlLoginDataGroup = new DevExpress.XtraLayout.LayoutControlGroup();
@@ -66,7 +66,6 @@
             this.middleNameLayoutControl = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlLastNameTextEdit = new DevExpress.XtraLayout.LayoutControlItem();
             this.splitterItem1 = new DevExpress.XtraLayout.SplitterItem();
-            this.roleLookUpEdit = new DevExpress.XtraEditors.LookUpEdit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl)).BeginInit();
             this.layoutControl.SuspendLayout();
@@ -77,6 +76,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.firstNameTextEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.passwordTextEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.loginTextEdit.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.roleLookUpEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlEntireGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabbedControlLoginDataGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlLoginDataGroup)).BeginInit();
@@ -95,7 +95,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.middleNameLayoutControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlLastNameTextEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitterItem1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.roleLookUpEdit.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // ribbon
@@ -113,41 +112,41 @@
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage});
             this.ribbon.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.Office2013;
-            this.ribbon.Size = new System.Drawing.Size(1014, 143);
+            this.ribbon.ShowApplicationButton = DevExpress.Utils.DefaultBoolean.False;
+            this.ribbon.ShowCategoryInCaption = false;
+            this.ribbon.ShowExpandCollapseButton = DevExpress.Utils.DefaultBoolean.False;
+            this.ribbon.ShowFullScreenButton = DevExpress.Utils.DefaultBoolean.False;
+            this.ribbon.ShowPageHeadersMode = DevExpress.XtraBars.Ribbon.ShowPageHeadersMode.Hide;
+            this.ribbon.ShowQatLocationSelector = false;
+            this.ribbon.ShowToolbarCustomizeItem = false;
+            this.ribbon.Size = new System.Drawing.Size(1014, 122);
             this.ribbon.StatusBar = this.ribbonStatusBar;
+            this.ribbon.Toolbar.ShowCustomizeItem = false;
             // 
             // barSaveButton
             // 
             this.barSaveButton.Caption = "Save";
-            this.barSaveButton.Glyph = ((System.Drawing.Image)(resources.GetObject("barSaveButton.Glyph")));
             this.barSaveButton.Id = 2;
-            this.barSaveButton.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barSaveButton.LargeGlyph")));
             this.barSaveButton.Name = "barSaveButton";
             this.barSaveButton.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barSaveButton_ItemClick);
             // 
             // barSaveAndNewButton
             // 
             this.barSaveAndNewButton.Caption = "Save and New";
-            this.barSaveAndNewButton.Glyph = ((System.Drawing.Image)(resources.GetObject("barSaveAndNewButton.Glyph")));
             this.barSaveAndNewButton.Id = 4;
-            this.barSaveAndNewButton.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barSaveAndNewButton.LargeGlyph")));
             this.barSaveAndNewButton.Name = "barSaveAndNewButton";
             this.barSaveAndNewButton.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barSaveAndNewButton_ItemClick);
             // 
             // barClearButton
             // 
             this.barClearButton.Caption = "Clear";
-            this.barClearButton.Glyph = ((System.Drawing.Image)(resources.GetObject("barClearButton.Glyph")));
             this.barClearButton.Id = 5;
-            this.barClearButton.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barClearButton.LargeGlyph")));
             this.barClearButton.Name = "barClearButton";
             // 
             // stateButton
             // 
             this.stateButton.Caption = "Remove(revert)";
-            this.stateButton.Glyph = ((System.Drawing.Image)(resources.GetObject("stateButton.Glyph")));
             this.stateButton.Id = 6;
-            this.stateButton.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("stateButton.LargeGlyph")));
             this.stateButton.Name = "stateButton";
             this.stateButton.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.stateButton_ItemClick);
             // 
@@ -193,11 +192,11 @@
             this.layoutControl.Controls.Add(this.loginTextEdit);
             this.layoutControl.Controls.Add(this.roleLookUpEdit);
             this.layoutControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.layoutControl.Location = new System.Drawing.Point(0, 143);
+            this.layoutControl.Location = new System.Drawing.Point(0, 122);
             this.layoutControl.Name = "layoutControl";
             this.layoutControl.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(275, 431, 250, 350);
             this.layoutControl.Root = this.layoutControlEntireGroup;
-            this.layoutControl.Size = new System.Drawing.Size(1014, 593);
+            this.layoutControl.Size = new System.Drawing.Size(1014, 614);
             this.layoutControl.TabIndex = 2;
             this.layoutControl.Text = "layoutControl";
             // 
@@ -205,32 +204,32 @@
             // 
             this.permissionListBoxControl.Location = new System.Drawing.Point(29, 413);
             this.permissionListBoxControl.Name = "permissionListBoxControl";
-            this.permissionListBoxControl.Size = new System.Drawing.Size(325, 151);
+            this.permissionListBoxControl.Size = new System.Drawing.Size(325, 172);
             this.permissionListBoxControl.StyleController = this.layoutControl;
             this.permissionListBoxControl.TabIndex = 5;
             // 
             // addCommentButton
             // 
-            this.addCommentButton.Location = new System.Drawing.Point(633, 468);
+            this.addCommentButton.Location = new System.Drawing.Point(816, 567);
             this.addCommentButton.Name = "addCommentButton";
-            this.addCommentButton.Size = new System.Drawing.Size(357, 101);
+            this.addCommentButton.Size = new System.Drawing.Size(174, 23);
             this.addCommentButton.StyleController = this.layoutControl;
             this.addCommentButton.TabIndex = 13;
             this.addCommentButton.Text = "Add comment";
+            this.addCommentButton.Click += new System.EventHandler(this.addCommentButton_Click);
             // 
             // newCommentTextBox
             // 
-            this.newCommentTextBox.Location = new System.Drawing.Point(392, 468);
-            this.newCommentTextBox.Multiline = true;
+            this.newCommentTextBox.Location = new System.Drawing.Point(392, 567);
             this.newCommentTextBox.Name = "newCommentTextBox";
-            this.newCommentTextBox.Size = new System.Drawing.Size(237, 101);
+            this.newCommentTextBox.Size = new System.Drawing.Size(420, 23);
             this.newCommentTextBox.TabIndex = 12;
             // 
             // commentsListBoxControl
             // 
             this.commentsListBoxControl.Location = new System.Drawing.Point(392, 46);
             this.commentsListBoxControl.Name = "commentsListBoxControl";
-            this.commentsListBoxControl.Size = new System.Drawing.Size(598, 418);
+            this.commentsListBoxControl.Size = new System.Drawing.Size(598, 517);
             this.commentsListBoxControl.StyleController = this.layoutControl;
             this.commentsListBoxControl.TabIndex = 10;
             // 
@@ -279,6 +278,20 @@
             this.loginTextEdit.StyleController = this.layoutControl;
             this.loginTextEdit.TabIndex = 4;
             // 
+            // roleLookUpEdit
+            // 
+            this.roleLookUpEdit.Location = new System.Drawing.Point(29, 363);
+            this.roleLookUpEdit.MenuManager = this.ribbon;
+            this.roleLookUpEdit.Name = "roleLookUpEdit";
+            this.roleLookUpEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.roleLookUpEdit.Properties.NullText = "";
+            this.roleLookUpEdit.Properties.PopupSizeable = false;
+            this.roleLookUpEdit.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
+            this.roleLookUpEdit.Size = new System.Drawing.Size(325, 20);
+            this.roleLookUpEdit.StyleController = this.layoutControl;
+            this.roleLookUpEdit.TabIndex = 6;
+            // 
             // layoutControlEntireGroup
             // 
             this.layoutControlEntireGroup.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
@@ -290,7 +303,7 @@
             this.splitterItem1});
             this.layoutControlEntireGroup.Location = new System.Drawing.Point(0, 0);
             this.layoutControlEntireGroup.Name = "layoutControlEntireGroup";
-            this.layoutControlEntireGroup.Size = new System.Drawing.Size(1014, 593);
+            this.layoutControlEntireGroup.Size = new System.Drawing.Size(1014, 614);
             this.layoutControlEntireGroup.TextVisible = false;
             // 
             // tabbedControlLoginDataGroup
@@ -299,7 +312,7 @@
             this.tabbedControlLoginDataGroup.Name = "tabbedControlLoginDataGroup";
             this.tabbedControlLoginDataGroup.SelectedTabPage = this.layoutControlLoginDataGroup;
             this.tabbedControlLoginDataGroup.SelectedTabPageIndex = 0;
-            this.tabbedControlLoginDataGroup.Size = new System.Drawing.Size(363, 377);
+            this.tabbedControlLoginDataGroup.Size = new System.Drawing.Size(363, 398);
             this.tabbedControlLoginDataGroup.TabPages.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlLoginDataGroup});
             // 
@@ -312,7 +325,7 @@
             this.layoutControlItem1});
             this.layoutControlLoginDataGroup.Location = new System.Drawing.Point(0, 0);
             this.layoutControlLoginDataGroup.Name = "layoutControlLoginDataGroup";
-            this.layoutControlLoginDataGroup.Size = new System.Drawing.Size(339, 331);
+            this.layoutControlLoginDataGroup.Size = new System.Drawing.Size(339, 352);
             this.layoutControlLoginDataGroup.Text = "Login data";
             // 
             // layoutControlLoginTextEdit
@@ -357,7 +370,7 @@
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 150);
             this.layoutControlItem1.Name = "layoutControlItem1";
             this.layoutControlItem1.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
-            this.layoutControlItem1.Size = new System.Drawing.Size(339, 181);
+            this.layoutControlItem1.Size = new System.Drawing.Size(339, 202);
             this.layoutControlItem1.Spacing = new DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 2);
             this.layoutControlItem1.Text = "Permissions";
             this.layoutControlItem1.TextLocation = DevExpress.Utils.Locations.Top;
@@ -369,7 +382,7 @@
             this.tabbedControlCommentsGroup.Name = "tabbedControlCommentsGroup";
             this.tabbedControlCommentsGroup.SelectedTabPage = this.layoutControlCommentsGroup;
             this.tabbedControlCommentsGroup.SelectedTabPageIndex = 0;
-            this.tabbedControlCommentsGroup.Size = new System.Drawing.Size(626, 573);
+            this.tabbedControlCommentsGroup.Size = new System.Drawing.Size(626, 594);
             this.tabbedControlCommentsGroup.TabPages.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlCommentsGroup});
             // 
@@ -381,7 +394,7 @@
             this.layoutControlAddCommentButton});
             this.layoutControlCommentsGroup.Location = new System.Drawing.Point(0, 0);
             this.layoutControlCommentsGroup.Name = "layoutControlCommentsGroup";
-            this.layoutControlCommentsGroup.Size = new System.Drawing.Size(602, 527);
+            this.layoutControlCommentsGroup.Size = new System.Drawing.Size(602, 548);
             this.layoutControlCommentsGroup.Text = "Comments";
             // 
             // layoutControlCommentsListBox
@@ -390,7 +403,7 @@
             this.layoutControlCommentsListBox.Location = new System.Drawing.Point(0, 0);
             this.layoutControlCommentsListBox.MinSize = new System.Drawing.Size(206, 4);
             this.layoutControlCommentsListBox.Name = "layoutControlCommentsListBox";
-            this.layoutControlCommentsListBox.Size = new System.Drawing.Size(602, 422);
+            this.layoutControlCommentsListBox.Size = new System.Drawing.Size(602, 521);
             this.layoutControlCommentsListBox.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlCommentsListBox.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlCommentsListBox.TextVisible = false;
@@ -398,10 +411,10 @@
             // layoutControlNewCommentTextEdit
             // 
             this.layoutControlNewCommentTextEdit.Control = this.newCommentTextBox;
-            this.layoutControlNewCommentTextEdit.Location = new System.Drawing.Point(0, 422);
+            this.layoutControlNewCommentTextEdit.Location = new System.Drawing.Point(0, 521);
             this.layoutControlNewCommentTextEdit.MinSize = new System.Drawing.Size(120, 24);
             this.layoutControlNewCommentTextEdit.Name = "layoutControlNewCommentTextEdit";
-            this.layoutControlNewCommentTextEdit.Size = new System.Drawing.Size(241, 105);
+            this.layoutControlNewCommentTextEdit.Size = new System.Drawing.Size(424, 27);
             this.layoutControlNewCommentTextEdit.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlNewCommentTextEdit.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlNewCommentTextEdit.TextVisible = false;
@@ -409,10 +422,10 @@
             // layoutControlAddCommentButton
             // 
             this.layoutControlAddCommentButton.Control = this.addCommentButton;
-            this.layoutControlAddCommentButton.Location = new System.Drawing.Point(241, 422);
+            this.layoutControlAddCommentButton.Location = new System.Drawing.Point(424, 521);
             this.layoutControlAddCommentButton.MinSize = new System.Drawing.Size(176, 26);
             this.layoutControlAddCommentButton.Name = "layoutControlAddCommentButton";
-            this.layoutControlAddCommentButton.Size = new System.Drawing.Size(361, 105);
+            this.layoutControlAddCommentButton.Size = new System.Drawing.Size(178, 27);
             this.layoutControlAddCommentButton.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlAddCommentButton.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlAddCommentButton.TextVisible = false;
@@ -481,20 +494,6 @@
             this.splitterItem1.Name = "splitterItem1";
             this.splitterItem1.Size = new System.Drawing.Size(5, 573);
             // 
-            // roleLookUpEdit
-            // 
-            this.roleLookUpEdit.Location = new System.Drawing.Point(29, 363);
-            this.roleLookUpEdit.MenuManager = this.ribbon;
-            this.roleLookUpEdit.Name = "roleLookUpEdit";
-            this.roleLookUpEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.roleLookUpEdit.Properties.NullText = "";
-            this.roleLookUpEdit.Properties.PopupSizeable = false;
-            this.roleLookUpEdit.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
-            this.roleLookUpEdit.Size = new System.Drawing.Size(325, 20);
-            this.roleLookUpEdit.StyleController = this.layoutControl;
-            this.roleLookUpEdit.TabIndex = 6;
-            // 
             // UserForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -518,6 +517,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.firstNameTextEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.passwordTextEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.loginTextEdit.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.roleLookUpEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlEntireGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabbedControlLoginDataGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlLoginDataGroup)).EndInit();
@@ -536,7 +536,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.middleNameLayoutControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlLastNameTextEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitterItem1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.roleLookUpEdit.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

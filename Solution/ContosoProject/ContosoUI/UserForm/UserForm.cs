@@ -70,6 +70,11 @@ namespace ContosoUI.UserForm
         private void barSaveAndNewButton_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             presenter.SaveAndNew();
+        }
+
+        private void addCommentButton_Click(object sender, EventArgs e)
+        {
+
         }     
     }
 }

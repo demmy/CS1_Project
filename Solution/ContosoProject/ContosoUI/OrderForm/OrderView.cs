@@ -1,5 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
 using System.Windows.Forms;
+using DevExpress.XtraEditors.Controls;
+using Domain.Entities.Comments;
 
 namespace ContosoUI.OrderForm
 {
@@ -32,6 +36,26 @@ namespace ContosoUI.OrderForm
             orderDateEdit.DataBindings.Add("EditValue", binding, "Date");
             orderGridControl.DataBindings.Add("DataSource", binding, "OrderItems");
             commentsListBox.DataBindings.Add("DataSource", binding, "Comments");
+
+            repositoryProductLookUpEdit.DataSource = _presenter.Products;
+
+            SetActivityOfComments();
+        }
+
+    private void SetActivityOfComments()
+        {
+            if (orderNumberTextEdit.Text == string.Empty)
+            {
+                commentsListBox.Enabled = false;
+                newCommentTextBox.Enabled = false;
+                addCommentButton.Enabled = false;
+            }
+            else
+            {
+                commentsListBox.Enabled = true;
+                newCommentTextBox.Enabled = true;
+                addCommentButton.Enabled = true;
+            }
         }
 
         private void ribbon_Click(object sender, EventArgs e)
@@ -59,6 +83,31 @@ namespace ContosoUI.OrderForm
         public void ShowView()
         {
             Show();
+        }
+
+        private void addCommentButton_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(newCommentTextBox.Text))
+            {
+                Comment comment = new Comment() { Author = null, EntityType = EntityType.Order, Text = newCommentTextBox.Text };
+                _presenter.Comments.Add(comment);
+                newCommentTextBox.Text = string.Empty;
+                _presenter.Save();
+            }
+        }
+
+        private void orderNumberTextEdit_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            SetActivityOfComments();
+        }
+
+        private void orderGridControl_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void orderGridView_InitNewRow(object sender, DevExpress.XtraGrid.Views.Grid.InitNewRowEventArgs e)
+        {
         }
     }
 }
