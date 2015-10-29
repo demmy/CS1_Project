@@ -55,6 +55,7 @@ namespace ContosoUI.UserForm
             passwordTextEdit.DataBindings.Add("EditValue", binding, "Password");
             roleLookUpEdit.DataBindings.Add("EditValue", binding, "RoleID");
             permissionListBoxControl.DataBindings.Add("DataSource", binding, "Permissions");
+            commentsListBoxControl.DataBindings.Add("DataSource", binding, "Comments");
             SetStateButtonState();
         }
 
