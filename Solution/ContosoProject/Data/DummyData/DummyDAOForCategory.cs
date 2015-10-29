@@ -22,14 +22,5 @@ namespace Data.DummyData
             }
             throw new Exception();
         }
-
-        public ICollection<Category> GetByTitle(string title)
-        {
-            if (!string.IsNullOrWhiteSpace(title))
-            {
-                return _collection.Where(x=>x.Title==title).ToList();
-            }
-            throw new Exception();
-        }
     }
 }
