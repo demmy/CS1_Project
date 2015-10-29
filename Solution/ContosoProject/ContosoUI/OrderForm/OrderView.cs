@@ -9,7 +9,6 @@ using System.Windows.Forms;
 using DevExpress.Images;
 using DevExpress.XtraEditors.Controls;
 using Domain.Entities.Comments;
-using Domain.Entities.Orders;
 using Domain.Entities.Products;
 
 namespace ContosoUI.OrderForm

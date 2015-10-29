@@ -23,12 +23,13 @@ namespace ContosoUI
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+            Thread.CurrentThread.CurrentCulture = new CultureInfo("en-US");
             ShowDependentOnRole(LoginForm.CurrentUser.Role);
         }
 
         private void ShowDependentOnRole (Role role)
         {
-            if (!role.Permissions.Where(x => x.Title == "Add User").Any()) 
+            if (role.Permissions.All(x => x.Title != "Add User")) 
                 UserBarButton.Visibility = BarItemVisibility.Never;
         }
 
@@ -46,7 +47,7 @@ namespace ContosoUI
             form.Show();
         }
 
-            Thread.CurrentThread.CurrentCulture = new CultureInfo("en-US");
+         
         private void barUserButton_ItemClick(object sender, ItemClickEventArgs e)
         {
             var form = new UserForm.UserForm();

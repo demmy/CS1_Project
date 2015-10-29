@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
 using DevExpress.Images;
 using DevExpress.XtraBars;
@@ -33,8 +34,8 @@ namespace ContosoUI.UserForm
             {
                 barSaveButton.Visibility = BarItemVisibility.Never;
                 barSaveAndNewButton.Visibility = BarItemVisibility.Never;
-                barClearButton.Visibility = BarItemVisibility.Never;
-                stateButton.Visibility = BarItemVisibility.Never;
+                barNewButton.Visibility = BarItemVisibility.Never;
+                userStateButton.Visibility = BarItemVisibility.Never;
             }
         }
 
