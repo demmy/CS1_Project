@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Globalization;
-using System.Threading;
 using ContosoUI.ClientForm;
 using ContosoUI.OrderForm;
 using ContosoUI.ProductForm;
@@ -23,13 +21,12 @@ namespace ContosoUI
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            Thread.CurrentThread.CurrentCulture = new CultureInfo("en-US");
             ShowDependentOnRole(LoginForm.CurrentUser.Role);
         }
 
         private void ShowDependentOnRole (Role role)
         {
-            if (role.Permissions.All(x => x.Title != "Add User")) 
+            if (!role.Permissions.Where(x => x.Title == "Add User").Any()) 
                 UserBarButton.Visibility = BarItemVisibility.Never;
         }
 
@@ -47,7 +44,6 @@ namespace ContosoUI
             form.Show();
         }
 
-         
         private void barUserButton_ItemClick(object sender, ItemClickEventArgs e)
         {
             var form = new UserForm.UserForm();
@@ -57,8 +53,9 @@ namespace ContosoUI
 
         private void barButtonItem1_ItemClick(object sender, ItemClickEventArgs e)
         {
-           IOrderView orderView = new OrderForm.OrderForm(1) { MdiParent = this};
-            orderView.ShowView();
+            var form = new OrderForm.OrderForm();
+            form.MdiParent = this;
+            form.Show();
         }
 
         private void UsersListBarButtonItem_ItemClick(object sender, ItemClickEventArgs e)
@@ -77,19 +74,16 @@ namespace ContosoUI
 
         private void ClientBarButtonItem_ItemClick(object sender, ItemClickEventArgs e)
         {
-            ClientPresenter presenter = new ClientPresenter(new ClientView() { MdiParent = this }, new ClientModel());
-            presenter.ShowView(presenter, 1);
+            var form = new ClientForm.ClientView();
+            form.MdiParent = this;
+            form.Show();
         }
 
         private void ProductBarButtonItem_ItemClick(object sender, ItemClickEventArgs e)
         {
-            IProductView productView = new ProductView(1) {MdiParent = this};
-            productView.ShowView();
-        }
-
-        private void MainForm_MdiChildActivate(object sender, EventArgs e)
-        {
-            pictureEdit1.Visible = false;
+            var form = new ProductForm.ProductView();
+            form.MdiParent = this;
+            form.Show();
         }
 
         private void MainForm_Activated(object sender, EventArgs e)
@@ -105,6 +99,11 @@ namespace ContosoUI
         private void ExitBarButton_ItemClick(object sender, ItemClickEventArgs e)
         {
             this.Close();
+        }
+
+        private void xtraTabbedMdiManager_PageAdded(object sender, DevExpress.XtraTabbedMdi.MdiTabPageEventArgs e)
+        {
+            pictureEdit1.Visible = false;
         }
     }
 }
