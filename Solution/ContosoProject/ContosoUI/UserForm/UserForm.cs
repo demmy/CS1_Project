@@ -99,12 +99,16 @@ namespace ContosoUI.UserForm
         {
             var role = roleLookUpEdit.EditValue as Role;
             if (role != null) _presenter.RoleID = role.Id;
-            binding.EndEdit();
         }
 
         private void barNewButton_ItemClick(object sender, ItemClickEventArgs e)
         {
             _presenter.New();
+        }
+
+        private void roleLookUpEdit_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)
+        {
+            binding.EndEdit();
         }
     }
 }
