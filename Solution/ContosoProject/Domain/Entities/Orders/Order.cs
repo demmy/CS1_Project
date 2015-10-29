@@ -1,10 +1,7 @@
-﻿using Domain.Entities.Products;
-using System;
+﻿using Domain.Entities.Clients;
+using Domain.Entities.Comments;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Domain.Entities.Comments;
 
 namespace Domain.Entities.Orders
 {
@@ -15,13 +12,12 @@ namespace Domain.Entities.Orders
         public Client Client { get; set; }
         public Status Status { get; set; }
         public string OrderNumber { get; set; }
-
+        public virtual ICollection<Comment> Comments { get; set; }
         private List<OrderItem> orderItems;
-        private ICollection<Comment> comments;
 
         public Order(ICollection<Comment> comments, List<OrderItem> orders)
         {
-            this.comments = comments;
+            Comments = comments;
             orderItems = orders;
         }
 
@@ -33,11 +29,6 @@ namespace Domain.Entities.Orders
         public List<OrderItem> OrderItems
         {
             get { return orderItems; }
-        }
-
-        public IReadOnlyCollection<Comment> Comments
-        {
-            get { return (IReadOnlyCollection<Comment>)comments; }
         }
 
         public double Sum

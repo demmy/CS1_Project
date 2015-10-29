@@ -1,4 +1,5 @@
-﻿namespace Domain.Entities.Users
+﻿using System.Collections.Generic;
+namespace Domain.Entities.Users
 {
     public class Permission : Entity
     {
@@ -7,5 +8,6 @@
         }
         public string Title { get; set; }
         public string Description { get; set; }
+        public virtual ICollection<Role> Roles { get; set; }
     }
 }

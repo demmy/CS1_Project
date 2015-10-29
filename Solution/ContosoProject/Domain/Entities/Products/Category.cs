@@ -8,11 +8,10 @@ namespace Domain.Entities.Products
     /// </summary>
     public class Category: ExtendedEntity, ICommentable
     {
-        private ICollection<Comment> _comments;
-
+        public virtual ICollection<Comment> Comments { get; set; }
         public Category(ICollection<Comment> comments)
         {
-            _comments = comments;
+            Comments = comments;
         }
 
         public Category()
@@ -26,13 +25,6 @@ namespace Domain.Entities.Products
 
         public string Title { get; set; }
 
-        public IReadOnlyCollection<Comment> Comments
-        {
-            get 
-            {
-                return (IReadOnlyCollection<Comment>)_comments;
-            }
-        }
 
         public override string ToString()
         {

@@ -3,6 +3,7 @@ using System.Linq;
 using Data.StoreData;
 using Domain.DAO;
 using Domain.Entities;
+using Domain.Entities.Clients;
 
 namespace Data.DummyData
 {
@@ -12,12 +13,13 @@ namespace Data.DummyData
         {
             _collection = Storage.Clients;
         }
+        //TODO: Merge with working state
         public ICollection<Client> GetBy(Person person, string city)
         {
             var result = _collection.AsQueryable();
             if (!string.IsNullOrWhiteSpace(person.FirstName))
             {
-                result = result.Where(x=>x.Person.FirstName==person.FirstName);
+                result = result.Where(x => x.Person.FirstName == person.FirstName);
             }
             if (!string.IsNullOrWhiteSpace(person.MiddleName))
             {

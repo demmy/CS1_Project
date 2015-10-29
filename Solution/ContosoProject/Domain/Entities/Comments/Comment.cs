@@ -1,4 +1,6 @@
-﻿namespace Domain.Entities.Comments
+﻿using Domain.Entities.Users;
+
+namespace Domain.Entities.Comments
 {
     public enum EntityType
     {
@@ -14,8 +16,8 @@
         {
         }
 
+        public User Author { get; set; }
         public string Text { get; set; }
-
-        public EntityType EntityType { get; set; }
+        public EntityType EntityType { get; set; }//TODO: resolve the many columned id, EntityType + EntityId
     }
 }

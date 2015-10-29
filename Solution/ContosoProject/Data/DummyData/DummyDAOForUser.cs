@@ -15,7 +15,7 @@ namespace Data.DummyData
             _collection = Storage.Users;
         }
 
-
+        //TODO: Merge to last working state
         public ICollection<User> GetBy(string login, Person person)
         {
             var result = _collection.AsQueryable();

@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using Domain.Entities;
-using Domain.Entities.Products;
 using Domain.Entities.Orders;
+using Domain.Entities.Products;
+using Domain.Entities.Clients;
 
 namespace Domain.DAO
 {
@@ -15,10 +12,8 @@ namespace Domain.DAO
         ICollection<Order> GetByClient(Client client);
         ICollection<Order> GetByProduct(Product product);
 
-        void AddOrder(Product product, int quantity);
-        bool Contains(Product product);
-        void RemoveOrder(Product product);
-        void EditOrder(Product product, int quantity);
-        double Sum { get; }
+        void AddOrder(Order order, Product product, int quantity);
+        void RemoveOrder(Order order, Product product);
+        void EditOrder(Order order, Product product, int quantity);
     }
 }

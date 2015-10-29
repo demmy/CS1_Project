@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Domain.Entities.Comments;
 
 namespace Domain.Entities.Products
@@ -14,20 +11,16 @@ namespace Domain.Entities.Products
         public string Title { get; set; }
         public string SKU { get; set; }
         public Category Category { get; set; }
-        private ICollection<Comment> comments;
+
+        public virtual ICollection<Comment> Comments { get; set; }
 
         public Product(ICollection<Comment> comments)
         {
-            this.comments = comments;
+            Comments = comments;
         }
 
         public Product()
         {
-        }
-
-        public IReadOnlyCollection<Comment> Comments
-        {
-            get { return (IReadOnlyCollection<Comment>)comments; }
         }
 
         public override bool Equals(Object obj)
