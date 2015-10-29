@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using Domain.Entities;
 using Domain.Entities.Comments;
-using Domain.Entities.Users;
 using Domain.Entities.Orders;
 using Domain.Entities.Products;
+using Domain.Entities.Users;
 
 namespace Data.StoreData
 {
@@ -130,10 +131,10 @@ namespace Data.StoreData
 
         public static List<Location> Locations = new List<Location>
         {
-            new Location {Adress = "pr. Metalurgov, 78", City = "Dnepropetrovsk"},
-            new Location {Adress = "ul. Sevastopolskaya, 43", City = "Dnepropetrovsk"},
-            new Location {Adress = "ul. Davidova, 3", City = "Dnepropetrovsk"},
-            new Location {Adress = "ul. Gogolya, 6", City = "Dnepropetrovsk"}
+            new Location {Address = "pr. Metalurgov, 78", City = "Dnepropetrovsk"},
+            new Location {Address = "ul. Sevastopolskaya, 43", City = "Dnepropetrovsk"},
+            new Location {Address = "ul. Davidova, 3", City = "Dnepropetrovsk"},
+            new Location {Address = "ul. Gogolya, 6", City = "Dnepropetrovsk"}
         };
 
         public static List<List<string>> ClientTelephones = new List<List<string>>
@@ -160,35 +161,38 @@ namespace Data.StoreData
         
         public static List<User> Users = new List<User>
         {
-            new User(GodComments)         {Date = DateTime.Now.AddDays(-5), Role = Roles[0], Id = 1, IsActive = true,   Login = "God",                  Password = "safe342g",      Person = Persons[0]},
-            new User(new List<Comment>()) {Date = DateTime.Now.AddDays(-6), Role = Roles[0], Id = 2, IsActive = true,   Login = "FirstSimpleAdmin",     Password = "adm123in",      Person = Persons[1]},
-            new User(new List<Comment>()) {Date = DateTime.Now.AddDays(-6), Role = Roles[0], Id = 3, IsActive = false,  Login = "SecondSimpleAdmin",    Password = "min43ad",       Person = Persons[2]},
-            new User(new List<Comment>()) {Date = DateTime.Now.AddDays(-8), Role = Roles[1], Id = 4, IsActive = true,   Login = "ActiveManager",        Password = "manageR323",    Person = Persons[3]},
-            new User(new List<Comment>()) {Date = DateTime.Now.AddDays(-9), Role = Roles[2], Id = 5, IsActive = true,   Login = "Dir",                  Password = "dry;78s",       Person = Persons[4]},
-            new User(new List<Comment>()) {Date = DateTime.Now.AddDays(-9), Role = Roles[1], Id = 6, IsActive = true,   Login = "Man13",                Password = "mind45",        Person = Persons[5]}
+            new User() {Date = DateTime.Now.AddDays(-5), Role = Roles[0], Id = 1, IsActive = true,   Login = "God",                  Password = "safe342g",      Person = Persons[0]},
+            new User() {Date = DateTime.Now.AddDays(-6), Role = Roles[0], Id = 2, IsActive = true,   Login = "FirstSimpleAdmin",     Password = "adm123in",      Person = Persons[1]},
+            new User() {Date = DateTime.Now.AddDays(-6), Role = Roles[0], Id = 3, IsActive = false,  Login = "SecondSimpleAdmin",    Password = "min43ad",       Person = Persons[2]},
+            new User() {Date = DateTime.Now.AddDays(-8), Role = Roles[1], Id = 4, IsActive = true,   Login = "ActiveManager",        Password = "manageR323",    Person = Persons[3]},
+            new User() {Date = DateTime.Now.AddDays(-9), Role = Roles[2], Id = 5, IsActive = true,   Login = "Dir",                  Password = "dry;78s",       Person = Persons[4]},
+            new User() {Date = DateTime.Now.AddDays(-9), Role = Roles[1], Id = 6, IsActive = true,   Login = "Man13",                Password = "mind45",        Person = Persons[5]},
+            new User() {Date = DateTime.Now.AddDays(-5), Role = Roles[1], Id = 1, IsActive = true,   Login = "m",                    Password = "11",            Person = Persons[0]},
+            new User() {Date = DateTime.Now.AddDays(-5), Role = Roles[2], Id = 1, IsActive = true,   Login = "d",                    Password = "11",            Person = Persons[0]}
+
         };
 
         public static List<Client> Clients = new List<Client>
         {
             new Client(ClientTelephones[0], new List<Comment>()){ClientLocation = Locations[0], Id = 1, IsActive = true, Date = DateTime.Now.AddHours(-5), Person = Persons[6]},
-            new Client(ClientTelephones[2], new List<Comment>()){ClientLocation = Locations[1], Id = 2, IsActive = true, Date = DateTime.Now.AddHours(-8), Person = Persons[7]},
-            new Client(ClientTelephones[1], new List<Comment>()){ClientLocation = Locations[3], Id = 3, IsActive = true, Date = DateTime.Now.AddHours(-9), Person = Persons[8]}
+            new Client(ClientTelephones[1], new List<Comment>()){ClientLocation = Locations[1], Id = 2, IsActive = true, Date = DateTime.Now.AddHours(-8), Person = Persons[7]},
+            new Client(ClientTelephones[2], new List<Comment>()){ClientLocation = Locations[3], Id = 3, IsActive = true, Date = DateTime.Now.AddHours(-9), Person = Persons[8]}
         };
 
         public static CategoryDictionary Categories = new CategoryDictionary
         {
-            new Category(new List<Comment>()){Id = 1, IsActive = true,  Title = "Wooden",   Date = DateTime.Now.AddDays(-20)},
-            new Category(new List<Comment>()){Id = 2, IsActive = false, Title = "Modern",   Date = DateTime.Now.AddDays(-10)},
-            new Category(new List<Comment>()){Id = 3, IsActive = true,  Title = "Metal",    Date = DateTime.Now.AddDays(-15)}
+            new Category(){Id = 1, IsActive = true,  Title = "Wooden",   Date = DateTime.Now.AddDays(-20)},
+            new Category(){Id = 2, IsActive = false, Title = "Modern",   Date = DateTime.Now.AddDays(-10)},
+            new Category(){Id = 3, IsActive = true,  Title = "Metal",    Date = DateTime.Now.AddDays(-15)}
         };
 
         public static List<Product> Products = new List<Product>
         {
-            new Product(new List<Comment>()){Category = Categories[0], Id = 1, IsActive = true,     Title = "Table",    Price = 100,    Date = DateTime.Now, SKU = "jh423b"},
-            new Product(new List<Comment>()){Category = Categories[1], Id = 2, IsActive = true,     Title = "Chair",    Price = 60,     Date = DateTime.Now, SKU = "sfdfh3"},
-            new Product(new List<Comment>()){Category = Categories[0], Id = 3, IsActive = true,     Title = "Wardrobe", Price = 20,     Date = DateTime.Now, SKU = "fhk32x"},
-            new Product(new List<Comment>()){Category = Categories[2], Id = 4, IsActive = false,    Title = "Table",    Price = 200,    Date = DateTime.Now, SKU = "jh423b"},
-            new Product(new List<Comment>()){Category = Categories[1], Id = 5, IsActive = true,     Title = "ArmChair", Price = 30,     Date = DateTime.Now, SKU = "lkj34q"}
+            new Product(){Category = Categories[0], Id = 1, IsActive = true,     Title = "Table",    Price = 100,    Date = DateTime.Now, SKU = "jh423b", Quantity = 1},
+            new Product(){Category = Categories[1], Id = 2, IsActive = true,     Title = "Chair",    Price = 60,     Date = DateTime.Now, SKU = "sfdfh3", Quantity = 0},
+            new Product(){Category = Categories[0], Id = 3, IsActive = true,     Title = "Wardrobe", Price = 20,     Date = DateTime.Now, SKU = "fhk32x", Quantity = 3},
+            new Product(){Category = Categories[2], Id = 4, IsActive = false,    Title = "Table",    Price = 200,    Date = DateTime.Now, SKU = "giru2f", Quantity = 2},
+            new Product(){Category = Categories[1], Id = 5, IsActive = true,     Title = "ArmChair", Price = 30,     Date = DateTime.Now, SKU = "lkj34q", Quantity = 4}
         };
 
         public static List<List<OrderItem>> OrderItems = new List<List<OrderItem>>

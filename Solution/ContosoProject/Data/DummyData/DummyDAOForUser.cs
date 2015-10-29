@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Data.StoreData;
 using Domain.DAO;
+using Domain.Entities;
 using Domain.Entities.Users;
 
 namespace Data.DummyData
@@ -11,23 +12,33 @@ namespace Data.DummyData
     {
         public DummyDAOForUser()
         {
-            _collection = Storage.Users;
+            Collection = Storage.Users;
         }
 
-        public ICollection<User> GetByLogin(string login)
+        public ICollection<User> GetBy(string login, string firstName, string lastName)
         {
-            if (_collection.Any(x => x.Login == login))
+            var result = Collection.AsQueryable();
+            if (!string.IsNullOrWhiteSpace(login))
             {
-                return _collection.Where(x=>x.Login==login).ToList();
+                result = result.Where(x => x.Login == login);
             }
-            throw new Exception();
+            if (!string.IsNullOrWhiteSpace(firstName))
+            {
+                result = result.Where(x => x.Person.FirstName == firstName);
+            }
+            if (!string.IsNullOrWhiteSpace(lastName))
+            {
+                result = result.Where(x => x.Person.LastName == lastName);
+            }
+            return result.ToList();
         }
+
 
         public ICollection<User> GetByRole(Role role)
         {
-            if (_collection.Any(x => x.Role == role))
+            if (Collection.Any(x => x.Role == role))
             {
-                return _collection.Where(x => x.Role == role).ToList();
+                return Collection.Where(x => x.Role == role).ToList();
             }
             throw new Exception();
         }

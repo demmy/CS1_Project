@@ -1,14 +1,12 @@
-﻿using Domain.Entities.Products;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Domain.Entities.Comments;
 
 namespace Domain.Entities.Orders
 {
-    public enum Status { Opened, PaidUp, Finished, Shipped, Closed }
+    public enum Status { All, Opened, PaidUp, Finished, Shipped, Closed }
 
     public class Order : ExtendedEntity, ICommentable
     {        
@@ -16,18 +14,27 @@ namespace Domain.Entities.Orders
         public Status Status { get; set; }
         public string OrderNumber { get; set; }
 
-        private List<OrderItem> orderItems;
-        private ICollection<Comment> comments;
+        private List<OrderItem> orderItems = new List<OrderItem>();
 
-        public Order(ICollection<Comment> comments, List<OrderItem> orders)
+        private List<Comment> _comments = new List<Comment>()
         {
-            this.comments = comments;
-            orderItems = orders;
+            new Comment()
+            {
+                Author = null,
+                Date = DateTime.Now,
+                EntityType = EntityType.Order,
+                Text = string.Format("Order has been added ")
+            }
+        };
+
+        public Order(ICollection<Comment> comments, ICollection<OrderItem> orders)
+        {
+            _comments = comments.ToList();
+            orderItems = orders.ToList();
         }
 
         public Order()
         {
-            
         }
 
         public List<OrderItem> OrderItems
@@ -37,7 +44,7 @@ namespace Domain.Entities.Orders
 
         public IReadOnlyCollection<Comment> Comments
         {
-            get { return (IReadOnlyCollection<Comment>)comments; }
+            get { return _comments; }
         }
 
         public double Sum

@@ -1,13 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ContosoUI
 {
     static class Program
     {
+        public static bool OpenMainFormOnClose { get; set; }
+        public static MainForm MainForm { get; private set; }
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
@@ -16,11 +15,13 @@ namespace ContosoUI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new ClientSearchForm.ClientSearchForm());
-            Application.Run(new UserSearchForm.UserSearchForm());
-//Application.Run(new ProductSearchForm.ProductSearchForm());
-            //Application.Run(new OrderSearchForm.OrderSearchForm());
+            MainForm = new MainForm();
+            Application.Run(new LoginForm());
 
+            if (OpenMainFormOnClose)
+            {
+                Application.Run(MainForm);
+            }
         }
     }
 }

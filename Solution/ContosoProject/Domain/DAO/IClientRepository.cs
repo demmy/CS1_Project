@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using Domain.Entities;
 
 namespace Domain.DAO
 {
     public interface IClientRepository : IRepositoryExtension<Client>
     {
-        ICollection<Client> GetByName(string name);
-        ICollection<Client> GetByCity(string city);
+        ICollection<Client> FindBy(string firstName, string lastName, string city);
     }
 }
