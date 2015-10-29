@@ -200,6 +200,7 @@
             this.Controls.Add(this.layoutControl1);
             this.Name = "LoginForm";
             this.Text = "Sign in";
+            this.Load += new System.EventHandler(this.LoginForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.smallLogoPictureEdit.Properties)).EndInit();

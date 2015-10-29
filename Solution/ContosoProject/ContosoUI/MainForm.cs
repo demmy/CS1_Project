@@ -8,7 +8,9 @@ using DevExpress.XtraBars.Ribbon;
 using Domain.Entities.Users;
 using System.Collections;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
+using System.Threading;
 
 namespace ContosoUI
 {
@@ -21,6 +23,7 @@ namespace ContosoUI
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+            Thread.CurrentThread.CurrentCulture = new CultureInfo("ua-UA");
             ShowDependentOnRole(LoginForm.CurrentUser.Role);
         }
 

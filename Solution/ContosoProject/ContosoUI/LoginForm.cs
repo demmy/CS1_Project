@@ -22,8 +22,8 @@ namespace ContosoUI
             InitializeComponent();
 
 #if DEBUG
-            loginTextEdit.Text = "d";
-            passwordTextEdit.Text = "11";
+            loginTextEdit.Text = "God";
+            passwordTextEdit.Text = "safe342g";
 #endif
         }
 
@@ -54,6 +54,11 @@ namespace ContosoUI
         {
             if (e.KeyChar == Convert.ToChar(Keys.Enter))
                 okButton_Click(sender, e);
+        }
+
+        private void LoginForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

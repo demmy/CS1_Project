@@ -218,6 +218,8 @@
             // priceGridColumn
             // 
             this.priceGridColumn.Caption = "Price";
+            this.priceGridColumn.DisplayFormat.FormatString = "c2";
+            this.priceGridColumn.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.priceGridColumn.FieldName = "Price";
             this.priceGridColumn.Name = "priceGridColumn";
             this.priceGridColumn.Visible = true;

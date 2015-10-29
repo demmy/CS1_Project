@@ -134,7 +134,15 @@ namespace ContosoUI.ProductForm
         private void barSaveButton_ItemClick(object sender, ItemClickEventArgs e)
         {
             _binding.EndEdit();
-            _presenter.Save();
+            if (!IsControlsEmpty())
+                _presenter.Save();
+            else
+                MessageBox.Show("Fill infromation about product before saving", "Attention", MessageBoxButtons.OK);
+        }
+
+        private bool IsControlsEmpty()
+        {
+            return string.IsNullOrWhiteSpace(productSKUTextEdit.Text) || string.IsNullOrWhiteSpace(productTitleTextEdit.Text) || string.IsNullOrWhiteSpace(productPriceTextEdit.Text) || categoryLookUpEdit.EditValue == null;
         }
 
         private void barSaveAndNewButton_ItemClick(object sender, ItemClickEventArgs e)
