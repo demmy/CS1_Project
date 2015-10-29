@@ -1,29 +1,31 @@
 ﻿using System;
-using System.Windows.Forms;
-using ContosoUI.UserForm;
-using Domain.Entities.Users;
-using DevExpress.XtraBars;
+using System.Drawing;
 using System.Linq;
+using System.Windows.Forms;
+using DevExpress.Images;
+using DevExpress.XtraBars;
+using DevExpress.XtraBars.Ribbon;
+using Domain.Entities.Comments;
+using Domain.Entities.Users;
 
 namespace ContosoUI.UserForm
 {
-    public partial class UserForm : DevExpress.XtraBars.Ribbon.RibbonForm, IUserView
+    public partial class UserForm : RibbonForm, IUserView
     {
-        private readonly UserPresenter presenter;
+        private readonly UserPresenter _presenter;
         BindingSource binding = new BindingSource();
 
         public UserForm()
         {
             InitializeComponent();
-            presenter = new UserPresenter(this, new UserModel());
+            _presenter = new UserPresenter(this, new UserModel());
         }
 
         public UserForm(int id)
         {
             InitializeComponent();
-            presenter = new UserPresenter(this, new UserModel()); 
-            presenter.GetUser(id);
-            stateButtonText();
+            _presenter = new UserPresenter(this, new UserModel());
+            _presenter.GetUser(id);
         }
 
         private void ShowDependentOnRole(Role role)
@@ -32,18 +34,17 @@ namespace ContosoUI.UserForm
             {
                 barSaveButton.Visibility = BarItemVisibility.Never;
                 barSaveAndNewButton.Visibility = BarItemVisibility.Never;
-                barClearButton.Visibility = BarItemVisibility.Never;
-                stateButton.Visibility = BarItemVisibility.Never;
+                barNewButton.Visibility = BarItemVisibility.Never;
+                userStateButton.Visibility = BarItemVisibility.Never;
             }
         }
 
         private void UserForm_Load(object sender, EventArgs e)
         {
-            ShowDependentOnRole(LoginForm.CurrentUser.Role);
+            binding.DataSource = _presenter;
 
-            binding.DataSource = presenter;
 
-            roleLookUpEdit.Properties.DataSource = presenter.RoleList;
+            roleLookUpEdit.Properties.DataSource = _presenter.RoleList;
             roleLookUpEdit.Properties.ValueMember = "Id";
             roleLookUpEdit.Properties.DisplayMember = "Title";
 
@@ -53,39 +54,74 @@ namespace ContosoUI.UserForm
             lastNameTextEdit.DataBindings.Add("EditValue", binding, "LastName");
             passwordTextEdit.DataBindings.Add("EditValue", binding, "Password");
             roleLookUpEdit.DataBindings.Add("EditValue", binding, "RoleID");
+            permissionListBoxControl.DataBindings.Add("DataSource", binding, "Permissions");
+            SetStateButtonState();
         }
 
-        public void RefreshForm()
+        private void stateButton_ItemClick(object sender, ItemClickEventArgs e)
         {
-            stateButtonText();
+            _presenter.State = !_presenter.State;
+            SetStateButtonState();
         }
 
-        private void closeButton_Click(object sender, EventArgs e)
+       private void SetStateButtonState()
         {
-            presenter.Clear();
-        }
-
-        private void stateButton_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            presenter.State = !presenter.State;
-        }
-
-        private void stateButtonText()
-        {
-            if (presenter.State)
-                stateButton.Caption = "Remove";
+            if (_presenter.State)
+            {
+                userStateButton.Caption = "Remove";
+                userStateButton.LargeGlyph = ImageResourceCache.Default.GetImage("images/edit/delete_32x32.png");
+            }
             else
-                stateButton.Caption = "Revert";
+            {
+                userStateButton.Caption = "Activate";
+                userStateButton.LargeGlyph = ImageResourceCache.Default.GetImage("images/actions/apply_32x32.png");
+            }
+        }
+    
+
+        private void barSaveButton_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            binding.EndEdit();
+            _presenter.Save();
         }
 
-        private void barSaveButton_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        private void barSaveAndNewButton_ItemClick(object sender, ItemClickEventArgs e)
         {
-            presenter.Save();
+            binding.EndEdit();
+            _presenter.SaveAndNew();
         }
 
-        private void barSaveAndNewButton_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        private void addCommentButton_Click(object sender, EventArgs e)
         {
-            presenter.SaveAndNew();
-        }     
+            if (!string.IsNullOrWhiteSpace(newCommentTextBox.Text))
+            {
+                _presenter.Comments.Add(new Comment() {Author = null, EntityType = EntityType.User, Text = newCommentTextBox.Text});
+                newCommentTextBox.Text = string.Empty;
+            }
+        }
+
+        private void newCommentTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            {
+                addCommentButton_Click(this, e);
+            }
+        }
+
+        private void roleLookUpEdit_EditValueChanged(object sender, EventArgs e)
+        {
+            var role = roleLookUpEdit.EditValue as Role;
+            if (role != null) _presenter.RoleID = role.Id;
+        }
+
+        private void barNewButton_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            _presenter.New();
+        }
+
+        private void roleLookUpEdit_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)
+        {
+            binding.EndEdit();
+        }
     }
 }

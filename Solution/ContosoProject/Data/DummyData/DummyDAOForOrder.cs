@@ -47,7 +47,7 @@ namespace Data.DummyData
         {
             if (string.IsNullOrWhiteSpace(orderNumber))
                 return Collection.FirstOrDefault(x => x.OrderNumber == orderNumber);
-            throw new Exception();
+            return null;
         }
 
         public ICollection<Order> GetByStatus(Status status)
@@ -61,7 +61,7 @@ namespace Data.DummyData
             {
                 return Collection.Where(x => x.Client == client).ToList();
             }
-            throw new Exception();
+            return new List<Order>();
         }
 
         public ICollection<Order> GetByProduct(Product product)
@@ -70,7 +70,7 @@ namespace Data.DummyData
             {
                 return Collection.Where(x => x.OrderItems.Any(it => it.Product == product)).ToList();
             }
-            throw new Exception();
+            return new List<Order>();
         }
         //TODO fix
         public void AddOrder(Order order, Product product, int quantity)

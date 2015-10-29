@@ -5,6 +5,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using ContosoUI.Annotations;
 using Data.DummyData;
 using Domain.DAO;
@@ -33,7 +34,8 @@ namespace ContosoUI.ClientForm
         private List<string> _telephones = new List<string>(); 
 
         BindingList<Order> _orders = new BindingList<Order>();
-        BindingList<Comment> _comments = new BindingList<Comment>();  
+        BindingList<Comment> _comments = new BindingList<Comment>();
+        public bool State { get; set; }
 
         public ClientPresenter(IClientView view, ClientModel model)
         {
@@ -47,14 +49,6 @@ namespace ContosoUI.ClientForm
             InitializeClientsFields();
         }
 
-        //public ClientPresenter(IClientView view, ClientModel model, Client client)
-        //{
-        //    _view = view;
-        //    _model = model;
-        //    _client = client;
-        //    InitializeClientsFields();
-        //}
-
         private void InitializeClientsFields()
         {
             _firstName = _client.Person.FirstName;
@@ -63,10 +57,12 @@ namespace ContosoUI.ClientForm
             _city = _client.ClientLocation.City;
             _address = _client.ClientLocation.Address;
             _telephones = _client.Telephones.ToList();
+            State = _client.IsActive;
             _orders = new BindingList<Order>(_orderRepository.GetByClient(_client).ToList());
             _comments = new BindingList<Comment>(_client.Comments.ToList());
         }
 
+        #region Properties
         public string FirstName
         {
             get { return _firstName; }
@@ -154,48 +150,57 @@ namespace ContosoUI.ClientForm
                 NotifyPropertyChanged();
             }
         }
+        #endregion
 
         public void Save()
         {
             Client clientToSave = new Client(_telephones, _comments) {Person = new Person() { FirstName = _firstName, MiddleName = _middleName, LastName = _lastName}, 
-                ClientLocation = new Location() { Address = _address, City = _city}, Date = _client.Date, IsActive = _client.IsActive, Id = _client.Id};
-            try
+                ClientLocation = new Location() { Address = _address, City = _city}, Id = _client.Id, IsActive = State};
+
+            if (clientToSave.Id != 0)
             {
-                var clientToCompare = _model.Find(_client.Id);
-                if (!clientToSave.Equals(clientToCompare))
+                //if (!_model.FindBy(clientToSave.Person.FirstName, clientToSave.Person.LastName, clientToSave.ClientLocation.City).Equals(clientToSave))
+                if(!_model.Find(_client.Id).Equals(clientToSave))
                 {
                     _model.Save(clientToSave);
                     _client = clientToSave;
-                    InitializeClientsFields();
-                } 
+                }
             }
-            catch
+            else
             {
-                _model.Create(clientToSave);
+                if (_model.FindBy(clientToSave.Person.FirstName, clientToSave.Person.LastName, clientToSave.ClientLocation.City) == null)
+                {
+                    _model.Create(clientToSave);
+                    _client = clientToSave;
+                }
+                else
+                {
+                    MessageBox.Show("Client already exists, use another one, please.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+                }
             }
-            
         }
+        
 
-        public void Clear()
+        public void New()
         {
-            _firstName = string.Empty;
-            _middleName = string.Empty;
-            _lastName = string.Empty;
+            FirstName = string.Empty;
+            MiddleName = string.Empty;
+            LastName = string.Empty;
 
-            _city = string.Empty;
-            _address = string.Empty;
+            City = string.Empty;
+            Address = string.Empty;
 
-            _telephones = new List<string>();
-            _orders = new BindingList<Order>();
-            _comments = new BindingList<Comment>();
+            Telephones = new List<string>();
+            Orders = new BindingList<Order>();
+            Comments = new BindingList<Comment>();
 
-            _client = new Client(_telephones, _comments);
+            _client = new Client();
         }
 
         public void SaveAndNew()
         {
             Save();
-            Clear();
+            New();
         }
 
         public void ShowView(ClientPresenter presenter, int id)

@@ -21,11 +21,7 @@ namespace Data.DummyData
 
         public T Find(int id)
         {
-            if (Collection.Any(x => x.Id == id))
-            {
-                return Collection.First(x => x.Id == id);
-            }
-                throw new Exception();
+            return Collection.FirstOrDefault(x => x.Id == id);
         }
 
         public IQueryable<T> GetAll()
@@ -41,7 +37,6 @@ namespace Data.DummyData
         public void Save(T entity)
         {
             Collection[Collection.IndexOf(Collection.First(x => x.Id == entity.Id))] = entity;
-
         }
 
         public void Delete(T entity)
@@ -52,7 +47,6 @@ namespace Data.DummyData
             }
             else
                 throw new Exception();
-
         }
 
         public void Delete(int id)
@@ -67,7 +61,7 @@ namespace Data.DummyData
 
         public IQueryable<T> FindBy(Expression<Func<T, bool>> predicate)
         {
-            throw new NotImplementedException();
+            return Collection.AsQueryable().Where(predicate);
         }
     }
 }

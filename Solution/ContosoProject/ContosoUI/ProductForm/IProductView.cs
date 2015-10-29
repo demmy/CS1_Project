@@ -8,6 +8,6 @@ namespace ContosoUI.ProductForm
 {
     public interface IProductView
     {
-        void ShowView(ProductPresenter presenter, int id);
+        void ShowView();
     }
 }

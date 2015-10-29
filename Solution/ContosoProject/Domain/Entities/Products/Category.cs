@@ -13,24 +13,24 @@ namespace Domain.Entities.Products
     {
         public string Title { get; set; }
 
-        private ICollection<Comment> _comments = new List<Comment>();
-
-        public Category(ICollection<Comment> comments) : this()
+        private ICollection<Comment> _comments = new List<Comment>()
         {
-            _comments.ToList().AddRange(comments);
-        }
-
-        public Category()
-        {
-            _comments.Add(new Comment()
+            new Comment()
             {
                 Author = null,
                 Date = DateTime.Now,
                 EntityType = EntityType.Category,
-                Id = -1,
-                IsActive = true,
-                Text = string.Format("Category has been added {0}", DateTime.Now.ToShortDateString())
-            });
+                Text = string.Format("Category has been added ")
+            }
+        };
+
+        public Category(ICollection<Comment> comments) : this()
+        {
+            _comments = comments;
+        }
+
+        public Category()
+        {
         }
 
         public static bool IsNullOrEmpty(Category category)
@@ -40,10 +40,7 @@ namespace Domain.Entities.Products
 
         public IReadOnlyCollection<Comment> Comments
         {
-            get 
-            {
-                return (IReadOnlyCollection<Comment>)_comments;
-            }
+            get { return (IReadOnlyCollection<Comment>)_comments; }
         }
 
         public override string ToString()

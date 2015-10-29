@@ -32,13 +32,9 @@ namespace Data.DummyData
             return result.ToList();
         }
         [Obsolete]
-        public ICollection<Product> GetBySKU(string sku)
+        public Product GetBySKU(string sku)
         {
-            if (Collection.Any(x => x.SKU == sku))
-            {
-                return Collection.Where(x => x.SKU == sku).ToList();
-            }
-            throw new Exception();
+            return Collection.FirstOrDefault(x => x.SKU == sku);
         }
         [Obsolete]
         public ICollection<Product> GetByCategory(Category category)

@@ -69,7 +69,7 @@ namespace ContosoUI.ClientSearchForm
 
         public void Edit(int id)
         {
-            ClientForm.ClientView editClientForm = new ClientForm.ClientView(id);
+            ClientForm.ClientView editClientForm = new ClientForm.ClientView(id) { Text = "Client editing.."};
             editClientForm.MdiParent = Program.MainForm;
             editClientForm.Show();
         }

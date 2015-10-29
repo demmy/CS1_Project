@@ -33,7 +33,7 @@ namespace Data.DummyData
             {
                 return result.ToList();
             }
-            throw new Exception();
+            return null;
         }
     }
 }

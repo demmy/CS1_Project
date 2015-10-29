@@ -14,26 +14,27 @@ namespace Domain.Entities.Orders
         public Status Status { get; set; }
         public string OrderNumber { get; set; }
 
-        private List<OrderItem> orderItems;
-        private List<Comment> _comments= new List<Comment>();
+        private List<OrderItem> orderItems = new List<OrderItem>();
 
-        public Order(ICollection<Comment> comments, List<OrderItem> orders) : this()
+        private List<Comment> _comments = new List<Comment>()
         {
-            _comments.ToList().AddRange(comments);
-            orderItems = orders;
-        }
-
-        public Order()
-        {
-            _comments.Add(new Comment()
+            new Comment()
             {
                 Author = null,
                 Date = DateTime.Now,
                 EntityType = EntityType.Order,
-                Id = -1,
-                IsActive = true,
-                Text = string.Format("Client has been added ")
-            });
+                Text = string.Format("Order has been added ")
+            }
+        };
+
+        public Order(ICollection<Comment> comments, ICollection<OrderItem> orders)
+        {
+            _comments = comments.ToList();
+            orderItems = orders.ToList();
+        }
+
+        public Order()
+        {
         }
 
         public List<OrderItem> OrderItems

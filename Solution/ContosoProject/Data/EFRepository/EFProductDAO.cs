@@ -22,5 +22,10 @@ namespace Data.EFRepository
 
             return result.ToList();
         }
+
+        public Product GetBySKU(string sku)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

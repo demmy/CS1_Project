@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Globalization;
+using System.Threading;
 using ContosoUI.ClientForm;
 using ContosoUI.OrderForm;
 using ContosoUI.ProductForm;
@@ -21,12 +23,13 @@ namespace ContosoUI
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+            Thread.CurrentThread.CurrentCulture = new CultureInfo("en-US");
             ShowDependentOnRole(LoginForm.CurrentUser.Role);
         }
 
         private void ShowDependentOnRole (Role role)
         {
-            if (!role.Permissions.Where(x => x.Title == "Add User").Any()) 
+            if (role.Permissions.All(x => x.Title != "Add User")) 
                 UserBarButton.Visibility = BarItemVisibility.Never;
         }
 
@@ -44,6 +47,7 @@ namespace ContosoUI
             form.Show();
         }
 
+         
         private void barUserButton_ItemClick(object sender, ItemClickEventArgs e)
         {
             var form = new UserForm.UserForm();
@@ -53,8 +57,8 @@ namespace ContosoUI
 
         private void barButtonItem1_ItemClick(object sender, ItemClickEventArgs e)
         {
-            OrderPresenter presenter = new OrderPresenter(new OrderModel(), new OrderForm.OrderForm() { MdiParent = this}, Storage.Orders[2]);
-            presenter.ShowView(presenter);
+           IOrderView orderView = new OrderForm.OrderForm(1) { MdiParent = this};
+            orderView.ShowView();
         }
 
         private void UsersListBarButtonItem_ItemClick(object sender, ItemClickEventArgs e)
@@ -79,8 +83,8 @@ namespace ContosoUI
 
         private void ProductBarButtonItem_ItemClick(object sender, ItemClickEventArgs e)
         {
-            ProductPresenter presenter = new ProductPresenter(new ProductView() { MdiParent = this}, new ProductModel() );
-            presenter.ShowView(presenter, 4);
+            IProductView productView = new ProductView(1) {MdiParent = this};
+            productView.ShowView();
         }
 
         private void MainForm_MdiChildActivate(object sender, EventArgs e)

@@ -10,6 +10,6 @@ namespace ContosoUI
     {
         void Save();
         void SaveAndNew();
-        void Clear();
+        void New();
     }
 }
