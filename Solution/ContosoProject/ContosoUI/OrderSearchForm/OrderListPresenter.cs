@@ -43,7 +43,7 @@ namespace ContosoUI.OrderSearchForm
             }
         }
 
-        public Client Client = new Client();
+        Client Client;
         public int ClientID
         {
             get { return (Client == null) ? 0 : Client.Id; }
@@ -54,14 +54,14 @@ namespace ContosoUI.OrderSearchForm
             }
         }
 
-        Status Status;
+        public Status status;
         public Status StatusEnum
         {
             get
-            { return Status; }
+            { return status; }
             set
             {
-                this.Status = value;
+                this.status = value;
                 NotifyPropertyChanged();
             }
         }
@@ -79,37 +79,30 @@ namespace ContosoUI.OrderSearchForm
             }
         }
 
-        public void Add()
-        {
-            OrderForm.OrderForm addOrderForm = new OrderForm.OrderForm();
-            addOrderForm.MdiParent = ContosoUI.MainForm.ActiveForm;
-            addOrderForm.Show();
-        }
-
         public void Edit(int id)
         {
             OrderForm.OrderForm editOrderForm = new OrderForm.OrderForm(id);
-            editOrderForm.MdiParent = ContosoUI.MainForm.ActiveForm;
+            editOrderForm.MdiParent = Program.MainForm;
             editOrderForm.Show();
         }
 
         public void Search()
         {
             List<Order> orders;
-            if (OrderNumber == null && Client == null && Status == Status.Undefined)
+
+            if (string.IsNullOrEmpty(OrderNumber) && Client == null && StatusEnum == Status.All)
                 orders = model.GetAll().ToList();
             else
-               orders = model.GetBy(OrderNumber, Status, Client).ToList(); 
+                orders = model.GetBy(OrderNumber, StatusEnum, Client).ToList(); 
 
             OrdersList = new BindingList<Order>(orders);
-            NotifyPropertyChanged();
         }
 
         public void Clear()
         {
-            OrderNumber = "";
-            Client = null;
-            Status = Status.Undefined;
+            OrderNumber = null;
+            Client = null;            
+            StatusEnum = Status.All;
             OrdersList.Clear();
         }
     }

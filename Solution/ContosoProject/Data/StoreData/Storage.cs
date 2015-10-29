@@ -166,7 +166,10 @@ namespace Data.StoreData
             new User() {Date = DateTime.Now.AddDays(-6), Role = Roles[0], Id = 3, IsActive = false,  Login = "SecondSimpleAdmin",    Password = "min43ad",       Person = Persons[2]},
             new User() {Date = DateTime.Now.AddDays(-8), Role = Roles[1], Id = 4, IsActive = true,   Login = "ActiveManager",        Password = "manageR323",    Person = Persons[3]},
             new User() {Date = DateTime.Now.AddDays(-9), Role = Roles[2], Id = 5, IsActive = true,   Login = "Dir",                  Password = "dry;78s",       Person = Persons[4]},
-            new User() {Date = DateTime.Now.AddDays(-9), Role = Roles[1], Id = 6, IsActive = true,   Login = "Man13",                Password = "mind45",        Person = Persons[5]}
+            new User() {Date = DateTime.Now.AddDays(-9), Role = Roles[1], Id = 6, IsActive = true,   Login = "Man13",                Password = "mind45",        Person = Persons[5]},
+            new User() {Date = DateTime.Now.AddDays(-5), Role = Roles[1], Id = 1, IsActive = true,   Login = "m",                    Password = "11",            Person = Persons[0]},
+            new User() {Date = DateTime.Now.AddDays(-5), Role = Roles[2], Id = 1, IsActive = true,   Login = "d",                    Password = "11",            Person = Persons[0]}
+
         };
 
         public static List<Client> Clients = new List<Client>

@@ -31,12 +31,12 @@ namespace Data.DummyData
             }
             return result.ToList();
         }
-
+        [Obsolete]
         public Product GetBySKU(string sku)
         {
             return Collection.FirstOrDefault(x => x.SKU == sku);
         }
-
+        [Obsolete]
         public ICollection<Product> GetByCategory(Category category)
         {
             if (Collection.Any(x => x.Category == category))

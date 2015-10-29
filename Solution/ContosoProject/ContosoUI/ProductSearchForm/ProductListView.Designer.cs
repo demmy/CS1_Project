@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProductListView));
             this.mainRibbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
-            this.addProductBarButton = new DevExpress.XtraBars.BarButtonItem();
             this.searchProductBarButton = new DevExpress.XtraBars.BarButtonItem();
             this.clearProductBarButton = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPageProductView = new DevExpress.XtraBars.Ribbon.RibbonPage();
@@ -73,7 +72,6 @@
             this.mainRibbon.ExpandCollapseItem.Id = 0;
             this.mainRibbon.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.mainRibbon.ExpandCollapseItem,
-            this.addProductBarButton,
             this.searchProductBarButton,
             this.clearProductBarButton});
             this.mainRibbon.Location = new System.Drawing.Point(0, 0);
@@ -91,15 +89,6 @@
             this.mainRibbon.Size = new System.Drawing.Size(1014, 122);
             this.mainRibbon.StatusBar = this.ribbonStatusBarProductView;
             this.mainRibbon.Toolbar.ShowCustomizeItem = false;
-            // 
-            // addProductBarButton
-            // 
-            this.addProductBarButton.Caption = "Add";
-            this.addProductBarButton.Glyph = ((System.Drawing.Image)(resources.GetObject("addProductBarButton.Glyph")));
-            this.addProductBarButton.Id = 1;
-            this.addProductBarButton.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("addProductBarButton.LargeGlyph")));
-            this.addProductBarButton.Name = "addProductBarButton";
-            this.addProductBarButton.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.addProductBarButton_ItemClick);
             // 
             // searchProductBarButton
             // 
@@ -123,16 +112,17 @@
             // 
             this.ribbonPageProductView.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.productFileRibbonPageGroup});
+            this.ribbonPageProductView.MergeOrder = 50;
             this.ribbonPageProductView.Name = "ribbonPageProductView";
             this.ribbonPageProductView.Text = "RibbonMerge";
             // 
             // productFileRibbonPageGroup
             // 
-            this.productFileRibbonPageGroup.ItemLinks.Add(this.addProductBarButton);
             this.productFileRibbonPageGroup.ItemLinks.Add(this.searchProductBarButton);
             this.productFileRibbonPageGroup.ItemLinks.Add(this.clearProductBarButton);
+            this.productFileRibbonPageGroup.MergeOrder = 50;
             this.productFileRibbonPageGroup.Name = "productFileRibbonPageGroup";
-            this.productFileRibbonPageGroup.Text = "File";
+            this.productFileRibbonPageGroup.Text = "Search";
             // 
             // ribbonStatusBarProductView
             // 
@@ -157,6 +147,7 @@
             // 
             // categoryLookUpEdit
             // 
+            this.categoryLookUpEdit.EditValue = "<Null>";
             this.categoryLookUpEdit.Location = new System.Drawing.Point(680, 33);
             this.categoryLookUpEdit.MenuManager = this.mainRibbon;
             this.categoryLookUpEdit.Name = "categoryLookUpEdit";
@@ -164,8 +155,6 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.categoryLookUpEdit.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Title", "Title")});
-            this.categoryLookUpEdit.Properties.DisplayMember = "Title";
-            this.categoryLookUpEdit.Properties.ValueMember = "Id";
             this.categoryLookUpEdit.Size = new System.Drawing.Size(317, 20);
             this.categoryLookUpEdit.StyleController = this.layoutControlProductView;
             this.categoryLookUpEdit.TabIndex = 9;
@@ -360,7 +349,6 @@
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPageProductView;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup productFileRibbonPageGroup;
         private DevExpress.XtraBars.Ribbon.RibbonStatusBar ribbonStatusBarProductView;
-        private DevExpress.XtraBars.BarButtonItem addProductBarButton;
         private DevExpress.XtraBars.BarButtonItem searchProductBarButton;
         private DevExpress.XtraBars.BarButtonItem clearProductBarButton;
         private DevExpress.XtraLayout.LayoutControl layoutControlProductView;

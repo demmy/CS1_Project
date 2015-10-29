@@ -36,11 +36,6 @@ namespace ContosoUI.UserSearchForm
             usersGridControl.RefreshDataSource();
         }
 
-        private void addUserBarButton_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            presenter.Add();
-        }
-
         private void searchUserBarButton_ItemClick(object sender, ItemClickEventArgs e)
         {
             binding.EndEdit();

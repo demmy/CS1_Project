@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UsersListView));
             this.mainRibbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
-            this.addUserBarButton = new DevExpress.XtraBars.BarButtonItem();
             this.searchUserBarButton = new DevExpress.XtraBars.BarButtonItem();
             this.clearUserBarButton = new DevExpress.XtraBars.BarButtonItem();
             this.userSearchRibbonPage = new DevExpress.XtraBars.Ribbon.RibbonPage();
@@ -72,7 +71,6 @@
             this.mainRibbon.ExpandCollapseItem.Id = 0;
             this.mainRibbon.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.mainRibbon.ExpandCollapseItem,
-            this.addUserBarButton,
             this.searchUserBarButton,
             this.clearUserBarButton});
             this.mainRibbon.Location = new System.Drawing.Point(0, 0);
@@ -91,15 +89,6 @@
             this.mainRibbon.Size = new System.Drawing.Size(1014, 122);
             this.mainRibbon.StatusBar = this.usersRibbonStatusBar;
             this.mainRibbon.Toolbar.ShowCustomizeItem = false;
-            // 
-            // addUserBarButton
-            // 
-            this.addUserBarButton.Caption = "Add";
-            this.addUserBarButton.Glyph = ((System.Drawing.Image)(resources.GetObject("addUserBarButton.Glyph")));
-            this.addUserBarButton.Id = 1;
-            this.addUserBarButton.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("addUserBarButton.LargeGlyph")));
-            this.addUserBarButton.Name = "addUserBarButton";
-            this.addUserBarButton.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.addUserBarButton_ItemClick);
             // 
             // searchUserBarButton
             // 
@@ -123,16 +112,17 @@
             // 
             this.userSearchRibbonPage.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.userRibbonPageGroup});
+            this.userSearchRibbonPage.MergeOrder = 50;
             this.userSearchRibbonPage.Name = "userSearchRibbonPage";
             this.userSearchRibbonPage.Text = "RibbonMerge";
             // 
             // userRibbonPageGroup
             // 
-            this.userRibbonPageGroup.ItemLinks.Add(this.addUserBarButton);
             this.userRibbonPageGroup.ItemLinks.Add(this.searchUserBarButton);
             this.userRibbonPageGroup.ItemLinks.Add(this.clearUserBarButton);
+            this.userRibbonPageGroup.MergeOrder = 50;
             this.userRibbonPageGroup.Name = "userRibbonPageGroup";
-            this.userRibbonPageGroup.Text = "File";
+            this.userRibbonPageGroup.Text = "Search";
             // 
             // usersRibbonStatusBar
             // 
@@ -359,7 +349,6 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlFirstNameTextEdit;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlLastNameTextEdit;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlUsersGrid;
-        private DevExpress.XtraBars.BarButtonItem addUserBarButton;
         private DevExpress.XtraBars.BarButtonItem searchUserBarButton;
         private DevExpress.XtraBars.BarButtonItem clearUserBarButton;
         private DevExpress.XtraGrid.Columns.GridColumn loginGridColumn;

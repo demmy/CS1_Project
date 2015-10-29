@@ -25,11 +25,23 @@ namespace ContosoUI.UserForm
             InitializeComponent();
             _presenter = new UserPresenter(this, new UserModel());
             _presenter.GetUser(id);
-        }      
-  
+        }
+
+        private void ShowDependentOnRole(Role role)
+        {
+            if (!role.Permissions.Where(x => x.Title == "Edit User").Any())
+            {
+                barSaveButton.Visibility = BarItemVisibility.Never;
+                barSaveAndNewButton.Visibility = BarItemVisibility.Never;
+                barClearButton.Visibility = BarItemVisibility.Never;
+                stateButton.Visibility = BarItemVisibility.Never;
+            }
+        }
+
         private void UserForm_Load(object sender, EventArgs e)
-        { 
+        {
             binding.DataSource = _presenter;
+
 
             roleLookUpEdit.Properties.DataSource = _presenter.RoleList;
             roleLookUpEdit.Properties.ValueMember = "Id";

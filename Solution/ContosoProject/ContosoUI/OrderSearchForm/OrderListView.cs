@@ -32,12 +32,14 @@ namespace ContosoUI.OrderSearchForm
 
             orderNumberTextEdit.DataBindings.Add("EditValue", binding, "OrderNumber", false, DataSourceUpdateMode.OnPropertyChanged);
             orderItemsGridControl.DataBindings.Add("DataSource", binding, "OrdersList", false, DataSourceUpdateMode.OnPropertyChanged);
-            
+
             clientLookUpEdit.Properties.DataSource = presenter.ClientsList;
             clientLookUpEdit.DataBindings.Add("EditValue", binding, "ClientID", false, DataSourceUpdateMode.OnPropertyChanged);
             clientLookUpEdit.Properties.ValueMember = "Id";
             clientLookUpEdit.Properties.DisplayMember = "Person";
+
             orderStatusComboBoxEdit.Properties.Items.AddRange(presenter.StatusList);
+            orderStatusComboBoxEdit.DataBindings.Add("EditValue", binding, "StatusEnum");
         }
 
         private void searchOrderBarButton_ItemClick(object sender, ItemClickEventArgs e)
@@ -48,6 +50,7 @@ namespace ContosoUI.OrderSearchForm
 
         private void clearButton_ItemClick(object sender, ItemClickEventArgs e)
         {
+            binding.EndEdit();
             presenter.Clear();
         }
 
@@ -61,16 +64,6 @@ namespace ContosoUI.OrderSearchForm
                 int id = (int)view.GetRowCellValue(info.RowHandle, "Id");
                 presenter.Edit(id);
             }
-        }
-
-        private void addOrderBarButton_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            presenter.Add();
-        }
-
-        private void orderStatusComboBoxEdit_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            presenter.StatusEnum = (Status)orderStatusComboBoxEdit.SelectedItem;
         }
 
         private void orderNumberTextEdit_KeyPress(object sender, KeyPressEventArgs e)
@@ -89,6 +82,11 @@ namespace ContosoUI.OrderSearchForm
                 binding.EndEdit();
                 presenter.Search();
             }
+        }
+
+        private void orderStatusComboBoxEdit_SelectedIndexChanged(object sender, EventArgs e)
+        {
+                presenter.StatusEnum = (Status)orderStatusComboBoxEdit.SelectedItem;
         }
     }
 }

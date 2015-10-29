@@ -67,17 +67,10 @@ namespace ContosoUI.ClientSearchForm
             }
         }
 
-        public void Add()
-        {
-            ClientForm.ClientView addClientForm = new ClientForm.ClientView();
-            addClientForm.MdiParent = ContosoUI.MainForm.ActiveForm;
-            addClientForm.Show();
-        }
-
         public void Edit(int id)
         {
             ClientForm.ClientView editClientForm = new ClientForm.ClientView(id) { Text = "Client editing.."};
-            editClientForm.MdiParent = ContosoUI.MainForm.ActiveForm;
+            editClientForm.MdiParent = Program.MainForm;
             editClientForm.Show();
         }
 

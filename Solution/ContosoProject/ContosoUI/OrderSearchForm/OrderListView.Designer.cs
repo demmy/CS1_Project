@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OrderListView));
             this.mainRibbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
-            this.addOrderBarButton = new DevExpress.XtraBars.BarButtonItem();
             this.searchOrderBarButton = new DevExpress.XtraBars.BarButtonItem();
             this.clearOrderBarButton = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPageOrderSearch = new DevExpress.XtraBars.Ribbon.RibbonPage();
@@ -72,7 +71,6 @@
             this.mainRibbon.ExpandCollapseItem.Id = 0;
             this.mainRibbon.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.mainRibbon.ExpandCollapseItem,
-            this.addOrderBarButton,
             this.searchOrderBarButton,
             this.clearOrderBarButton});
             this.mainRibbon.Location = new System.Drawing.Point(0, 0);
@@ -90,15 +88,6 @@
             this.mainRibbon.Size = new System.Drawing.Size(1014, 122);
             this.mainRibbon.StatusBar = this.ribbonStatusBarOrderView;
             this.mainRibbon.Toolbar.ShowCustomizeItem = false;
-            // 
-            // addOrderBarButton
-            // 
-            this.addOrderBarButton.Caption = "Add";
-            this.addOrderBarButton.Glyph = ((System.Drawing.Image)(resources.GetObject("addOrderBarButton.Glyph")));
-            this.addOrderBarButton.Id = 1;
-            this.addOrderBarButton.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("addOrderBarButton.LargeGlyph")));
-            this.addOrderBarButton.Name = "addOrderBarButton";
-            this.addOrderBarButton.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.addOrderBarButton_ItemClick);
             // 
             // searchOrderBarButton
             // 
@@ -122,16 +111,17 @@
             // 
             this.ribbonPageOrderSearch.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.OrderViewFileRibbonPageGroup});
+            this.ribbonPageOrderSearch.MergeOrder = 50;
             this.ribbonPageOrderSearch.Name = "ribbonPageOrderSearch";
             this.ribbonPageOrderSearch.Text = "RibbonMerge";
             // 
             // OrderViewFileRibbonPageGroup
             // 
-            this.OrderViewFileRibbonPageGroup.ItemLinks.Add(this.addOrderBarButton);
             this.OrderViewFileRibbonPageGroup.ItemLinks.Add(this.searchOrderBarButton);
             this.OrderViewFileRibbonPageGroup.ItemLinks.Add(this.clearOrderBarButton);
+            this.OrderViewFileRibbonPageGroup.MergeOrder = 50;
             this.OrderViewFileRibbonPageGroup.Name = "OrderViewFileRibbonPageGroup";
-            this.OrderViewFileRibbonPageGroup.Text = "File";
+            this.OrderViewFileRibbonPageGroup.Text = "Search";
             // 
             // ribbonStatusBarOrderView
             // 
@@ -156,12 +146,12 @@
             // 
             // orderStatusComboBoxEdit
             // 
-            this.orderStatusComboBoxEdit.Location = new System.Drawing.Point(347, 33);
+            this.orderStatusComboBoxEdit.Location = new System.Drawing.Point(349, 33);
             this.orderStatusComboBoxEdit.MenuManager = this.mainRibbon;
             this.orderStatusComboBoxEdit.Name = "orderStatusComboBoxEdit";
             this.orderStatusComboBoxEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.orderStatusComboBoxEdit.Size = new System.Drawing.Size(316, 20);
+            this.orderStatusComboBoxEdit.Size = new System.Drawing.Size(317, 20);
             this.orderStatusComboBoxEdit.StyleController = this.layoutControlOrderView;
             this.orderStatusComboBoxEdit.TabIndex = 9;
             this.orderStatusComboBoxEdit.SelectedIndexChanged += new System.EventHandler(this.orderStatusComboBoxEdit_SelectedIndexChanged);
@@ -170,14 +160,14 @@
             // clientLookUpEdit
             // 
             this.clientLookUpEdit.EditValue = "<Null>";
-            this.clientLookUpEdit.Location = new System.Drawing.Point(677, 33);
+            this.clientLookUpEdit.Location = new System.Drawing.Point(680, 33);
             this.clientLookUpEdit.MenuManager = this.mainRibbon;
             this.clientLookUpEdit.Name = "clientLookUpEdit";
             this.clientLookUpEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.clientLookUpEdit.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Person", "Client")});
-            this.clientLookUpEdit.Size = new System.Drawing.Size(320, 20);
+            this.clientLookUpEdit.Size = new System.Drawing.Size(317, 20);
             this.clientLookUpEdit.StyleController = this.layoutControlOrderView;
             this.clientLookUpEdit.TabIndex = 8;
             // 
@@ -250,7 +240,7 @@
             this.orderNumberTextEdit.Location = new System.Drawing.Point(17, 33);
             this.orderNumberTextEdit.MenuManager = this.mainRibbon;
             this.orderNumberTextEdit.Name = "orderNumberTextEdit";
-            this.orderNumberTextEdit.Size = new System.Drawing.Size(316, 20);
+            this.orderNumberTextEdit.Size = new System.Drawing.Size(318, 20);
             this.orderNumberTextEdit.StyleController = this.layoutControlOrderView;
             this.orderNumberTextEdit.TabIndex = 4;
             this.orderNumberTextEdit.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.orderNumberTextEdit_KeyPress);
@@ -275,7 +265,7 @@
             this.layoutControlOrderNumberTextEdit.Location = new System.Drawing.Point(0, 0);
             this.layoutControlOrderNumberTextEdit.Name = "layoutControlOrderNumberTextEdit";
             this.layoutControlOrderNumberTextEdit.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
-            this.layoutControlOrderNumberTextEdit.Size = new System.Drawing.Size(330, 50);
+            this.layoutControlOrderNumberTextEdit.Size = new System.Drawing.Size(332, 50);
             this.layoutControlOrderNumberTextEdit.Spacing = new DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 2);
             this.layoutControlOrderNumberTextEdit.Text = "Order number";
             this.layoutControlOrderNumberTextEdit.TextLocation = DevExpress.Utils.Locations.Top;
@@ -296,10 +286,10 @@
             // layoutControlClientLookUpEdit
             // 
             this.layoutControlClientLookUpEdit.Control = this.clientLookUpEdit;
-            this.layoutControlClientLookUpEdit.Location = new System.Drawing.Point(660, 0);
+            this.layoutControlClientLookUpEdit.Location = new System.Drawing.Point(663, 0);
             this.layoutControlClientLookUpEdit.Name = "layoutControlClientLookUpEdit";
             this.layoutControlClientLookUpEdit.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
-            this.layoutControlClientLookUpEdit.Size = new System.Drawing.Size(334, 50);
+            this.layoutControlClientLookUpEdit.Size = new System.Drawing.Size(331, 50);
             this.layoutControlClientLookUpEdit.Spacing = new DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 2);
             this.layoutControlClientLookUpEdit.Text = "Client";
             this.layoutControlClientLookUpEdit.TextLocation = DevExpress.Utils.Locations.Top;
@@ -308,10 +298,10 @@
             // layoutControlOrderStatus
             // 
             this.layoutControlOrderStatus.Control = this.orderStatusComboBoxEdit;
-            this.layoutControlOrderStatus.Location = new System.Drawing.Point(330, 0);
+            this.layoutControlOrderStatus.Location = new System.Drawing.Point(332, 0);
             this.layoutControlOrderStatus.Name = "layoutControlOrderStatus";
             this.layoutControlOrderStatus.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
-            this.layoutControlOrderStatus.Size = new System.Drawing.Size(330, 50);
+            this.layoutControlOrderStatus.Size = new System.Drawing.Size(331, 50);
             this.layoutControlOrderStatus.Spacing = new DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 2);
             this.layoutControlOrderStatus.Text = "Status";
             this.layoutControlOrderStatus.TextLocation = DevExpress.Utils.Locations.Top;
@@ -361,7 +351,6 @@
         private DevExpress.XtraEditors.TextEdit orderNumberTextEdit;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlOrderNumberTextEdit;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlOrderItemsGridControl;
-        private DevExpress.XtraBars.BarButtonItem addOrderBarButton;
         private DevExpress.XtraBars.BarButtonItem searchOrderBarButton;
         private DevExpress.XtraBars.BarButtonItem clearOrderBarButton;
         private DevExpress.XtraEditors.LookUpEdit clientLookUpEdit;

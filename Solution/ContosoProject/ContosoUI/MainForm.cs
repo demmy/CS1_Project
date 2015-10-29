@@ -7,14 +7,29 @@ using ContosoUI.ProductForm;
 using Data.StoreData;
 using DevExpress.XtraBars;
 using DevExpress.XtraBars.Ribbon;
+using Domain.Entities.Users;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace ContosoUI
 {
     public partial class MainForm : RibbonForm
-    {
+    {         
         public MainForm()
         {
             InitializeComponent();
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            ShowDependentOnRole(LoginForm.CurrentUser.Role);
+        }
+
+        private void ShowDependentOnRole (Role role)
+        {
+            if (!role.Permissions.Where(x => x.Title == "Add User").Any()) 
+                UserBarButton.Visibility = BarItemVisibility.Never;
         }
 
         private void clientsMenuBtn_ItemClick(object sender, ItemClickEventArgs e)
@@ -31,16 +46,7 @@ namespace ContosoUI
             form.Show();
         }
 
-        private void exitMenuBtn_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            this.Close();
-        }
-
-        private void MainForm_Load(object sender, EventArgs e)
-        {
             Thread.CurrentThread.CurrentCulture = new CultureInfo("en-US");
-        }
-
         private void barUserButton_ItemClick(object sender, ItemClickEventArgs e)
         {
             var form = new UserForm.UserForm();
@@ -78,6 +84,26 @@ namespace ContosoUI
         {
             IProductView productView = new ProductView(1) {MdiParent = this};
             productView.ShowView();
+        }
+
+        private void MainForm_MdiChildActivate(object sender, EventArgs e)
+        {
+            pictureEdit1.Visible = false;
+        }
+
+        private void MainForm_Activated(object sender, EventArgs e)
+        {
+            pictureEdit1.Visible = true;
+        }
+
+        private void xtraTabbedMdiManager_PageRemoved(object sender, DevExpress.XtraTabbedMdi.MdiTabPageEventArgs e)
+        {
+            pictureEdit1.Visible = true;
+        }
+
+        private void ExitBarButton_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            this.Close();
         }
     }
 }

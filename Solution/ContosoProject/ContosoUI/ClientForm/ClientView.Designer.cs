@@ -182,6 +182,7 @@
             this.сlientRibbonClientPage.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.сlientRibbonPageClientGroup,
             this.сlientRibbonPageClientFileGroup});
+            this.сlientRibbonClientPage.MergeOrder = 50;
             this.сlientRibbonClientPage.Name = "сlientRibbonClientPage";
             this.сlientRibbonClientPage.Text = "RibbonMerge";
             // 
@@ -199,7 +200,7 @@
             this.сlientRibbonPageClientFileGroup.ItemLinks.Add(this.clientStateButton);
             this.сlientRibbonPageClientFileGroup.MergeOrder = 60;
             this.сlientRibbonPageClientFileGroup.Name = "сlientRibbonPageClientFileGroup";
-            this.сlientRibbonPageClientFileGroup.Text = "Client";
+            this.сlientRibbonPageClientFileGroup.Text = "Edit";
             // 
             // clientLayoutControl
             // 

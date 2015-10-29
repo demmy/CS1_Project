@@ -1,4 +1,6 @@
-﻿using System;
+﻿using DevExpress.XtraGrid.Views.Grid;
+using Domain.Entities.Orders;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Globalization;
@@ -63,11 +65,6 @@ namespace ContosoUI.OrderForm
                 newCommentTextBox.Enabled = true;
                 addCommentButton.Enabled = true;
             }
-        }
-
-        private void ribbon_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void orderSaveBarButton_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

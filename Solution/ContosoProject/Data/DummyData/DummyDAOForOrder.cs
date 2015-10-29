@@ -20,19 +20,23 @@ namespace Data.DummyData
         public ICollection<Order> GetBy(string orderNumber, Status status, Client client)
         {
             var result = Collection.AsQueryable();
+
             if (!string.IsNullOrWhiteSpace(orderNumber))
             {
                 return result.Where(x => x.OrderNumber == orderNumber).ToList();
             }
+
             if (client != null)
             {
                 result = result.Where(x => x.Client.Equals(client));
             }
-            if (status != Status.Undefined)
+
+            if (status != Status.All)
             {
                 result = result.Where(x => x.Status == status);
             }
-            if (!result.SequenceEqual(Collection.AsQueryable()))
+
+            if (!Equals(result, Collection.AsQueryable()))
             {
                 return result.ToList();
             }
@@ -68,8 +72,8 @@ namespace Data.DummyData
             }
             return new List<Order>();
         }
-
-        public void AddOrder(Product product, int quantity)
+        //TODO fix
+        public void AddOrder(Order order, Product product, int quantity)
         {
             if (!Contains(product))
             {
@@ -81,12 +85,12 @@ namespace Data.DummyData
             throw new Exception();
         }
 
-        public bool Contains(Product product)
+        private bool Contains(Product product)
         {
             return Collection.Any(x => x.OrderItems.Any(it => it.Product == product));
         }
-
-        public void RemoveOrder(Product product)
+        //TODO fix
+        public void RemoveOrder(Order order, Product product)
         {
             if (Contains(product))
             {
@@ -94,8 +98,8 @@ namespace Data.DummyData
             }
             throw new Exception();
         }
-
-        public void EditOrder(Product product, int quantity)
+        //TODO fix
+        public void EditOrder(Order order, Product product, int quantity)
         {
             if (Contains(product))
             {
@@ -104,7 +108,7 @@ namespace Data.DummyData
             }
             throw new Exception();
         }
-
+        [Obsolete("This method was used in case of sum of ALL the orders of target, now use GetAll and Sum for it")]
         public double Sum
         {
             get { return Collection.Sum(x => x.Sum); }

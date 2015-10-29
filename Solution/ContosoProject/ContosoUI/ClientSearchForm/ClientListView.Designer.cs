@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ClientListView));
             this.ribbonClientView = new DevExpress.XtraBars.Ribbon.RibbonControl();
-            this.addClientBarButton = new DevExpress.XtraBars.BarButtonItem();
             this.searchClientBarButton = new DevExpress.XtraBars.BarButtonItem();
             this.clearClientBarButton = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPageClientView = new DevExpress.XtraBars.Ribbon.RibbonPage();
@@ -74,7 +73,6 @@
             this.ribbonClientView.ExpandCollapseItem.Id = 0;
             this.ribbonClientView.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.ribbonClientView.ExpandCollapseItem,
-            this.addClientBarButton,
             this.searchClientBarButton,
             this.clearClientBarButton});
             this.ribbonClientView.Location = new System.Drawing.Point(0, 0);
@@ -82,18 +80,16 @@
             this.ribbonClientView.Name = "ribbonClientView";
             this.ribbonClientView.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPageClientView});
+            this.ribbonClientView.ShowApplicationButton = DevExpress.Utils.DefaultBoolean.False;
+            this.ribbonClientView.ShowCategoryInCaption = false;
+            this.ribbonClientView.ShowExpandCollapseButton = DevExpress.Utils.DefaultBoolean.False;
+            this.ribbonClientView.ShowFullScreenButton = DevExpress.Utils.DefaultBoolean.False;
             this.ribbonClientView.ShowPageHeadersMode = DevExpress.XtraBars.Ribbon.ShowPageHeadersMode.Hide;
-            this.ribbonClientView.Size = new System.Drawing.Size(1014, 143);
+            this.ribbonClientView.ShowQatLocationSelector = false;
+            this.ribbonClientView.ShowToolbarCustomizeItem = false;
+            this.ribbonClientView.Size = new System.Drawing.Size(1014, 122);
             this.ribbonClientView.StatusBar = this.ribbonStatusBar;
-            // 
-            // addClientBarButton
-            // 
-            this.addClientBarButton.Caption = "Add";
-            this.addClientBarButton.Glyph = ((System.Drawing.Image)(resources.GetObject("addClientBarButton.Glyph")));
-            this.addClientBarButton.Id = 1;
-            this.addClientBarButton.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("addClientBarButton.LargeGlyph")));
-            this.addClientBarButton.Name = "addClientBarButton";
-            this.addClientBarButton.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.addClientBarButton_ItemClick);
+            this.ribbonClientView.Toolbar.ShowCustomizeItem = false;
             // 
             // searchClientBarButton
             // 
@@ -117,16 +113,17 @@
             // 
             this.ribbonPageClientView.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.ClientFileRibbonPageGroup});
+            this.ribbonPageClientView.MergeOrder = 50;
             this.ribbonPageClientView.Name = "ribbonPageClientView";
             this.ribbonPageClientView.Text = "RibbonMerge";
             // 
             // ClientFileRibbonPageGroup
             // 
-            this.ClientFileRibbonPageGroup.ItemLinks.Add(this.addClientBarButton);
             this.ClientFileRibbonPageGroup.ItemLinks.Add(this.searchClientBarButton);
             this.ClientFileRibbonPageGroup.ItemLinks.Add(this.clearClientBarButton);
+            this.ClientFileRibbonPageGroup.MergeOrder = 50;
             this.ClientFileRibbonPageGroup.Name = "ClientFileRibbonPageGroup";
-            this.ClientFileRibbonPageGroup.Text = "File";
+            this.ClientFileRibbonPageGroup.Text = "Search";
             // 
             // ribbonStatusBar
             // 
@@ -142,10 +139,10 @@
             this.layoutControlClientView.Controls.Add(this.clientLastNameTextEdit);
             this.layoutControlClientView.Controls.Add(this.clientFirstNameTextEdit);
             this.layoutControlClientView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.layoutControlClientView.Location = new System.Drawing.Point(0, 143);
+            this.layoutControlClientView.Location = new System.Drawing.Point(0, 122);
             this.layoutControlClientView.Name = "layoutControlClientView";
             this.layoutControlClientView.Root = this.layoutControlGroupClientView;
-            this.layoutControlClientView.Size = new System.Drawing.Size(1014, 593);
+            this.layoutControlClientView.Size = new System.Drawing.Size(1014, 614);
             this.layoutControlClientView.TabIndex = 2;
             this.layoutControlClientView.Text = "layoutControl1";
             // 
@@ -155,7 +152,7 @@
             this.clientsGridControl.MainView = this.clientsGridView;
             this.clientsGridControl.MenuManager = this.ribbonClientView;
             this.clientsGridControl.Name = "clientsGridControl";
-            this.clientsGridControl.Size = new System.Drawing.Size(980, 509);
+            this.clientsGridControl.Size = new System.Drawing.Size(980, 530);
             this.clientsGridControl.TabIndex = 7;
             this.clientsGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.clientsGridView});
@@ -272,7 +269,7 @@
             this.layoutControlClientCity});
             this.layoutControlGroupClientView.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroupClientView.Name = "layoutControlGroupClientView";
-            this.layoutControlGroupClientView.Size = new System.Drawing.Size(1014, 593);
+            this.layoutControlGroupClientView.Size = new System.Drawing.Size(1014, 614);
             this.layoutControlGroupClientView.TextVisible = false;
             // 
             // layoutControlClientFirstName
@@ -293,7 +290,7 @@
             this.layoutControlClientsGridControl.Location = new System.Drawing.Point(0, 50);
             this.layoutControlClientsGridControl.Name = "layoutControlClientsGridControl";
             this.layoutControlClientsGridControl.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
-            this.layoutControlClientsGridControl.Size = new System.Drawing.Size(994, 523);
+            this.layoutControlClientsGridControl.Size = new System.Drawing.Size(994, 544);
             this.layoutControlClientsGridControl.Spacing = new DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 2);
             this.layoutControlClientsGridControl.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlClientsGridControl.TextVisible = false;
@@ -367,7 +364,6 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlClientFirstName;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlClientLastName;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlClientCity;
-        private DevExpress.XtraBars.BarButtonItem addClientBarButton;
         private DevExpress.XtraBars.BarButtonItem searchClientBarButton;
         private DevExpress.XtraBars.BarButtonItem clearClientBarButton;
         private DevExpress.XtraGrid.GridControl clientsGridControl;

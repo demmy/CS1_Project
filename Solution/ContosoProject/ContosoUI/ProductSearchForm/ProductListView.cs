@@ -10,6 +10,9 @@ using System.Windows.Forms;
 using DevExpress.XtraBars;
 using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraGrid.Views.Grid.ViewInfo;
+using Domain.Entities.Users;
+using Domain.DAO;
+using Data.DummyData;
 
 namespace ContosoUI.ProductSearchForm
 {
@@ -24,16 +27,24 @@ namespace ContosoUI.ProductSearchForm
             presenter = new ProductListPresenter(this);
         }
 
+        private void ShowDependentOnRole(Role role)
+        {
+            //if (role.Permissions.Where(x => x.Title == "Search Product By Category").Count() == 0)
+            //    categoryLookUpEdit.Enabled = false;
+        }
+
         private void ProductListView_Load(object sender, EventArgs e)
         {
+            ShowDependentOnRole(LoginForm.CurrentUser.Role);
+
             binding.DataSource = presenter;
 
             skuTextEdit.DataBindings.Add("EditValue", binding, "SKU", false, DataSourceUpdateMode.OnPropertyChanged);
             productTitleTextEdit.DataBindings.Add("EditValue", binding, "Title", false, DataSourceUpdateMode.OnPropertyChanged);
             productsGridControl.DataBindings.Add("DataSource", binding, "Products", false, DataSourceUpdateMode.OnPropertyChanged);
-            categoryLookUpEdit.DataBindings.Add("EditValue", binding, "CategoryID", false, DataSourceUpdateMode.OnPropertyChanged);            
-
+           
             categoryLookUpEdit.Properties.DataSource = presenter.CategoriesList;
+            categoryLookUpEdit.DataBindings.Add("EditValue", binding, "CategoryID", false, DataSourceUpdateMode.OnPropertyChanged);            
             categoryLookUpEdit.Properties.ValueMember = "Id";
             categoryLookUpEdit.Properties.DisplayMember = "Title";
         }
@@ -42,17 +53,12 @@ namespace ContosoUI.ProductSearchForm
         {
             binding.EndEdit();
             presenter.Search();
-            productsGridControl.DataSource = presenter.Products;
         }
 
         private void clearProductBarButton_ItemClick(object sender, ItemClickEventArgs e)
         {
+            binding.EndEdit();
             presenter.Clear();
-        }
-
-        private void addProductBarButton_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            presenter.Add();
         }
 
         private void productsGridView_DoubleClick(object sender, EventArgs e)

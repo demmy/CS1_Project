@@ -135,7 +135,6 @@
             this.orderRibbon.Size = new System.Drawing.Size(1014, 122);
             this.orderRibbon.StatusBar = this.orderRibbonStatusBar;
             this.orderRibbon.Toolbar.ShowCustomizeItem = false;
-            this.orderRibbon.Click += new System.EventHandler(this.ribbon_Click);
             // 
             // orderSaveAndNewBarButton
             // 
@@ -504,27 +503,30 @@
             this.orderTabbedControlOrderAndCommentGroup.Size = new System.Drawing.Size(751, 594);
             this.orderTabbedControlOrderAndCommentGroup.TabPages.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlDataGrid});
-            // 
             // layoutControlDataGrid
             // 
             this.layoutControlDataGrid.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlOrderGrid});
             this.layoutControlDataGrid.Location = new System.Drawing.Point(0, 0);
             this.layoutControlDataGrid.Name = "layoutControlDataGrid";
-            this.layoutControlDataGrid.Size = new System.Drawing.Size(727, 548);
+            this.layoutControlDataGrid.Size = new System.Drawing.Size(629, 548);
             this.layoutControlDataGrid.Text = "Order";
             // 
             // layoutControlOrderGrid
             // 
-            this.layoutControlOrderGrid.Control = this.gridSplitContainer1;
+            this.layoutControlOrderGrid.Control = this.orderGridControl;
             this.layoutControlOrderGrid.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlOrderGrid.MinSize = new System.Drawing.Size(50, 25);
             this.layoutControlOrderGrid.Name = "layoutControlOrderGrid";
-            this.layoutControlOrderGrid.Size = new System.Drawing.Size(727, 548);
-            this.layoutControlOrderGrid.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.layoutControlOrderGrid.Size = new System.Drawing.Size(629, 548);
             this.layoutControlOrderGrid.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlOrderGrid.TextVisible = false;
             // 
+            // 
+            this.layoutControlDataGrid.Size = new System.Drawing.Size(727, 548);
+            this.layoutControlOrderGrid.Control = this.gridSplitContainer1;
+            this.layoutControlOrderGrid.MinSize = new System.Drawing.Size(50, 25);
+            this.layoutControlOrderGrid.Size = new System.Drawing.Size(727, 548);
+            this.layoutControlOrderGrid.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             // layoutControlClientLookUp
             // 
             this.layoutControlClientLookUp.Control = this.clientLookUpEdit;
