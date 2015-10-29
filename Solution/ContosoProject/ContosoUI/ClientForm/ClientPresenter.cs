@@ -34,7 +34,8 @@ namespace ContosoUI.ClientForm
         private List<string> _telephones = new List<string>(); 
 
         BindingList<Order> _orders = new BindingList<Order>();
-        BindingList<Comment> _comments = new BindingList<Comment>();  
+        BindingList<Comment> _comments = new BindingList<Comment>();
+        public bool State { get; set; }
 
         public ClientPresenter(IClientView view, ClientModel model)
         {
@@ -56,10 +57,12 @@ namespace ContosoUI.ClientForm
             _city = _client.ClientLocation.City;
             _address = _client.ClientLocation.Address;
             _telephones = _client.Telephones.ToList();
+            State = _client.IsActive;
             _orders = new BindingList<Order>(_orderRepository.GetByClient(_client).ToList());
             _comments = new BindingList<Comment>(_client.Comments.ToList());
         }
 
+        #region Properties
         public string FirstName
         {
             get { return _firstName; }
@@ -147,11 +150,12 @@ namespace ContosoUI.ClientForm
                 NotifyPropertyChanged();
             }
         }
+        #endregion
 
         public void Save()
         {
             Client clientToSave = new Client(_telephones, _comments) {Person = new Person() { FirstName = _firstName, MiddleName = _middleName, LastName = _lastName}, 
-                ClientLocation = new Location() { Address = _address, City = _city}, Id = _client.Id};
+                ClientLocation = new Location() { Address = _address, City = _city}, Id = _client.Id, IsActive = State};
 
             if (clientToSave.Id != 0)
             {

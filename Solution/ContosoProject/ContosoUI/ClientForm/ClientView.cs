@@ -1,8 +1,13 @@
 ﻿using System;
+using System.Drawing;
 using System.Linq;
+using System.Resources;
 using System.Windows.Forms;
 using DevExpress.XtraGrid.EditForm.Helpers;
 using Domain.Entities.Comments;
+using DevExpress.XtraBars.Ribbon.Gallery;
+using DevExpress.Images;
+
 
 namespace ContosoUI.ClientForm
 {
@@ -13,6 +18,7 @@ namespace ContosoUI.ClientForm
         
         public ClientView()
         {
+            
             InitializeComponent();
             _presenter = new ClientPresenter(this, new ClientModel());
         }
@@ -44,6 +50,8 @@ namespace ContosoUI.ClientForm
 
             сlientOrdersGridControl.DataBindings.Add("DataSource", _binding, "Orders");
             clientCommentsListBoxControl.DataBindings.Add("DataSource", _binding, "Comments");
+
+            SetStateButtonState();
         }
 
         public void ShowView()
@@ -91,6 +99,26 @@ namespace ContosoUI.ClientForm
             {
                 _presenter.Comments.Add(new Comment() {Text =  сlientNewCommentTextBox.Text, EntityType = EntityType.Client, Author = null });
                 сlientNewCommentTextBox.Text = string.Empty;
+            }
+        }
+
+        private void clientStateButton_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            _presenter.State = !_presenter.State;
+            SetStateButtonState();
+        }
+
+        private void SetStateButtonState()
+        {
+            if (_presenter.State)
+            {
+                clientStateButton.Caption = "Remove";
+                clientStateButton.LargeGlyph = ImageResourceCache.Default.GetImage("images/edit/delete_32x32.png");
+            }
+            else
+            {
+                clientStateButton.Caption = "Activate";
+                clientStateButton.LargeGlyph = ImageResourceCache.Default.GetImage("images/actions/apply_32x32.png");
             }
         }
     }

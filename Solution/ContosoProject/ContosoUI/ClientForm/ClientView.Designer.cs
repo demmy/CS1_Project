@@ -35,7 +35,7 @@
             this.clientBarSaveButton = new DevExpress.XtraBars.BarButtonItem();
             this.clientBarSaveAndNewButton = new DevExpress.XtraBars.BarButtonItem();
             this.clientBarNewButton = new DevExpress.XtraBars.BarButtonItem();
-            this.clientBarRemoveRevertButton = new DevExpress.XtraBars.BarButtonItem();
+            this.clientStateButton = new DevExpress.XtraBars.BarButtonItem();
             this.сlientRibbonClientPage = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.сlientRibbonPageClientGroup = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.сlientRibbonPageClientFileGroup = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -124,7 +124,7 @@
             this.clientBarSaveButton,
             this.clientBarSaveAndNewButton,
             this.clientBarNewButton,
-            this.clientBarRemoveRevertButton});
+            this.clientStateButton});
             this.сlientRibbon.Location = new System.Drawing.Point(0, 0);
             this.сlientRibbon.MaxItemId = 8;
             this.сlientRibbon.Name = "сlientRibbon";
@@ -168,13 +168,14 @@
             this.clientBarNewButton.Name = "clientBarNewButton";
             this.clientBarNewButton.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.clientBarClearButton_ItemClick);
             // 
-            // clientBarRemoveRevertButton
+            // clientStateButton
             // 
-            this.clientBarRemoveRevertButton.Caption = "Remove(revert)";
-            this.clientBarRemoveRevertButton.Glyph = ((System.Drawing.Image)(resources.GetObject("clientBarRemoveRevertButton.Glyph")));
-            this.clientBarRemoveRevertButton.Id = 7;
-            this.clientBarRemoveRevertButton.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("clientBarRemoveRevertButton.LargeGlyph")));
-            this.clientBarRemoveRevertButton.Name = "clientBarRemoveRevertButton";
+            this.clientStateButton.Caption = "Remove";
+            this.clientStateButton.Glyph = ((System.Drawing.Image)(resources.GetObject("clientStateButton.Glyph")));
+            this.clientStateButton.Id = 7;
+            this.clientStateButton.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("clientStateButton.LargeGlyph")));
+            this.clientStateButton.Name = "clientStateButton";
+            this.clientStateButton.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.clientStateButton_ItemClick);
             // 
             // сlientRibbonClientPage
             // 
@@ -189,12 +190,14 @@
             this.сlientRibbonPageClientGroup.ItemLinks.Add(this.clientBarSaveButton);
             this.сlientRibbonPageClientGroup.ItemLinks.Add(this.clientBarSaveAndNewButton);
             this.сlientRibbonPageClientGroup.ItemLinks.Add(this.clientBarNewButton);
+            this.сlientRibbonPageClientGroup.MergeOrder = 50;
             this.сlientRibbonPageClientGroup.Name = "сlientRibbonPageClientGroup";
             this.сlientRibbonPageClientGroup.Text = "File";
             // 
             // сlientRibbonPageClientFileGroup
             // 
-            this.сlientRibbonPageClientFileGroup.ItemLinks.Add(this.clientBarRemoveRevertButton);
+            this.сlientRibbonPageClientFileGroup.ItemLinks.Add(this.clientStateButton);
+            this.сlientRibbonPageClientFileGroup.MergeOrder = 60;
             this.сlientRibbonPageClientFileGroup.Name = "сlientRibbonPageClientFileGroup";
             this.сlientRibbonPageClientFileGroup.Text = "Client";
             // 
@@ -664,7 +667,7 @@
         private DevExpress.XtraBars.BarButtonItem clientBarSaveButton;
         private DevExpress.XtraBars.BarButtonItem clientBarSaveAndNewButton;
         private DevExpress.XtraBars.BarButtonItem clientBarNewButton;
-        private DevExpress.XtraBars.BarButtonItem clientBarRemoveRevertButton;
+        private DevExpress.XtraBars.BarButtonItem clientStateButton;
         private DevExpress.XtraBars.Ribbon.RibbonPage сlientRibbonClientPage;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup сlientRibbonPageClientGroup;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup сlientRibbonPageClientFileGroup;

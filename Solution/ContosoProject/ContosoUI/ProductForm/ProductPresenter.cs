@@ -288,5 +288,7 @@ namespace ContosoUI.ProductForm
             get { return _categoryInUse; }
             set { _categoryInUse = value; }
         }
+
+        public bool State { get; set; }
     }
 }

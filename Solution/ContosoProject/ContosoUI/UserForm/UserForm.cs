@@ -1,8 +1,11 @@
 ﻿using System;
+using System.Drawing;
 using System.Windows.Forms;
+using DevExpress.Images;
 using DevExpress.XtraBars;
 using DevExpress.XtraBars.Ribbon;
 using Domain.Entities.Comments;
+using Domain.Entities.Users;
 
 namespace ContosoUI.UserForm
 {
@@ -22,7 +25,6 @@ namespace ContosoUI.UserForm
             InitializeComponent();
             _presenter = new UserPresenter(this, new UserModel());
             _presenter.GetUser(id);
-            stateButtonText();
         }      
   
         private void UserForm_Load(object sender, EventArgs e)
@@ -40,30 +42,29 @@ namespace ContosoUI.UserForm
             passwordTextEdit.DataBindings.Add("EditValue", binding, "Password");
             roleLookUpEdit.DataBindings.Add("EditValue", binding, "RoleID");
             permissionListBoxControl.DataBindings.Add("DataSource", binding, "Permissions");
-        }
-
-        public void RefreshForm()
-        {
-            stateButtonText();
-        }
-
-        private void closeButton_Click(object sender, EventArgs e)
-        {
-            _presenter.New();
+            SetStateButtonState();
         }
 
         private void stateButton_ItemClick(object sender, ItemClickEventArgs e)
         {
             _presenter.State = !_presenter.State;
+            SetStateButtonState();
         }
 
-        private void stateButtonText()
+       private void SetStateButtonState()
         {
             if (_presenter.State)
-                stateButton.Caption = "Remove";
+            {
+                userStateButton.Caption = "Remove";
+                userStateButton.LargeGlyph = ImageResourceCache.Default.GetImage("images/edit/delete_32x32.png");
+            }
             else
-                stateButton.Caption = "Revert";
+            {
+                userStateButton.Caption = "Activate";
+                userStateButton.LargeGlyph = ImageResourceCache.Default.GetImage("images/actions/apply_32x32.png");
+            }
         }
+    
 
         private void barSaveButton_ItemClick(object sender, ItemClickEventArgs e)
         {
@@ -92,6 +93,18 @@ namespace ContosoUI.UserForm
             {
                 addCommentButton_Click(this, e);
             }
-        }     
+        }
+
+        private void roleLookUpEdit_EditValueChanged(object sender, EventArgs e)
+        {
+            var role = roleLookUpEdit.EditValue as Role;
+            if (role != null) _presenter.RoleID = role.Id;
+            binding.EndEdit();
+        }
+
+        private void barNewButton_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            _presenter.New();
+        }
     }
 }

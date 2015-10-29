@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Windows.Forms;
+using DevExpress.Images;
 using DevExpress.XtraEditors.Controls;
 using Domain.Entities.Comments;
 
@@ -38,6 +39,7 @@ namespace ContosoUI.OrderForm
             commentsListBox.DataBindings.Add("DataSource", binding, "Comments");
 
             repositoryProductLookUpEdit.DataSource = _presenter.Products;
+            SetStateButtonState();
 
             SetActivityOfComments();
         }
@@ -108,6 +110,25 @@ namespace ContosoUI.OrderForm
 
         private void orderGridView_InitNewRow(object sender, DevExpress.XtraGrid.Views.Grid.InitNewRowEventArgs e)
         {
+        }
+
+        private void barStateButton_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            _presenter.State = !_presenter.State;
+            SetStateButtonState();
+        }
+        private void SetStateButtonState()
+        {
+            if (_presenter.State)
+            {
+                barStateButton.Caption = "Remove";
+                barStateButton.LargeGlyph = ImageResourceCache.Default.GetImage("images/edit/delete_32x32.png");
+            }
+            else
+            {
+                barStateButton.Caption = "Activate";
+                barStateButton.LargeGlyph = ImageResourceCache.Default.GetImage("images/actions/apply_32x32.png");
+            }
         }
     }
 }

@@ -36,6 +36,7 @@ namespace ContosoUI.OrderForm
         
         private BindingList<Comment> _comments = new BindingList<Comment>(); 
         private BindingList<OrderItem> _orderItems = new BindingList<OrderItem>();
+        public bool State { get; set; }
 
         public OrderPresenter(OrderModel model, IOrderView view)
         {
@@ -116,7 +117,7 @@ namespace ContosoUI.OrderForm
             {
                 Client = _client,
                 Date = _date,
-                IsActive = true,
+                IsActive = State,
                 Status = _status,
                 OrderNumber = _orderNumber
             };
@@ -150,6 +151,7 @@ namespace ContosoUI.OrderForm
             _orderNumber = string.Empty;
             _status = Status.Opened;
             _date = DateTime.Now;
+            State = true;
             _orderItems = new BindingList<OrderItem>();
             _comments = new BindingList<Comment>();
         }

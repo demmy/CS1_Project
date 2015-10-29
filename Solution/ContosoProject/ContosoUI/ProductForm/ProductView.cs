@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Windows.Forms;
+using DevExpress.Images;
 using DevExpress.XtraBars;
 using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraGrid.Views.Grid.ViewInfo;
@@ -48,6 +49,7 @@ namespace ContosoUI.ProductForm
             categorySearchControl.DataBindings.Add("EditValue", _binding, "SearchTitleCategory");
             productCommentsListBoxControl.DataBindings.Add("DataSource", _binding, "ProductComments");
             categoryGridControl.DataBindings.Add("DataSource", _binding, "Categories");
+            SetStateButtonState();
         }
 
         public void ShowView()
@@ -172,6 +174,25 @@ namespace ContosoUI.ProductForm
             _presenter.UseCategoryWithID(id);
             categoryCommentsListBoxControl.DataBindings.Add("DataSource", _binding, "CategoryComments");
             
+        }
+
+        private void productStateButton_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            _presenter.IsActive = !_presenter.IsActive;
+            SetStateButtonState();
+        }
+        private void SetStateButtonState()
+        {
+            if (_presenter.IsActive)
+            {
+                productStateButton.Caption = "Remove";
+                productStateButton.LargeGlyph = ImageResourceCache.Default.GetImage("images/edit/delete_32x32.png");
+            }
+            else
+            {
+                productStateButton.Caption = "Activate";
+                productStateButton.LargeGlyph = ImageResourceCache.Default.GetImage("images/actions/apply_32x32.png");
+            }
         }
     }
 }

@@ -40,7 +40,7 @@ namespace ContosoUI.UserForm
             this.barSaveButton = new DevExpress.XtraBars.BarButtonItem();
             this.barSaveAndNewButton = new DevExpress.XtraBars.BarButtonItem();
             this.barNewButton = new DevExpress.XtraBars.BarButtonItem();
-            this.stateButton = new DevExpress.XtraBars.BarButtonItem();
+            this.userStateButton = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageUserGroup = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageUserFileGroup = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -113,7 +113,7 @@ namespace ContosoUI.UserForm
             this.barSaveButton,
             this.barSaveAndNewButton,
             this.barNewButton,
-            this.stateButton});
+            this.userStateButton});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
             this.ribbon.MaxItemId = 7;
             this.ribbon.Name = "ribbon";
@@ -156,15 +156,17 @@ namespace ContosoUI.UserForm
             this.barNewButton.Id = 5;
             this.barNewButton.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barNewButton.LargeGlyph")));
             this.barNewButton.Name = "barNewButton";
+            this.barNewButton.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barNewButton_ItemClick);
             // 
-            // stateButton
+            // userStateButton
             // 
-            this.stateButton.Caption = "Remove(revert)";
-            this.stateButton.Glyph = ((System.Drawing.Image)(resources.GetObject("stateButton.Glyph")));
-            this.stateButton.Id = 6;
-            this.stateButton.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("stateButton.LargeGlyph")));
-            this.stateButton.Name = "stateButton";
-            this.stateButton.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.stateButton_ItemClick);
+            this.userStateButton.Caption = "Remove";
+            this.userStateButton.Glyph = ((System.Drawing.Image)(resources.GetObject("userStateButton.Glyph")));
+            this.userStateButton.Id = 6;
+            this.userStateButton.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("userStateButton.LargeGlyph")));
+            this.userStateButton.LargeImageIndex = 100;
+            this.userStateButton.Name = "userStateButton";
+            this.userStateButton.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.stateButton_ItemClick);
             // 
             // ribbonPage
             // 
@@ -179,14 +181,16 @@ namespace ContosoUI.UserForm
             this.ribbonPageUserGroup.ItemLinks.Add(this.barSaveButton);
             this.ribbonPageUserGroup.ItemLinks.Add(this.barSaveAndNewButton);
             this.ribbonPageUserGroup.ItemLinks.Add(this.barNewButton);
+            this.ribbonPageUserGroup.MergeOrder = 50;
             this.ribbonPageUserGroup.Name = "ribbonPageUserGroup";
             this.ribbonPageUserGroup.Text = "User";
             // 
             // ribbonPageUserFileGroup
             // 
-            this.ribbonPageUserFileGroup.ItemLinks.Add(this.stateButton);
+            this.ribbonPageUserFileGroup.ItemLinks.Add(this.userStateButton);
+            this.ribbonPageUserFileGroup.MergeOrder = 60;
             this.ribbonPageUserFileGroup.Name = "ribbonPageUserFileGroup";
-            this.ribbonPageUserFileGroup.Text = "???";
+            this.ribbonPageUserFileGroup.Text = "Edit";
             // 
             // ribbonStatusBar
             // 
@@ -308,6 +312,7 @@ namespace ContosoUI.UserForm
             this.roleLookUpEdit.Size = new System.Drawing.Size(325, 20);
             this.roleLookUpEdit.StyleController = this.layoutControl;
             this.roleLookUpEdit.TabIndex = 6;
+            this.roleLookUpEdit.EditValueChanged += new System.EventHandler(this.roleLookUpEdit_EditValueChanged);
             // 
             // layoutControlEntireGroup
             // 
@@ -595,7 +600,7 @@ namespace ContosoUI.UserForm
         private LayoutControlItem layoutControlFirstNameTextEdit;
         private LayoutControlItem middleNameLayoutControl;
         private LayoutControlItem layoutControlLastNameTextEdit;
-        private BarButtonItem stateButton;
+        private BarButtonItem userStateButton;
         private RibbonPageGroup ribbonPageUserFileGroup;
         private LookUpEdit roleLookUpEdit;
     }

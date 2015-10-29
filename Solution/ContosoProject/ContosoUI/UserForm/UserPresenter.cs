@@ -133,6 +133,7 @@ namespace ContosoUI.UserForm
             set
             {
                 Role = RoleList.FirstOrDefault(x => x.Id == value);
+                if (Role != null) Permissions = new BindingList<Permission>(Role.Permissions.ToList());
                 NotifyPropertyChanged();
             }
         }

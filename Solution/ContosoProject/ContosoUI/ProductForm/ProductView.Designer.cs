@@ -86,6 +86,10 @@ namespace ContosoUI.ProductForm
             this.layoutControlCategoryNewCommetTextEdit = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutCategorySearchControl = new DevExpress.XtraLayout.LayoutControlItem();
             this.splitter = new DevExpress.XtraLayout.SplitterItem();
+            this.productStateButton = new DevExpress.XtraBars.BarButtonItem();
+            this.idColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.titleColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.dateColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.popupControlNewCategoryContainer)).BeginInit();
             this.popupControlNewCategoryContainer.SuspendLayout();
@@ -140,9 +144,10 @@ namespace ContosoUI.ProductForm
             this.barSaveButton,
             this.barSaveAndNewButton,
             this.barNewButton,
-            this.barAddNewCategoryButton});
+            this.barAddNewCategoryButton,
+            this.productStateButton});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 18;
+            this.ribbon.MaxItemId = 19;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonProductCategoryPage});
@@ -290,7 +295,9 @@ namespace ContosoUI.ProductForm
             // 
             // ribbonPageGroup2
             // 
+            this.ribbonPageGroup2.Glyph = ((System.Drawing.Image)(resources.GetObject("ribbonPageGroup2.Glyph")));
             this.ribbonPageGroup2.ItemLinks.Add(this.barAddNewCategoryButton);
+            this.ribbonPageGroup2.ItemLinks.Add(this.productStateButton);
             this.ribbonPageGroup2.MergeOrder = 60;
             this.ribbonPageGroup2.Name = "ribbonPageGroup2";
             this.ribbonPageGroup2.Text = "Edit";
@@ -347,6 +354,10 @@ namespace ContosoUI.ProductForm
             // 
             // categoryGridView
             // 
+            this.categoryGridView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.idColumn,
+            this.titleColumn,
+            this.dateColumn});
             this.categoryGridView.GridControl = this.categoryGridControl;
             this.categoryGridView.Name = "categoryGridView";
             this.categoryGridView.OptionsBehavior.Editable = false;
@@ -724,6 +735,41 @@ namespace ContosoUI.ProductForm
             this.splitter.Name = "splitter";
             this.splitter.Size = new System.Drawing.Size(5, 594);
             // 
+            // productStateButton
+            // 
+            this.productStateButton.Caption = "RemoveActivate";
+            this.productStateButton.Glyph = ((System.Drawing.Image)(resources.GetObject("productStateButton.Glyph")));
+            this.productStateButton.Id = 18;
+            this.productStateButton.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("productStateButton.LargeGlyph")));
+            this.productStateButton.Name = "productStateButton";
+            this.productStateButton.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.productStateButton_ItemClick);
+            // 
+            // idColumn
+            // 
+            this.idColumn.Caption = "ID";
+            this.idColumn.FieldName = "Id";
+            this.idColumn.MaxWidth = 30;
+            this.idColumn.Name = "idColumn";
+            this.idColumn.Visible = true;
+            this.idColumn.VisibleIndex = 0;
+            this.idColumn.Width = 30;
+            // 
+            // titleColumn
+            // 
+            this.titleColumn.Caption = "Title";
+            this.titleColumn.FieldName = "Title";
+            this.titleColumn.Name = "titleColumn";
+            this.titleColumn.Visible = true;
+            this.titleColumn.VisibleIndex = 1;
+            // 
+            // dateColumn
+            // 
+            this.dateColumn.Caption = "Date";
+            this.dateColumn.FieldName = "Date";
+            this.dateColumn.Name = "dateColumn";
+            this.dateColumn.Visible = true;
+            this.dateColumn.VisibleIndex = 2;
+            // 
             // ProductView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -843,5 +889,9 @@ namespace ContosoUI.ProductForm
         private BarButtonItem barSaveAndNewButton;
         private BarButtonItem barNewButton;
         private BarButtonItem barAddNewCategoryButton;
+        private BarButtonItem productStateButton;
+        private DevExpress.XtraGrid.Columns.GridColumn idColumn;
+        private DevExpress.XtraGrid.Columns.GridColumn titleColumn;
+        private DevExpress.XtraGrid.Columns.GridColumn dateColumn;
     }
 }

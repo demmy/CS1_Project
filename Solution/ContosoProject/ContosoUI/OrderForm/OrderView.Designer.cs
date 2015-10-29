@@ -33,7 +33,7 @@
             this.orderSaveAndNewBarButton = new DevExpress.XtraBars.BarButtonItem();
             this.orderSaveBarButton = new DevExpress.XtraBars.BarButtonItem();
             this.ClearBarButton = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
+            this.barStateButton = new DevExpress.XtraBars.BarButtonItem();
             this.orderRibbonPageOrderView = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.orderRibbonPageFileGroup = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.orderRibbonPageOrderGroup = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -111,7 +111,7 @@
             this.orderSaveAndNewBarButton,
             this.orderSaveBarButton,
             this.ClearBarButton,
-            this.barButtonItem1});
+            this.barStateButton});
             this.orderRibbon.Location = new System.Drawing.Point(0, 0);
             this.orderRibbon.MaxItemId = 5;
             this.orderRibbon.Name = "orderRibbon";
@@ -157,13 +157,14 @@
             this.ClearBarButton.Name = "ClearBarButton";
             this.ClearBarButton.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.ClearBarButton_ItemClick);
             // 
-            // barButtonItem1
+            // barStateButton
             // 
-            this.barButtonItem1.Caption = "Remove(Revert)";
-            this.barButtonItem1.Glyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.Glyph")));
-            this.barButtonItem1.Id = 4;
-            this.barButtonItem1.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.LargeGlyph")));
-            this.barButtonItem1.Name = "barButtonItem1";
+            this.barStateButton.Caption = "Remove";
+            this.barStateButton.Glyph = ((System.Drawing.Image)(resources.GetObject("barStateButton.Glyph")));
+            this.barStateButton.Id = 4;
+            this.barStateButton.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barStateButton.LargeGlyph")));
+            this.barStateButton.Name = "barStateButton";
+            this.barStateButton.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barStateButton_ItemClick);
             // 
             // orderRibbonPageOrderView
             // 
@@ -185,7 +186,7 @@
             // 
             // orderRibbonPageOrderGroup
             // 
-            this.orderRibbonPageOrderGroup.ItemLinks.Add(this.barButtonItem1);
+            this.orderRibbonPageOrderGroup.ItemLinks.Add(this.barStateButton);
             this.orderRibbonPageOrderGroup.MergeOrder = 60;
             this.orderRibbonPageOrderGroup.Name = "orderRibbonPageOrderGroup";
             this.orderRibbonPageOrderGroup.Text = "Edit";
@@ -627,7 +628,7 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlOrderGrid;
         private DevExpress.XtraEditors.LookUpEdit clientLookUpEdit;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlClientLookUp;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem1;
+        private DevExpress.XtraBars.BarButtonItem barStateButton;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup orderRibbonPageOrderGroup;
         private DevExpress.XtraEditors.LookUpEdit orderStatusLookUpEdit;
         private DevExpress.XtraLayout.SplitterItem splitterItem1;
