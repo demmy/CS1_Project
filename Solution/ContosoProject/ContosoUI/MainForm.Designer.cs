@@ -229,7 +229,7 @@ namespace ContosoUI
             // pictureEdit1
             // 
             this.pictureEdit1.EditValue = ((object)(resources.GetObject("pictureEdit1.EditValue")));
-            this.pictureEdit1.Location = new System.Drawing.Point(0, 149);
+            this.pictureEdit1.Location = new System.Drawing.Point(0, 436);
             this.pictureEdit1.Name = "pictureEdit1";
             this.pictureEdit1.Properties.AllowFocused = false;
             this.pictureEdit1.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
@@ -237,7 +237,7 @@ namespace ContosoUI
             this.pictureEdit1.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
             this.pictureEdit1.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Squeeze;
             this.pictureEdit1.Properties.UseDisabledStatePainter = false;
-            this.pictureEdit1.Size = new System.Drawing.Size(764, 482);
+            this.pictureEdit1.Size = new System.Drawing.Size(764, 195);
             this.pictureEdit1.TabIndex = 4;
             // 
             // MainForm
