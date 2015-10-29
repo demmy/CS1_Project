@@ -45,7 +45,7 @@
             this.addCommentButton = new DevExpress.XtraEditors.SimpleButton();
             this.newCommentTextBox = new System.Windows.Forms.TextBox();
             this.commentsListBox = new DevExpress.XtraEditors.ListBoxControl();
-            this.gridSplitContainer1 = new DevExpress.XtraGrid.GridSplitContainer();
+            this.gridSplitContainer = new DevExpress.XtraGrid.GridSplitContainer();
             this.orderGridControl = new DevExpress.XtraGrid.GridControl();
             this.orderItembindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.orderGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -80,8 +80,8 @@
             this.orderViewLayoutControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.clientLookUpEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.commentsListBox)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridSplitContainer1)).BeginInit();
-            this.gridSplitContainer1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridSplitContainer)).BeginInit();
+            this.gridSplitContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.orderGridControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.orderItembindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.orderGridView)).BeginInit();
@@ -220,7 +220,7 @@
             this.orderViewLayoutControl.Controls.Add(this.addCommentButton);
             this.orderViewLayoutControl.Controls.Add(this.newCommentTextBox);
             this.orderViewLayoutControl.Controls.Add(this.commentsListBox);
-            this.orderViewLayoutControl.Controls.Add(this.gridSplitContainer1);
+            this.orderViewLayoutControl.Controls.Add(this.gridSplitContainer);
             this.orderViewLayoutControl.Controls.Add(this.orderDateEdit);
             this.orderViewLayoutControl.Controls.Add(this.orderNumberTextEdit);
             this.orderViewLayoutControl.Controls.Add(this.orderStatusLookUpEdit);
@@ -269,14 +269,14 @@
             this.commentsListBox.StyleController = this.orderViewLayoutControl;
             this.commentsListBox.TabIndex = 9;
             // 
-            // gridSplitContainer1
+            // gridSplitContainer
             // 
-            this.gridSplitContainer1.Grid = this.orderGridControl;
-            this.gridSplitContainer1.Location = new System.Drawing.Point(267, 46);
-            this.gridSplitContainer1.Name = "gridSplitContainer1";
-            this.gridSplitContainer1.Panel1.Controls.Add(this.orderGridControl);
-            this.gridSplitContainer1.Size = new System.Drawing.Size(723, 544);
-            this.gridSplitContainer1.TabIndex = 13;
+            this.gridSplitContainer.Grid = this.orderGridControl;
+            this.gridSplitContainer.Location = new System.Drawing.Point(267, 46);
+            this.gridSplitContainer.Name = "gridSplitContainer";
+            this.gridSplitContainer.Panel1.Controls.Add(this.orderGridControl);
+            this.gridSplitContainer.Size = new System.Drawing.Size(723, 544);
+            this.gridSplitContainer.TabIndex = 13;
             // 
             // orderGridControl
             // 
@@ -503,30 +503,27 @@
             this.orderTabbedControlOrderAndCommentGroup.Size = new System.Drawing.Size(751, 594);
             this.orderTabbedControlOrderAndCommentGroup.TabPages.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlDataGrid});
+            // 
             // layoutControlDataGrid
             // 
             this.layoutControlDataGrid.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlOrderGrid});
             this.layoutControlDataGrid.Location = new System.Drawing.Point(0, 0);
             this.layoutControlDataGrid.Name = "layoutControlDataGrid";
-            this.layoutControlDataGrid.Size = new System.Drawing.Size(629, 548);
+            this.layoutControlDataGrid.Size = new System.Drawing.Size(727, 548);
             this.layoutControlDataGrid.Text = "Order";
             // 
             // layoutControlOrderGrid
             // 
-            this.layoutControlOrderGrid.Control = this.orderGridControl;
+            this.layoutControlOrderGrid.Control = this.gridSplitContainer;
             this.layoutControlOrderGrid.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlOrderGrid.MinSize = new System.Drawing.Size(50, 25);
             this.layoutControlOrderGrid.Name = "layoutControlOrderGrid";
-            this.layoutControlOrderGrid.Size = new System.Drawing.Size(629, 548);
+            this.layoutControlOrderGrid.Size = new System.Drawing.Size(727, 548);
+            this.layoutControlOrderGrid.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlOrderGrid.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlOrderGrid.TextVisible = false;
             // 
-            // 
-            this.layoutControlDataGrid.Size = new System.Drawing.Size(727, 548);
-            this.layoutControlOrderGrid.Control = this.gridSplitContainer1;
-            this.layoutControlOrderGrid.MinSize = new System.Drawing.Size(50, 25);
-            this.layoutControlOrderGrid.Size = new System.Drawing.Size(727, 548);
-            this.layoutControlOrderGrid.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             // layoutControlClientLookUp
             // 
             this.layoutControlClientLookUp.Control = this.clientLookUpEdit;
@@ -599,8 +596,8 @@
             this.orderViewLayoutControl.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.clientLookUpEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.commentsListBox)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridSplitContainer1)).EndInit();
-            this.gridSplitContainer1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gridSplitContainer)).EndInit();
+            this.gridSplitContainer.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.orderGridControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.orderItembindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.orderGridView)).EndInit();
@@ -669,7 +666,7 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit orderRrepositoryPriceTextEdit;
         private DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit orderRepositoryItemSpinEdit;
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit orderRepositoryItemButtonEdit;
-        private DevExpress.XtraGrid.GridSplitContainer gridSplitContainer1;
+        private DevExpress.XtraGrid.GridSplitContainer gridSplitContainer;
         private DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit orderRepositoryPriceSpinEdit;
         private System.Windows.Forms.BindingSource orderItembindingSource;
         private DevExpress.XtraGrid.Columns.GridColumn colId;
