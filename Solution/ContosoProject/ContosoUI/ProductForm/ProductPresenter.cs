@@ -21,7 +21,9 @@ namespace ContosoUI.ProductForm
         ICategoryRepository _categoryRepository = new DummyDAOForCategory();
         
         private Product _product = new Product();
-        private int ID { get; set; }
+
+       
+
         private bool _isActive;
         private string _sku = string.Empty;
         private string _title = string.Empty;
@@ -35,6 +37,8 @@ namespace ContosoUI.ProductForm
         private Category _categoryToSave = null;
         BindingList<Comment> _categoryComments = new BindingList<Comment>();
         private Category _categoryInUse = new Category();
+        private int _id;
+        private bool _state;
 
         public ProductPresenter(IProductView view, ProductModel model)
         {
@@ -53,13 +57,14 @@ namespace ContosoUI.ProductForm
         private void InitializeProductFields()
         {
             ID = _product.Id;
-            _isActive = _product.IsActive;
-            _sku = _product.SKU;
-            _title = _product.Title;
-            _quantity = _product.Quantity;
-            _price = _product.Price;
-            _category = _product.Category;
-            _productComments = new BindingList<Comment>(_product.Comments.ToList());
+            IsActive = _product.IsActive;
+            SKU = _product.SKU;
+            Title = _product.Title;
+            Quantity = _product.Quantity;
+            Price = _product.Price;
+            Category = _product.Category;
+            ProductComments = new BindingList<Comment>(_product.Comments.ToList());
+            SearchTitleCategory = string.Empty;
         }
 
         private void InitializeCategoryFields()
@@ -149,16 +154,7 @@ namespace ContosoUI.ProductForm
         public void New()
         {
             _product = new Product();
-
-            ID = 0;
-            _isActive = true;
-            SKU = string.Empty;
-            Title = string.Empty;
-            Quantity = 0;
-            Price = 0;
-            Category = new Category();
-            ProductComments = new BindingList<Comment>(_product.Comments.ToList());
-            SearchTitleCategory = string.Empty;
+            InitializeProductFields();
         }
 
         public void AddCategoryWithTitle(string title)
@@ -289,6 +285,16 @@ namespace ContosoUI.ProductForm
             set { _categoryInUse = value; }
         }
 
-        public bool State { get; set; }
+        private int ID
+        {
+            get { return _id; }
+            set { _id = value; }
+        }
+
+        public bool State
+        {
+            get { return _state; }
+            set { _state = value; }
+        }
     }
 }

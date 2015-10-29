@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Globalization;
+using System.Threading;
 using ContosoUI.ClientForm;
 using ContosoUI.OrderForm;
 using ContosoUI.ProductForm;
@@ -36,7 +38,7 @@ namespace ContosoUI
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            
+            Thread.CurrentThread.CurrentCulture = new CultureInfo("en-US");
         }
 
         private void barUserButton_ItemClick(object sender, ItemClickEventArgs e)

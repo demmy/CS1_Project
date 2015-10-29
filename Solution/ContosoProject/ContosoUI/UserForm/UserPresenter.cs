@@ -209,7 +209,7 @@ namespace ContosoUI.UserForm
             FirstName = "";
             MiddleName = "";
             LastName = "";
-            State = false;
+            State = true;
             Role = new Role( );
             Permissions = new BindingList<Permission>();
             Comments = new BindingList<Comment>();

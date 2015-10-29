@@ -1,10 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Globalization;
+using System.Threading;
 using System.Windows.Forms;
 using DevExpress.Images;
 using DevExpress.XtraEditors.Controls;
 using Domain.Entities.Comments;
+using Domain.Entities.Orders;
+using Domain.Entities.Products;
 
 namespace ContosoUI.OrderForm
 {
@@ -28,6 +32,7 @@ namespace ContosoUI.OrderForm
 
         private void OrderViewList_Load(object sender, EventArgs e)
         {
+            
             binding = new BindingSource { DataSource = _presenter };
 
             clientLookUpEdit.Properties.DataSource = _presenter.ClientList;
@@ -38,7 +43,7 @@ namespace ContosoUI.OrderForm
             orderGridControl.DataBindings.Add("DataSource", binding, "OrderItems");
             commentsListBox.DataBindings.Add("DataSource", binding, "Comments");
 
-            repositoryProductLookUpEdit.DataSource = _presenter.Products;
+            orderRepositoryProductLookUpEdit.DataSource = _presenter.Products;
             SetStateButtonState();
 
             SetActivityOfComments();
@@ -129,6 +134,12 @@ namespace ContosoUI.OrderForm
                 barStateButton.Caption = "Activate";
                 barStateButton.LargeGlyph = ImageResourceCache.Default.GetImage("images/actions/apply_32x32.png");
             }
+        }
+
+        private void addOrderItemButton_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            _presenter.OrderItems.Add(new OrderItem(new Product() { Title = "Chose product"}, 0, 0));
+
         }
     }
 }
