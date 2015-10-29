@@ -1,4 +1,7 @@
-﻿using System;
+﻿using DevExpress.XtraGrid.Views.Grid;
+using Domain.Entities.Orders;
+using System;
+using System.Data;
 using System.Windows.Forms;
 
 namespace ContosoUI.OrderForm

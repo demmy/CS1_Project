@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Windows.Forms;
 using ContosoUI.UserForm;
+using Domain.Entities.Users;
+using DevExpress.XtraBars;
+using System.Linq;
 
 namespace ContosoUI.UserForm
 {
@@ -18,13 +21,26 @@ namespace ContosoUI.UserForm
         public UserForm(int id)
         {
             InitializeComponent();
-            presenter = new UserPresenter(this, new UserModel());
+            presenter = new UserPresenter(this, new UserModel()); 
             presenter.GetUser(id);
             stateButtonText();
-        }      
-  
+        }
+
+        private void ShowDependentOnRole(Role role)
+        {
+            if (!role.Permissions.Where(x => x.Title == "Edit User").Any())
+            {
+                barSaveButton.Visibility = BarItemVisibility.Never;
+                barSaveAndNewButton.Visibility = BarItemVisibility.Never;
+                barClearButton.Visibility = BarItemVisibility.Never;
+                stateButton.Visibility = BarItemVisibility.Never;
+            }
+        }
+
         private void UserForm_Load(object sender, EventArgs e)
-        { 
+        {
+            ShowDependentOnRole(LoginForm.CurrentUser.Role);
+
             binding.DataSource = presenter;
 
             roleLookUpEdit.Properties.DataSource = presenter.RoleList;

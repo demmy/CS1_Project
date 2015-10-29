@@ -146,28 +146,28 @@
             // 
             // orderStatusComboBoxEdit
             // 
-            this.orderStatusComboBoxEdit.Location = new System.Drawing.Point(347, 33);
+            this.orderStatusComboBoxEdit.Location = new System.Drawing.Point(349, 33);
             this.orderStatusComboBoxEdit.MenuManager = this.mainRibbon;
             this.orderStatusComboBoxEdit.Name = "orderStatusComboBoxEdit";
             this.orderStatusComboBoxEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.orderStatusComboBoxEdit.Size = new System.Drawing.Size(316, 20);
+            this.orderStatusComboBoxEdit.Size = new System.Drawing.Size(317, 20);
             this.orderStatusComboBoxEdit.StyleController = this.layoutControlOrderView;
             this.orderStatusComboBoxEdit.TabIndex = 9;
-            //this.orderStatusComboBoxEdit.SelectedIndexChanged += new System.EventHandler(this.orderStatusComboBoxEdit_SelectedIndexChanged);
+            this.orderStatusComboBoxEdit.SelectedIndexChanged += new System.EventHandler(this.orderStatusComboBoxEdit_SelectedIndexChanged);
             this.orderStatusComboBoxEdit.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.orderStatusComboBoxEdit_KeyPress);
             // 
             // clientLookUpEdit
             // 
             this.clientLookUpEdit.EditValue = "<Null>";
-            this.clientLookUpEdit.Location = new System.Drawing.Point(677, 33);
+            this.clientLookUpEdit.Location = new System.Drawing.Point(680, 33);
             this.clientLookUpEdit.MenuManager = this.mainRibbon;
             this.clientLookUpEdit.Name = "clientLookUpEdit";
             this.clientLookUpEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.clientLookUpEdit.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Person", "Client")});
-            this.clientLookUpEdit.Size = new System.Drawing.Size(320, 20);
+            this.clientLookUpEdit.Size = new System.Drawing.Size(317, 20);
             this.clientLookUpEdit.StyleController = this.layoutControlOrderView;
             this.clientLookUpEdit.TabIndex = 8;
             // 
@@ -240,7 +240,7 @@
             this.orderNumberTextEdit.Location = new System.Drawing.Point(17, 33);
             this.orderNumberTextEdit.MenuManager = this.mainRibbon;
             this.orderNumberTextEdit.Name = "orderNumberTextEdit";
-            this.orderNumberTextEdit.Size = new System.Drawing.Size(316, 20);
+            this.orderNumberTextEdit.Size = new System.Drawing.Size(318, 20);
             this.orderNumberTextEdit.StyleController = this.layoutControlOrderView;
             this.orderNumberTextEdit.TabIndex = 4;
             this.orderNumberTextEdit.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.orderNumberTextEdit_KeyPress);
@@ -265,7 +265,7 @@
             this.layoutControlOrderNumberTextEdit.Location = new System.Drawing.Point(0, 0);
             this.layoutControlOrderNumberTextEdit.Name = "layoutControlOrderNumberTextEdit";
             this.layoutControlOrderNumberTextEdit.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
-            this.layoutControlOrderNumberTextEdit.Size = new System.Drawing.Size(330, 50);
+            this.layoutControlOrderNumberTextEdit.Size = new System.Drawing.Size(332, 50);
             this.layoutControlOrderNumberTextEdit.Spacing = new DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 2);
             this.layoutControlOrderNumberTextEdit.Text = "Order number";
             this.layoutControlOrderNumberTextEdit.TextLocation = DevExpress.Utils.Locations.Top;
@@ -286,10 +286,10 @@
             // layoutControlClientLookUpEdit
             // 
             this.layoutControlClientLookUpEdit.Control = this.clientLookUpEdit;
-            this.layoutControlClientLookUpEdit.Location = new System.Drawing.Point(660, 0);
+            this.layoutControlClientLookUpEdit.Location = new System.Drawing.Point(663, 0);
             this.layoutControlClientLookUpEdit.Name = "layoutControlClientLookUpEdit";
             this.layoutControlClientLookUpEdit.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
-            this.layoutControlClientLookUpEdit.Size = new System.Drawing.Size(334, 50);
+            this.layoutControlClientLookUpEdit.Size = new System.Drawing.Size(331, 50);
             this.layoutControlClientLookUpEdit.Spacing = new DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 2);
             this.layoutControlClientLookUpEdit.Text = "Client";
             this.layoutControlClientLookUpEdit.TextLocation = DevExpress.Utils.Locations.Top;
@@ -298,10 +298,10 @@
             // layoutControlOrderStatus
             // 
             this.layoutControlOrderStatus.Control = this.orderStatusComboBoxEdit;
-            this.layoutControlOrderStatus.Location = new System.Drawing.Point(330, 0);
+            this.layoutControlOrderStatus.Location = new System.Drawing.Point(332, 0);
             this.layoutControlOrderStatus.Name = "layoutControlOrderStatus";
             this.layoutControlOrderStatus.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
-            this.layoutControlOrderStatus.Size = new System.Drawing.Size(330, 50);
+            this.layoutControlOrderStatus.Size = new System.Drawing.Size(331, 50);
             this.layoutControlOrderStatus.Spacing = new DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 2);
             this.layoutControlOrderStatus.Text = "Status";
             this.layoutControlOrderStatus.TextLocation = DevExpress.Utils.Locations.Top;
