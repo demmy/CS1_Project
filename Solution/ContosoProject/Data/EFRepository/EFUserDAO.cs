@@ -8,20 +8,17 @@ namespace Data.EFRepository
 {
     public class EFUserDAO: EFExtendedDAO<User>, IUserRepository
     {
-        public ICollection<User> GetBy(string login, Person person)
+        public ICollection<User> GetBy(string login, string firstName, string lastName)
         {
             var result = dbContext.Users.AsQueryable();
             if (!string.IsNullOrWhiteSpace(login))
                 result = result.Where(user => user.Login == login);
 
-            if (!string.IsNullOrWhiteSpace(person.FirstName))
-                result = result.Where(user => user.Person.FirstName == person.FirstName);
+            if (!string.IsNullOrWhiteSpace(firstName))
+                result = result.Where(user => user.Person.FirstName == firstName);
 
-            if (!string.IsNullOrWhiteSpace(person.MiddleName))
-                result = result.Where(user => user.Person.MiddleName == person.MiddleName);
-
-            if (!string.IsNullOrWhiteSpace(person.LastName))
-                result = result.Where(user => user.Person.LastName == person.LastName);
+            if (!string.IsNullOrWhiteSpace(lastName))
+                result = result.Where(user => user.Person.LastName == lastName);
             return result.ToList();
         }
 
