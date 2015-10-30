@@ -27,7 +27,7 @@ namespace ContosoUI.ClientSearchForm
 
         private void ShowDependentOnRole(Role role)
         {
-            //if (!role.Permissions.Where(x => x.Title == "Search Client By City").Any()) // Change permission's title 
+            //if (!role.Permissions.Where(x => x.Title == "Search Client By City").Any())
             //    clientCityTextEdit.Enabled = false;
         }
 

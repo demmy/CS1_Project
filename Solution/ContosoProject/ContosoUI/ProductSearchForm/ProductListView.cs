@@ -29,7 +29,7 @@ namespace ContosoUI.ProductSearchForm
 
         private void ShowDependentOnRole(Role role)
         {
-            //if (role.Permissions.Where(x => x.Title == "Search Product By Category").Count() == 0)
+            //if (!role.Permissions.Where(x => x.Title == "Search Product By Category").Any())
             //    categoryLookUpEdit.Enabled = false;
         }
 
