@@ -101,7 +101,7 @@
             // 
             // clearProductBarButton
             // 
-            this.clearProductBarButton.Caption = "New";
+            this.clearProductBarButton.Caption = "Clear";
             this.clearProductBarButton.Glyph = ((System.Drawing.Image)(resources.GetObject("clearProductBarButton.Glyph")));
             this.clearProductBarButton.Id = 3;
             this.clearProductBarButton.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("clearProductBarButton.LargeGlyph")));
