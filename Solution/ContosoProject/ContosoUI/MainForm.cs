@@ -89,14 +89,9 @@ namespace ContosoUI
             form.Show();
         }
 
-        private void MainForm_Activated(object sender, EventArgs e)
-        {
-            pictureEdit1.Visible = true;
-        }
-
         private void xtraTabbedMdiManager_PageRemoved(object sender, DevExpress.XtraTabbedMdi.MdiTabPageEventArgs e)
         {
-            pictureEdit1.Visible = true;
+            bgPictureEdit.Visible = true;
         }
 
         private void ExitBarButton_ItemClick(object sender, ItemClickEventArgs e)
@@ -106,7 +101,7 @@ namespace ContosoUI
 
         private void xtraTabbedMdiManager_PageAdded(object sender, DevExpress.XtraTabbedMdi.MdiTabPageEventArgs e)
         {
-            pictureEdit1.Visible = false;
+            bgPictureEdit.Visible = false;
         }
     }
 }

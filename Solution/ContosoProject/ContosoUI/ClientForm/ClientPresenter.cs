@@ -159,7 +159,6 @@ namespace ContosoUI.ClientForm
 
             if (clientToSave.Id != 0)
             {
-                //if (!_model.FindBy(clientToSave.Person.FirstName, clientToSave.Person.LastName, clientToSave.ClientLocation.City).Equals(clientToSave))
                 if(!_model.Find(_client.Id).Equals(clientToSave))
                 {
                     _model.Save(clientToSave);

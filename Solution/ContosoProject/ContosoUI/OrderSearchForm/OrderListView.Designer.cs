@@ -100,7 +100,7 @@
             // 
             // clearOrderBarButton
             // 
-            this.clearOrderBarButton.Caption = "New";
+            this.clearOrderBarButton.Caption = "Clear";
             this.clearOrderBarButton.Glyph = ((System.Drawing.Image)(resources.GetObject("clearOrderBarButton.Glyph")));
             this.clearOrderBarButton.Id = 3;
             this.clearOrderBarButton.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("clearOrderBarButton.LargeGlyph")));
