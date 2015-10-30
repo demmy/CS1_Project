@@ -20,11 +20,6 @@ namespace ContosoUI.ProductForm
             return _productRepository.Find(id);
         }
 
-        public Product GetBySKU(string sku)
-        {
-            return _productRepository.GetBySKU(sku);
-        }
-
         public void Save(Product productToSave)
         {
             _productRepository.Save(productToSave);
@@ -33,6 +28,11 @@ namespace ContosoUI.ProductForm
         public void Create(Product productToSave)
         {
             _productRepository.Create(productToSave);
+        }
+
+        public ICollection<Product> GetBy(string sku, string title, Category category)
+        {
+           return _productRepository.GetBy(sku, title, category);
         }
     }
 }

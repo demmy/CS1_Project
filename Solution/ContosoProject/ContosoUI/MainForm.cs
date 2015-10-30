@@ -29,7 +29,7 @@ namespace ContosoUI
 
         private void ShowDependentOnRole (Role role)
         {
-            if (!role.Permissions.Where(x => x.Title == "Add User").Any()) 
+            if (role.Permissions.All(x => x.Title != "Add User")) 
                 UserBarButton.Visibility = BarItemVisibility.Never;
         }
 

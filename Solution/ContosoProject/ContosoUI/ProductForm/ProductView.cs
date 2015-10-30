@@ -142,7 +142,7 @@ namespace ContosoUI.ProductForm
 
         private bool IsControlsEmpty()
         {
-            return string.IsNullOrWhiteSpace(productSKUTextEdit.Text) || string.IsNullOrWhiteSpace(productTitleTextEdit.Text) || string.IsNullOrWhiteSpace(productPriceTextEdit.Text) || categoryLookUpEdit.EditValue == null;
+            return string.IsNullOrEmpty(productSKUTextEdit.Text) || string.IsNullOrEmpty(productTitleTextEdit.Text) || string.IsNullOrEmpty(productPriceTextEdit.Text) || categoryLookUpEdit.EditValue == null;
         }
 
         private void barSaveAndNewButton_ItemClick(object sender, ItemClickEventArgs e)
