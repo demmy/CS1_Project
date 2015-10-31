@@ -11,7 +11,7 @@ public sealed partial class PasswordHashing : IMigrationMetadata
     
     string IMigrationMetadata.Id
     {
-        get { return "201510310819169_PasswordHashing"; }
+        get { return "201510311325533_PasswordHashing"; }
     }
     
     string IMigrationMetadata.Source

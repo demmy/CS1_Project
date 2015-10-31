@@ -100,13 +100,6 @@ internal sealed class Configuration : DbMigrationsConfiguration<Data.EFRepositor
             new Permission {Description = "Able to add comments to existing order", IsActive = true, Title = CommentOrder}
         }; 
         #endregion
-        //var person = new Person() { FirstName = "John", LastName = "Doe", MiddleName = "Anonim" };
-        //var role = new Role() { Title = "test role", IsActive = true };
-        //var user = new User() { Login = "test", Password = "pass", Person = person, Role = role, IsActive = true };
-
-        //context.Set<Permission>().AddRange(Storage.Permissions.AsEnumerable());
-        //context.Users.Add(user);
-
         var admin = new User() { Login = "Admin", Password = "queryadmin", IsActive = true,
             Role = new Role { Permissions = Permissions, IsActive = true, Title = "Admin" },
             Person = new Person { FirstName = "Gregory", MiddleName = "Filler", LastName = "Mouse"} };

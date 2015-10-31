@@ -1,5 +1,6 @@
 ﻿using Data.DummyData;
 using Domain.DAO;
+using Data.EFRepository;
 using Domain.Entities.Users;
 using System;
 using System.Collections.Generic;
@@ -22,8 +23,8 @@ namespace ContosoUI
             InitializeComponent();
 
 #if DEBUG
-            loginTextEdit.Text = "God";
-            passwordTextEdit.Text = "safe342g";
+            loginTextEdit.Text = "Admin";
+            passwordTextEdit.Text = "queryadmin";
 #endif
         }
 
@@ -34,10 +35,10 @@ namespace ContosoUI
 
         private void okButton_Click(object sender, EventArgs e)
         {
-            IUserRepository userRepo = new DummyDAOForUser();
-            IList<User> users = userRepo.GetAll().ToList();
-            var user = users.Where(x => x.Login == loginTextEdit.Text && x.Password == passwordTextEdit.Text);
-            if (user.Any())
+            IUserRepository userRepo = new EFUserDAO();
+            var users = userRepo.GetAll().ToList();
+            var user = users.Where(x => Hashing.MatchHash(x.Password, passwordTextEdit.Text));
+            if (users.Any())
             {
                 CurrentUser = user.First();
                 MainForm main = Program.MainForm;

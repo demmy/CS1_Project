@@ -32,7 +32,7 @@ namespace ContosoUI.ClientForm
 
         private string _city = string.Empty;
         private string _address = string.Empty;
-        private List<string> _telephones = new List<string>();
+        private BindingList<Telephone> _telephones = new BindingList<Telephone>();
 
         private BindingList<Order> _orders = new BindingList<Order>();
         private BindingList<Comment> _comments = new BindingList<Comment>();
@@ -57,7 +57,7 @@ namespace ContosoUI.ClientForm
             _lastName = _client.Person.LastName;
             _city = _client.ClientLocation.City;
             _address = _client.ClientLocation.Address;
-            _telephones = _client.Telephones.ToList();
+            _telephones = new BindingList<Telephone>(_client.Telephones.ToList());
             State = _client.IsActive;
             _orders = new BindingList<Order>(_orderRepository.GetByClient(_client).ToList());
             _comments = new BindingList<Comment>(_client.Comments.ToList());
@@ -120,7 +120,7 @@ namespace ContosoUI.ClientForm
             }
         }
 
-        public List<string> Telephones
+        public BindingList<Telephone> Telephones
         {
             get { return _telephones; }
             set
@@ -195,7 +195,7 @@ namespace ContosoUI.ClientForm
             City = string.Empty;
             Address = string.Empty;
 
-            Telephones = new List<string>();
+            Telephones = new BindingList<Telephone>();
             Orders = new BindingList<Order>();
             Comments = new BindingList<Comment>();
 

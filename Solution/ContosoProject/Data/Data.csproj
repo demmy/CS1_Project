@@ -74,9 +74,9 @@
     <Compile Include="Migrations\201510291346262_TelephonesAndComments.Designer.cs">
       <DependentUpon>201510291346262_TelephonesAndComments.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201510310819169_PasswordHashing.cs" />
-    <Compile Include="Migrations\201510310819169_PasswordHashing.Designer.cs">
-      <DependentUpon>201510310819169_PasswordHashing.cs</DependentUpon>
+    <Compile Include="Migrations\201510311325533_PasswordHashing.cs" />
+    <Compile Include="Migrations\201510311325533_PasswordHashing.Designer.cs">
+      <DependentUpon>201510311325533_PasswordHashing.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="DummyData\DummyDAOExtension.cs" />
@@ -115,8 +115,8 @@
     <EmbeddedResource Include="Migrations\201510291346262_TelephonesAndComments.resx">
       <DependentUpon>201510291346262_TelephonesAndComments.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201510310819169_PasswordHashing.resx">
-      <DependentUpon>201510310819169_PasswordHashing.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201510311325533_PasswordHashing.resx">
+      <DependentUpon>201510311325533_PasswordHashing.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

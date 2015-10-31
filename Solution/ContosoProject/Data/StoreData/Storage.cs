@@ -139,13 +139,12 @@ namespace Data.StoreData
             Permissions[33],
             Permissions[34],
             Permissions[35],
-            Permissions[36],
-            Permissions[37]
+            Permissions[36]
         };
 
         public static IList<Permission> ManagerPermissions = new List<Permission>
         {
-             Permissions[2],
+            Permissions[2],
             Permissions[3],
             Permissions[7],
             Permissions[8],
@@ -174,8 +173,7 @@ namespace Data.StoreData
             Permissions[33],
             Permissions[34],
             Permissions[35],
-            Permissions[36],
-            Permissions[37]
+            Permissions[36]
         };
 
         #endregion

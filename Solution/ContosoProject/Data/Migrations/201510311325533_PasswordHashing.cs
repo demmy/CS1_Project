@@ -11,7 +11,7 @@ public partial class PasswordHashing : DbMigration
                 {
                     Id = c.Int(nullable: false, identity: true),
                     ClientLocation_City = c.String(),
-                    ClientLocation_Adress = c.String(),
+                    ClientLocation_Address = c.String(),
                     Person_FirstName = c.String(),
                     Person_MiddleName = c.String(),
                     Person_LastName = c.String(),
@@ -136,6 +136,7 @@ public partial class PasswordHashing : DbMigration
             c => new
                 {
                     Id = c.Int(nullable: false, identity: true),
+                    Quantity = c.Int(nullable: false),
                     Price = c.Double(nullable: false),
                     Title = c.String(),
                     SKU = c.String(),
