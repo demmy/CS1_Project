@@ -1,34 +1,35 @@
 ﻿using Domain.Entities.Clients;
 using Domain.Entities.Comments;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 
 namespace Domain.Entities.Orders
 {
-    public enum Status { Opened, PaidUp, Finished, Shipped, Closed }
+    public enum Status { All, Opened, PaidUp, Finished, Shipped, Closed }
 
     public class Order : ExtendedEntity, ICommentable
-    {        
-        public Client Client { get; set; }
-        public Status Status { get; set; }
-        public string OrderNumber { get; set; }
-        public virtual ICollection<Comment> Comments { get; set; }
-        private List<OrderItem> orderItems;
-
-        public Order(ICollection<Comment> comments, List<OrderItem> orders)
+    {
+        private IList<OrderItem> orderItems;
+        public Order(ICollection<Comment> comments, ICollection<OrderItem> orders)
         {
             Comments = comments;
-            orderItems = orders;
+            orderItems = orders.ToList();
         }
 
         public Order()
         {
-            
+
         }
 
+        public Client Client { get; set; }
+        public Status Status { get; set; }
+        public string OrderNumber { get; set; }
+        public virtual ICollection<Comment> Comments { get; set; }
+        
         public List<OrderItem> OrderItems
         {
-            get { return orderItems; }
+            get { return orderItems.ToList(); }
         }
 
         public double Sum

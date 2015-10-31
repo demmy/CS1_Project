@@ -1,5 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using Domain.Entities.Comments;
+using Domain.Entities.Users;
 
 namespace Domain.Entities.Products
 {
@@ -9,7 +12,9 @@ namespace Domain.Entities.Products
     public class Category: ExtendedEntity, ICommentable
     {
         public virtual ICollection<Comment> Comments { get; set; }
-        public Category(ICollection<Comment> comments)
+        public string Title { get; set; }
+
+        public Category(ICollection<Comment> comments) : this()
         {
             Comments = comments;
         }
@@ -17,19 +22,15 @@ namespace Domain.Entities.Products
         public Category()
         {
         }
-        
+
         public static bool IsNullOrEmpty(Category category)
         {
             return category == null || category.Title == "";
         }
 
-        public string Title { get; set; }
-
-
         public override string ToString()
         {
-            return string.Format("ID: {0}, Is active: {1}< Title: {2}", Id,IsActive, Title);
+            return string.Format("{0}", Title);
         }
     }
-
 }

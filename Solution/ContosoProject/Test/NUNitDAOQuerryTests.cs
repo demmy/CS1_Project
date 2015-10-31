@@ -11,6 +11,7 @@ using Domain.Entities.Products;
 using Domain.Entities.Users;
 using NUnit.Framework;
 using Domain.Entities.Clients;
+using Domain.DAO;
 
 namespace Test
 {
@@ -20,13 +21,13 @@ namespace Test
         [Test]
         public void TestDAOForCategory()
         {
-            DummyDAOForCategory category = new DummyDAOForCategory();
+            ICategoryRepository category = new DummyDAOForCategory();
         }
         [Test]
         public void TestDAOForClientFindby()
         {
-            DummyDAOForClient client = new DummyDAOForClient();
-            CollectionAssert.AreEqual(new List<Client> {Storage.Clients[2]}, client.GetBy(new Person() {FirstName = null, MiddleName = null, LastName = "Plemon"}, null));
+            IClientRepository client = new DummyDAOForClient();
+            CollectionAssert.AreEqual(new List<Client> {Storage.Clients[2]}, client.FindBy(null, "Plemon", null));
         }
 
         [Test]
@@ -37,14 +38,14 @@ namespace Test
         [Test]
         public void TestDAOForOrderGetByClient()
         {
-            DummyDAOForOrder order = new DummyDAOForOrder();
+            IOrderRepository order = new DummyDAOForOrder();
             CollectionAssert.AreEqual(new List<Order> { Storage.Orders[0] },order.GetByClient(Storage.Clients[0]));
         }
         [Test]
         public void TestDAOForOrderGetBy()
         {
-            DummyDAOForOrder order = new DummyDAOForOrder();
-            CollectionAssert.AreEqual(new List<Order> { Storage.Orders[0], Storage.Orders[2] }, order.GetBy(null, Status.Opened));
+            IOrderRepository order = new DummyDAOForOrder();
+            CollectionAssert.AreEqual(new List<Order> { Storage.Orders[0], Storage.Orders[2] }, order.GetBy(null, Status.Opened, null));
             //CollectionAssert.AreEqual(new List<Order> { Storage.Orders[0], Storage.Orders[1] }, order.GetBy("a4325", Status.PaidUp));
         }
 
@@ -52,19 +53,19 @@ namespace Test
         [Test]
         public void TestDAOForPermission()
         {
-            DummyDAOForPermission permission = new DummyDAOForPermission();
+            IPermissionRepository permission = new DummyDAOForPermission();
             CollectionAssert.AreEqual(new List<Permission> { Storage.Permissions[8]}, permission.GetByTitle("Add Client"));
         }
         [Test]
         public void TestDAOForProduct()
         {
-            DummyDAOForProduct product = new DummyDAOForProduct();
-            CollectionAssert.AreEqual(new List<Product> { Storage.Products[1] }, product.GetBySKU("sfdfh3"));
+            IProductRepository product = new DummyDAOForProduct();
+            Assert.AreEqual(Storage.Products[1], product.GetBySKU("sfdfh3"));
         }
         [Test]
         public void TestDAOForProductGetBy()
         {
-            DummyDAOForProduct product = new DummyDAOForProduct();
+            IProductRepository product = new DummyDAOForProduct();
             CollectionAssert.AreEqual(new List<Product> { Storage.Products[1], Storage.Products[4] }, product.GetBy(null, null, Storage.Categories[1]));
             CollectionAssert.AreEqual(new List<Product>(), product.GetBy(null, null, null));
             CollectionAssert.AreEqual(new List<Product> { Storage.Products[0], Storage.Products[3] }, product.GetBy(null, "Table", null));
@@ -78,8 +79,8 @@ namespace Test
         [Test]
         public void TestDAOForUser()
         {
-            DummyDAOForUser user = new DummyDAOForUser();
-            CollectionAssert.AreEqual(new List<User> {Storage.Users[4] }, user.GetBy("Dir", new Person() { FirstName = null, LastName = null, MiddleName = null }));
+            IUserRepository user = new DummyDAOForUser();
+            CollectionAssert.AreEqual(new List<User> {Storage.Users[4] }, user.GetBy("Dir", null, null));
             //CollectionAssert.AreEqual(new List<User> { Storage.Users[3] }, user.GetBy(null, Storage.Persons[3]));
             
         }

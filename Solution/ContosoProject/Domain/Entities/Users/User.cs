@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using Domain.Entities.Comments;
 
 namespace Domain.Entities.Users
@@ -12,7 +14,6 @@ namespace Domain.Entities.Users
 
         public User()
         {
-
         }
         private byte[] HashedPassword { get; set; }
         public string Login { get; set; }
@@ -35,5 +36,10 @@ namespace Domain.Entities.Users
         public Role Role { get; set; }
         public Person Person { get; set; }
         public virtual ICollection<Comment> Comments { get; set; }  
+
+        public override string ToString()
+        {
+            return string.Format("{0}", Login);
+        }
     }
 }

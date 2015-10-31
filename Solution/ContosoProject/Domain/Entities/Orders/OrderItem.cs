@@ -13,6 +13,11 @@ namespace Domain.Entities.Orders
             Product = product;
             Quantity = quantity;
             Price = price;
-        }        
+        }
+
+        public override string ToString()
+        {
+            return string.Format("{0} {1} pcs, {2} UAH", Product, Quantity, Price);
+        }
     }
 }

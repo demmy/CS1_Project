@@ -14,15 +14,16 @@ namespace Data.EFRepository
         /// <summary>
         /// The method to search the Order by some kind of "mask"
         /// </summary>
-        /// <param name="orderNumber"></param>
         /// <param name="status"></param>
         /// <returns></returns>
-        public ICollection<Order> GetBy(string orderNumber, Status status)
+        public ICollection<Order> GetByStatus(Status status)
         {
-            return !string.IsNullOrWhiteSpace(orderNumber)
-                ? dbContext.Orders.AsQueryable().Where(order => order.OrderNumber == orderNumber).ToList()
-                : dbContext.Orders.AsQueryable().Where(order => order.Status == status).ToList();
+            return dbContext.Orders.AsQueryable()
+                .Where(order => order.Status == status)
+                .ToList();
         }
+
+
         /// <summary>
         /// Gets all orders of any Client
         /// </summary>
@@ -84,6 +85,33 @@ namespace Data.EFRepository
             dbContext.Orders
                 .FirstOrDefault(ord => ord == order)
                 .EditOrder(product, quantity);
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="orderNumber"></param>
+        /// <param name="status"></param>
+        /// <param name="client"></param>
+        /// <returns></returns>
+        public ICollection<Order> GetBy(string orderNumber, Status status, Client client)
+        {
+            var result = dbContext.Orders.AsQueryable();
+            if (!string.IsNullOrWhiteSpace(orderNumber))
+                return result.Where(order => order.OrderNumber == orderNumber).ToList();
+
+            if (client != null)
+                result = result.Where(order => order.Client == client);
+
+            return result.Where(order => order.Status == status).ToList();
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="orderNumber"></param>
+        /// <returns></returns>
+        public Order GetByNumber(string orderNumber)
+        {
+            return dbContext.Orders.AsQueryable().First(order => order.OrderNumber == orderNumber);
         }
     }
 }

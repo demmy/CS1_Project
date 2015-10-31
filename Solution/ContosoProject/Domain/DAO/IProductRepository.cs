@@ -7,5 +7,6 @@ namespace Domain.DAO
     public interface IProductRepository : IRepositoryExtension<Product>
     {
         ICollection<Product> GetBy(string sku, string title, Category category);
+        Product GetBySKU(string sku);
     }
 }
