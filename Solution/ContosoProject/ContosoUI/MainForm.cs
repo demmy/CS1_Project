@@ -8,7 +8,9 @@ using DevExpress.XtraBars.Ribbon;
 using Domain.Entities.Users;
 using System.Collections;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
+using System.Threading;
 
 namespace ContosoUI
 {
@@ -21,12 +23,13 @@ namespace ContosoUI
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+            Thread.CurrentThread.CurrentCulture = new CultureInfo("ua-UA");
             ShowDependentOnRole(LoginForm.CurrentUser.Role);
         }
 
         private void ShowDependentOnRole (Role role)
         {
-            if (!role.Permissions.Where(x => x.Title == "Add User").Any()) 
+            if (role.Permissions.All(x => x.Title != "Add User")) 
                 UserBarButton.Visibility = BarItemVisibility.Never;
         }
 

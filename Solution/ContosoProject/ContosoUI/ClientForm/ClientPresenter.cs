@@ -20,10 +20,10 @@ namespace ContosoUI.ClientForm
         private IClientView _view;
         private ClientModel _model;
 
-        readonly IClientRepository _clientRepository = new DummyDAOForClient();
-        readonly IOrderRepository _orderRepository = new DummyDAOForOrder();
+        private readonly IClientRepository _clientRepository = new DummyDAOForClient();
+        private readonly IOrderRepository _orderRepository = new DummyDAOForOrder();
 
-        Client _client = new Client();
+        private Client _client = new Client();
 
         private string _firstName = string.Empty;
         private string _middleName = string.Empty;
@@ -31,10 +31,10 @@ namespace ContosoUI.ClientForm
 
         private string _city = string.Empty;
         private string _address = string.Empty;
-        private List<string> _telephones = new List<string>(); 
+        private List<string> _telephones = new List<string>();
 
-        BindingList<Order> _orders = new BindingList<Order>();
-        BindingList<Comment> _comments = new BindingList<Comment>();
+        private BindingList<Order> _orders = new BindingList<Order>();
+        private BindingList<Comment> _comments = new BindingList<Comment>();
         public bool State { get; set; }
 
         public ClientPresenter(IClientView view, ClientModel model)
@@ -63,6 +63,7 @@ namespace ContosoUI.ClientForm
         }
 
         #region Properties
+
         public string FirstName
         {
             get { return _firstName; }
@@ -150,17 +151,20 @@ namespace ContosoUI.ClientForm
                 NotifyPropertyChanged();
             }
         }
+
         #endregion
 
         public void Save()
         {
-            Client clientToSave = new Client(_telephones, _comments) {Person = new Person() { FirstName = _firstName, MiddleName = _middleName, LastName = _lastName}, 
-                ClientLocation = new Location() { Address = _address, City = _city}, Id = _client.Id, IsActive = State};
+            Client clientToSave = new Client(_telephones, _comments)
+            {
+                Person = new Person() {FirstName = _firstName, MiddleName = _middleName, LastName = _lastName},
+                ClientLocation = new Location() {Address = _address, City = _city}, Id = _client.Id, IsActive = State
+            };
 
             if (clientToSave.Id != 0)
             {
-                //if (!_model.FindBy(clientToSave.Person.FirstName, clientToSave.Person.LastName, clientToSave.ClientLocation.City).Equals(clientToSave))
-                if(!_model.Find(_client.Id).Equals(clientToSave))
+                if (!_model.Find(_client.Id).Equals(clientToSave))
                 {
                     _model.Save(clientToSave);
                     _client = clientToSave;
@@ -179,7 +183,7 @@ namespace ContosoUI.ClientForm
                 }
             }
         }
-        
+
 
         public void New()
         {
@@ -194,6 +198,7 @@ namespace ContosoUI.ClientForm
             Orders = new BindingList<Order>();
             Comments = new BindingList<Comment>();
 
+            State = true;
             _client = new Client();
         }
 
@@ -201,11 +206,6 @@ namespace ContosoUI.ClientForm
         {
             Save();
             New();
-        }
-
-        public void ShowView(ClientPresenter presenter, int id)
-        {
-            _view.ShowView(presenter, id);
         }
     }
 }

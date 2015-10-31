@@ -26,7 +26,7 @@ namespace Domain.Entities
             _comments = comments.ToList();
         }
 
-        public Client()
+        public Client() : base()
         {
         }
 

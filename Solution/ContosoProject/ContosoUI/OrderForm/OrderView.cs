@@ -8,6 +8,7 @@ using System.Threading;
 using System.Windows.Forms;
 using DevExpress.Images;
 using DevExpress.XtraEditors.Controls;
+using DevExpress.XtraGrid.Views.Grid.ViewInfo;
 using Domain.Entities.Comments;
 using Domain.Entities.Products;
 
@@ -33,13 +34,13 @@ namespace ContosoUI.OrderForm
 
         private void OrderViewList_Load(object sender, EventArgs e)
         {
-            
-            binding = new BindingSource { DataSource = _presenter };
+            repositoryQuantitySpinEdit.Validating += RepositoryQuantitySpinEditOnValidating;
+            binding = new BindingSource {DataSource = _presenter};
 
             clientLookUpEdit.Properties.DataSource = _presenter.ClientList;
             orderStatusLookUpEdit.Properties.DataSource = _presenter.StatusEnum;
             orderNumberTextEdit.DataBindings.Add("EditValue", binding, "OrderNumber");
-            
+
             orderDateEdit.DataBindings.Add("EditValue", binding, "Date");
             orderGridControl.DataBindings.Add("DataSource", binding, "OrderItems");
             commentsListBox.DataBindings.Add("DataSource", binding, "Comments");
@@ -50,7 +51,12 @@ namespace ContosoUI.OrderForm
             SetActivityOfComments();
         }
 
-    private void SetActivityOfComments()
+        private void RepositoryQuantitySpinEditOnValidating(object sender, CancelEventArgs e)
+        {
+
+        }
+
+        private void SetActivityOfComments()
         {
             if (orderNumberTextEdit.Text == string.Empty)
             {
@@ -92,7 +98,7 @@ namespace ContosoUI.OrderForm
         {
             if (!string.IsNullOrEmpty(newCommentTextBox.Text))
             {
-                Comment comment = new Comment() { Author = null, EntityType = EntityType.Order, Text = newCommentTextBox.Text };
+                Comment comment = new Comment() {Author = null, EntityType = EntityType.Order, Text = newCommentTextBox.Text};
                 _presenter.Comments.Add(comment);
                 newCommentTextBox.Text = string.Empty;
                 _presenter.Save();
@@ -118,6 +124,7 @@ namespace ContosoUI.OrderForm
             _presenter.State = !_presenter.State;
             SetStateButtonState();
         }
+
         private void SetStateButtonState()
         {
             if (_presenter.State)
@@ -134,8 +141,25 @@ namespace ContosoUI.OrderForm
 
         private void addOrderItemButton_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            _presenter.OrderItems.Add(new OrderItem(new Product() { Title = "Chose product"}, 0, 0));
+            _presenter.OrderItems.Add(new OrderItem(new Product() {Title = "Chose product"}, 0, 0));
 
+        }
+
+        private void orderGridView_CellValueChanging(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
+        {
+        }
+
+        private void orderGridView_CellValueChanged(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
+        {
+            var view = sender as GridView;
+            if (e.Column == colQuantity || e.Column == colProduct)
+            {
+                var product = (view.GetRowCellValue(e.RowHandle, "Product") as Product);
+                if (product != null)
+                {
+                    repositoryQuantitySpinEdit.MaxValue = product.Quantity;
+                }
+            }
         }
     }
 }

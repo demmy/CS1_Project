@@ -215,7 +215,7 @@
             // telephonesGridColumn
             // 
             this.telephonesGridColumn.Caption = "Telephones";
-            this.telephonesGridColumn.FieldName = "Telephones";
+            this.telephonesGridColumn.FieldName = "Telephones.Count";
             this.telephonesGridColumn.Name = "telephonesGridColumn";
             this.telephonesGridColumn.Visible = true;
             this.telephonesGridColumn.VisibleIndex = 5;

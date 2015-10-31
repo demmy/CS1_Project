@@ -42,6 +42,7 @@
             this.orderRibbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.orderViewLayoutControl = new DevExpress.XtraLayout.LayoutControl();
             this.clientLookUpEdit = new DevExpress.XtraEditors.LookUpEdit();
+            this.clientBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.addCommentButton = new DevExpress.XtraEditors.SimpleButton();
             this.newCommentTextBox = new System.Windows.Forms.TextBox();
             this.commentsListBox = new DevExpress.XtraEditors.ListBoxControl();
@@ -79,6 +80,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.orderViewLayoutControl)).BeginInit();
             this.orderViewLayoutControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.clientLookUpEdit.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clientBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.commentsListBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridSplitContainer)).BeginInit();
             this.gridSplitContainer.SuspendLayout();
@@ -240,9 +242,18 @@
             this.clientLookUpEdit.Name = "clientLookUpEdit";
             this.clientLookUpEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.clientLookUpEdit.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Person", "Name")});
+            this.clientLookUpEdit.Properties.DataSource = this.clientBindingSource;
+            this.clientLookUpEdit.Properties.DisplayMember = "Person";
+            this.clientLookUpEdit.Properties.ValueMember = "Person";
             this.clientLookUpEdit.Size = new System.Drawing.Size(228, 20);
             this.clientLookUpEdit.StyleController = this.orderViewLayoutControl;
             this.clientLookUpEdit.TabIndex = 12;
+            // 
+            // clientBindingSource
+            // 
+            this.clientBindingSource.DataSource = typeof(Domain.Entities.Client);
             // 
             // addCommentButton
             // 
@@ -316,6 +327,8 @@
             this.orderGridView.Name = "orderGridView";
             this.orderGridView.OptionsView.ShowGroupPanel = false;
             this.orderGridView.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.orderGridView_InitNewRow);
+            this.orderGridView.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.orderGridView_CellValueChanged);
+            this.orderGridView.CellValueChanging += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.orderGridView_CellValueChanging);
             // 
             // colId
             // 
@@ -361,13 +374,14 @@
             this.repositoryQuantitySpinEdit.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.repositoryQuantitySpinEdit.Name = "repositoryQuantitySpinEdit";
+            this.repositoryQuantitySpinEdit.ValidateOnEnterKey = true;
             // 
             // colPrice
             // 
             this.colPrice.ColumnEdit = this.orderRepositoryPriceSpinEdit;
             this.colPrice.DisplayFormat.FormatString = "c2";
             this.colPrice.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
-            this.colPrice.FieldName = "Price";
+            this.colPrice.FieldName = "Product.Price";
             this.colPrice.Name = "colPrice";
             this.colPrice.Visible = true;
             this.colPrice.VisibleIndex = 1;
@@ -378,6 +392,7 @@
             this.orderRepositoryPriceSpinEdit.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.orderRepositoryPriceSpinEdit.Name = "orderRepositoryPriceSpinEdit";
+            this.orderRepositoryPriceSpinEdit.ReadOnly = true;
             // 
             // orderRepositoryItemSpinEdit
             // 
@@ -595,6 +610,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.orderViewLayoutControl)).EndInit();
             this.orderViewLayoutControl.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.clientLookUpEdit.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clientBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.commentsListBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridSplitContainer)).EndInit();
             this.gridSplitContainer.ResumeLayout(false);
@@ -675,5 +691,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn colQuantity;
         private DevExpress.XtraGrid.Columns.GridColumn colPrice;
         private DevExpress.XtraBars.BarButtonItem addOrderItemButton;
+        private System.Windows.Forms.BindingSource clientBindingSource;
     }
 }

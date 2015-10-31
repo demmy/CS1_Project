@@ -163,7 +163,7 @@ namespace ContosoUI.UserForm
             RoleID = _user.Role.Id;
             Permissions = new BindingList<Permission>(_user.Role.Permissions.ToList());
             State = _user.IsActive;
-            Comments = _comments;
+            Comments = new BindingList<Comment>(_user.Comments.ToList());
         }
 
         public void Save()
