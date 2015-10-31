@@ -66,7 +66,7 @@ namespace ContosoUI.ProductForm
             this.categoryNewCommentTextBox = new System.Windows.Forms.TextBox();
             this.addCategoryCommetSimpleButton = new DevExpress.XtraEditors.SimpleButton();
             this.categoryLookUpEdit = new DevExpress.XtraEditors.LookUpEdit();
-            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.categoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.categorySearchControl = new DevExpress.XtraEditors.TextEdit();
             this.layoutControlProductCategoryGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.tabbedControlProductGroup = new DevExpress.XtraLayout.TabbedControlGroup();
@@ -111,7 +111,7 @@ namespace ContosoUI.ProductForm
             ((System.ComponentModel.ISupportInitialize)(this.productTitleTextEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productSKUTextEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoryLookUpEdit.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.categoryBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.categorySearchControl.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlProductCategoryGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabbedControlProductGroup)).BeginInit();
@@ -501,7 +501,7 @@ namespace ContosoUI.ProductForm
             this.categoryLookUpEdit.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Title", "Title"),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("IsActive", "Active")});
-            this.categoryLookUpEdit.Properties.DataSource = this.bindingSource1;
+            this.categoryLookUpEdit.Properties.DataSource = this.categoryBindingSource;
             this.categoryLookUpEdit.Properties.NullText = "";
             this.categoryLookUpEdit.Properties.PopupSizeable = false;
             this.categoryLookUpEdit.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
@@ -509,9 +509,9 @@ namespace ContosoUI.ProductForm
             this.categoryLookUpEdit.StyleController = this.entireLayoutControl;
             this.categoryLookUpEdit.TabIndex = 7;
             // 
-            // bindingSource1
+            // categoryBindingSource
             // 
-            this.bindingSource1.DataSource = typeof(Domain.Entities.Products.Category);
+            this.categoryBindingSource.DataSource = typeof(Domain.Entities.Products.Category);
             // 
             // categorySearchControl
             // 
@@ -816,7 +816,7 @@ namespace ContosoUI.ProductForm
             ((System.ComponentModel.ISupportInitialize)(this.productTitleTextEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.productSKUTextEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoryLookUpEdit.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.categoryBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.categorySearchControl.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlProductCategoryGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabbedControlProductGroup)).EndInit();
@@ -906,6 +906,6 @@ namespace ContosoUI.ProductForm
         private DevExpress.XtraGrid.Columns.GridColumn idColumn;
         private DevExpress.XtraGrid.Columns.GridColumn titleColumn;
         private DevExpress.XtraGrid.Columns.GridColumn dateColumn;
-        private System.Windows.Forms.BindingSource bindingSource1;
+        private System.Windows.Forms.BindingSource categoryBindingSource;
     }
 }
