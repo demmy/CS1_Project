@@ -253,7 +253,7 @@
             // 
             // clientBindingSource
             // 
-            this.clientBindingSource.DataSource = typeof(Domain.Entities.Client);
+            this.clientBindingSource.DataSource = typeof(Domain.Entities.Clients.Client);
             // 
             // addCommentButton
             // 

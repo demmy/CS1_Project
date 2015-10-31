@@ -1,5 +1,6 @@
-﻿using System.Collections.Generic;
-using Domain.Entities;
+﻿using Domain.Entities;
+using Domain.Entities.Clients;
+using System.Collections.Generic;
 
 namespace Domain.DAO
 {

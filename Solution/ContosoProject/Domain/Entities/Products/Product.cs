@@ -7,53 +7,30 @@ namespace Domain.Entities.Products
 {
     public class Product : ExtendedEntity, ICommentable
     {
-        protected bool Equals(Product other)
+        public Product(ICollection<Comment> comments)
         {
-            return _comments.SequenceEqual(other._comments) && Quantity == other.Quantity && Price.Equals(other.Price) && string.Equals(Title, other.Title) && Equals(Category, other.Category);
+            Comments = comments;
         }
 
-        public override int GetHashCode()
+        public Product()
         {
-            unchecked
-            {
-                var hashCode = (_comments != null ? _comments.GetHashCode() : 0);
-                hashCode = (hashCode*397) ^ Quantity;
-                hashCode = (hashCode*397) ^ Price.GetHashCode();
-                hashCode = (hashCode*397) ^ (Title != null ? Title.GetHashCode() : 0);
-                hashCode = (hashCode*397) ^ (Category != null ? Category.GetHashCode() : 0);
-                return hashCode;
-            }
-        }
 
+        }
         public int Quantity { get; set; }
         public double Price { get; set; }
         public string Title { get; set; }
         public string SKU { get; set; }
         public Category Category { get; set; }
+        public virtual ICollection<Comment> Comments { get; set; }
 
-        private ICollection<Comment> _comments = new List<Comment>()
+        public static bool operator ==(Product product1, Product product2)
         {
-            new Comment()
-            {
-                Author = null,
-                Date = DateTime.Now,
-                EntityType = EntityType.Product,
-                Text = string.Format("Product has been added ")
-            }
-        };
-
-        public Product(ICollection<Comment> comments)
-        {
-            _comments = comments;
+            return product1.Equals(product2);
         }
 
-        public Product()
+        public static bool operator !=(Product product1, Product product2)
         {
-        }
-
-        public IReadOnlyCollection<Comment> Comments
-        {
-            get { return (IReadOnlyCollection<Comment>)_comments; }
+            return !product1.Equals(product2);
         }
 
         public override bool Equals(object obj)
@@ -68,5 +45,23 @@ namespace Domain.Entities.Products
         {
             return Title;
         }
+        protected bool Equals(Product other)
+        {
+            return Comments.SequenceEqual(other.Comments) && Quantity == other.Quantity && Price.Equals(other.Price) && string.Equals(Title, other.Title) && Equals(Category, other.Category);
+        }
+
+        public override int GetHashCode()
+        {
+            unchecked
+            {
+                var hashCode = (Comments != null ? Comments.GetHashCode() : 0);
+                hashCode = (hashCode * 397) ^ Quantity;
+                hashCode = (hashCode * 397) ^ Price.GetHashCode();
+                hashCode = (hashCode * 397) ^ (Title != null ? Title.GetHashCode() : 0);
+                hashCode = (hashCode * 397) ^ (Category != null ? Category.GetHashCode() : 0);
+                return hashCode;
+            }
+        }
+
     }
 }

@@ -2,6 +2,7 @@
 using Data.DummyData;
 using Domain.DAO;
 using Domain.Entities;
+using Domain.Entities.Clients;
 using Domain.Entities.Orders;
 using Domain.Entities.Users;
 using System;

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Data.DummyData;
 using Domain.DAO;
 using Domain.Entities;
+using Domain.Entities.Clients;
 
 namespace ContosoUI.ClientForm
 {

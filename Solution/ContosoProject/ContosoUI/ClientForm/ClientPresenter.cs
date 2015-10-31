@@ -12,6 +12,7 @@ using Domain.DAO;
 using Domain.Entities;
 using Domain.Entities.Comments;
 using Domain.Entities.Orders;
+using Domain.Entities.Clients;
 
 namespace ContosoUI.ClientForm
 {

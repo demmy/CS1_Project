@@ -7,35 +7,35 @@ namespace Domain.Entities.Users
 {
     public class User : ExtendedEntity, ICommentable
     {
-        private ICollection<Comment> _comments = new List<Comment>()
-        {
-            new Comment()
-            {
-                Author = null,
-                Date = DateTime.Now,
-                EntityType = EntityType.User,
-                Text = string.Format("User has been added ")
-            }
-        };
-
         public User(ICollection<Comment> comments)
         {
-            _comments = comments;
+            Comments = comments;
         }
 
         public User()
         {
         }
-
+        private byte[] HashedPassword { get; set; }
         public string Login { get; set; }
-        public string Password { get; set; }
+        /// <summary>
+        /// Password Hashing using SHA1, not really good, but better then no hashing at all
+        /// </summary>
+        public string Password
+        {
+            get
+            {
+                System.Text.ASCIIEncoding enc = new System.Text.ASCIIEncoding();
+                return enc.GetString(HashedPassword);
+            }
+            set
+            {
+                var sha1 = new System.Security.Cryptography.SHA1CryptoServiceProvider();
+                HashedPassword = sha1.ComputeHash(System.Text.Encoding.ASCII.GetBytes(value));
+            }
+        }
         public Role Role { get; set; }
         public Person Person { get; set; }
-
-        public IReadOnlyCollection<Comment> Comments
-        {
-            get { return (IReadOnlyCollection<Comment>)_comments; }
-        }
+        public virtual ICollection<Comment> Comments { get; set; }  
 
         public override string ToString()
         {
