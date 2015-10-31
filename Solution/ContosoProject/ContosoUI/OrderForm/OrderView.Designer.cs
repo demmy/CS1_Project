@@ -42,7 +42,7 @@
             this.orderRibbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.orderViewLayoutControl = new DevExpress.XtraLayout.LayoutControl();
             this.clientLookUpEdit = new DevExpress.XtraEditors.LookUpEdit();
-            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.clientBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.addCommentButton = new DevExpress.XtraEditors.SimpleButton();
             this.newCommentTextBox = new System.Windows.Forms.TextBox();
             this.commentsListBox = new DevExpress.XtraEditors.ListBoxControl();
@@ -80,7 +80,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.orderViewLayoutControl)).BeginInit();
             this.orderViewLayoutControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.clientLookUpEdit.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clientBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.commentsListBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridSplitContainer)).BeginInit();
             this.gridSplitContainer.SuspendLayout();
@@ -244,16 +244,16 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.clientLookUpEdit.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Person", "Name")});
-            this.clientLookUpEdit.Properties.DataSource = this.bindingSource1;
+            this.clientLookUpEdit.Properties.DataSource = this.clientBindingSource;
             this.clientLookUpEdit.Properties.DisplayMember = "Person";
             this.clientLookUpEdit.Properties.ValueMember = "Person";
             this.clientLookUpEdit.Size = new System.Drawing.Size(228, 20);
             this.clientLookUpEdit.StyleController = this.orderViewLayoutControl;
             this.clientLookUpEdit.TabIndex = 12;
             // 
-            // bindingSource1
+            // clientBindingSource
             // 
-            this.bindingSource1.DataSource = typeof(Domain.Entities.Client);
+            this.clientBindingSource.DataSource = typeof(Domain.Entities.Client);
             // 
             // addCommentButton
             // 
@@ -610,7 +610,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.orderViewLayoutControl)).EndInit();
             this.orderViewLayoutControl.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.clientLookUpEdit.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clientBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.commentsListBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridSplitContainer)).EndInit();
             this.gridSplitContainer.ResumeLayout(false);
@@ -691,6 +691,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn colQuantity;
         private DevExpress.XtraGrid.Columns.GridColumn colPrice;
         private DevExpress.XtraBars.BarButtonItem addOrderItemButton;
-        private System.Windows.Forms.BindingSource bindingSource1;
+        private System.Windows.Forms.BindingSource clientBindingSource;
     }
 }
