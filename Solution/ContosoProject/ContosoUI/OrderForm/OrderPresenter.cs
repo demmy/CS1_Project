@@ -12,6 +12,7 @@ using Domain.Entities;
 using Domain.Entities.Comments;
 using Domain.Entities.Orders;
 using Domain.Entities.Products;
+using Domain.Entities.Clients;
 
 namespace ContosoUI.OrderForm
 {
@@ -19,8 +20,8 @@ namespace ContosoUI.OrderForm
     {
         private OrderModel _model;
         private IOrderView _view;
-        IProductRepository _produtRepository = new DummyDAOForProduct();
-        IClientRepository _clientRepository = new DummyDAOForClient();
+        IProductRepository _produtRepository;
+        IClientRepository _clientRepository;
 
         public BindingList<Product> Products
         {
@@ -40,6 +41,8 @@ namespace ContosoUI.OrderForm
 
         public OrderPresenter(OrderModel model, IOrderView view)
         {
+            _produtRepository = model.ProductRepository;
+            _clientRepository = model.ClientRepository;
             _model = model;
             _view = view;
         }

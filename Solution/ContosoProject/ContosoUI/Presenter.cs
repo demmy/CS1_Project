@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace ContosoUI
 {
-    public class Presenter : INotifyPropertyChanged
+    public abstract class Presenter : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged = delegate(object sender, PropertyChangedEventArgs args) { };
 

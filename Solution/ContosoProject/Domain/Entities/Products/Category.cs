@@ -11,22 +11,12 @@ namespace Domain.Entities.Products
     /// </summary>
     public class Category: ExtendedEntity, ICommentable
     {
+        public virtual ICollection<Comment> Comments { get; set; }
         public string Title { get; set; }
-
-        private ICollection<Comment> _comments = new List<Comment>()
-        {
-            new Comment()
-            {
-                Author = null,
-                Date = DateTime.Now,
-                EntityType = EntityType.Category,
-                Text = string.Format("Category has been added ")
-            }
-        };
 
         public Category(ICollection<Comment> comments) : this()
         {
-            _comments = comments;
+            Comments = comments;
         }
 
         public Category()
@@ -36,11 +26,6 @@ namespace Domain.Entities.Products
         public static bool IsNullOrEmpty(Category category)
         {
             return category == null || category.Title == "";
-        }
-
-        public IReadOnlyCollection<Comment> Comments
-        {
-            get { return (IReadOnlyCollection<Comment>)_comments; }
         }
 
         public override string ToString()

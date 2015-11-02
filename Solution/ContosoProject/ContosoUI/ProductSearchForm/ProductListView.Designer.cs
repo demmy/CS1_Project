@@ -181,6 +181,7 @@
             this.productStateGridColumn});
             this.productsGridView.GridControl = this.productsGridControl;
             this.productsGridView.Name = "productsGridView";
+            this.productsGridView.OptionsBehavior.Editable = false;
             this.productsGridView.DoubleClick += new System.EventHandler(this.productsGridView_DoubleClick);
             // 
             // skuGridColumn
@@ -218,6 +219,8 @@
             // priceGridColumn
             // 
             this.priceGridColumn.Caption = "Price";
+            this.priceGridColumn.DisplayFormat.FormatString = "c2";
+            this.priceGridColumn.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.priceGridColumn.FieldName = "Price";
             this.priceGridColumn.Name = "priceGridColumn";
             this.priceGridColumn.Visible = true;

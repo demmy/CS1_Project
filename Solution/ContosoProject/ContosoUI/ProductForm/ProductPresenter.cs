@@ -18,11 +18,9 @@ namespace ContosoUI.ProductForm
     {
         private IProductView _view;
         private ProductModel _model;
-        ICategoryRepository _categoryRepository = new DummyDAOForCategory();
+        ICategoryRepository _categoryRepository;
         
         private Product _product = new Product();
-
-       
 
         private bool _isActive;
         private string _sku = string.Empty;
@@ -44,6 +42,8 @@ namespace ContosoUI.ProductForm
         {
             _view = view;
             _model = model;
+            _categoryRepository = model.CategoryRepository;
+            InitializeProductFields();
             _categories = new BindingList<Category>(_categoryRepository.GetAll().ToList());
         }
 
@@ -125,7 +125,7 @@ namespace ContosoUI.ProductForm
             };
             if (productToSave.Id != 0)
             {
-                if (!_model.GetBySKU(productToSave.SKU).Equals(productToSave))
+                if (!_model.Find(productToSave.Id).Equals(productToSave))
                 {
                     _model.Save(productToSave);
                     _product = productToSave;
@@ -133,17 +133,19 @@ namespace ContosoUI.ProductForm
             }
             else
             {
-                if (_model.GetBySKU(productToSave.SKU) == null)
+                if (_model.GetBy(null, productToSave.Title, null).FirstOrDefault() == null)
                 {
                     _model.Create(productToSave);
                     _product = productToSave;
                 }
                 else
                 {
-                    MessageBox.Show("Product with this SKU already exists, use another one, please.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+                    MessageBox.Show("Product with this title already exists. Change title", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+                    Title = string.Empty;
                 }
             }
         }
+        
 
         public void SaveAndNew()
         {

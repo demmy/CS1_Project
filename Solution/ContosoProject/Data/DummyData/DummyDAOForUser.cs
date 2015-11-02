@@ -42,5 +42,11 @@ namespace Data.DummyData
             }
             throw new Exception();
         }
+
+
+        public User Authentificate(string login, string passwordHash)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

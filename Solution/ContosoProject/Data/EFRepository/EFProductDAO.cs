@@ -7,6 +7,11 @@ namespace Data.EFRepository
 {
     public class EFProductDAO: EFExtendedDAO<Product>, IProductRepository
     {
+        public EFProductDAO(ProjectContext context)
+            : base(context)
+        {
+
+        }
         public ICollection<Product> GetBy(string sku, string title, Category category)
         {
             var result = dbContext.Products.AsQueryable();

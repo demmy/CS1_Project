@@ -1,4 +1,5 @@
 ﻿using Data.DummyData;
+using Data.EFRepository;
 using Domain.DAO;
 using Domain.Entities.Users;
 
@@ -6,21 +7,28 @@ namespace ContosoUI.UserForm
 {
     public class UserModel
     {
-        IRepository<User> user = new DummyDAO<User>();
+        ProjectContext context = new ProjectContext();
 
+        public readonly IRoleRepository RoleRepository;
+        public readonly IUserRepository UserRepository;
+        public UserModel()
+        {
+            UserRepository = new EFUserDAO(context);
+            RoleRepository = new EFRoleDAO(context);
+        }
         public void Save(User currentUser)
         {
-            user.Save(currentUser);
+            UserRepository.Save(currentUser);
         }
 
         public void Create(User currentUser)
         {
-            user.Create(currentUser);
+            UserRepository.Create(currentUser);
         }
 
         public User Find(int id)
         {
-            return user.Find(id);
+            return UserRepository.Find(id);
         }
     }
 }

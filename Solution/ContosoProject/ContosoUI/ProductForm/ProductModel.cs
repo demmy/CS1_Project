@@ -8,21 +8,24 @@ using System.Threading.Tasks;
 using Data.DummyData;
 using Domain.DAO;
 using Domain.Entities.Products;
+using Data.EFRepository;
 
 namespace ContosoUI.ProductForm
 {
     public class ProductModel
     {
-        readonly IProductRepository _productRepository = new DummyDAOForProduct();
+        private readonly ProjectContext _context = new ProjectContext();
+        private readonly IProductRepository _productRepository;
+        public readonly ICategoryRepository CategoryRepository;
+        public ProductModel()
+        {
+            _productRepository = new EFProductDAO(_context);
+            CategoryRepository = new EFCategoryDAO(_context);
+        }
 
         public Product Find(int id)
         {
             return _productRepository.Find(id);
-        }
-
-        public Product GetBySKU(string sku)
-        {
-            return _productRepository.GetBySKU(sku);
         }
 
         public void Save(Product productToSave)
@@ -33,6 +36,11 @@ namespace ContosoUI.ProductForm
         public void Create(Product productToSave)
         {
             _productRepository.Create(productToSave);
+        }
+
+        public ICollection<Product> GetBy(string sku, string title, Category category)
+        {
+           return _productRepository.GetBy(sku, title, category);
         }
     }
 }

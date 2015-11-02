@@ -10,6 +10,11 @@ namespace Data.EFRepository
 {
     public class EFRoleDAO:EFBaseDao<Role>, IRoleRepository
     {
+        public EFRoleDAO(ProjectContext context)
+            : base(context)
+        {
+
+        }
         /// <summary>
         /// 
         /// </summary>

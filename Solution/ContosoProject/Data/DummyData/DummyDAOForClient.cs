@@ -4,6 +4,7 @@ using System.Linq;
 using Data.StoreData;
 using Domain.DAO;
 using Domain.Entities;
+using Domain.Entities.Clients;
 
 namespace Data.DummyData
 {

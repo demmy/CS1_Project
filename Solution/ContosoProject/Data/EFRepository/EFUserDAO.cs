@@ -3,11 +3,17 @@ using System.Linq;
 using Domain.DAO;
 using Domain.Entities;
 using Domain.Entities.Users;
+using System.Data.Entity;
 
 namespace Data.EFRepository
 {
     public class EFUserDAO: EFExtendedDAO<User>, IUserRepository
     {
+        public EFUserDAO(ProjectContext context)
+            : base(context)
+        {
+
+        }
         public ICollection<User> GetBy(string login, string firstName, string lastName)
         {
             var result = dbContext.Users.AsQueryable();
@@ -29,6 +35,12 @@ namespace Data.EFRepository
                     where user.Role == role
                         select user)
                             .ToList();
+        }
+
+
+        public User Authentificate(string login, string passwordHash)
+        {
+            return dbContext.Users.Include(x =>x.Role).FirstOrDefault(x => x.Login.Equals(login) && x.Password.Equals(passwordHash));
         }
     }
 }

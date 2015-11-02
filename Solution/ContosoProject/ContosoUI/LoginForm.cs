@@ -1,5 +1,6 @@
 ﻿using Data.DummyData;
 using Domain.DAO;
+using Data.EFRepository;
 using Domain.Entities.Users;
 using System;
 using System.Collections.Generic;
@@ -15,34 +16,31 @@ namespace ContosoUI
 {
     public partial class LoginForm : Form
     {
-        public static User CurrentUser { get; private set; }
-
+        private readonly ProjectContext _context = new ProjectContext();
         public LoginForm()
         {
             InitializeComponent();
 
 #if DEBUG
-            loginTextEdit.Text = "d";
-            passwordTextEdit.Text = "11";
+            loginTextEdit.Text = "Admin";
+            passwordTextEdit.Text = "queryadmin";
 #endif
         }
 
         private void cancelButton_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Application.Exit();
         }
 
         private void okButton_Click(object sender, EventArgs e)
         {
-            IUserRepository userRepo = new DummyDAOForUser();
-            IList<User> users = userRepo.GetAll().ToList();
-            var user = users.Where(x => x.Login == loginTextEdit.Text && x.Password == passwordTextEdit.Text);
-            if (user.Any())
+            IUserRepository userRepo = new EFUserDAO(_context);
+            var hashedPass = Hashing.CreateHash(passwordTextEdit.Text);
+            var user = userRepo.Authentificate(loginTextEdit.Text, hashedPass);
+            if (user != null)
             {
-                CurrentUser = user.First();
-                MainForm main = Program.MainForm;
-                Program.OpenMainFormOnClose = true;
-                this.Close(); 
+                Program.AuthUser = user;
+                this.Close();
             }
             else
             {
@@ -54,6 +52,11 @@ namespace ContosoUI
         {
             if (e.KeyChar == Convert.ToChar(Keys.Enter))
                 okButton_Click(sender, e);
+        }
+
+        private void LoginForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

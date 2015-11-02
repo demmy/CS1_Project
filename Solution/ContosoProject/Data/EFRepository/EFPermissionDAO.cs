@@ -10,7 +10,11 @@ namespace Data.EFRepository
 {
     public class EFPermissionDAO: IPermissionRepository
     {
-        ProjectContext dbContext = new ProjectContext();
+        ProjectContext dbContext;
+        public EFPermissionDAO(ProjectContext context)
+        {
+            dbContext = context ?? new ProjectContext();
+        }
         public ICollection<Permission> GetByTitle(string title)
         {
             return (from user in dbContext.Users 

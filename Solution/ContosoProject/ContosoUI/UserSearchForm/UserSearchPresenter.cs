@@ -10,17 +10,20 @@ using System.Runtime.CompilerServices;
 using Data.DummyData;
 using Domain.DAO;
 using ContosoUI.Annotations;
+using Data.EFRepository;
 
 namespace ContosoUI.UserSearchForm
 {
     public class UserSearchPresenter: Presenter, ISearchPresenter
     {
+        private readonly ProjectContext _context = new ProjectContext();
         private readonly IUserSearchView view;
-        private readonly IUserRepository model = new DummyDAOForUser();
+        private readonly IUserRepository model;
 
         public UserSearchPresenter(IUserSearchView view)
         {
             this.view = view;
+            model = new EFUserDAO(_context);
         }
 
         private string login = string.Empty;
