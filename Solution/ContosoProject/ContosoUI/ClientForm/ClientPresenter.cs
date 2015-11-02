@@ -21,8 +21,8 @@ namespace ContosoUI.ClientForm
         private IClientView _view;
         private ClientModel _model;
 
-        private readonly IClientRepository _clientRepository = new DummyDAOForClient();
-        private readonly IOrderRepository _orderRepository = new DummyDAOForOrder();
+        private readonly IClientRepository _clientRepository = new Data.EFRepository.EFClientDAO();
+        private readonly IOrderRepository _orderRepository = new Data.EFRepository.EFOrderDAO();
 
         private Client _client = new Client();
 

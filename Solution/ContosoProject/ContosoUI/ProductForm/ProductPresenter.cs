@@ -18,7 +18,7 @@ namespace ContosoUI.ProductForm
     {
         private IProductView _view;
         private ProductModel _model;
-        ICategoryRepository _categoryRepository = new DummyDAOForCategory();
+        ICategoryRepository _categoryRepository = new Data.EFRepository.EFCategoryDAO();
         
         private Product _product = new Product();
 

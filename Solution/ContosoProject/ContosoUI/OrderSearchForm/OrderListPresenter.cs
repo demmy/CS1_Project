@@ -18,8 +18,8 @@ namespace ContosoUI.OrderSearchForm
     public class OrderListPresenter : Presenter, ISearchPresenter
     {
         private readonly IOrderListView view;
-        private readonly IOrderRepository model = new DummyDAOForOrder();
-        IClientRepository clientRepo = new DummyDAOForClient();
+        private readonly IOrderRepository model = new Data.EFRepository.EFOrderDAO();
+        IClientRepository clientRepo = new Data.EFRepository.EFClientDAO();
         public BindingList<Client> ClientsList;
         public BindingList<Status> StatusList = new BindingList<Status>(Enum.GetValues(typeof(Status)).Cast<Status>().ToList());
 

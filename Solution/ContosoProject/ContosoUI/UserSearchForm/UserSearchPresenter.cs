@@ -16,7 +16,7 @@ namespace ContosoUI.UserSearchForm
     public class UserSearchPresenter: Presenter, ISearchPresenter
     {
         private readonly IUserSearchView view;
-        private readonly IUserRepository model = new DummyDAOForUser();
+        private readonly IUserRepository model = new Data.EFRepository.EFUserDAO();
 
         public UserSearchPresenter(IUserSearchView view)
         {

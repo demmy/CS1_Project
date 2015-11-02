@@ -10,6 +10,11 @@ namespace Data.EFRepository
 {
     public class EFCategoryDAO: EFExtendedDAO<Category>, ICategoryRepository
     {
+        public EFCategoryDAO(ProjectContext context)
+            : base(context)
+        {
+
+        }
         public ICollection<Category> GetByTitle(string title)
         {
             return (from category in dbContext.Set<Category>()

@@ -8,8 +8,12 @@ namespace Data.EFRepository
 {
     public class EFBaseDao<T> : IRepository<T> where T : Entity, new()
     {
-        protected ProjectContext dbContext = new ProjectContext();
+        protected ProjectContext dbContext;
 
+        public EFBaseDao(ProjectContext projContext)
+        {
+            dbContext = projContext ?? new ProjectContext();
+        }
         public void Create(T entity)
         {
             dbContext.Set<T>().Add(entity); ;

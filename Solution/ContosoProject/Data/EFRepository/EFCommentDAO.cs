@@ -9,6 +9,11 @@ namespace Data.EFRepository
 {
     public class EFCommentDAO:EFExtendedDAO<Comment>, ICommentRepository
     {
+        public EFCommentDAO(ProjectContext context)
+            : base(context)
+        {
+
+        }
         public ICollection<Comment> GetAllByUser(User user)
         {
             var commentsByUser = new List<Comment>();

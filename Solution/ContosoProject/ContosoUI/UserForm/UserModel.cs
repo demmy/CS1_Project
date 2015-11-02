@@ -6,7 +6,7 @@ namespace ContosoUI.UserForm
 {
     public class UserModel
     {
-        IRepository<User> user = new DummyDAO<User>();
+        IRepository<User> user = new Data.EFRepository.EFBaseDao<User>();
 
         public void Save(User currentUser)
         {

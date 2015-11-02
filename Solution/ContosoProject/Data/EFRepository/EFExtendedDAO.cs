@@ -9,6 +9,11 @@ namespace Data.EFRepository
     public class EFExtendedDAO<T>: EFBaseDao<T>, IRepositoryExtension<T>
         where T : ExtendedEntity, new()
     {
+        public EFExtendedDAO(ProjectContext context)
+            : base(context)
+        {
+
+        }
         public ICollection<T> GetByDate(DateTime date)
         {
             return dbContext.Set<T>()

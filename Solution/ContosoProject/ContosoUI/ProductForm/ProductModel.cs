@@ -13,7 +13,7 @@ namespace ContosoUI.ProductForm
 {
     public class ProductModel
     {
-        readonly IProductRepository _productRepository = new DummyDAOForProduct();
+        readonly IProductRepository _productRepository = new Data.EFRepository.EFProductDAO();
 
         public Product Find(int id)
         {

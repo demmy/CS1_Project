@@ -16,7 +16,7 @@ namespace ContosoUI.ClientSearchForm
     public class ClientSearchPresenter : Presenter, ISearchPresenter
     {
         private readonly IClientSearchView view;
-        private readonly IClientRepository model = new DummyDAOForClient();
+        private readonly IClientRepository model = new Data.EFRepository.EFClientDAO();
 
         private BindingList<Client> clientsList = new BindingList<Client>();
 

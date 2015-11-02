@@ -9,6 +9,11 @@ namespace Data.EFRepository
 {
     public class EFUserDAO: EFExtendedDAO<User>, IUserRepository
     {
+        public EFUserDAO(ProjectContext context)
+            : base(context)
+        {
+
+        }
         public ICollection<User> GetBy(string login, string firstName, string lastName)
         {
             var result = dbContext.Users.AsQueryable();

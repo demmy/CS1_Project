@@ -15,8 +15,8 @@ namespace ContosoUI.ProductSearchForm
     public class ProductListPresenter : Presenter, ISearchPresenter
     {
         private readonly IProductListView view;
-        private readonly IProductRepository model = new DummyDAOForProduct();
-        private readonly ICategoryRepository categoryRepo = new DummyDAOForCategory();
+        private readonly IProductRepository model = new Data.EFRepository.EFProductDAO();
+        private readonly ICategoryRepository categoryRepo = new Data.EFRepository.EFCategoryDAO();
 
         public List<Category> CategoriesList;
 

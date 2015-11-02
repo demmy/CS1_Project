@@ -11,6 +11,11 @@ namespace Data.EFRepository
 {
     public class EFClientDAO: EFExtendedDAO<Client>, IClientRepository
     {
+        public EFClientDAO(ProjectContext context)
+            : base(context)
+        {
+
+        }
         public ICollection<Client> FindBy(string firstName, string lastName, string city)
         {
             var result = dbContext.Clients.AsQueryable();

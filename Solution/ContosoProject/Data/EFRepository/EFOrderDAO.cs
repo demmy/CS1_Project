@@ -11,6 +11,12 @@ namespace Data.EFRepository
 {
     public class EFOrderDAO: EFExtendedDAO<Order>, IOrderRepository
     {
+        public EFOrderDAO(ProjectContext context)
+            : base(context)
+        {
+
+        }
+
         /// <summary>
         /// The method to search the Order by some kind of "mask"
         /// </summary>
