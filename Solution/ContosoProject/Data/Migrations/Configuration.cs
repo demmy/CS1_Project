@@ -24,7 +24,7 @@ internal sealed class Configuration : DbMigrationsConfiguration<Data.EFRepositor
         const string AddProduct = "Add Product";
         const string EditProduct = "Edit Product";
         const string SearchProduct = "Search Product";
-        const string SearchProductByCategory = "Search Client by Product";
+        const string SearchProductByCategory = "Search Product by Category";
         const string ViewProduct = "View Product";
         const string ActivateProduct = "Activate Product";
         const string DeactivateProduct = "Deactivate Product";
@@ -54,6 +54,11 @@ internal sealed class Configuration : DbMigrationsConfiguration<Data.EFRepositor
         const string ActivateOrder = "Activate Order";
         const string DeactivateOrder = "Deactivate Order";
         const string CommentOrder = "Comment Order";
+
+        const string AddRole = "Add Role";
+        const string EditRole = "Edit Role";
+        const string ActivateRole = "Activate Role";
+        const string DeactivateRole = "Deactivate Role";
 
         IList<Permission> Permissions = new List<Permission>
         {
@@ -97,7 +102,12 @@ internal sealed class Configuration : DbMigrationsConfiguration<Data.EFRepositor
             new Permission {Description = "Able to view order’s data",IsActive = true, Title = ViewOrder},
             new Permission {Description = "Able to activate existing order", IsActive = true, Title = ActivateOrder},
             new Permission {Description = "Able to deactivate existing order", IsActive = true, Title = DeactivateOrder},
-            new Permission {Description = "Able to add comments to existing order", IsActive = true, Title = CommentOrder}
+            new Permission {Description = "Able to add comments to existing order", IsActive = true, Title = CommentOrder},
+
+            new Permission {Description = "Able to add new role", IsActive = true, Title = AddRole},
+            new Permission {Description = "Able to edit existing role's data", IsActive = true, Title = EditRole},
+            new Permission {Description = "Able to activate existing role", IsActive = true, Title = ActivateRole},
+            new Permission {Description = "Able to deactivate existing role", IsActive = true, Title = DeactivateRole}
         }; 
         #endregion
         var admin = new User() { Login = "Admin", Password = "queryadmin", IsActive = true,

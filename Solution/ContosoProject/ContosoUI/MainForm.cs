@@ -91,7 +91,7 @@ namespace ContosoUI
 
         private void xtraTabbedMdiManager_PageRemoved(object sender, DevExpress.XtraTabbedMdi.MdiTabPageEventArgs e)
         {
-            bgPictureEdit.Visible = true;
+            bgPictureEdit.Visible = false;
         }
 
         private void ExitBarButton_ItemClick(object sender, ItemClickEventArgs e)

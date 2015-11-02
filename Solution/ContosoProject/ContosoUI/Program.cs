@@ -17,15 +17,16 @@ namespace ContosoUI
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            do
-            {
-                //auth
-                var lf = new LoginForm();
-                lf.ShowDialog();
-            } while (AuthUser == null);
             
-            MainForm = new MainForm();
-            Application.Run(MainForm);
+            //auth
+            var lf = new LoginForm();
+            lf.ShowDialog();
+
+            if (AuthUser != null)
+            {
+                MainForm = new MainForm();
+                Application.Run(MainForm);
+            }
         }
     }
 }

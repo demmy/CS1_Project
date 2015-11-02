@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Domain.DAO;
 using Domain.Entities;
 using Domain.Entities.Clients;
+using System.Data.Entity;
 
 namespace Data.EFRepository
 {
@@ -16,6 +17,7 @@ namespace Data.EFRepository
         {
 
         }
+
         public ICollection<Client> FindBy(string firstName, string lastName, string city)
         {
             var result = dbContext.Clients.AsQueryable();

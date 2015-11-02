@@ -38,7 +38,7 @@ namespace Data.EFRepository
         public ICollection<Order> GetByClient(Client client)
         {
             return (from order in dbContext.Orders
-                        where order.Client == client
+                        where order.Client.Id == client.Id
                             select order)
                                 .ToList();
         }
