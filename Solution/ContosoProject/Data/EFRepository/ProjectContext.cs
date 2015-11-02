@@ -14,11 +14,6 @@ namespace Data.EFRepository
         public ProjectContext()
             : base("name=ProjectContext")
         {
-            string path = System.AppDomain.CurrentDomain.BaseDirectory;
-            if (!System.IO.Directory.Exists(path + "\\Data"))
-                System.IO.Directory.CreateDirectory(path + "\\Data");
-            System.AppDomain.CurrentDomain.SetData("DataDirectory", path);
-
             Database.SetInitializer(new CreateDatabaseIfNotExists<ProjectContext>());
         }
 
