@@ -33,7 +33,7 @@ namespace ContosoUI.ClientSearchForm
 
         private void ClientListView_Load(object sender, EventArgs e)
         {
-            ShowDependentOnRole(LoginForm.CurrentUser.Role);
+            ShowDependentOnRole(Program.AuthUser.Role);
 
             binding.DataSource = presenter;
 

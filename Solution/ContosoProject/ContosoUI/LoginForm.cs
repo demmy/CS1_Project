@@ -16,8 +16,6 @@ namespace ContosoUI
 {
     public partial class LoginForm : Form
     {
-        public static User CurrentUser { get; private set; }
-
         public LoginForm()
         {
             InitializeComponent();
@@ -30,20 +28,18 @@ namespace ContosoUI
 
         private void cancelButton_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Application.Exit();
         }
 
         private void okButton_Click(object sender, EventArgs e)
         {
             IUserRepository userRepo = new EFUserDAO();
-            var users = userRepo.GetAll().ToList();
-            var user = users.Where(x => Hashing.MatchHash(x.Password, passwordTextEdit.Text));
-            if (users.Any())
+            var hashedPass = Hashing.CreateHash(passwordTextEdit.Text);
+            var user = userRepo.GetAll().FirstOrDefault(x => x.Login.Equals(loginTextEdit.Text) && x.Password.Equals(hashedPass));
+            if (user != null)
             {
-                CurrentUser = user.First();
-                MainForm main = Program.MainForm;
-                Program.OpenMainFormOnClose = true;
-                this.Close(); 
+                Program.AuthUser = user;
+                this.Close();
             }
             else
             {

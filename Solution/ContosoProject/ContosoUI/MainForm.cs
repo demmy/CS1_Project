@@ -23,8 +23,8 @@ namespace ContosoUI
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            Thread.CurrentThread.CurrentCulture = new CultureInfo("ua-UA");
-            ShowDependentOnRole(LoginForm.CurrentUser.Role);
+            //Thread.CurrentThread.CurrentCulture = new CultureInfo("ua-UA");
+            ShowDependentOnRole(Program.AuthUser.Role);
         }
 
         private void ShowDependentOnRole (Role role)

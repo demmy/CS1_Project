@@ -35,7 +35,7 @@ namespace ContosoUI.ProductSearchForm
 
         private void ProductListView_Load(object sender, EventArgs e)
         {
-            ShowDependentOnRole(LoginForm.CurrentUser.Role);
+            ShowDependentOnRole(Program.AuthUser.Role);
 
             binding.DataSource = presenter;
 
