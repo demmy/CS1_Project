@@ -16,6 +16,7 @@ namespace ContosoUI
 {
     public partial class LoginForm : Form
     {
+        private readonly ProjectContext _context = new ProjectContext();
         public LoginForm()
         {
             InitializeComponent();
@@ -33,7 +34,7 @@ namespace ContosoUI
 
         private void okButton_Click(object sender, EventArgs e)
         {
-            IUserRepository userRepo = new EFUserDAO();
+            IUserRepository userRepo = new EFUserDAO(_context);
             var hashedPass = Hashing.CreateHash(passwordTextEdit.Text);
             var user = userRepo.Authentificate(loginTextEdit.Text, hashedPass);
             if (user != null)

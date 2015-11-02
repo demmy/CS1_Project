@@ -20,8 +20,8 @@ namespace ContosoUI.OrderForm
     {
         private OrderModel _model;
         private IOrderView _view;
-        IProductRepository _produtRepository = new Data.EFRepository.EFProductDAO();
-        IClientRepository _clientRepository = new Data.EFRepository.EFClientDAO();
+        IProductRepository _produtRepository;
+        IClientRepository _clientRepository;
 
         public BindingList<Product> Products
         {
@@ -41,6 +41,8 @@ namespace ContosoUI.OrderForm
 
         public OrderPresenter(OrderModel model, IOrderView view)
         {
+            _produtRepository = model.ProductRepository;
+            _clientRepository = model.ClientRepository;
             _model = model;
             _view = view;
         }

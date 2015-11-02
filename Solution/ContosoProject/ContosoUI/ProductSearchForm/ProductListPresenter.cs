@@ -9,19 +9,24 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using Data.EFRepository;
 
 namespace ContosoUI.ProductSearchForm
 {
     public class ProductListPresenter : Presenter, ISearchPresenter
     {
-        private readonly IProductListView view;
-        private readonly IProductRepository model = new Data.EFRepository.EFProductDAO();
-        private readonly ICategoryRepository categoryRepo = new Data.EFRepository.EFCategoryDAO();
+        private readonly IProductListView view;        
+        private readonly IProductRepository model;
+        private readonly ICategoryRepository categoryRepo;
 
         public List<Category> CategoriesList;
 
+        private ProjectContext _context = new ProjectContext();
+
         public ProductListPresenter(IProductListView view)
         {
+            model = new EFProductDAO(_context);
+            categoryRepo = new EFCategoryDAO(_context);
             this.view = view;
             CategoriesList = new List<Category>(categoryRepo.GetAll().ToList());
         }

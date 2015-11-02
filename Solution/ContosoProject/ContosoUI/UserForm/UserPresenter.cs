@@ -14,15 +14,17 @@ namespace ContosoUI.UserForm
     {
         private readonly IUserView _view;
         private readonly UserModel _model;
-        private readonly IRoleRepository _roleRepository = new Data.EFRepository.EFRoleDAO();
-        private readonly IUserRepository _userRepository = new Data.EFRepository.EFUserDAO();
+        private readonly IRoleRepository _roleRepository;
+        private readonly IUserRepository _userRepository;
 
         public UserPresenter(IUserView view, UserModel model)
         {
-            var roles = _roleRepository.GetAll();
-            RoleList = new List<Domain.Entities.Users.Role>(roles);
+            _roleRepository = model.RoleRepository;
+            _userRepository = model.UserRepository;
             _view = view;
             _model = model;
+            var roles = _roleRepository.GetAll();
+            RoleList = new List<Domain.Entities.Users.Role>(roles);            
         }
 
         User _user = new User();

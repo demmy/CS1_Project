@@ -7,31 +7,38 @@ using Data.DummyData;
 using Domain.DAO;
 using Domain.Entities;
 using Domain.Entities.Clients;
+using Data.EFRepository;
 
 namespace ContosoUI.ClientForm
 {
     public class ClientModel
     {
-        readonly IClientRepository _repository = new DummyDAOForClient();
-
+        private readonly ProjectContext _context = new ProjectContext();
+        public readonly IClientRepository ClientRepository;
+        public readonly IOrderRepository OrderRepository;
+        public ClientModel()
+        {
+            ClientRepository = new EFClientDAO(_context);
+            OrderRepository = new EFOrderDAO(_context);
+        }
         public void Save(Client currentClient)
         {
-            _repository.Save(currentClient);
+            ClientRepository.Save(currentClient);
         }
 
         public void Create(Client newClient)
         {
-            _repository.Create(newClient);
+            ClientRepository.Create(newClient);
         }
 
         public Client Find(int id)
         {
-            return _repository.Find(id);
+            return ClientRepository.Find(id);
         }
 
         public Client FindBy(string firstName, string lastName, string city)
         {
-            var clientList = _repository.FindBy(firstName, lastName, city);
+            var clientList = ClientRepository.FindBy(firstName, lastName, city);
             return clientList == null ?  null :  clientList.FirstOrDefault();
         }
     }

@@ -1,5 +1,6 @@
 ﻿using ContosoUI.Annotations;
 using Data.DummyData;
+using Data.EFRepository;
 using Domain.DAO;
 using Domain.Entities;
 using Domain.Entities.Clients;
@@ -15,13 +16,15 @@ namespace ContosoUI.ClientSearchForm
 {
     public class ClientSearchPresenter : Presenter, ISearchPresenter
     {
+        private readonly ProjectContext _context = new ProjectContext();
         private readonly IClientSearchView view;
-        private readonly IClientRepository model = new Data.EFRepository.EFClientDAO();
+        private readonly IClientRepository model;
 
         private BindingList<Client> clientsList = new BindingList<Client>();
 
         public ClientSearchPresenter(IClientSearchView view)
         {
+            model = new EFClientDAO(_context);
             this.view = view;
         }
 
