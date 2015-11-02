@@ -35,7 +35,7 @@ namespace ContosoUI
         {
             IUserRepository userRepo = new EFUserDAO();
             var hashedPass = Hashing.CreateHash(passwordTextEdit.Text);
-            var user = userRepo.GetAll().FirstOrDefault(x => x.Login.Equals(loginTextEdit.Text) && x.Password.Equals(hashedPass));
+            var user = userRepo.Authentificate(loginTextEdit.Text, hashedPass);
             if (user != null)
             {
                 Program.AuthUser = user;

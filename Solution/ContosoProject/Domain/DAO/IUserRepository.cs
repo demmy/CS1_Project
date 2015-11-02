@@ -8,5 +8,6 @@ namespace Domain.DAO
     {
         ICollection<User> GetBy(string login, string firstName, string lastName);
         ICollection<User> GetByRole(Role role);
+        User Authentificate(string login, string passwordHash);
     }
 }
