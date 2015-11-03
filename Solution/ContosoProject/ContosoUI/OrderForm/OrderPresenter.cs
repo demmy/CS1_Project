@@ -15,13 +15,9 @@ namespace ContosoUI.OrderForm
     {
         private OrderModel _model;
         private IOrderView _view;
-        IProductRepository _produtRepository;
-        IClientRepository _clientRepository;
 
-        public BindingList<Product> Products
-        {
-            get { return new BindingList<Product>(_produtRepository.GetAll().ToList()); }
-        } 
+        IProductRepository _produtRepository;
+        IClientRepository _clientRepository;        
 
         private Order _order = new Order(new List<Comment>(), new List<OrderItem>());
         private Client _client = new Client();
@@ -36,10 +32,10 @@ namespace ContosoUI.OrderForm
 
         public OrderPresenter(OrderModel model, IOrderView view)
         {
-            _produtRepository = model.ProductRepository;
-            _clientRepository = model.ClientRepository;
             _model = model;
             _view = view;
+            _produtRepository = _model.ProductRepository;
+            _clientRepository = _model.ClientRepository;
         }
 
         public void UseOrderWithID(int id)
@@ -164,7 +160,10 @@ namespace ContosoUI.OrderForm
         {
             get { return new BindingList<Client>(_clientRepository.GetAll().ToList()); }
         }
-
+        public BindingList<Product> Products
+        {
+            get { return new BindingList<Product>(_produtRepository.GetAll().ToList()); }
+        } 
 
         public List<Status> StatusEnum
         {

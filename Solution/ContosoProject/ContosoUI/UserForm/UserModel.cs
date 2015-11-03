@@ -6,17 +6,23 @@ using Domain.Entities.Users;
 
 namespace ContosoUI.UserForm
 {
-    public class UserModel
-    {
-        private readonly IRepositoryFacade _facade = new EFRepositoryFacade();
-
-        public readonly IRoleRepository RoleRepository;
-        public readonly IUserRepository UserRepository;
+    public class UserModel: Model
+    {        
         public UserModel()
+            :base()
         {
-            UserRepository = _facade.UserRepository;
-            RoleRepository = _facade.RoleRepository;
+
         }
+
+        public IRoleRepository RoleRepository
+        {
+            get { return Facade.RoleRepository; }
+        }
+        public IUserRepository UserRepository 
+        {
+            get { return Facade.UserRepository; }
+        }
+
         public void Save(User currentUser)
         {
             UserRepository.Save(currentUser);

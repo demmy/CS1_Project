@@ -23,7 +23,7 @@ namespace ContosoUI.OrderSearchForm
         public OrderListView()
         {
             InitializeComponent();
-            presenter = new OrderListPresenter(this);
+            presenter = new OrderListPresenter(this, new OrderListModel());
         }
 
         private void OrderListView_Load(object sender, EventArgs e)

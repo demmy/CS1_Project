@@ -22,7 +22,7 @@ namespace ContosoUI.UserSearchForm
         public UsersListView()
         {
             InitializeComponent();
-            presenter = new UserSearchPresenter(this);
+            presenter = new UserSearchPresenter(this, new UserSearchModel());
         }
 
         private void UsersListView_Load(object sender, EventArgs e)

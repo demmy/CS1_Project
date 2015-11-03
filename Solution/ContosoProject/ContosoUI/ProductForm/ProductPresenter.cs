@@ -10,9 +10,10 @@ namespace ContosoUI.ProductForm
 {
     public class ProductPresenter : Presenter, IViewPresenter
     {
-        private IProductView _view;
-        private ProductModel _model;
-        ICategoryRepository _categoryRepository;
+        private readonly IProductView _view;
+        private readonly ProductModel _model;
+
+        private readonly ICategoryRepository _categoryRepository;
         
         private Product _product = new Product();
 
@@ -36,7 +37,7 @@ namespace ContosoUI.ProductForm
         {
             _view = view;
             _model = model;
-            _categoryRepository = model.CategoryRepository;
+            _categoryRepository = _model.CategoryRepository;
             InitializeProductFields();
             _categories = new BindingList<Category>(_categoryRepository.GetAll().ToList());
         }

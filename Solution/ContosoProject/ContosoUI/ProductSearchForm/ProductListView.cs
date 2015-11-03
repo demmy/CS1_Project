@@ -24,7 +24,7 @@ namespace ContosoUI.ProductSearchForm
         public ProductListView()
         {
             InitializeComponent();
-            presenter = new ProductListPresenter(this);
+            presenter = new ProductListPresenter(this, new ProductListModel());
         }
 
         private void ShowDependentOnRole(Role role)

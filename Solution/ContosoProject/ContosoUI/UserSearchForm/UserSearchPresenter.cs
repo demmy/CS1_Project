@@ -9,15 +9,16 @@ namespace ContosoUI.UserSearchForm
 {
     public class UserSearchPresenter: Presenter, ISearchPresenter
     {
-        private readonly IUserSearchView view;
-        private readonly IUserRepository model;
+        private readonly IUserSearchView _view;
+        private readonly UserSearchModel _model;
 
-        private readonly IRepositoryFacade _facade = new EFRepositoryFacade();
+        private readonly IUserRepository _userRepository;
 
-        public UserSearchPresenter(IUserSearchView view)
+        public UserSearchPresenter(IUserSearchView view, UserSearchModel model)
         {
-            this.view = view;
-            model = _facade.UserRepository;
+            _view = view;
+            _model = model;
+            _userRepository = _model.UserRepository;
         }
 
         private string login = string.Empty;
@@ -87,9 +88,9 @@ namespace ContosoUI.UserSearchForm
         {
             List<User> users; 
             if (Login != null && FirstName != null && LastName != null)
-                users = model.GetBy(Login, FirstName, LastName).ToList();
+                users = _userRepository.GetBy(Login, FirstName, LastName).ToList();
             else
-                users = model.GetAll().ToList();
+                users = _userRepository.GetAll().ToList();
 
             Users = new BindingList<User>(users);
         }

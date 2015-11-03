@@ -23,7 +23,7 @@ namespace Data.Design
             get
             {
                 if (_clientRepository == null)
-                    _clientRepository = new DummyData.DummyDAOForClient(_context);
+                    _clientRepository = new DummyData.DummyDAOForClient();
                 return _clientRepository;
             }
         }
@@ -33,7 +33,7 @@ namespace Data.Design
             get
             {
                 if (_orderRepository == null)
-                    _orderRepository = new DummyData.DummyDAOForOrder(_context);
+                    _orderRepository = new DummyData.DummyDAOForOrder();
                 return _orderRepository;
             }
         }
@@ -43,7 +43,7 @@ namespace Data.Design
             get
             {
                 if (_productRepository == null)
-                    _productRepository = new DummyData.DummyDAOForProduct(_context);
+                    _productRepository = new DummyData.DummyDAOForProduct();
                 return _productRepository;
             }
         }
@@ -53,7 +53,7 @@ namespace Data.Design
             get
             {
                 if (_categoryRepository == null)
-                    _categoryRepository = new DummyData.DummyDAOForCategory(_context);
+                    _categoryRepository = new DummyData.DummyDAOForCategory();
                 return _categoryRepository;
             }
         }
@@ -63,7 +63,7 @@ namespace Data.Design
             get
             {
                 if (_userRepository == null)
-                    _userRepository = new DummyData.DummyDAOForUser(_context);
+                    _userRepository = new DummyData.DummyDAOForUser();
                 return _userRepository;
             }
         }
@@ -73,7 +73,7 @@ namespace Data.Design
             get
             {
                 if (_roleRepository == null)
-                    _roleRepository = new DummyData.DummyDAOForRole(_context);
+                    _roleRepository = new DummyData.DummyDAOForRole();
                 return _roleRepository;
             }
         }
@@ -83,7 +83,7 @@ namespace Data.Design
             get
             {
                 if (_permissionRepository == null)
-                    _permissionRepository = new DummyData.DummyDAOForPermission(_context);
+                    _permissionRepository = new DummyData.DummyDAOForPermission();
                 return _permissionRepository;
             }
         }
@@ -93,7 +93,7 @@ namespace Data.Design
             get
             {
                 if (_commentRepository == null)
-                    _commentRepository = new DummyData.DummyDAOForComment(_context);
+                    _commentRepository = new DummyData.DummyDAOForComment();
                 return _commentRepository;
             }
         }

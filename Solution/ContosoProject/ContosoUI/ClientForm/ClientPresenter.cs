@@ -33,10 +33,10 @@ namespace ContosoUI.ClientForm
 
         public ClientPresenter(IClientView view, ClientModel model)
         {
-            _clientRepository = model.ClientRepository;
-            _orderRepository = model.OrderRepository;
             _view = view;
             _model = model;
+            _clientRepository = _model.ClientRepository;
+            _orderRepository = _model.OrderRepository;
         }
 
         public void UseClientWithID(int id)

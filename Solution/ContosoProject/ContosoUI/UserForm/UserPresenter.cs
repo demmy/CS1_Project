@@ -17,10 +17,10 @@ namespace ContosoUI.UserForm
 
         public UserPresenter(IUserView view, UserModel model)
         {
-            _roleRepository = model.RoleRepository;
-            _userRepository = model.UserRepository;
             _view = view;
             _model = model;
+            _roleRepository = _model.RoleRepository;
+            _userRepository = _model.UserRepository;
             var roles = _roleRepository.GetAll();
             RoleList = new List<Domain.Entities.Users.Role>(roles);            
         }

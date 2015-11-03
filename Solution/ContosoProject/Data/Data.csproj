@@ -48,6 +48,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Design\DummyFacade.cs" />
     <Compile Include="Design\EFRepositoryFacade.cs" />
     <Compile Include="EFRepository\EFBaseDao.cs" />
     <Compile Include="EFRepository\EFCategoryDAO.cs" />

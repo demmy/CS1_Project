@@ -11,22 +11,23 @@ namespace ContosoUI.OrderSearchForm
 {
     public class OrderListPresenter : Presenter, ISearchPresenter
     {
-        private readonly IOrderListView view;
+        private readonly IOrderListView _view;
+        private readonly OrderListModel _model;
 
-        private readonly IOrderRepository model;
-        private readonly IClientRepository clientRepo;
-        private readonly IRepositoryFacade _facade = new EFRepositoryFacade();
+        private readonly IOrderRepository _orderRepository;
+        private readonly IClientRepository _clientRepository;
 
         private BindingList<Order> ordersList = new BindingList<Order>();
         public BindingList<Client> ClientsList;
         public BindingList<Status> StatusList = new BindingList<Status>(Enum.GetValues(typeof(Status)).Cast<Status>().ToList());               
 
-        public OrderListPresenter(IOrderListView view)
-        {
-            model = _facade.OrderRepository;
-            clientRepo = _facade.ClientRepository;
-            this.view = view;
-            ClientsList = new BindingList<Client>(clientRepo.GetAll().ToList());
+        public OrderListPresenter(IOrderListView view, OrderListModel model)
+        {            
+            _view = view;
+            _model = model;
+            _orderRepository = _model.OrderRepository;
+            _clientRepository = _model.ClientRepository;
+            ClientsList = new BindingList<Client>(_clientRepository.GetAll().ToList());
         }
 
         private string orderNumber = string.Empty;
@@ -88,9 +89,9 @@ namespace ContosoUI.OrderSearchForm
             List<Order> orders;
 
             if (string.IsNullOrEmpty(OrderNumber) && Client == null && StatusEnum == Status.All)
-                orders = model.GetAll().ToList();
+                orders = _orderRepository.GetAll().ToList();
             else
-                orders = model.GetBy(OrderNumber, StatusEnum, Client).ToList(); 
+                orders = _orderRepository.GetBy(OrderNumber, StatusEnum, Client).ToList(); 
 
             OrdersList = new BindingList<Order>(orders);
         }

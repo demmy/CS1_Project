@@ -5,16 +5,22 @@ using System.Linq;
 
 namespace ContosoUI.ClientForm
 {
-    public class ClientModel
+    public class ClientModel: Model
     {
-        private readonly IRepositoryFacade _facade = new EFRepositoryFacade();
-        public readonly IClientRepository ClientRepository;
-        public readonly IOrderRepository OrderRepository;
         public ClientModel()
+            :base()
         {
-            ClientRepository = _facade.ClientRepository;
-            OrderRepository = _facade.OrderRepository;
+
         }
+        public IClientRepository ClientRepository
+        {
+            get { return Facade.ClientRepository; }
+        }
+        public IOrderRepository OrderRepository
+        {
+            get { return Facade.OrderRepository; }
+        }
+
         public void Save(Client currentClient)
         {
             ClientRepository.Save(currentClient);
