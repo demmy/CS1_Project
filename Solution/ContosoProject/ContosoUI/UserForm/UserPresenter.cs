@@ -1,12 +1,10 @@
-﻿using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using Data.DummyData;
-using Data.StoreData;
-using Domain.DAO;
+﻿using Domain.DAO;
 using Domain.Entities;
 using Domain.Entities.Comments;
 using Domain.Entities.Users;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Linq;
 
 namespace ContosoUI.UserForm
 {
@@ -19,10 +17,10 @@ namespace ContosoUI.UserForm
 
         public UserPresenter(IUserView view, UserModel model)
         {
-            _roleRepository = model.RoleRepository;
-            _userRepository = model.UserRepository;
             _view = view;
             _model = model;
+            _roleRepository = _model.RoleRepository;
+            _userRepository = _model.UserRepository;
             var roles = _roleRepository.GetAll();
             RoleList = new List<Domain.Entities.Users.Role>(roles);            
         }

@@ -1,46 +1,44 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
-using Data.DummyData;
+﻿using Data.Design;
 using Domain.DAO;
 using Domain.Entities.Products;
-using Data.EFRepository;
+using System.Collections.Generic;
 
 namespace ContosoUI.ProductForm
 {
-    public class ProductModel
+    public class ProductModel: Model
     {
-        private readonly ProjectContext _context = new ProjectContext();
-        private readonly IProductRepository _productRepository;
-        public readonly ICategoryRepository CategoryRepository;
         public ProductModel()
+            :base()
         {
-            _productRepository = new EFProductDAO(_context);
-            CategoryRepository = new EFCategoryDAO(_context);
+
+        }
+        public IProductRepository ProductRepository 
+        {
+            get { return Facade.ProductRepository; }
+        }
+        public ICategoryRepository CategoryRepository
+        {
+            get { return Facade.CategoryRepository; }
         }
 
         public Product Find(int id)
         {
-            return _productRepository.Find(id);
+            return ProductRepository.Find(id);
         }
 
         public void Save(Product productToSave)
         {
-            _productRepository.Save(productToSave);
+            ProductRepository.Save(productToSave);
         }
 
         public void Create(Product productToSave)
         {
-            _productRepository.Create(productToSave);
+            ProductRepository.Create(productToSave);
         }
 
         public ICollection<Product> GetBy(string sku, string title, Category category)
         {
-           return _productRepository.GetBy(sku, title, category);
+           return ProductRepository.GetBy(sku, title, category);
         }
     }
 }

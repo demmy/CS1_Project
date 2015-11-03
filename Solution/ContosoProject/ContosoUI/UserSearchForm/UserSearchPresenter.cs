@@ -1,29 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Domain.Entities.Users;
-using Data.StoreData;
-using System.ComponentModel;
-using System.Runtime.CompilerServices;
-using Data.DummyData;
+﻿using Data.Design;
 using Domain.DAO;
-using ContosoUI.Annotations;
-using Data.EFRepository;
+using Domain.Entities.Users;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Linq;
 
 namespace ContosoUI.UserSearchForm
 {
     public class UserSearchPresenter: Presenter, ISearchPresenter
     {
-        private readonly ProjectContext _context = new ProjectContext();
-        private readonly IUserSearchView view;
-        private readonly IUserRepository model;
+        private readonly IUserSearchView _view;
+        private readonly UserSearchModel _model;
 
-        public UserSearchPresenter(IUserSearchView view)
+        private readonly IUserRepository _userRepository;
+
+        public UserSearchPresenter(IUserSearchView view, UserSearchModel model)
         {
-            this.view = view;
-            model = new EFUserDAO(_context);
+            _view = view;
+            _model = model;
+            _userRepository = _model.UserRepository;
         }
 
         private string login = string.Empty;
@@ -93,9 +88,9 @@ namespace ContosoUI.UserSearchForm
         {
             List<User> users; 
             if (Login != null && FirstName != null && LastName != null)
-                users = model.GetBy(Login, FirstName, LastName).ToList();
+                users = _userRepository.GetBy(Login, FirstName, LastName).ToList();
             else
-                users = model.GetAll().ToList();
+                users = _userRepository.GetAll().ToList();
 
             Users = new BindingList<User>(users);
         }

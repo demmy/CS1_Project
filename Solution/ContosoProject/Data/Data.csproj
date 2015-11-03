@@ -48,6 +48,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Design\DummyFacade.cs" />
+    <Compile Include="Design\EFRepositoryFacade.cs" />
     <Compile Include="EFRepository\EFBaseDao.cs" />
     <Compile Include="EFRepository\EFCategoryDAO.cs" />
     <Compile Include="EFRepository\EFClientDAO.cs" />
@@ -62,6 +64,7 @@
     <Compile Include="DummyData\DummyDAOForCategory.cs" />
     <Compile Include="DummyData\DummyDAOForClient.cs" />
     <Compile Include="DummyData\DummyDAOForComment.cs" />
+    <Compile Include="Design\IRepositoryFacade.cs" />
     <Compile Include="Migrations\201510291201585_Init.cs" />
     <Compile Include="Migrations\201510291201585_Init.Designer.cs">
       <DependentUpon>201510291201585_Init.cs</DependentUpon>
@@ -77,10 +80,6 @@
     <Compile Include="Migrations\201510311325533_PasswordHashing.cs" />
     <Compile Include="Migrations\201510311325533_PasswordHashing.Designer.cs">
       <DependentUpon>201510311325533_PasswordHashing.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201511011931378_Initial.cs" />
-    <Compile Include="Migrations\201511011931378_Initial.Designer.cs">
-      <DependentUpon>201511011931378_Initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="DummyData\DummyDAOExtension.cs" />
@@ -121,9 +120,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201510311325533_PasswordHashing.resx">
       <DependentUpon>201510311325533_PasswordHashing.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201511011931378_Initial.resx">
-      <DependentUpon>201511011931378_Initial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

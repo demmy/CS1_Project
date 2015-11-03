@@ -1,31 +1,26 @@
-﻿using ContosoUI.Annotations;
-using Data.DummyData;
-using Data.EFRepository;
+﻿using Data.Design;
 using Domain.DAO;
-using Domain.Entities;
 using Domain.Entities.Clients;
-using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ContosoUI.ClientSearchForm
 {
     public class ClientSearchPresenter : Presenter, ISearchPresenter
-    {
-        private readonly ProjectContext _context = new ProjectContext();
-        private readonly IClientSearchView view;
-        private readonly IClientRepository model;
+    {        
+        private readonly IClientSearchView _view;
+        private readonly ClientSearchModel _model;
+
+        private readonly IClientRepository _clientRepository;
 
         private BindingList<Client> clientsList = new BindingList<Client>();
 
-        public ClientSearchPresenter(IClientSearchView view)
-        {
-            model = new EFClientDAO(_context);
-            this.view = view;
+        public ClientSearchPresenter(IClientSearchView view, ClientSearchModel model)
+        {            
+            _view = view;
+            _model = model;
+            _clientRepository = _model.ClientRepository;
         }
 
         private string city;
@@ -82,9 +77,9 @@ namespace ContosoUI.ClientSearchForm
         {
             List<Client> clients;
             if (City != null && FirstName != null && LastName != null)
-                clients = model.FindBy(FirstName, LastName, City).ToList();
+                clients = _clientRepository.FindBy(FirstName, LastName, City).ToList();
             else
-                clients = model.GetAll().ToList();
+                clients = _clientRepository.GetAll().ToList();
 
             Clients = new BindingList<Client>(clients);
         }

@@ -1,41 +1,33 @@
-﻿using ContosoUI.Annotations;
-using Data.DummyData;
-using Data.EFRepository;
+﻿using Data.Design;
 using Domain.DAO;
-using Domain.Entities;
 using Domain.Entities.Clients;
 using Domain.Entities.Orders;
-using Domain.Entities.Users;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ContosoUI.OrderSearchForm
 {
     public class OrderListPresenter : Presenter, ISearchPresenter
     {
-        private readonly IOrderListView view;
-        private readonly IOrderRepository model;
-        private readonly IClientRepository clientRepo;
+        private readonly IOrderListView _view;
+        private readonly OrderListModel _model;
 
-        private readonly ProjectContext _context = new ProjectContext();
-        public BindingList<Client> ClientsList;
-        public BindingList<Status> StatusList = new BindingList<Status>(Enum.GetValues(typeof(Status)).Cast<Status>().ToList());
-
-        IClientRepository clients = new DummyDAOForClient();
+        private readonly IOrderRepository _orderRepository;
+        private readonly IClientRepository _clientRepository;
 
         private BindingList<Order> ordersList = new BindingList<Order>();
+        public BindingList<Client> ClientsList;
+        public BindingList<Status> StatusList = new BindingList<Status>(Enum.GetValues(typeof(Status)).Cast<Status>().ToList());               
 
-        public OrderListPresenter(IOrderListView view)
-        {
-            model = new EFOrderDAO(_context);
-            clientRepo = new EFClientDAO(_context);
-            this.view = view;
-            ClientsList = new BindingList<Client>(clientRepo.GetAll().ToList());
+        public OrderListPresenter(IOrderListView view, OrderListModel model)
+        {            
+            _view = view;
+            _model = model;
+            _orderRepository = _model.OrderRepository;
+            _clientRepository = _model.ClientRepository;
+            ClientsList = new BindingList<Client>(_clientRepository.GetAll().ToList());
         }
 
         private string orderNumber = string.Empty;
@@ -97,9 +89,9 @@ namespace ContosoUI.OrderSearchForm
             List<Order> orders;
 
             if (string.IsNullOrEmpty(OrderNumber) && Client == null && StatusEnum == Status.All)
-                orders = model.GetAll().ToList();
+                orders = _orderRepository.GetAll().ToList();
             else
-                orders = model.GetBy(OrderNumber, StatusEnum, Client).ToList(); 
+                orders = _orderRepository.GetBy(OrderNumber, StatusEnum, Client).ToList(); 
 
             OrdersList = new BindingList<Order>(orders);
         }

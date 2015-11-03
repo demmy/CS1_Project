@@ -1,40 +1,47 @@
-﻿using Data.DummyData;
-using Data.EFRepository;
+﻿using Data.Design;
 using Domain.DAO;
 using Domain.Entities.Orders;
 
 namespace ContosoUI.OrderForm
 {
-    public class OrderModel
+    public class OrderModel: Model
     {
-        private readonly ProjectContext _context = new ProjectContext();
-        private readonly IOrderRepository _orderRepository;
-        public readonly IProductRepository ProductRepository;
-        public readonly IClientRepository ClientRepository;
-
         public OrderModel()
+            :base()
         {
-            _orderRepository = new EFOrderDAO(_context);
-            ProductRepository = new EFProductDAO(_context);
-            ClientRepository = new EFClientDAO(_context);
+
         }
+
+        public IOrderRepository OrderRepository
+        {
+            get { return Facade.OrderRepository; }
+        }
+        public IProductRepository ProductRepository
+        {
+            get { return Facade.ProductRepository; }
+        }
+        public IClientRepository ClientRepository
+        {
+            get { return Facade.ClientRepository; }
+        }
+
         public void Save(Order currentOrder)
         {
-            _orderRepository.Save(currentOrder);
+            OrderRepository.Save(currentOrder);
         }
         public void Create(Order currentOrder)
         {
-            _orderRepository.Create(currentOrder);
+            OrderRepository.Create(currentOrder);
         }
 
         public Order GetByNumber(string orderNumber)
         {
-            return _orderRepository.GetByNumber(orderNumber);
+            return OrderRepository.GetByNumber(orderNumber);
         }
 
         public Order GetByID(int id)
         {
-            return _orderRepository.Find(id);
+            return OrderRepository.Find(id);
         }
          
     }

@@ -22,7 +22,7 @@ namespace ContosoUI.ClientSearchForm
         public ClientListView()
         {
             InitializeComponent();
-            presenter = new ClientSearchPresenter(this);
+            presenter = new ClientSearchPresenter(this, new ClientSearchModel());
         }
 
         private void ShowDependentOnRole(Role role)

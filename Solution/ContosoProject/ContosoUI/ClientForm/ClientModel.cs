@@ -1,26 +1,26 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Data.DummyData;
+﻿using Data.Design;
 using Domain.DAO;
-using Domain.Entities;
 using Domain.Entities.Clients;
-using Data.EFRepository;
+using System.Linq;
 
 namespace ContosoUI.ClientForm
 {
-    public class ClientModel
+    public class ClientModel: Model
     {
-        private readonly ProjectContext _context = new ProjectContext();
-        public readonly IClientRepository ClientRepository;
-        public readonly IOrderRepository OrderRepository;
         public ClientModel()
+            :base()
         {
-            ClientRepository = new EFClientDAO(_context);
-            OrderRepository = new EFOrderDAO(_context);
+
         }
+        public IClientRepository ClientRepository
+        {
+            get { return Facade.ClientRepository; }
+        }
+        public IOrderRepository OrderRepository
+        {
+            get { return Facade.OrderRepository; }
+        }
+
         public void Save(Client currentClient)
         {
             ClientRepository.Save(currentClient);

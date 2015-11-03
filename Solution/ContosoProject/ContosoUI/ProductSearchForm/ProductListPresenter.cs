@@ -1,34 +1,29 @@
-﻿using ContosoUI.Annotations;
-using Data.DummyData;
+﻿using Data.Design;
 using Domain.DAO;
 using Domain.Entities.Products;
-using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
-using Data.EFRepository;
 
 namespace ContosoUI.ProductSearchForm
 {
     public class ProductListPresenter : Presenter, ISearchPresenter
     {
-        private readonly IProductListView view;        
-        private readonly IProductRepository model;
-        private readonly ICategoryRepository categoryRepo;
+        private readonly IProductListView _view;
+        private readonly ProductListModel _model;
+
+        private readonly IProductRepository _productRepository;
+        private readonly ICategoryRepository _categoryRepository;
 
         public List<Category> CategoriesList;
 
-        private ProjectContext _context = new ProjectContext();
-
-        public ProductListPresenter(IProductListView view)
-        {
-            model = new EFProductDAO(_context);
-            categoryRepo = new EFCategoryDAO(_context);
-            this.view = view;
-            CategoriesList = new List<Category>(categoryRepo.GetAll().ToList());
+        public ProductListPresenter(IProductListView view, ProductListModel model)
+        {            
+            _view = view;
+            _model = model;
+            _productRepository = _model.ProductRepository;
+            _categoryRepository = _model.CategoryRepository;
+            CategoriesList = new List<Category>(_categoryRepository.GetAll().ToList());
         }
 
         private string sku = string.Empty;
@@ -95,9 +90,9 @@ namespace ContosoUI.ProductSearchForm
         {
             List<Product> products;
             if (SKU != null && Title != null && Category != null)
-                products = model.GetBy(SKU, Title, Category).ToList();
+                products = _productRepository.GetBy(SKU, Title, Category).ToList();
             else
-                products = model.GetAll().ToList();
+                products = _productRepository.GetAll().ToList();
 
             Products = new BindingList<Product>(products);
         }
