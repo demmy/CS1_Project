@@ -1,7 +1,9 @@
 ﻿using ContosoUI.Annotations;
 using Data.DummyData;
+using Data.EFRepository;
 using Domain.DAO;
 using Domain.Entities;
+using Domain.Entities.Clients;
 using Domain.Entities.Orders;
 using Domain.Entities.Users;
 using System;
@@ -17,8 +19,10 @@ namespace ContosoUI.OrderSearchForm
     public class OrderListPresenter : Presenter, ISearchPresenter
     {
         private readonly IOrderListView view;
-        private readonly IOrderRepository model = new DummyDAOForOrder();
-        IClientRepository clientRepo = new DummyDAOForClient();
+        private readonly IOrderRepository model;
+        private readonly IClientRepository clientRepo;
+
+        private readonly ProjectContext _context = new ProjectContext();
         public BindingList<Client> ClientsList;
         public BindingList<Status> StatusList = new BindingList<Status>(Enum.GetValues(typeof(Status)).Cast<Status>().ToList());
 
@@ -28,6 +32,8 @@ namespace ContosoUI.OrderSearchForm
 
         public OrderListPresenter(IOrderListView view)
         {
+            model = new EFOrderDAO(_context);
+            clientRepo = new EFClientDAO(_context);
             this.view = view;
             ClientsList = new BindingList<Client>(clientRepo.GetAll().ToList());
         }

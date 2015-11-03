@@ -8,12 +8,20 @@ using System.Threading.Tasks;
 using Data.DummyData;
 using Domain.DAO;
 using Domain.Entities.Products;
+using Data.EFRepository;
 
 namespace ContosoUI.ProductForm
 {
     public class ProductModel
     {
-        readonly IProductRepository _productRepository = new DummyDAOForProduct();
+        private readonly ProjectContext _context = new ProjectContext();
+        private readonly IProductRepository _productRepository;
+        public readonly ICategoryRepository CategoryRepository;
+        public ProductModel()
+        {
+            _productRepository = new EFProductDAO(_context);
+            CategoryRepository = new EFCategoryDAO(_context);
+        }
 
         public Product Find(int id)
         {

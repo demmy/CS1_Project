@@ -23,13 +23,13 @@ namespace ContosoUI
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            Thread.CurrentThread.CurrentCulture = new CultureInfo("ua-UA");
-            ShowDependentOnRole(LoginForm.CurrentUser.Role);
+            //Thread.CurrentThread.CurrentCulture = new CultureInfo("ua-UA");
+            ShowDependentOnRole(Program.AuthUser.Role);
         }
 
         private void ShowDependentOnRole (Role role)
         {
-            if (role.Permissions.All(x => x.Title != "Add User")) 
+            if (!role.Permissions.Any(x => x.Title != "Add User")) 
                 UserBarButton.Visibility = BarItemVisibility.Never;
         }
 
@@ -91,7 +91,7 @@ namespace ContosoUI
 
         private void xtraTabbedMdiManager_PageRemoved(object sender, DevExpress.XtraTabbedMdi.MdiTabPageEventArgs e)
         {
-            bgPictureEdit.Visible = true;
+            bgPictureEdit.Visible = false;
         }
 
         private void ExitBarButton_ItemClick(object sender, ItemClickEventArgs e)

@@ -1,12 +1,13 @@
-﻿using System;
+﻿using Domain.Entities.Users;
+using System;
 using System.Windows.Forms;
 
 namespace ContosoUI
 {
     static class Program
     {
-        public static bool OpenMainFormOnClose { get; set; }
         public static MainForm MainForm { get; private set; }
+        public static User AuthUser { get; set; }
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
@@ -15,11 +16,15 @@ namespace ContosoUI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            MainForm = new MainForm();
-            Application.Run(new LoginForm());
 
-            if (OpenMainFormOnClose)
+            
+            //auth
+            var lf = new LoginForm();
+            lf.ShowDialog();
+
+            if (AuthUser != null)
             {
+                MainForm = new MainForm();
                 Application.Run(MainForm);
             }
         }

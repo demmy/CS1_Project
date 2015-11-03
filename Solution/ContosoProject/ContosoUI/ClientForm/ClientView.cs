@@ -7,6 +7,7 @@ using DevExpress.XtraGrid.EditForm.Helpers;
 using Domain.Entities.Comments;
 using DevExpress.XtraBars.Ribbon.Gallery;
 using DevExpress.Images;
+using Domain.Entities.Clients;
 
 
 namespace ContosoUI.ClientForm
@@ -88,7 +89,7 @@ namespace ContosoUI.ClientForm
         {
             if (!string.IsNullOrEmpty(buttonAddNewTelephoneEdit.EditValue.ToString()))
             {
-                _presenter.Telephones.Add(buttonAddNewTelephoneEdit.EditValue.ToString());
+                _presenter.Telephones.Add(new Telephone() {Number = buttonAddNewTelephoneEdit.EditValue.ToString()});
                 buttonAddNewTelephoneEdit.EditValue = string.Empty;
             }
         }

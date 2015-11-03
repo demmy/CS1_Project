@@ -14,13 +14,17 @@ namespace ContosoUI.UserForm
     {
         private readonly IUserView _view;
         private readonly UserModel _model;
-
-        private readonly IUserRepository _userRepository = new DummyDAOForUser();
+        private readonly IRoleRepository _roleRepository;
+        private readonly IUserRepository _userRepository;
 
         public UserPresenter(IUserView view, UserModel model)
         {
+            _roleRepository = model.RoleRepository;
+            _userRepository = model.UserRepository;
             _view = view;
             _model = model;
+            var roles = _roleRepository.GetAll();
+            RoleList = new List<Domain.Entities.Users.Role>(roles);            
         }
 
         User _user = new User();
@@ -31,7 +35,7 @@ namespace ContosoUI.UserForm
         private string _lastName = string.Empty;
         private string _password = string.Empty;
         public Role Role = new Role();
-        public List<Role> RoleList = new List<Role>(Storage.Roles);
+        public List<Role> RoleList;
 
         BindingList<Permission> _permissions = new BindingList<Permission>();
         BindingList<Comment> _comments = new BindingList<Comment>();

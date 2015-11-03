@@ -5,11 +5,18 @@ using Domain.DAO;
 using Domain.Entities;
 using Domain.Entities.Orders;
 using Domain.Entities.Products;
+using Domain.Entities.Clients;
 
 namespace Data.EFRepository
 {
     public class EFOrderDAO: EFExtendedDAO<Order>, IOrderRepository
     {
+        public EFOrderDAO(ProjectContext context)
+            : base(context)
+        {
+
+        }
+
         /// <summary>
         /// The method to search the Order by some kind of "mask"
         /// </summary>
@@ -31,7 +38,7 @@ namespace Data.EFRepository
         public ICollection<Order> GetByClient(Client client)
         {
             return (from order in dbContext.Orders
-                        where order.Client == client
+                        where order.Client.Id == client.Id
                             select order)
                                 .ToList();
         }

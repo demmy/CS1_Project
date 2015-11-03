@@ -43,7 +43,6 @@
             this.middleNameGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.cityGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.addreddGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.telephonesGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.clientStateGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.clientCityTextEdit = new DevExpress.XtraEditors.TextEdit();
             this.clientLastNameTextEdit = new DevExpress.XtraEditors.TextEdit();
@@ -165,7 +164,6 @@
             this.middleNameGridColumn,
             this.cityGridColumn,
             this.addreddGridColumn,
-            this.telephonesGridColumn,
             this.clientStateGridColumn});
             this.clientsGridView.GridControl = this.clientsGridControl;
             this.clientsGridView.Name = "clientsGridView";
@@ -212,21 +210,13 @@
             this.addreddGridColumn.Visible = true;
             this.addreddGridColumn.VisibleIndex = 4;
             // 
-            // telephonesGridColumn
-            // 
-            this.telephonesGridColumn.Caption = "Telephones";
-            this.telephonesGridColumn.FieldName = "Telephones.Count";
-            this.telephonesGridColumn.Name = "telephonesGridColumn";
-            this.telephonesGridColumn.Visible = true;
-            this.telephonesGridColumn.VisibleIndex = 5;
-            // 
             // clientStateGridColumn
             // 
             this.clientStateGridColumn.Caption = "State";
             this.clientStateGridColumn.FieldName = "IsActive";
             this.clientStateGridColumn.Name = "clientStateGridColumn";
             this.clientStateGridColumn.Visible = true;
-            this.clientStateGridColumn.VisibleIndex = 6;
+            this.clientStateGridColumn.VisibleIndex = 5;
             // 
             // clientCityTextEdit
             // 
@@ -374,7 +364,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn cityGridColumn;
         private DevExpress.XtraGrid.Columns.GridColumn middleNameGridColumn;
         private DevExpress.XtraGrid.Columns.GridColumn addreddGridColumn;
-        private DevExpress.XtraGrid.Columns.GridColumn telephonesGridColumn;
         private DevExpress.XtraGrid.Columns.GridColumn clientStateGridColumn;
     }
 }

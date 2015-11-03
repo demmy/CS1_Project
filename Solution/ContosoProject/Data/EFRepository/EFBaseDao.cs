@@ -8,7 +8,12 @@ namespace Data.EFRepository
 {
     public class EFBaseDao<T> : IRepository<T> where T : Entity, new()
     {
-        protected ProjectContext dbContext = new ProjectContext();
+        protected ProjectContext dbContext;
+
+        public EFBaseDao(ProjectContext projContext)
+        {
+            dbContext = projContext ?? new ProjectContext();
+        }
 
         public void Create(T entity)
         {
@@ -18,7 +23,9 @@ namespace Data.EFRepository
 
         public void Save(T entity)
         {
-            
+            var oldEntity = dbContext.Set<T>().First(t => t.Id == entity.Id);
+            dbContext.Set<T>().Remove(oldEntity);
+            dbContext.Set<T>().Add(entity);
             dbContext.SaveChanges();
         }
 
@@ -30,7 +37,7 @@ namespace Data.EFRepository
 
         public void Delete(int id)
         {
-            var ent = dbContext.Set<T>().FirstOrDefault(x=>x.Id == id);
+            var ent = dbContext.Set<T>().FirstOrDefault(x => x.Id == id);
             dbContext.Set<T>().Remove(ent);
             dbContext.SaveChanges();
         }
@@ -48,7 +55,7 @@ namespace Data.EFRepository
 
         public IQueryable<T> GetByIsActive(bool isActive)
         {
-            throw new NotImplementedException();
+            return dbContext.Set<T>().Where(t => t.IsActive == isActive).AsQueryable();            
         }
 
         public IQueryable<T> FindBy(Expression<Func<T, bool>> predicate)

@@ -12,6 +12,7 @@ using Domain.DAO;
 using Domain.Entities;
 using Domain.Entities.Comments;
 using Domain.Entities.Orders;
+using Domain.Entities.Clients;
 
 namespace ContosoUI.ClientForm
 {
@@ -20,8 +21,8 @@ namespace ContosoUI.ClientForm
         private IClientView _view;
         private ClientModel _model;
 
-        private readonly IClientRepository _clientRepository = new DummyDAOForClient();
-        private readonly IOrderRepository _orderRepository = new DummyDAOForOrder();
+        private readonly IClientRepository _clientRepository;
+        private readonly IOrderRepository _orderRepository;
 
         private Client _client = new Client();
 
@@ -31,7 +32,7 @@ namespace ContosoUI.ClientForm
 
         private string _city = string.Empty;
         private string _address = string.Empty;
-        private List<string> _telephones = new List<string>();
+        private BindingList<Telephone> _telephones = new BindingList<Telephone>();
 
         private BindingList<Order> _orders = new BindingList<Order>();
         private BindingList<Comment> _comments = new BindingList<Comment>();
@@ -39,6 +40,8 @@ namespace ContosoUI.ClientForm
 
         public ClientPresenter(IClientView view, ClientModel model)
         {
+            _clientRepository = model.ClientRepository;
+            _orderRepository = model.OrderRepository;
             _view = view;
             _model = model;
         }
@@ -56,7 +59,7 @@ namespace ContosoUI.ClientForm
             _lastName = _client.Person.LastName;
             _city = _client.ClientLocation.City;
             _address = _client.ClientLocation.Address;
-            _telephones = _client.Telephones.ToList();
+            _telephones = new BindingList<Telephone>(_client.Telephones.ToList());
             State = _client.IsActive;
             _orders = new BindingList<Order>(_orderRepository.GetByClient(_client).ToList());
             _comments = new BindingList<Comment>(_client.Comments.ToList());
@@ -119,7 +122,7 @@ namespace ContosoUI.ClientForm
             }
         }
 
-        public List<string> Telephones
+        public BindingList<Telephone> Telephones
         {
             get { return _telephones; }
             set
@@ -194,7 +197,7 @@ namespace ContosoUI.ClientForm
             City = string.Empty;
             Address = string.Empty;
 
-            Telephones = new List<string>();
+            Telephones = new BindingList<Telephone>();
             Orders = new BindingList<Order>();
             Comments = new BindingList<Comment>();
 
