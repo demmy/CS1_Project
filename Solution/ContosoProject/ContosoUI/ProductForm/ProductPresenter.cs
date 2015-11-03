@@ -77,6 +77,7 @@ namespace ContosoUI.ProductForm
             _product = _model.Find(id);
             InitializeProductFields();
         }
+
         public void UseCategoryWithID(int id)
         {
             _categoryInUse = _categoryRepository.Find(id);
@@ -101,7 +102,13 @@ namespace ContosoUI.ProductForm
 
         public void SaveCategoryInUse()
         {
-            Category categoryToSave = new Category(_categoryComments) { Date = _categoryInUse.Date, Id = _categoryInUse.Id, IsActive = _categoryInUse.IsActive, Title = _categoryInUse.Title};
+            Category categoryToSave = new Category(_categoryComments) 
+            { 
+                Date = _categoryInUse.Date, 
+                Id = _categoryInUse.Id, 
+                IsActive = _categoryInUse.IsActive, 
+                Title = _categoryInUse.Title
+            };
             _categories[_categories.IndexOf(_categories.First(x => x.Title == categoryToSave.Title))] = categoryToSave;
         }
 

@@ -54,9 +54,10 @@ namespace ContosoUI
                 okButton_Click(sender, e);
         }
 
-        private void LoginForm_Load(object sender, EventArgs e)
+        private void loginTextEdit_KeyPress(object sender, KeyPressEventArgs e)
         {
-
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+                okButton_Click(sender, e);
         }
     }
 }

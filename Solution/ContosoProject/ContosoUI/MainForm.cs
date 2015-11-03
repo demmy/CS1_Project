@@ -89,19 +89,28 @@ namespace ContosoUI
             form.Show();
         }
 
-        private void xtraTabbedMdiManager_PageRemoved(object sender, DevExpress.XtraTabbedMdi.MdiTabPageEventArgs e)
-        {
-            bgPictureEdit.Visible = false;
-        }
-
         private void ExitBarButton_ItemClick(object sender, ItemClickEventArgs e)
         {
             this.Close();
         }
 
-        private void xtraTabbedMdiManager_PageAdded(object sender, DevExpress.XtraTabbedMdi.MdiTabPageEventArgs e)
+        private void CategoriesBarButton_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            var form = new CategoryForm.CategoryView();
+            form.MdiParent = this;
+            form.Show();
+        }
+
+        private void MainForm_MdiChildActivate(object sender, EventArgs e)
         {
             bgPictureEdit.Visible = false;
+        }
+
+        private void RolesBarButton_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            //var form = new RoleForm.RoleView();
+            //form.MdiParent = this;
+            //form.Show();
         }
     }
 }

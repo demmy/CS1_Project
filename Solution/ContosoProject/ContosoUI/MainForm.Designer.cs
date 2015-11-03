@@ -46,10 +46,12 @@ namespace ContosoUI
             this.UsersListBarButtonItem = new DevExpress.XtraBars.BarButtonItem();
             this.ProductsBarButton = new DevExpress.XtraBars.BarButtonItem();
             this.ProductBarButton = new DevExpress.XtraBars.BarButtonItem();
+            this.RolesBarButton = new DevExpress.XtraBars.BarButtonItem();
+            this.CategoriesBarButton = new DevExpress.XtraBars.BarButtonItem();
             this.RibbonMerge = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonUserGroup = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.ribbonProductsGroup = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonOrdersGroup = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonProductsGroup = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.systemRibbonGroup = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.xtraTabbedMdiManager = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
             this.bgPictureEdit = new DevExpress.XtraEditors.PictureEdit();
@@ -99,9 +101,11 @@ namespace ContosoUI
             this.UsersListBarButtonItem,
             this.ProductsBarButton,
             this.ProductBarButton,
-            this.ClientBarButton});
+            this.ClientBarButton,
+            this.RolesBarButton,
+            this.CategoriesBarButton});
             this.mainRibbon.Location = new System.Drawing.Point(0, 0);
-            this.mainRibbon.MaxItemId = 1;
+            this.mainRibbon.MaxItemId = 3;
             this.mainRibbon.MdiMergeStyle = DevExpress.XtraBars.Ribbon.RibbonMdiMergeStyle.Always;
             this.mainRibbon.Name = "mainRibbon";
             this.mainRibbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
@@ -179,13 +183,31 @@ namespace ContosoUI
             this.ProductBarButton.Name = "ProductBarButton";
             this.ProductBarButton.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.ProductBarButtonItem_ItemClick);
             // 
+            // RolesBarButton
+            // 
+            this.RolesBarButton.Caption = "Roles";
+            this.RolesBarButton.Glyph = ((System.Drawing.Image)(resources.GetObject("RolesBarButton.Glyph")));
+            this.RolesBarButton.Id = 1;
+            this.RolesBarButton.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("RolesBarButton.LargeGlyph")));
+            this.RolesBarButton.Name = "RolesBarButton";
+            this.RolesBarButton.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.RolesBarButton_ItemClick);
+            // 
+            // CategoriesBarButton
+            // 
+            this.CategoriesBarButton.Caption = "Categories";
+            this.CategoriesBarButton.Glyph = ((System.Drawing.Image)(resources.GetObject("CategoriesBarButton.Glyph")));
+            this.CategoriesBarButton.Id = 2;
+            this.CategoriesBarButton.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("CategoriesBarButton.LargeGlyph")));
+            this.CategoriesBarButton.Name = "CategoriesBarButton";
+            this.CategoriesBarButton.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.CategoriesBarButton_ItemClick);
+            // 
             // RibbonMerge
             // 
             this.RibbonMerge.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.ribbonUserGroup,
             ribbonClientsGroup,
-            this.ribbonProductsGroup,
             this.ribbonOrdersGroup,
+            this.ribbonProductsGroup,
             this.systemRibbonGroup});
             this.RibbonMerge.Name = "RibbonMerge";
             this.RibbonMerge.Text = "RibbonMerge";
@@ -194,26 +216,28 @@ namespace ContosoUI
             // 
             this.ribbonUserGroup.ItemLinks.Add(this.UsersListBarButtonItem);
             this.ribbonUserGroup.ItemLinks.Add(this.UserBarButton);
+            this.ribbonUserGroup.ItemLinks.Add(this.RolesBarButton);
             this.ribbonUserGroup.MergeOrder = 100;
             this.ribbonUserGroup.Name = "ribbonUserGroup";
             this.ribbonUserGroup.Text = "Users";
-            // 
-            // ribbonProductsGroup
-            // 
-            this.ribbonProductsGroup.ItemLinks.Add(this.ProductsBarButton);
-            this.ribbonProductsGroup.ItemLinks.Add(this.ProductBarButton);
-            this.ribbonProductsGroup.MergeOrder = 300;
-            this.ribbonProductsGroup.Name = "ribbonProductsGroup";
-            this.ribbonProductsGroup.Text = "Products";
             // 
             // ribbonOrdersGroup
             // 
             this.ribbonOrdersGroup.ItemLinks.Add(this.OrdersListBarButton, "З");
             this.ribbonOrdersGroup.ItemLinks.Add(this.OrderBarButton);
             this.ribbonOrdersGroup.KeyTip = "Р";
-            this.ribbonOrdersGroup.MergeOrder = 400;
+            this.ribbonOrdersGroup.MergeOrder = 300;
             this.ribbonOrdersGroup.Name = "ribbonOrdersGroup";
             this.ribbonOrdersGroup.Text = "Orders";
+            // 
+            // ribbonProductsGroup
+            // 
+            this.ribbonProductsGroup.ItemLinks.Add(this.ProductsBarButton);
+            this.ribbonProductsGroup.ItemLinks.Add(this.ProductBarButton);
+            this.ribbonProductsGroup.ItemLinks.Add(this.CategoriesBarButton, true);
+            this.ribbonProductsGroup.MergeOrder = 400;
+            this.ribbonProductsGroup.Name = "ribbonProductsGroup";
+            this.ribbonProductsGroup.Text = "Products";
             // 
             // systemRibbonGroup
             // 
@@ -225,8 +249,6 @@ namespace ContosoUI
             // 
             this.xtraTabbedMdiManager.HeaderButtonsShowMode = DevExpress.XtraTab.TabButtonShowMode.WhenNeeded;
             this.xtraTabbedMdiManager.MdiParent = this;
-            this.xtraTabbedMdiManager.PageAdded += new DevExpress.XtraTabbedMdi.MdiTabPageEventHandler(this.xtraTabbedMdiManager_PageAdded);
-            this.xtraTabbedMdiManager.PageRemoved += new DevExpress.XtraTabbedMdi.MdiTabPageEventHandler(this.xtraTabbedMdiManager_PageRemoved);
             // 
             // bgPictureEdit
             // 
@@ -258,6 +280,7 @@ namespace ContosoUI
             this.Ribbon = this.mainRibbon;
             this.Text = "CHAIRS";
             this.Load += new System.EventHandler(this.MainForm_Load);
+            this.MdiChildActivate += new System.EventHandler(this.MainForm_MdiChildActivate);
             ((System.ComponentModel.ISupportInitialize)(this.mainRibbon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabbedMdiManager)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bgPictureEdit.Properties)).EndInit();
@@ -285,6 +308,8 @@ namespace ContosoUI
         private RibbonPageGroup ribbonUserGroup;
         private RibbonPageGroup ribbonProductsGroup;
         private DevExpress.XtraEditors.PictureEdit bgPictureEdit;
+        private BarButtonItem RolesBarButton;
+        private BarButtonItem CategoriesBarButton;
     }
 }
 
