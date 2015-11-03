@@ -1,18 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data.SqlTypes;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Windows.Forms;
-using ContosoUI.Annotations;
-using Data.DummyData;
-using Domain.DAO;
-using Domain.Entities;
+﻿using Domain.DAO;
+using Domain.Entities.Clients;
 using Domain.Entities.Comments;
 using Domain.Entities.Orders;
 using Domain.Entities.Products;
-using Domain.Entities.Clients;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Linq;
+using System.Windows.Forms;
 
 namespace ContosoUI.OrderForm
 {

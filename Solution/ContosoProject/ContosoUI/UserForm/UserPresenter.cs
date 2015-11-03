@@ -1,12 +1,10 @@
-﻿using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using Data.DummyData;
-using Data.StoreData;
-using Domain.DAO;
+﻿using Domain.DAO;
 using Domain.Entities;
 using Domain.Entities.Comments;
 using Domain.Entities.Users;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Linq;
 
 namespace ContosoUI.UserForm
 {

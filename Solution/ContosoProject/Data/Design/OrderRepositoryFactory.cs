@@ -8,14 +8,15 @@ namespace Data.Factories
 {
     public class OrderRepositoryFactory: IRepositoryFactory<Domain.Entities.Orders.Order>
     {
-        public Domain.DAO.IRepository<Domain.Entities.Orders.Order> GetEFRepository()
+        public Domain.DAO.IRepository<Domain.Entities.Orders.Order> GetEFRepository(EFRepository.ProjectContext context)
         {
-            return new EFRepository.EFOrderDAO();
+            return new EFRepository.EFOrderDAO(context) ;
         }
 
         public Domain.DAO.IRepository<Domain.Entities.Orders.Order> GetDummyRepository()
         {
             return new DummyData.DummyDAOForOrder();
         }
+
     }
 }

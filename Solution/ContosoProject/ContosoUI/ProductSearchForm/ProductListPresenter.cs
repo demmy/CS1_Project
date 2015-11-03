@@ -1,15 +1,9 @@
-﻿using ContosoUI.Annotations;
-using Data.DummyData;
+﻿using Data.Design;
 using Domain.DAO;
 using Domain.Entities.Products;
-using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
-using Data.EFRepository;
 
 namespace ContosoUI.ProductSearchForm
 {
@@ -19,14 +13,14 @@ namespace ContosoUI.ProductSearchForm
         private readonly IProductRepository model;
         private readonly ICategoryRepository categoryRepo;
 
-        public List<Category> CategoriesList;
+        private readonly IRepositoryFacade _facade = new EFRepositoryFacade();
 
-        private ProjectContext _context = new ProjectContext();
+        public List<Category> CategoriesList;
 
         public ProductListPresenter(IProductListView view)
         {
-            model = new EFProductDAO(_context);
-            categoryRepo = new EFCategoryDAO(_context);
+            model = _facade.ProductRepository;
+            categoryRepo = _facade.CategoryRepository;
             this.view = view;
             CategoriesList = new List<Category>(categoryRepo.GetAll().ToList());
         }

@@ -1,5 +1,4 @@
-﻿using Data.DummyData;
-using Data.EFRepository;
+﻿using Data.Design;
 using Domain.DAO;
 using Domain.Entities.Orders;
 
@@ -7,16 +6,16 @@ namespace ContosoUI.OrderForm
 {
     public class OrderModel
     {
-        private readonly ProjectContext _context = new ProjectContext();
+        private readonly IRepositoryFacade _facade = new EFRepositoryFacade();
         private readonly IOrderRepository _orderRepository;
         public readonly IProductRepository ProductRepository;
         public readonly IClientRepository ClientRepository;
 
         public OrderModel()
         {
-            _orderRepository = new EFOrderDAO(_context);
-            ProductRepository = new EFProductDAO(_context);
-            ClientRepository = new EFClientDAO(_context);
+            _orderRepository = _facade.OrderRepository;
+            ProductRepository = _facade.ProductRepository;
+            ClientRepository = _facade.ClientRepository;
         }
         public void Save(Order currentOrder)
         {

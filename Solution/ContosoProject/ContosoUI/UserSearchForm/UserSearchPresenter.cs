@@ -1,29 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Domain.Entities.Users;
-using Data.StoreData;
-using System.ComponentModel;
-using System.Runtime.CompilerServices;
-using Data.DummyData;
+﻿using Data.Design;
 using Domain.DAO;
-using ContosoUI.Annotations;
-using Data.EFRepository;
+using Domain.Entities.Users;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Linq;
 
 namespace ContosoUI.UserSearchForm
 {
     public class UserSearchPresenter: Presenter, ISearchPresenter
     {
-        private readonly ProjectContext _context = new ProjectContext();
         private readonly IUserSearchView view;
         private readonly IUserRepository model;
+
+        private readonly IRepositoryFacade _facade = new EFRepositoryFacade();
 
         public UserSearchPresenter(IUserSearchView view)
         {
             this.view = view;
-            model = new EFUserDAO(_context);
+            model = _facade.UserRepository;
         }
 
         private string login = string.Empty;

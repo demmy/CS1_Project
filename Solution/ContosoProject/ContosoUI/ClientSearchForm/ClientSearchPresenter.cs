@@ -1,30 +1,23 @@
-﻿using ContosoUI.Annotations;
-using Data.DummyData;
-using Data.EFRepository;
+﻿using Data.Design;
 using Domain.DAO;
-using Domain.Entities;
 using Domain.Entities.Clients;
-using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ContosoUI.ClientSearchForm
 {
     public class ClientSearchPresenter : Presenter, ISearchPresenter
     {
-        private readonly ProjectContext _context = new ProjectContext();
+        
         private readonly IClientSearchView view;
         private readonly IClientRepository model;
-
+        private readonly IRepositoryFacade _facade = new EFRepositoryFacade();
         private BindingList<Client> clientsList = new BindingList<Client>();
 
         public ClientSearchPresenter(IClientSearchView view)
         {
-            model = new EFClientDAO(_context);
+            model = _facade.ClientRepository;
             this.view = view;
         }
 

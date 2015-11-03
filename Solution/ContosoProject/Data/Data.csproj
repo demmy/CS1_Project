@@ -48,6 +48,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Design\EFRepositoryFacade.cs" />
     <Compile Include="EFRepository\EFBaseDao.cs" />
     <Compile Include="EFRepository\EFCategoryDAO.cs" />
     <Compile Include="EFRepository\EFClientDAO.cs" />
@@ -62,6 +63,7 @@
     <Compile Include="DummyData\DummyDAOForCategory.cs" />
     <Compile Include="DummyData\DummyDAOForClient.cs" />
     <Compile Include="DummyData\DummyDAOForComment.cs" />
+    <Compile Include="Design\IRepositoryFacade.cs" />
     <Compile Include="Migrations\201510291201585_Init.cs" />
     <Compile Include="Migrations\201510291201585_Init.Designer.cs">
       <DependentUpon>201510291201585_Init.cs</DependentUpon>

@@ -8,9 +8,9 @@ namespace Data.Factories
 {
     public class RoleRepositoryFactory: IRepositoryFactory<Domain.Entities.Users.Role>
     {
-        public Domain.DAO.IRepository<Domain.Entities.Users.Role> GetEFRepository()
+        public Domain.DAO.IRepository<Domain.Entities.Users.Role> GetEFRepository(Data.EFRepository.ProjectContext context)
         {
-            return new EFRepository.EFRoleDAO();
+            return new EFRepository.EFRoleDAO(context);
         }
 
         public Domain.DAO.IRepository<Domain.Entities.Users.Role> GetDummyRepository()

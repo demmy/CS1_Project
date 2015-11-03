@@ -1,39 +1,30 @@
-﻿using ContosoUI.Annotations;
-using Data.DummyData;
-using Data.EFRepository;
+﻿using Data.Design;
 using Domain.DAO;
-using Domain.Entities;
 using Domain.Entities.Clients;
 using Domain.Entities.Orders;
-using Domain.Entities.Users;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ContosoUI.OrderSearchForm
 {
     public class OrderListPresenter : Presenter, ISearchPresenter
     {
         private readonly IOrderListView view;
+
         private readonly IOrderRepository model;
         private readonly IClientRepository clientRepo;
-
-        private readonly ProjectContext _context = new ProjectContext();
-        public BindingList<Client> ClientsList;
-        public BindingList<Status> StatusList = new BindingList<Status>(Enum.GetValues(typeof(Status)).Cast<Status>().ToList());
-
-        IClientRepository clients = new DummyDAOForClient();
+        private readonly IRepositoryFacade _facade = new EFRepositoryFacade();
 
         private BindingList<Order> ordersList = new BindingList<Order>();
+        public BindingList<Client> ClientsList;
+        public BindingList<Status> StatusList = new BindingList<Status>(Enum.GetValues(typeof(Status)).Cast<Status>().ToList());               
 
         public OrderListPresenter(IOrderListView view)
         {
-            model = new EFOrderDAO(_context);
-            clientRepo = new EFClientDAO(_context);
+            model = _facade.OrderRepository;
+            clientRepo = _facade.ClientRepository;
             this.view = view;
             ClientsList = new BindingList<Client>(clientRepo.GetAll().ToList());
         }

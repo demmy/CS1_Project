@@ -1,18 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using ContosoUI.Annotations;
-using Data.DummyData;
-using Domain.DAO;
+﻿using Domain.DAO;
 using Domain.Entities;
+using Domain.Entities.Clients;
 using Domain.Entities.Comments;
 using Domain.Entities.Orders;
-using Domain.Entities.Clients;
+using System.ComponentModel;
+using System.Linq;
+using System.Windows.Forms;
 
 namespace ContosoUI.ClientForm
 {
