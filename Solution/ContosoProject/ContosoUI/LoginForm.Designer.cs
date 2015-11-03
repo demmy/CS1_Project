@@ -116,6 +116,7 @@
             this.loginTextEdit.Size = new System.Drawing.Size(287, 20);
             this.loginTextEdit.StyleController = this.layoutControl1;
             this.loginTextEdit.TabIndex = 2;
+            this.loginTextEdit.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.loginTextEdit_KeyPress);
             // 
             // layoutControlGroup1
             // 
@@ -200,7 +201,6 @@
             this.Controls.Add(this.layoutControl1);
             this.Name = "LoginForm";
             this.Text = "Sign in";
-            this.Load += new System.EventHandler(this.LoginForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.smallLogoPictureEdit.Properties)).EndInit();

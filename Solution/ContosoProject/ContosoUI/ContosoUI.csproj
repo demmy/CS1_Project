@@ -101,6 +101,15 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CategoryForm\CategoryModel.cs" />
+    <Compile Include="CategoryForm\CategoryPresenter.cs" />
+    <Compile Include="CategoryForm\CategoryView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CategoryForm\CategoryView.Designer.cs">
+      <DependentUpon>CategoryView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CategoryForm\ICategoryView.cs" />
     <Compile Include="ClientForm\ClientModel.cs" />
     <Compile Include="ClientForm\ClientPresenter.cs" />
     <Compile Include="ClientForm\IClientView.cs" />
@@ -184,6 +193,9 @@
     <Compile Include="UserSearchForm\UsersListView.cs">
       <SubType>Form</SubType>
     </Compile>
+    <EmbeddedResource Include="CategoryForm\CategoryView.resx">
+      <DependentUpon>CategoryView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ClientForm\ClientView.resx">
       <DependentUpon>ClientView.cs</DependentUpon>
     </EmbeddedResource>

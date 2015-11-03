@@ -11,6 +11,7 @@ namespace ContosoUI.UserForm
 
         public readonly IRoleRepository RoleRepository;
         public readonly IUserRepository UserRepository;
+       
         public UserModel()
         {
             UserRepository = new EFUserDAO(context);

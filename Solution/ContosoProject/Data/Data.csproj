@@ -78,6 +78,10 @@
     <Compile Include="Migrations\201510311325533_PasswordHashing.Designer.cs">
       <DependentUpon>201510311325533_PasswordHashing.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201511011931378_Initial.cs" />
+    <Compile Include="Migrations\201511011931378_Initial.Designer.cs">
+      <DependentUpon>201511011931378_Initial.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="DummyData\DummyDAOExtension.cs" />
     <Compile Include="DummyData\DummyDAOForOrder.cs" />
@@ -117,6 +121,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201510311325533_PasswordHashing.resx">
       <DependentUpon>201510311325533_PasswordHashing.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201511011931378_Initial.resx">
+      <DependentUpon>201511011931378_Initial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
