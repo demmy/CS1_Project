@@ -15,6 +15,11 @@ namespace Data.EFRepository
         {
 
         }
+        /// <summary>
+        /// Gets all categories, which title maches the entered title
+        /// </summary>
+        /// <param name="title"></param>
+        /// <returns></returns>
         public ICollection<Category> GetByTitle(string title)
         {
             return (from category in dbContext.Set<Category>()

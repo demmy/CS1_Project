@@ -14,42 +14,51 @@ namespace Data.EFRepository
         {
 
         }
+        /// <summary>
+        /// Is Used to get Comments that spicified user made to each kind of entity 
+        /// </summary>
+        /// <param name="user"></param>
+        /// <returns>All these comments</returns>
         public ICollection<Comment> GetAllByUser(User user)
         {
-            var commentsByUser = new List<Comment>();
+            //var commentsByUser = new List<Comment>();
 
-            var userComments = from us in dbContext.Users
-                from comment in us.Comments
-                where comment.Author == user
-                select comment;
+            //var userComments = from us in dbContext.Users
+            //    from comment in us.Comments
+            //    where comment.Author == user
+            //    select comment;
 
-            var orderComments = from order in dbContext.Orders
-                from comment in order.Comments
-                where comment.Author == user
-                select comment;
+            //var orderComments = from order in dbContext.Orders
+            //    from comment in order.Comments
+            //    where comment.Author == user
+            //    select comment;
 
-            var clientComments = from client in dbContext.Clients
-                from comment in client.Comments
-                where comment.Author == user
-                select comment;
+            //var clientComments = from client in dbContext.Clients
+            //    from comment in client.Comments
+            //    where comment.Author == user
+            //    select comment;
 
-            var productComments = from product in dbContext.Products
-                from comment in product.Comments
-                where comment.Author == user
-                select comment;
+            //var productComments = from product in dbContext.Products
+            //    from comment in product.Comments
+            //    where comment.Author == user
+            //    select comment;
 
-            var categoryComments = from category in dbContext.Set<Category>()
-                from comment in category.Comments
-                where comment.Author == user
-                select comment;
+            //var categoryComments = from category in dbContext.Set<Category>()
+            //    from comment in category.Comments
+            //    where comment.Author == user
+            //    select comment;
 
-            commentsByUser.AddRange(userComments);
-            commentsByUser.AddRange(orderComments);
-            commentsByUser.AddRange(clientComments);
-            commentsByUser.AddRange(productComments);
-            commentsByUser.AddRange(categoryComments);
+            //commentsByUser.AddRange(userComments);
+            //commentsByUser.AddRange(orderComments);
+            //commentsByUser.AddRange(clientComments);
+            //commentsByUser.AddRange(productComments);
+            //commentsByUser.AddRange(categoryComments);
 
-            return commentsByUser;
+            //return commentsByUser;
+
+            return dbContext.Set<Comment>()
+                .Where(comment => comment.Author == user)
+                .ToList();
         }
 
 

@@ -12,6 +12,13 @@ namespace Data.EFRepository
         {
 
         }
+        /// <summary>
+        /// The fuction to get all products that match all not-empty specified datas
+        /// </summary>
+        /// <param name="sku"></param>
+        /// <param name="title"></param>
+        /// <param name="category"></param>
+        /// <returns></returns>
         public ICollection<Product> GetBy(string sku, string title, Category category)
         {
             var result = dbContext.Products.AsQueryable();
@@ -27,10 +34,15 @@ namespace Data.EFRepository
 
             return result.ToList();
         }
-
+        /// <summary>
+        /// Gets the product with specified SKU
+        /// </summary>
+        /// <param name="sku"></param>
+        /// <returns></returns>
         public Product GetBySKU(string sku)
         {
-            throw new System.NotImplementedException();
+            return dbContext.Products
+                .FirstOrDefault(product => product.SKU == sku);
         }
     }
 }

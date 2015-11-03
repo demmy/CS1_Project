@@ -16,7 +16,7 @@ namespace Data.EFRepository
 
         }
         /// <summary>
-        /// 
+        /// Gets specified Role by its title
         /// </summary>
         /// <param name="title"></param>
         /// <returns></returns>
@@ -28,7 +28,7 @@ namespace Data.EFRepository
                             .ToList();
         }
         /// <summary>
-        /// 
+        /// Get's All roles, that have got such a permission
         /// </summary>
         /// <param name="permission"></param>
         /// <returns></returns>

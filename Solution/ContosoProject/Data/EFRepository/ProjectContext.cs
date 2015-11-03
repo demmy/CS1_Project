@@ -21,9 +21,12 @@ namespace Data.EFRepository
         {            
             base.OnModelCreating(modelBuilder);
         }
-        public DbSet<Order> Orders { get; set; }
-        public DbSet<Product> Products { get; set; }
-        public DbSet<User> Users { get; set; }
-        public DbSet<Client> Clients { get; set; }
+
+        public virtual DbSet<Order> Orders { get; set; }
+        public virtual DbSet<Product> Products { get; set; }
+        public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<Client> Clients { get; set; }
+
+        public virtual DbSet<Permission> Permissions { get; set; }
     }
 }

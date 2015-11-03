@@ -14,6 +14,11 @@ namespace Data.EFRepository
         {
 
         }
+        /// <summary>
+        /// Gets the enities that where added/edited on the specified date
+        /// </summary>
+        /// <param name="date"></param>
+        /// <returns></returns>
         public ICollection<T> GetByDate(DateTime date)
         {
             return dbContext.Set<T>()
