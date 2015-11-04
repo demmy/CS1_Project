@@ -12,41 +12,31 @@ namespace ContosoUI.CategoryForm
 {
     public class CategoryPresenter : Presenter
     {
-        ICategoryView _view;
-        CategoryModel _model;
-        ICategoryRepository _categoryRepository;
+        private readonly ICategoryView _view;
+        private readonly CategoryModel _model;
 
-        private String _searchTitleCategory = string.Empty;
-        BindingList<Category> _categories = new BindingList<Category>();
+        private readonly ICategoryRepository _categoryRepository;
+
         private Category _categoryToSave = null;
-        BindingList<Comment> _categoryComments = new BindingList<Comment>();
-        private Category _categoryInUse = new Category();
-        private int _id;
-        private bool _state;
+        private Category _selectedCategory = null;
+
+        private BindingList<Category> _categories;
+        private BindingList<Comment> _categoryComments;
 
         public CategoryPresenter(ICategoryView view, CategoryModel model)
         {
             _view = view;
             _model = model;
-            _categoryRepository = model.CategoryRepository;
+            _categoryRepository = _model.CategoryRepository;
             _categories = new BindingList<Category>(_categoryRepository.GetAll().ToList());
-        }
-
-        private void InitializeAllTheFields()
-        {
-            InitializeCategoryFields();
-            _categories = new BindingList<Category>(_categoryRepository.GetAll().ToList());
-        }
-
-        private void InitializeCategoryFields()
-        {
-            _categoryComments = new BindingList<Comment>( _categoryInUse.Comments.ToList());
         }
 
         public void UseCategoryWithID(int id)
         {
-            _categoryInUse = _categoryRepository.Find(id);
-            _categoryComments = new BindingList<Comment>(_categoryInUse.Comments.ToList());
+            if(id != 0)
+                _selectedCategory = Categories.FirstOrDefault(categ=> categ.Id == id);
+            if(_selectedCategory!= null)
+                _categoryComments = new BindingList<Comment>(_selectedCategory.Comments.ToList());
         }
 
         private void SaveCategory()
@@ -56,7 +46,7 @@ namespace ContosoUI.CategoryForm
             {
                 _categoryRepository.Create(_categoryToSave);
             }
-            if (!_categoryRepository.GetAll().SequenceEqual(_categories))
+            if (!_categoryRepository.GetAll().ToList().SequenceEqual(_categories))
             {
                 foreach (var category in _categories)
                 {
@@ -69,10 +59,10 @@ namespace ContosoUI.CategoryForm
         {
             Category categoryToSave = new Category(_categoryComments) 
             { 
-                Date = _categoryInUse.Date, 
-                Id = _categoryInUse.Id, 
-                IsActive = _categoryInUse.IsActive, 
-                Title = _categoryInUse.Title
+                Date = _selectedCategory.Date, 
+                Id = _selectedCategory.Id, 
+                IsActive = _selectedCategory.IsActive, 
+                Title = _selectedCategory.Title
             };
             _categories[_categories.IndexOf(_categories.First(x => x.Title == categoryToSave.Title))] = categoryToSave;
         }
@@ -95,18 +85,16 @@ namespace ContosoUI.CategoryForm
 
         public void AddCategoryWithTitle(string title)
         {
-            _categories.Add(_categoryToSave  = new Category() { Title = title });
+            _categories.Add(_categoryToSave  = new Category(Domain.Entities.Comments.Comments.Init(Program.AuthUser, "Category")) { Title = title });
+            Categories = new BindingList<Category>(_categories);
+            if (Categories.Count < 2)
+                _selectedCategory = _categoryToSave;
         }
 
-        public void Search()
-        {
-            Categories = new BindingList<Category>(_categoryRepository.FindBy(x => x.Title.ToLower().StartsWith(_searchTitleCategory.ToLower())).ToList());
-        }
-
-        public void AllCategoriesToGrid()
-        {
-            Categories = new BindingList<Category>(_categoryRepository.GetAll().ToList());
-        }
+        //public void Search()
+        //{
+        //    Categories = new BindingList<Category>(_categoryRepository.FindBy(x => x.Title.ToLower().StartsWith(_searchTitleCategory.ToLower())).ToList());
+        //}
 
         public BindingList<Category> Categories
         {
@@ -119,7 +107,7 @@ namespace ContosoUI.CategoryForm
             }
         }
 
-        public BindingList<Comment> CategoryComments
+        public BindingList<Comment> Comments
         {
             get { return _categoryComments; }
             set
@@ -130,33 +118,15 @@ namespace ContosoUI.CategoryForm
             }
         }
 
-        public string SearchTitleCategory
-        {
-            get { return _searchTitleCategory; }
-            set
-            {
-                if (_searchTitleCategory.Equals(value)) return;
-                _searchTitleCategory = value;
-                NotifyPropertyChanged();
-            }
-        }
-
-        public Category CategoryInUse
-        {
-            get { return _categoryInUse; }
-            set { _categoryInUse = value; }
-        }
-
-        private int ID
-        {
-            get { return _id; }
-            set { _id = value; }
-        }
-
-        public bool State
-        {
-            get { return _state; }
-            set { _state = value; }
-        }
+        //public string SearchTitleCategory
+        //{
+        //    get { return _searchTitleCategory; }
+        //    set
+        //    {
+        //        if (_searchTitleCategory.Equals(value)) return;
+        //        _searchTitleCategory = value;
+        //        NotifyPropertyChanged();
+        //    }
+        //}
     }
 }

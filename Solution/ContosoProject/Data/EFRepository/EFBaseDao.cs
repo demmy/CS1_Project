@@ -3,6 +3,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using Domain.DAO;
 using Domain.Entities;
+using System.Data.Entity.Migrations;
 
 namespace Data.EFRepository
 {
@@ -23,9 +24,7 @@ namespace Data.EFRepository
 
         public void Save(T entity)
         {
-            var oldEntity = dbContext.Set<T>().First(t => t.Id == entity.Id);
-            dbContext.Set<T>().Remove(oldEntity);
-            dbContext.Set<T>().Add(entity);
+            dbContext.Set<T>().AddOrUpdate(entity);
             dbContext.SaveChanges();
         }
 

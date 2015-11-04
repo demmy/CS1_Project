@@ -58,6 +58,7 @@ namespace Data.EFRepository
         {
             return dbContext.Users
                 .Include(x =>x.Role)
+                .Include(x => x.Role.Permissions)
                 .FirstOrDefault(x => x.Login == login && x.Password == passwordHash);
         }
     }

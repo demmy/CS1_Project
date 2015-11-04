@@ -9,14 +9,17 @@ using Domain.Entities.Products;
 
 namespace ContosoUI.CategoryForm
 {
-    public class CategoryModel
+    public class CategoryModel:Model
     {
-        ProjectContext context = new ProjectContext();
-        public readonly ICategoryRepository CategoryRepository;
-
         public CategoryModel()
+            :base()
         {
-            CategoryRepository = new EFCategoryDAO(context);
+
+        }
+
+        public ICategoryRepository CategoryRepository 
+        {
+            get { return Facade.CategoryRepository; } 
         }
 
         public void Save(Category category)
