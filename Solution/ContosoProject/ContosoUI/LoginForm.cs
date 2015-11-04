@@ -11,7 +11,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
 namespace ContosoUI
 {
     public partial class LoginForm : Form
@@ -35,7 +34,7 @@ namespace ContosoUI
         private void okButton_Click(object sender, EventArgs e)
         {
             IUserRepository userRepo = new EFUserDAO(_context);
-            var hashedPass = Hashing.CreateHash(passwordTextEdit.Text);
+            var hashedPass = passwordTextEdit.Text.CreateHash();
             var user = userRepo.Authentificate(loginTextEdit.Text, hashedPass);
             if (user != null)
             {

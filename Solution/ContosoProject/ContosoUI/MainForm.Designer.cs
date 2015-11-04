@@ -105,7 +105,7 @@ namespace ContosoUI
             this.RolesBarButton,
             this.CategoriesBarButton});
             this.mainRibbon.Location = new System.Drawing.Point(0, 0);
-            this.mainRibbon.MaxItemId = 3;
+            this.mainRibbon.MaxItemId = 4;
             this.mainRibbon.MdiMergeStyle = DevExpress.XtraBars.Ribbon.RibbonMdiMergeStyle.Always;
             this.mainRibbon.Name = "mainRibbon";
             this.mainRibbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {

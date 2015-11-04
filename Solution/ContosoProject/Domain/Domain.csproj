@@ -50,6 +50,7 @@
     <Compile Include="DAO\IRoleRepository.cs" />
     <Compile Include="DAO\IUserRepository.cs" />
     <Compile Include="Entities\Clients\Client.cs" />
+    <Compile Include="Entities\Comments\Initializer.cs" />
     <Compile Include="Entities\Entity.cs" />
     <Compile Include="Entities\ExtendedEntity.cs" />
     <Compile Include="Entities\Clients\Location.cs" />

@@ -36,7 +36,7 @@ namespace ContosoUI.UserForm
         public List<Role> RoleList;
 
         BindingList<Permission> _permissions = new BindingList<Permission>();
-        BindingList<Comment> _comments = new BindingList<Comment>();
+        BindingList<Comment> _comments = new BindingList<Comment>(Domain.Entities.Comments.Comments.Init(Program.AuthUser, "User"));
 
         #region Properties
         public string Login
