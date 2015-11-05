@@ -1,4 +1,5 @@
-﻿using Domain.Entities.Users;
+﻿using DevExpress.XtraSplashScreen;
+using Domain.Entities.Users;
 using System;
 using System.Windows.Forms;
 
@@ -25,6 +26,7 @@ namespace ContosoUI
             if (AuthUser != null)
             {
                 MainForm = new MainForm();
+                SplashScreenManager.CloseForm();
                 Application.Run(MainForm);
             }
         }

@@ -17,9 +17,9 @@ namespace ContosoUI.OrderForm
         private IOrderView _view;
 
         IProductRepository _produtRepository;
-        IClientRepository _clientRepository;        
+        IClientRepository _clientRepository;
 
-        private Order _order = new Order(new List<Comment>(), new List<OrderItem>());
+        private Order _order = new Order(Domain.Entities.Comments.Comments.Init(Program.AuthUser, "Order"), new List<OrderItem>());
         private Client _client = new Client();
 
         private string _orderNumber = string.Empty;

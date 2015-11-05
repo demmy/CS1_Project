@@ -35,6 +35,13 @@ namespace ContosoUI.UserForm
                 barSaveButton.Visibility = BarItemVisibility.Never;
                 barSaveAndNewButton.Visibility = BarItemVisibility.Never;
                 barNewButton.Visibility = BarItemVisibility.Never;
+            }
+            if (!role.Permissions.Where(x => x.Title == "Activate User").Any())
+            {
+                userStateButton.Visibility = BarItemVisibility.Never;
+            }
+            if (!role.Permissions.Where(x => x.Title == "Deactivate User").Any())
+            {
                 userStateButton.Visibility = BarItemVisibility.Never;
             }
         }

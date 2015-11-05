@@ -36,6 +36,7 @@ namespace ContosoUI
             this.components = new System.ComponentModel.Container();
             DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonClientsGroup;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
+            DevExpress.XtraSplashScreen.SplashScreenManager chairsSplashScreenManager = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::ContosoUI.ChairsSplashScreen), true, true);
             this.ClientsListBarButton = new DevExpress.XtraBars.BarButtonItem();
             this.ClientBarButton = new DevExpress.XtraBars.BarButtonItem();
             this.mainRibbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
@@ -43,8 +44,8 @@ namespace ContosoUI
             this.ExitBarButton = new DevExpress.XtraBars.BarButtonItem();
             this.UserBarButton = new DevExpress.XtraBars.BarButtonItem();
             this.OrderBarButton = new DevExpress.XtraBars.BarButtonItem();
-            this.UsersListBarButtonItem = new DevExpress.XtraBars.BarButtonItem();
-            this.ProductsBarButton = new DevExpress.XtraBars.BarButtonItem();
+            this.UsersListBarButton = new DevExpress.XtraBars.BarButtonItem();
+            this.ProductsListBarButton = new DevExpress.XtraBars.BarButtonItem();
             this.ProductBarButton = new DevExpress.XtraBars.BarButtonItem();
             this.RolesBarButton = new DevExpress.XtraBars.BarButtonItem();
             this.CategoriesBarButton = new DevExpress.XtraBars.BarButtonItem();
@@ -54,11 +55,9 @@ namespace ContosoUI
             this.ribbonProductsGroup = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.systemRibbonGroup = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.xtraTabbedMdiManager = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
-            this.bgPictureEdit = new DevExpress.XtraEditors.PictureEdit();
             ribbonClientsGroup = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             ((System.ComponentModel.ISupportInitialize)(this.mainRibbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabbedMdiManager)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bgPictureEdit.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // ribbonClientsGroup
@@ -76,7 +75,7 @@ namespace ContosoUI
             this.ClientsListBarButton.Id = 1;
             this.ClientsListBarButton.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("ClientsListBarButton.LargeGlyph")));
             this.ClientsListBarButton.Name = "ClientsListBarButton";
-            this.ClientsListBarButton.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.clientsMenuBtn_ItemClick);
+            this.ClientsListBarButton.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.ClientsListBarButton_ItemClick);
             // 
             // ClientBarButton
             // 
@@ -98,14 +97,14 @@ namespace ContosoUI
             this.ExitBarButton,
             this.UserBarButton,
             this.OrderBarButton,
-            this.UsersListBarButtonItem,
-            this.ProductsBarButton,
+            this.UsersListBarButton,
+            this.ProductsListBarButton,
             this.ProductBarButton,
             this.ClientBarButton,
             this.RolesBarButton,
             this.CategoriesBarButton});
             this.mainRibbon.Location = new System.Drawing.Point(0, 0);
-            this.mainRibbon.MaxItemId = 3;
+            this.mainRibbon.MaxItemId = 4;
             this.mainRibbon.MdiMergeStyle = DevExpress.XtraBars.Ribbon.RibbonMdiMergeStyle.Always;
             this.mainRibbon.Name = "mainRibbon";
             this.mainRibbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
@@ -127,7 +126,7 @@ namespace ContosoUI
             this.OrdersListBarButton.Id = 2;
             this.OrdersListBarButton.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("OrdersListBarButton.LargeGlyph")));
             this.OrdersListBarButton.Name = "OrdersListBarButton";
-            this.OrdersListBarButton.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.ordersMenuBtn_ItemClick);
+            this.OrdersListBarButton.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.OrdersListBarButton_ItemClick);
             // 
             // ExitBarButton
             // 
@@ -145,7 +144,7 @@ namespace ContosoUI
             this.UserBarButton.Id = 1;
             this.UserBarButton.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("UserBarButton.LargeGlyph")));
             this.UserBarButton.Name = "UserBarButton";
-            this.UserBarButton.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barUserButton_ItemClick);
+            this.UserBarButton.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.UserBarButton_ItemClick);
             // 
             // OrderBarButton
             // 
@@ -154,25 +153,25 @@ namespace ContosoUI
             this.OrderBarButton.Id = 2;
             this.OrderBarButton.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("OrderBarButton.LargeGlyph")));
             this.OrderBarButton.Name = "OrderBarButton";
-            this.OrderBarButton.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem1_ItemClick);
+            this.OrderBarButton.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.OrderBarButton_ItemClick);
             // 
-            // UsersListBarButtonItem
+            // UsersListBarButton
             // 
-            this.UsersListBarButtonItem.Caption = "Users";
-            this.UsersListBarButtonItem.Glyph = ((System.Drawing.Image)(resources.GetObject("UsersListBarButtonItem.Glyph")));
-            this.UsersListBarButtonItem.Id = 3;
-            this.UsersListBarButtonItem.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("UsersListBarButtonItem.LargeGlyph")));
-            this.UsersListBarButtonItem.Name = "UsersListBarButtonItem";
-            this.UsersListBarButtonItem.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.UsersListBarButtonItem_ItemClick);
+            this.UsersListBarButton.Caption = "Users";
+            this.UsersListBarButton.Glyph = ((System.Drawing.Image)(resources.GetObject("UsersListBarButton.Glyph")));
+            this.UsersListBarButton.Id = 3;
+            this.UsersListBarButton.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("UsersListBarButton.LargeGlyph")));
+            this.UsersListBarButton.Name = "UsersListBarButton";
+            this.UsersListBarButton.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.UsersListBarButtonItem_ItemClick);
             // 
-            // ProductsBarButton
+            // ProductsListBarButton
             // 
-            this.ProductsBarButton.Caption = "Products";
-            this.ProductsBarButton.Glyph = ((System.Drawing.Image)(resources.GetObject("ProductsBarButton.Glyph")));
-            this.ProductsBarButton.Id = 4;
-            this.ProductsBarButton.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("ProductsBarButton.LargeGlyph")));
-            this.ProductsBarButton.Name = "ProductsBarButton";
-            this.ProductsBarButton.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.ProductsBarButtonItem_ItemClick);
+            this.ProductsListBarButton.Caption = "Products";
+            this.ProductsListBarButton.Glyph = ((System.Drawing.Image)(resources.GetObject("ProductsListBarButton.Glyph")));
+            this.ProductsListBarButton.Id = 4;
+            this.ProductsListBarButton.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("ProductsListBarButton.LargeGlyph")));
+            this.ProductsListBarButton.Name = "ProductsListBarButton";
+            this.ProductsListBarButton.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.ProductsBarButtonItem_ItemClick);
             // 
             // ProductBarButton
             // 
@@ -214,7 +213,7 @@ namespace ContosoUI
             // 
             // ribbonUserGroup
             // 
-            this.ribbonUserGroup.ItemLinks.Add(this.UsersListBarButtonItem);
+            this.ribbonUserGroup.ItemLinks.Add(this.UsersListBarButton);
             this.ribbonUserGroup.ItemLinks.Add(this.UserBarButton);
             this.ribbonUserGroup.ItemLinks.Add(this.RolesBarButton);
             this.ribbonUserGroup.MergeOrder = 100;
@@ -232,7 +231,7 @@ namespace ContosoUI
             // 
             // ribbonProductsGroup
             // 
-            this.ribbonProductsGroup.ItemLinks.Add(this.ProductsBarButton);
+            this.ribbonProductsGroup.ItemLinks.Add(this.ProductsListBarButton);
             this.ribbonProductsGroup.ItemLinks.Add(this.ProductBarButton);
             this.ribbonProductsGroup.ItemLinks.Add(this.CategoriesBarButton, true);
             this.ribbonProductsGroup.MergeOrder = 400;
@@ -250,19 +249,9 @@ namespace ContosoUI
             this.xtraTabbedMdiManager.HeaderButtonsShowMode = DevExpress.XtraTab.TabButtonShowMode.WhenNeeded;
             this.xtraTabbedMdiManager.MdiParent = this;
             // 
-            // bgPictureEdit
+            // chairsSplashScreenManager
             // 
-            this.bgPictureEdit.EditValue = ((object)(resources.GetObject("bgPictureEdit.EditValue")));
-            this.bgPictureEdit.Location = new System.Drawing.Point(0, 149);
-            this.bgPictureEdit.Name = "bgPictureEdit";
-            this.bgPictureEdit.Properties.AllowFocused = false;
-            this.bgPictureEdit.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.bgPictureEdit.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
-            this.bgPictureEdit.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
-            this.bgPictureEdit.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Squeeze;
-            this.bgPictureEdit.Properties.UseDisabledStatePainter = false;
-            this.bgPictureEdit.Size = new System.Drawing.Size(764, 482);
-            this.bgPictureEdit.TabIndex = 4;
+            chairsSplashScreenManager.ClosingDelay = 500;
             // 
             // MainForm
             // 
@@ -273,17 +262,15 @@ namespace ContosoUI
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(764, 632);
-            this.Controls.Add(this.bgPictureEdit);
             this.Controls.Add(this.mainRibbon);
             this.IsMdiContainer = true;
             this.Name = "MainForm";
             this.Ribbon = this.mainRibbon;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CHAIRS";
             this.Load += new System.EventHandler(this.MainForm_Load);
-            this.MdiChildActivate += new System.EventHandler(this.MainForm_MdiChildActivate);
             ((System.ComponentModel.ISupportInitialize)(this.mainRibbon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabbedMdiManager)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bgPictureEdit.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -301,13 +288,12 @@ namespace ContosoUI
         private XtraTabbedMdiManager xtraTabbedMdiManager;
         private BarButtonItem UserBarButton;
         private BarButtonItem OrderBarButton;
-        private BarButtonItem UsersListBarButtonItem;
-        private BarButtonItem ProductsBarButton;
+        private BarButtonItem UsersListBarButton;
+        private BarButtonItem ProductsListBarButton;
         private BarButtonItem ProductBarButton;
         private BarButtonItem ClientBarButton;
         private RibbonPageGroup ribbonUserGroup;
         private RibbonPageGroup ribbonProductsGroup;
-        private DevExpress.XtraEditors.PictureEdit bgPictureEdit;
         private BarButtonItem RolesBarButton;
         private BarButtonItem CategoriesBarButton;
     }

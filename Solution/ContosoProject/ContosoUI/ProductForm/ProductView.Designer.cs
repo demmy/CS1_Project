@@ -36,14 +36,6 @@ namespace ContosoUI.ProductForm
             this.barSaveButton = new DevExpress.XtraBars.BarButtonItem();
             this.barSaveAndNewButton = new DevExpress.XtraBars.BarButtonItem();
             this.barNewButton = new DevExpress.XtraBars.BarButtonItem();
-            this.barAddNewCategoryButton = new DevExpress.XtraBars.BarButtonItem();
-            this.popupControlNewCategoryContainer = new DevExpress.XtraBars.PopupControlContainer(this.components);
-            this.layoutCategoryPopOutControl = new DevExpress.XtraLayout.LayoutControl();
-            this.simpleAddTitleButton = new DevExpress.XtraEditors.SimpleButton();
-            this.newCategoryTitletextEdit = new DevExpress.XtraEditors.TextEdit();
-            this.layoutControlDropDownButton = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.layoutAddNewCategoryTitleButtonControl = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlNewCategoryTitleTextEdit = new DevExpress.XtraLayout.LayoutControlItem();
             this.productStateButton = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonProductCategoryPage = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonCategoryPageGroup = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -53,9 +45,8 @@ namespace ContosoUI.ProductForm
             this.categoryCommentsListBoxControl = new DevExpress.XtraEditors.ListBoxControl();
             this.categoryGridControl = new DevExpress.XtraGrid.GridControl();
             this.categoryGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.idColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.titleColumn = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.dateColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.stateColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.newCommentTextBox = new System.Windows.Forms.TextBox();
             this.addCommentButton = new DevExpress.XtraEditors.SimpleButton();
             this.productCommentsListBoxControl = new DevExpress.XtraEditors.ListBoxControl();
@@ -63,8 +54,6 @@ namespace ContosoUI.ProductForm
             this.productPriceTextEdit = new DevExpress.XtraEditors.TextEdit();
             this.productTitleTextEdit = new DevExpress.XtraEditors.TextEdit();
             this.productSKUTextEdit = new DevExpress.XtraEditors.TextEdit();
-            this.categoryNewCommentTextBox = new System.Windows.Forms.TextBox();
-            this.addCategoryCommetSimpleButton = new DevExpress.XtraEditors.SimpleButton();
             this.categoryLookUpEdit = new DevExpress.XtraEditors.LookUpEdit();
             this.categoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.categorySearchControl = new DevExpress.XtraEditors.TextEdit();
@@ -87,19 +76,9 @@ namespace ContosoUI.ProductForm
             this.tabbedControlCategoryCommentsGroup = new DevExpress.XtraLayout.TabbedControlGroup();
             this.layoutControlCategoryCommentsGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlCategoryCommentsListBox = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlCategoryAddCommentButton = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlCategoryNewCommetTextEdit = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutCategorySearchControl = new DevExpress.XtraLayout.LayoutControlItem();
             this.splitter = new DevExpress.XtraLayout.SplitterItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.popupControlNewCategoryContainer)).BeginInit();
-            this.popupControlNewCategoryContainer.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutCategoryPopOutControl)).BeginInit();
-            this.layoutCategoryPopOutControl.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.newCategoryTitletextEdit.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlDropDownButton)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutAddNewCategoryTitleButtonControl)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlNewCategoryTitleTextEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.entireLayoutControl)).BeginInit();
             this.entireLayoutControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.categoryCommentsListBoxControl)).BeginInit();
@@ -132,8 +111,6 @@ namespace ContosoUI.ProductForm
             ((System.ComponentModel.ISupportInitialize)(this.tabbedControlCategoryCommentsGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlCategoryCommentsGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlCategoryCommentsListBox)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlCategoryAddCommentButton)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlCategoryNewCommetTextEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutCategorySearchControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitter)).BeginInit();
             this.SuspendLayout();
@@ -146,7 +123,6 @@ namespace ContosoUI.ProductForm
             this.barSaveButton,
             this.barSaveAndNewButton,
             this.barNewButton,
-            this.barAddNewCategoryButton,
             this.productStateButton});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
             this.ribbon.MaxItemId = 19;
@@ -191,92 +167,6 @@ namespace ContosoUI.ProductForm
             this.barNewButton.Name = "barNewButton";
             this.barNewButton.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barNewButton_ItemClick);
             // 
-            // barAddNewCategoryButton
-            // 
-            this.barAddNewCategoryButton.ActAsDropDown = true;
-            this.barAddNewCategoryButton.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.DropDown;
-            this.barAddNewCategoryButton.Caption = "Add category";
-            this.barAddNewCategoryButton.DropDownControl = this.popupControlNewCategoryContainer;
-            this.barAddNewCategoryButton.Glyph = ((System.Drawing.Image)(resources.GetObject("barAddNewCategoryButton.Glyph")));
-            this.barAddNewCategoryButton.Id = 17;
-            this.barAddNewCategoryButton.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barAddNewCategoryButton.LargeGlyph")));
-            this.barAddNewCategoryButton.Name = "barAddNewCategoryButton";
-            // 
-            // popupControlNewCategoryContainer
-            // 
-            this.popupControlNewCategoryContainer.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.popupControlNewCategoryContainer.Controls.Add(this.layoutCategoryPopOutControl);
-            this.popupControlNewCategoryContainer.Location = new System.Drawing.Point(550, 33);
-            this.popupControlNewCategoryContainer.Name = "popupControlNewCategoryContainer";
-            this.popupControlNewCategoryContainer.Ribbon = this.ribbon;
-            this.popupControlNewCategoryContainer.Size = new System.Drawing.Size(171, 92);
-            this.popupControlNewCategoryContainer.TabIndex = 11;
-            this.popupControlNewCategoryContainer.Visible = false;
-            this.popupControlNewCategoryContainer.CloseUp += new System.EventHandler(this.popupControlNewCategoryContainer_CloseUp);
-            // 
-            // layoutCategoryPopOutControl
-            // 
-            this.layoutCategoryPopOutControl.Controls.Add(this.simpleAddTitleButton);
-            this.layoutCategoryPopOutControl.Controls.Add(this.newCategoryTitletextEdit);
-            this.layoutCategoryPopOutControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.layoutCategoryPopOutControl.Location = new System.Drawing.Point(0, 0);
-            this.layoutCategoryPopOutControl.Name = "layoutCategoryPopOutControl";
-            this.layoutCategoryPopOutControl.Root = this.layoutControlDropDownButton;
-            this.layoutCategoryPopOutControl.Size = new System.Drawing.Size(171, 92);
-            this.layoutCategoryPopOutControl.TabIndex = 0;
-            this.layoutCategoryPopOutControl.Text = "layoutControl2";
-            // 
-            // simpleAddTitleButton
-            // 
-            this.simpleAddTitleButton.Location = new System.Drawing.Point(12, 52);
-            this.simpleAddTitleButton.Name = "simpleAddTitleButton";
-            this.simpleAddTitleButton.Size = new System.Drawing.Size(147, 22);
-            this.simpleAddTitleButton.StyleController = this.layoutCategoryPopOutControl;
-            this.simpleAddTitleButton.TabIndex = 8;
-            this.simpleAddTitleButton.Text = "Add";
-            this.simpleAddTitleButton.Click += new System.EventHandler(this.simpleAddTitleButton_Click);
-            // 
-            // newCategoryTitletextEdit
-            // 
-            this.newCategoryTitletextEdit.Location = new System.Drawing.Point(12, 28);
-            this.newCategoryTitletextEdit.MenuManager = this.ribbon;
-            this.newCategoryTitletextEdit.Name = "newCategoryTitletextEdit";
-            this.newCategoryTitletextEdit.Size = new System.Drawing.Size(147, 20);
-            this.newCategoryTitletextEdit.StyleController = this.layoutCategoryPopOutControl;
-            this.newCategoryTitletextEdit.TabIndex = 7;
-            this.newCategoryTitletextEdit.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.newCategoryTitletextEdit_KeyPress);
-            // 
-            // layoutControlDropDownButton
-            // 
-            this.layoutControlDropDownButton.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
-            this.layoutControlDropDownButton.GroupBordersVisible = false;
-            this.layoutControlDropDownButton.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutAddNewCategoryTitleButtonControl,
-            this.layoutControlNewCategoryTitleTextEdit});
-            this.layoutControlDropDownButton.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlDropDownButton.Name = "layoutControlDropDownButton";
-            this.layoutControlDropDownButton.Size = new System.Drawing.Size(171, 92);
-            this.layoutControlDropDownButton.TextVisible = false;
-            // 
-            // layoutAddNewCategoryTitleButtonControl
-            // 
-            this.layoutAddNewCategoryTitleButtonControl.Control = this.simpleAddTitleButton;
-            this.layoutAddNewCategoryTitleButtonControl.Location = new System.Drawing.Point(0, 40);
-            this.layoutAddNewCategoryTitleButtonControl.Name = "layoutAddNewCategoryTitleButtonControl";
-            this.layoutAddNewCategoryTitleButtonControl.Size = new System.Drawing.Size(151, 32);
-            this.layoutAddNewCategoryTitleButtonControl.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutAddNewCategoryTitleButtonControl.TextVisible = false;
-            // 
-            // layoutControlNewCategoryTitleTextEdit
-            // 
-            this.layoutControlNewCategoryTitleTextEdit.Control = this.newCategoryTitletextEdit;
-            this.layoutControlNewCategoryTitleTextEdit.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlNewCategoryTitleTextEdit.Name = "layoutControlNewCategoryTitleTextEdit";
-            this.layoutControlNewCategoryTitleTextEdit.Size = new System.Drawing.Size(151, 40);
-            this.layoutControlNewCategoryTitleTextEdit.Text = "Title";
-            this.layoutControlNewCategoryTitleTextEdit.TextLocation = DevExpress.Utils.Locations.Top;
-            this.layoutControlNewCategoryTitleTextEdit.TextSize = new System.Drawing.Size(20, 13);
-            // 
             // productStateButton
             // 
             this.productStateButton.Caption = "RemoveActivate";
@@ -307,7 +197,6 @@ namespace ContosoUI.ProductForm
             // ribbonEditPageGroup
             // 
             this.ribbonEditPageGroup.Glyph = ((System.Drawing.Image)(resources.GetObject("ribbonEditPageGroup.Glyph")));
-            this.ribbonEditPageGroup.ItemLinks.Add(this.barAddNewCategoryButton);
             this.ribbonEditPageGroup.ItemLinks.Add(this.productStateButton);
             this.ribbonEditPageGroup.MergeOrder = 60;
             this.ribbonEditPageGroup.Name = "ribbonEditPageGroup";
@@ -331,8 +220,6 @@ namespace ContosoUI.ProductForm
             this.entireLayoutControl.Controls.Add(this.productPriceTextEdit);
             this.entireLayoutControl.Controls.Add(this.productTitleTextEdit);
             this.entireLayoutControl.Controls.Add(this.productSKUTextEdit);
-            this.entireLayoutControl.Controls.Add(this.categoryNewCommentTextBox);
-            this.entireLayoutControl.Controls.Add(this.addCategoryCommetSimpleButton);
             this.entireLayoutControl.Controls.Add(this.categoryLookUpEdit);
             this.entireLayoutControl.Controls.Add(this.categorySearchControl);
             this.entireLayoutControl.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -348,7 +235,7 @@ namespace ContosoUI.ProductForm
             // 
             this.categoryCommentsListBoxControl.Location = new System.Drawing.Point(318, 337);
             this.categoryCommentsListBoxControl.Name = "categoryCommentsListBoxControl";
-            this.categoryCommentsListBoxControl.Size = new System.Drawing.Size(660, 205);
+            this.categoryCommentsListBoxControl.Size = new System.Drawing.Size(660, 241);
             this.categoryCommentsListBoxControl.StyleController = this.entireLayoutControl;
             this.categoryCommentsListBoxControl.TabIndex = 22;
             // 
@@ -366,24 +253,13 @@ namespace ContosoUI.ProductForm
             // categoryGridView
             // 
             this.categoryGridView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.idColumn,
             this.titleColumn,
-            this.dateColumn});
+            this.stateColumn});
             this.categoryGridView.GridControl = this.categoryGridControl;
             this.categoryGridView.Name = "categoryGridView";
             this.categoryGridView.OptionsBehavior.Editable = false;
             this.categoryGridView.RowClick += new DevExpress.XtraGrid.Views.Grid.RowClickEventHandler(this.categoryGridView_RowClick);
             this.categoryGridView.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.categoryGridView_FocusedRowChanged);
-            // 
-            // idColumn
-            // 
-            this.idColumn.Caption = "ID";
-            this.idColumn.FieldName = "Id";
-            this.idColumn.MaxWidth = 30;
-            this.idColumn.Name = "idColumn";
-            this.idColumn.Visible = true;
-            this.idColumn.VisibleIndex = 0;
-            this.idColumn.Width = 30;
             // 
             // titleColumn
             // 
@@ -391,15 +267,17 @@ namespace ContosoUI.ProductForm
             this.titleColumn.FieldName = "Title";
             this.titleColumn.Name = "titleColumn";
             this.titleColumn.Visible = true;
-            this.titleColumn.VisibleIndex = 1;
+            this.titleColumn.VisibleIndex = 0;
+            this.titleColumn.Width = 584;
             // 
-            // dateColumn
+            // stateColumn
             // 
-            this.dateColumn.Caption = "Date";
-            this.dateColumn.FieldName = "Date";
-            this.dateColumn.Name = "dateColumn";
-            this.dateColumn.Visible = true;
-            this.dateColumn.VisibleIndex = 2;
+            this.stateColumn.Caption = "State";
+            this.stateColumn.FieldName = "IsActive";
+            this.stateColumn.Name = "stateColumn";
+            this.stateColumn.Visible = true;
+            this.stateColumn.VisibleIndex = 1;
+            this.stateColumn.Width = 82;
             // 
             // newCommentTextBox
             // 
@@ -472,24 +350,6 @@ namespace ContosoUI.ProductForm
             this.productSKUTextEdit.Size = new System.Drawing.Size(239, 20);
             this.productSKUTextEdit.StyleController = this.entireLayoutControl;
             this.productSKUTextEdit.TabIndex = 4;
-            // 
-            // categoryNewCommentTextBox
-            // 
-            this.categoryNewCommentTextBox.Location = new System.Drawing.Point(323, 551);
-            this.categoryNewCommentTextBox.Name = "categoryNewCommentTextBox";
-            this.categoryNewCommentTextBox.Size = new System.Drawing.Size(420, 20);
-            this.categoryNewCommentTextBox.TabIndex = 16;
-            this.categoryNewCommentTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.categoryNewCommentTextBox_KeyPress);
-            // 
-            // addCategoryCommetSimpleButton
-            // 
-            this.addCategoryCommetSimpleButton.Location = new System.Drawing.Point(757, 551);
-            this.addCategoryCommetSimpleButton.Name = "addCategoryCommetSimpleButton";
-            this.addCategoryCommetSimpleButton.Size = new System.Drawing.Size(216, 22);
-            this.addCategoryCommetSimpleButton.StyleController = this.entireLayoutControl;
-            this.addCategoryCommetSimpleButton.TabIndex = 17;
-            this.addCategoryCommetSimpleButton.Text = "Add comment";
-            this.addCategoryCommetSimpleButton.Click += new System.EventHandler(this.addCategoryCommetSimpleButton_Click);
             // 
             // categoryLookUpEdit
             // 
@@ -575,7 +435,7 @@ namespace ContosoUI.ProductForm
             this.layoutControlProductCategoryComboBoxEdit.Spacing = new DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 2);
             this.layoutControlProductCategoryComboBoxEdit.Text = "Category";
             this.layoutControlProductCategoryComboBoxEdit.TextLocation = DevExpress.Utils.Locations.Top;
-            this.layoutControlProductCategoryComboBoxEdit.TextSize = new System.Drawing.Size(51, 13);
+            this.layoutControlProductCategoryComboBoxEdit.TextSize = new System.Drawing.Size(45, 13);
             // 
             // layoutControlProductPriceTextEdit
             // 
@@ -585,9 +445,9 @@ namespace ContosoUI.ProductForm
             this.layoutControlProductPriceTextEdit.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
             this.layoutControlProductPriceTextEdit.Size = new System.Drawing.Size(253, 50);
             this.layoutControlProductPriceTextEdit.Spacing = new DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 2);
-            this.layoutControlProductPriceTextEdit.Text = "Price, UAH";
+            this.layoutControlProductPriceTextEdit.Text = "Price";
             this.layoutControlProductPriceTextEdit.TextLocation = DevExpress.Utils.Locations.Top;
-            this.layoutControlProductPriceTextEdit.TextSize = new System.Drawing.Size(51, 13);
+            this.layoutControlProductPriceTextEdit.TextSize = new System.Drawing.Size(45, 13);
             // 
             // layoutControlProductQuantitySpinEdit
             // 
@@ -599,7 +459,7 @@ namespace ContosoUI.ProductForm
             this.layoutControlProductQuantitySpinEdit.Spacing = new DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 2);
             this.layoutControlProductQuantitySpinEdit.Text = "Quantity";
             this.layoutControlProductQuantitySpinEdit.TextLocation = DevExpress.Utils.Locations.Top;
-            this.layoutControlProductQuantitySpinEdit.TextSize = new System.Drawing.Size(51, 13);
+            this.layoutControlProductQuantitySpinEdit.TextSize = new System.Drawing.Size(45, 13);
             // 
             // layoutControlProductTitleTextEdit
             // 
@@ -611,7 +471,7 @@ namespace ContosoUI.ProductForm
             this.layoutControlProductTitleTextEdit.Spacing = new DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 2);
             this.layoutControlProductTitleTextEdit.Text = "Title";
             this.layoutControlProductTitleTextEdit.TextLocation = DevExpress.Utils.Locations.Top;
-            this.layoutControlProductTitleTextEdit.TextSize = new System.Drawing.Size(51, 13);
+            this.layoutControlProductTitleTextEdit.TextSize = new System.Drawing.Size(45, 13);
             // 
             // layoutControlProductSKUTextEdit
             // 
@@ -623,7 +483,7 @@ namespace ContosoUI.ProductForm
             this.layoutControlProductSKUTextEdit.Spacing = new DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 2);
             this.layoutControlProductSKUTextEdit.Text = "SKU";
             this.layoutControlProductSKUTextEdit.TextLocation = DevExpress.Utils.Locations.Top;
-            this.layoutControlProductSKUTextEdit.TextSize = new System.Drawing.Size(51, 13);
+            this.layoutControlProductSKUTextEdit.TextSize = new System.Drawing.Size(45, 13);
             // 
             // tabbedCommentsControlGroup
             // 
@@ -723,9 +583,7 @@ namespace ContosoUI.ProductForm
             // layoutControlCategoryCommentsGroup
             // 
             this.layoutControlCategoryCommentsGroup.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlCategoryCommentsListBox,
-            this.layoutControlCategoryAddCommentButton,
-            this.layoutControlCategoryNewCommetTextEdit});
+            this.layoutControlCategoryCommentsListBox});
             this.layoutControlCategoryCommentsGroup.Location = new System.Drawing.Point(0, 0);
             this.layoutControlCategoryCommentsGroup.Name = "layoutControlCategoryCommentsGroup";
             this.layoutControlCategoryCommentsGroup.Size = new System.Drawing.Size(664, 245);
@@ -736,35 +594,9 @@ namespace ContosoUI.ProductForm
             this.layoutControlCategoryCommentsListBox.Control = this.categoryCommentsListBoxControl;
             this.layoutControlCategoryCommentsListBox.Location = new System.Drawing.Point(0, 0);
             this.layoutControlCategoryCommentsListBox.Name = "layoutControlCategoryCommentsListBox";
-            this.layoutControlCategoryCommentsListBox.Size = new System.Drawing.Size(664, 209);
+            this.layoutControlCategoryCommentsListBox.Size = new System.Drawing.Size(664, 245);
             this.layoutControlCategoryCommentsListBox.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlCategoryCommentsListBox.TextVisible = false;
-            // 
-            // layoutControlCategoryAddCommentButton
-            // 
-            this.layoutControlCategoryAddCommentButton.Control = this.addCategoryCommetSimpleButton;
-            this.layoutControlCategoryAddCommentButton.CustomizationFormText = "layoutControlItem3";
-            this.layoutControlCategoryAddCommentButton.Location = new System.Drawing.Point(434, 209);
-            this.layoutControlCategoryAddCommentButton.Name = "layoutControlCategoryAddCommentButton";
-            this.layoutControlCategoryAddCommentButton.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
-            this.layoutControlCategoryAddCommentButton.Size = new System.Drawing.Size(230, 36);
-            this.layoutControlCategoryAddCommentButton.Spacing = new DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 2);
-            this.layoutControlCategoryAddCommentButton.Text = "layoutControlItem3";
-            this.layoutControlCategoryAddCommentButton.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlCategoryAddCommentButton.TextVisible = false;
-            // 
-            // layoutControlCategoryNewCommetTextEdit
-            // 
-            this.layoutControlCategoryNewCommetTextEdit.Control = this.categoryNewCommentTextBox;
-            this.layoutControlCategoryNewCommetTextEdit.CustomizationFormText = "layoutControlItem2";
-            this.layoutControlCategoryNewCommetTextEdit.Location = new System.Drawing.Point(0, 209);
-            this.layoutControlCategoryNewCommetTextEdit.Name = "layoutControlCategoryNewCommetTextEdit";
-            this.layoutControlCategoryNewCommetTextEdit.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
-            this.layoutControlCategoryNewCommetTextEdit.Size = new System.Drawing.Size(434, 36);
-            this.layoutControlCategoryNewCommetTextEdit.Spacing = new DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 2);
-            this.layoutControlCategoryNewCommetTextEdit.Text = "layoutControlItem2";
-            this.layoutControlCategoryNewCommetTextEdit.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlCategoryNewCommetTextEdit.TextVisible = false;
             // 
             // layoutCategorySearchControl
             // 
@@ -789,7 +621,6 @@ namespace ContosoUI.ProductForm
             this.ClientSize = new System.Drawing.Size(1014, 767);
             this.Controls.Add(this.entireLayoutControl);
             this.Controls.Add(this.ribbonStatusBar);
-            this.Controls.Add(this.popupControlNewCategoryContainer);
             this.Controls.Add(this.ribbon);
             this.Name = "ProductView";
             this.Ribbon = this.ribbon;
@@ -797,14 +628,6 @@ namespace ContosoUI.ProductForm
             this.Text = "ProductViewList";
             this.Load += new System.EventHandler(this.ProductAddView_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.popupControlNewCategoryContainer)).EndInit();
-            this.popupControlNewCategoryContainer.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.layoutCategoryPopOutControl)).EndInit();
-            this.layoutCategoryPopOutControl.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.newCategoryTitletextEdit.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlDropDownButton)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutAddNewCategoryTitleButtonControl)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlNewCategoryTitleTextEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.entireLayoutControl)).EndInit();
             this.entireLayoutControl.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.categoryCommentsListBoxControl)).EndInit();
@@ -837,8 +660,6 @@ namespace ContosoUI.ProductForm
             ((System.ComponentModel.ISupportInitialize)(this.tabbedControlCategoryCommentsGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlCategoryCommentsGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlCategoryCommentsListBox)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlCategoryAddCommentButton)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlCategoryNewCommetTextEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutCategorySearchControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitter)).EndInit();
             this.ResumeLayout(false);
@@ -872,8 +693,6 @@ namespace ContosoUI.ProductForm
         private DevExpress.XtraLayout.TabbedControlGroup tabbedControlCategoryGroup;
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlCategoryGroup;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlCategoryGrid;
-        private System.Windows.Forms.TextBox categoryNewCommentTextBox;
-        private DevExpress.XtraEditors.SimpleButton addCategoryCommetSimpleButton;
         private DevExpress.XtraLayout.TabbedControlGroup tabbedCommentsControlGroup;
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlCommentsGroup;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlProductComments;
@@ -883,29 +702,18 @@ namespace ContosoUI.ProductForm
         private DevExpress.XtraLayout.TabbedControlGroup tabbedControlCategoryCommentsGroup;
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlCategoryCommentsGroup;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlCategoryCommentsListBox;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlCategoryAddCommentButton;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlCategoryNewCommetTextEdit;
         private DevExpress.XtraLayout.SplitterItem splitter;
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonProductCategoryPage;
         private DevExpress.XtraEditors.LookUpEdit categoryLookUpEdit;
-        private PopupControlContainer popupControlNewCategoryContainer;
-        private DevExpress.XtraLayout.LayoutControl layoutCategoryPopOutControl;
-        private DevExpress.XtraEditors.SimpleButton simpleAddTitleButton;
-        private DevExpress.XtraEditors.TextEdit newCategoryTitletextEdit;
-        private DevExpress.XtraLayout.LayoutControlGroup layoutControlDropDownButton;
-        private DevExpress.XtraLayout.LayoutControlItem layoutAddNewCategoryTitleButtonControl;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlNewCategoryTitleTextEdit;
         private DevExpress.XtraEditors.TextEdit categorySearchControl;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonCategoryPageGroup;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonEditPageGroup;
         private BarButtonItem barSaveButton;
         private BarButtonItem barSaveAndNewButton;
         private BarButtonItem barNewButton;
-        private BarButtonItem barAddNewCategoryButton;
         private BarButtonItem productStateButton;
-        private DevExpress.XtraGrid.Columns.GridColumn idColumn;
         private DevExpress.XtraGrid.Columns.GridColumn titleColumn;
-        private DevExpress.XtraGrid.Columns.GridColumn dateColumn;
+        private DevExpress.XtraGrid.Columns.GridColumn stateColumn;
         private System.Windows.Forms.BindingSource categoryBindingSource;
     }
 }

@@ -32,8 +32,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CategoryView));
             this.ribbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.saveBarButton = new DevExpress.XtraBars.BarButtonItem();
-            this.saveAndNewBarButton = new DevExpress.XtraBars.BarButtonItem();
-            this.newBarButton = new DevExpress.XtraBars.BarButtonItem();
             this.addCategoryBarButton = new DevExpress.XtraBars.BarButtonItem();
             this.newCategoryPopupControlContainer = new DevExpress.XtraBars.PopupControlContainer(this.components);
             this.newCategoryLayoutControl = new DevExpress.XtraLayout.LayoutControl();
@@ -52,6 +50,9 @@
             this.categoryCommentsListBoxControl = new DevExpress.XtraEditors.ListBoxControl();
             this.categoryGridControl = new DevExpress.XtraGrid.GridControl();
             this.categoryGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.titleColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.dateColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.activityCollumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.layoutControlGroupCategories = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlCategoryGridControl = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlCommentsListBox = new DevExpress.XtraLayout.LayoutControlItem();
@@ -85,8 +86,6 @@
             this.ribbon.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.ribbon.ExpandCollapseItem,
             this.saveBarButton,
-            this.saveAndNewBarButton,
-            this.newBarButton,
             this.addCategoryBarButton});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
             this.ribbon.MaxItemId = 7;
@@ -112,24 +111,6 @@
             this.saveBarButton.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("saveBarButton.LargeGlyph")));
             this.saveBarButton.Name = "saveBarButton";
             this.saveBarButton.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.saveBarButton_ItemClick);
-            // 
-            // saveAndNewBarButton
-            // 
-            this.saveAndNewBarButton.Caption = "Save and New";
-            this.saveAndNewBarButton.Glyph = ((System.Drawing.Image)(resources.GetObject("saveAndNewBarButton.Glyph")));
-            this.saveAndNewBarButton.Id = 2;
-            this.saveAndNewBarButton.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("saveAndNewBarButton.LargeGlyph")));
-            this.saveAndNewBarButton.Name = "saveAndNewBarButton";
-            this.saveAndNewBarButton.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.saveAndNewBarButton_ItemClick);
-            // 
-            // newBarButton
-            // 
-            this.newBarButton.Caption = "New";
-            this.newBarButton.Glyph = ((System.Drawing.Image)(resources.GetObject("newBarButton.Glyph")));
-            this.newBarButton.Id = 3;
-            this.newBarButton.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("newBarButton.LargeGlyph")));
-            this.newBarButton.Name = "newBarButton";
-            this.newBarButton.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.newBarButton_ItemClick);
             // 
             // addCategoryBarButton
             // 
@@ -230,8 +211,6 @@
             // categoryRibbonPageGroup
             // 
             this.categoryRibbonPageGroup.ItemLinks.Add(this.saveBarButton);
-            this.categoryRibbonPageGroup.ItemLinks.Add(this.saveAndNewBarButton);
-            this.categoryRibbonPageGroup.ItemLinks.Add(this.newBarButton);
             this.categoryRibbonPageGroup.MergeOrder = 50;
             this.categoryRibbonPageGroup.Name = "categoryRibbonPageGroup";
             this.categoryRibbonPageGroup.Text = "Category";
@@ -305,9 +284,37 @@
             // 
             // categoryGridView
             // 
+            this.categoryGridView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.titleColumn,
+            this.dateColumn,
+            this.activityCollumn});
             this.categoryGridView.GridControl = this.categoryGridControl;
             this.categoryGridView.Name = "categoryGridView";
             this.categoryGridView.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.categoryGridView_FocusedRowChanged);
+            // 
+            // titleColumn
+            // 
+            this.titleColumn.Caption = "Title";
+            this.titleColumn.FieldName = "Title";
+            this.titleColumn.Name = "titleColumn";
+            this.titleColumn.Visible = true;
+            this.titleColumn.VisibleIndex = 0;
+            // 
+            // dateColumn
+            // 
+            this.dateColumn.Caption = "Date";
+            this.dateColumn.FieldName = "Date";
+            this.dateColumn.Name = "dateColumn";
+            this.dateColumn.Visible = true;
+            this.dateColumn.VisibleIndex = 1;
+            // 
+            // activityCollumn
+            // 
+            this.activityCollumn.Caption = "State";
+            this.activityCollumn.FieldName = "IsActive";
+            this.activityCollumn.Name = "activityCollumn";
+            this.activityCollumn.Visible = true;
+            this.activityCollumn.VisibleIndex = 2;
             // 
             // layoutControlGroupCategories
             // 
@@ -421,8 +428,6 @@
         private DevExpress.XtraEditors.ListBoxControl categoryCommentsListBoxControl;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlCommentsListBox;
         private DevExpress.XtraBars.BarButtonItem saveBarButton;
-        private DevExpress.XtraBars.BarButtonItem saveAndNewBarButton;
-        private DevExpress.XtraBars.BarButtonItem newBarButton;
         private DevExpress.XtraBars.BarButtonItem addCategoryBarButton;
         private DevExpress.XtraEditors.SimpleButton addNewCommentButton;
         private DevExpress.XtraEditors.TextEdit addNewCommentTextEdit;
@@ -436,5 +441,8 @@
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroupNewCategory;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlAddNewCategoryTextEdit;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlAddNewCategoryButton;
+        private DevExpress.XtraGrid.Columns.GridColumn titleColumn;
+        private DevExpress.XtraGrid.Columns.GridColumn dateColumn;
+        private DevExpress.XtraGrid.Columns.GridColumn activityCollumn;
     }
 }

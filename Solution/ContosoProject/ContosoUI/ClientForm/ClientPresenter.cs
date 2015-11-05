@@ -17,7 +17,9 @@ namespace ContosoUI.ClientForm
         private readonly IClientRepository _clientRepository;
         private readonly IOrderRepository _orderRepository;
 
-        private Client _client = new Client();
+        private Client _client = new Client(
+            new System.Collections.Generic.List<Telephone>(), 
+            Domain.Entities.Comments.Comments.Init(Program.AuthUser, "Client"));
 
         private string _firstName = string.Empty;
         private string _middleName = string.Empty;
