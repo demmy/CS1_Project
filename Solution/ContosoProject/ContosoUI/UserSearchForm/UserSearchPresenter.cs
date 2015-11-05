@@ -102,5 +102,10 @@ namespace ContosoUI.UserSearchForm
             LastName = null;
             Users.Clear();
         }
+
+        public override void Stop()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

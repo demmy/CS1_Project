@@ -162,7 +162,7 @@ namespace ContosoUI.ClientForm
             Client clientToSave = new Client(_telephones, _comments)
             {
                 Person = new Person() {FirstName = _firstName, MiddleName = _middleName, LastName = _lastName},
-                ClientLocation = new Location() {Address = _address, City = _city}, Id = _client.Id, IsActive = State
+                ClientLocation = new Location() {Address = _address, City = _city}, IsActive = State
             };
 
             if (clientToSave.Id != 0)
@@ -209,6 +209,11 @@ namespace ContosoUI.ClientForm
         {
             Save();
             New();
+        }
+
+        public override void Stop()
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

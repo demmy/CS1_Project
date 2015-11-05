@@ -92,5 +92,10 @@ namespace ContosoUI.ClientSearchForm
             Clients.Clear();
         }
 
+
+        public override void Stop()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

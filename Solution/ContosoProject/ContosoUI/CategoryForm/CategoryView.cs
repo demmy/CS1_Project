@@ -63,11 +63,8 @@ namespace ContosoUI.CategoryForm
         {
             if (!string.IsNullOrEmpty(addNewCommentTextEdit.Text))
             {
-                Comment comment = new Comment() { Author = Program.AuthUser, EntityType = EntityType.Category, Text = addNewCommentTextEdit.Text };
-                List<Comment> newComments = presenter.Comments.ToList();
-                newComments.Add(comment);
-                presenter.Comments = new BindingList<Comment>(newComments);
-                presenter.Save();
+                presenter.Comments.Add(new Comment { Author = Program.AuthUser, EntityType = EntityType.Category, Text = addNewCommentTextEdit.Text });
+                //presenter.Save();
                 addNewCommentTextEdit.Text = string.Empty;
             }
         }
@@ -98,6 +95,11 @@ namespace ContosoUI.CategoryForm
             int id = (int)view.GetRowCellValue(e.FocusedRowHandle, "Id");
             presenter.UseCategoryWithID(id);
             categoryCommentsListBoxControl.DataBindings.Add("DataSource", binding, "Comments", false, DataSourceUpdateMode.OnPropertyChanged);
+        }
+
+        private void CategoryView_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            presenter.Stop();
         }
     }
 }

@@ -21,7 +21,7 @@ namespace ContosoUI.CategoryForm
         private Category _selectedCategory = null;
 
         private BindingList<Category> _categories;
-        private BindingList<Comment> _categoryComments;
+        private BindingList<Comment> _categoryComments = new BindingList<Comment>();
 
         public CategoryPresenter(ICategoryView view, CategoryModel model)
         {
@@ -100,6 +100,11 @@ namespace ContosoUI.CategoryForm
                 _categoryComments = value;
                 NotifyPropertyChanged();
             }
+        }
+
+        public override void Stop()
+        {
+            _model.Dispose();
         }
     }
 }

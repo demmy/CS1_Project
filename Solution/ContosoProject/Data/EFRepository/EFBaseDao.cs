@@ -24,7 +24,7 @@ namespace Data.EFRepository
 
         public void Save(T entity)
         {
-            dbContext.Set<T>().AddOrUpdate(entity);
+            dbContext.Entry(entity).State = System.Data.Entity.EntityState.Modified;
             dbContext.SaveChanges();
         }
 
@@ -36,8 +36,8 @@ namespace Data.EFRepository
 
         public void Delete(int id)
         {
-            var ent = dbContext.Set<T>().FirstOrDefault(x => x.Id == id);
-            dbContext.Set<T>().Remove(ent);
+            var ent = Find(id);
+            Delete(ent);
             dbContext.SaveChanges();
         }
 

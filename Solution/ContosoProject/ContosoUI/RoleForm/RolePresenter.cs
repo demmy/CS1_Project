@@ -125,5 +125,10 @@ namespace ContosoUI.RoleForm
             _avalaibleRoles = new BindingList<Role>(_model.RoleRepository.GetAll().ToList());
             NotifyPropertyChanged("AvalaibleRoles");
         }
+
+        public override void Stop()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

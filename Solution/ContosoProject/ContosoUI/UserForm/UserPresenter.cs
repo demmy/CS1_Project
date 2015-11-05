@@ -202,5 +202,10 @@ namespace ContosoUI.UserForm
             Role = new Role( );
             Permissions = new BindingList<Permission>();
         }
+
+        public override void Stop()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }
