@@ -14,6 +14,11 @@ namespace Domain.Entities.Users
         }
 
         public string Title { get; set; }
-        public ICollection<Permission> Permissions { get; set; }
+        public virtual ICollection<Permission> Permissions { get; set; }
+
+        public override string ToString()
+        {
+            return Title;
+        }
     }
 }

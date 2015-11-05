@@ -1,13 +1,8 @@
 ﻿using Domain.Entities.Products;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Domain.Entities.Orders
 {
-    public class OrderItem
+    public class OrderItem : Entity
     {
         public Product Product { get; set; }
         public int Quantity { get; set; }
@@ -18,6 +13,11 @@ namespace Domain.Entities.Orders
             Product = product;
             Quantity = quantity;
             Price = price;
-        }        
+        }
+
+        public override string ToString()
+        {
+            return string.Format("{0} {1} pcs, {2} UAH", Product, Quantity, Price);
+        }
     }
 }

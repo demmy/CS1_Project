@@ -1,22 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Domain.Entities.Users;
-using Data.DummyData;
+﻿using Domain.DAO;
 
 namespace ContosoUI.UserSearchForm
 {
-    class UserSearchModel
+    public class UserSearchModel: Model
     {
-        public ICollection<User> SearchUser(string login, string firstName, string lastName)
+        public UserSearchModel()
+            :base()
         {
-            DummyDAOForUser user = new DummyDAOForUser();
 
-            user.GetByLogin(login);
-            return user.GetByLogin(login);            
         }
 
+        public IUserRepository UserRepository 
+        {
+            get { return Facade.UserRepository; } 
+        }
     }
 }
