@@ -45,9 +45,8 @@ namespace ContosoUI.ProductForm
             this.categoryCommentsListBoxControl = new DevExpress.XtraEditors.ListBoxControl();
             this.categoryGridControl = new DevExpress.XtraGrid.GridControl();
             this.categoryGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.idColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.titleColumn = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.dateColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.stateColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.newCommentTextBox = new System.Windows.Forms.TextBox();
             this.addCommentButton = new DevExpress.XtraEditors.SimpleButton();
             this.productCommentsListBoxControl = new DevExpress.XtraEditors.ListBoxControl();
@@ -254,24 +253,13 @@ namespace ContosoUI.ProductForm
             // categoryGridView
             // 
             this.categoryGridView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.idColumn,
             this.titleColumn,
-            this.dateColumn});
+            this.stateColumn});
             this.categoryGridView.GridControl = this.categoryGridControl;
             this.categoryGridView.Name = "categoryGridView";
             this.categoryGridView.OptionsBehavior.Editable = false;
             this.categoryGridView.RowClick += new DevExpress.XtraGrid.Views.Grid.RowClickEventHandler(this.categoryGridView_RowClick);
             this.categoryGridView.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.categoryGridView_FocusedRowChanged);
-            // 
-            // idColumn
-            // 
-            this.idColumn.Caption = "ID";
-            this.idColumn.FieldName = "Id";
-            this.idColumn.MaxWidth = 30;
-            this.idColumn.Name = "idColumn";
-            this.idColumn.Visible = true;
-            this.idColumn.VisibleIndex = 0;
-            this.idColumn.Width = 30;
             // 
             // titleColumn
             // 
@@ -279,15 +267,17 @@ namespace ContosoUI.ProductForm
             this.titleColumn.FieldName = "Title";
             this.titleColumn.Name = "titleColumn";
             this.titleColumn.Visible = true;
-            this.titleColumn.VisibleIndex = 1;
+            this.titleColumn.VisibleIndex = 0;
+            this.titleColumn.Width = 584;
             // 
-            // dateColumn
+            // stateColumn
             // 
-            this.dateColumn.Caption = "Date";
-            this.dateColumn.FieldName = "Date";
-            this.dateColumn.Name = "dateColumn";
-            this.dateColumn.Visible = true;
-            this.dateColumn.VisibleIndex = 2;
+            this.stateColumn.Caption = "State";
+            this.stateColumn.FieldName = "IsActive";
+            this.stateColumn.Name = "stateColumn";
+            this.stateColumn.Visible = true;
+            this.stateColumn.VisibleIndex = 1;
+            this.stateColumn.Width = 82;
             // 
             // newCommentTextBox
             // 
@@ -445,7 +435,7 @@ namespace ContosoUI.ProductForm
             this.layoutControlProductCategoryComboBoxEdit.Spacing = new DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 2);
             this.layoutControlProductCategoryComboBoxEdit.Text = "Category";
             this.layoutControlProductCategoryComboBoxEdit.TextLocation = DevExpress.Utils.Locations.Top;
-            this.layoutControlProductCategoryComboBoxEdit.TextSize = new System.Drawing.Size(51, 13);
+            this.layoutControlProductCategoryComboBoxEdit.TextSize = new System.Drawing.Size(45, 13);
             // 
             // layoutControlProductPriceTextEdit
             // 
@@ -455,9 +445,9 @@ namespace ContosoUI.ProductForm
             this.layoutControlProductPriceTextEdit.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
             this.layoutControlProductPriceTextEdit.Size = new System.Drawing.Size(253, 50);
             this.layoutControlProductPriceTextEdit.Spacing = new DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 2);
-            this.layoutControlProductPriceTextEdit.Text = "Price, UAH";
+            this.layoutControlProductPriceTextEdit.Text = "Price";
             this.layoutControlProductPriceTextEdit.TextLocation = DevExpress.Utils.Locations.Top;
-            this.layoutControlProductPriceTextEdit.TextSize = new System.Drawing.Size(51, 13);
+            this.layoutControlProductPriceTextEdit.TextSize = new System.Drawing.Size(45, 13);
             // 
             // layoutControlProductQuantitySpinEdit
             // 
@@ -469,7 +459,7 @@ namespace ContosoUI.ProductForm
             this.layoutControlProductQuantitySpinEdit.Spacing = new DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 2);
             this.layoutControlProductQuantitySpinEdit.Text = "Quantity";
             this.layoutControlProductQuantitySpinEdit.TextLocation = DevExpress.Utils.Locations.Top;
-            this.layoutControlProductQuantitySpinEdit.TextSize = new System.Drawing.Size(51, 13);
+            this.layoutControlProductQuantitySpinEdit.TextSize = new System.Drawing.Size(45, 13);
             // 
             // layoutControlProductTitleTextEdit
             // 
@@ -481,7 +471,7 @@ namespace ContosoUI.ProductForm
             this.layoutControlProductTitleTextEdit.Spacing = new DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 2);
             this.layoutControlProductTitleTextEdit.Text = "Title";
             this.layoutControlProductTitleTextEdit.TextLocation = DevExpress.Utils.Locations.Top;
-            this.layoutControlProductTitleTextEdit.TextSize = new System.Drawing.Size(51, 13);
+            this.layoutControlProductTitleTextEdit.TextSize = new System.Drawing.Size(45, 13);
             // 
             // layoutControlProductSKUTextEdit
             // 
@@ -493,7 +483,7 @@ namespace ContosoUI.ProductForm
             this.layoutControlProductSKUTextEdit.Spacing = new DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 2);
             this.layoutControlProductSKUTextEdit.Text = "SKU";
             this.layoutControlProductSKUTextEdit.TextLocation = DevExpress.Utils.Locations.Top;
-            this.layoutControlProductSKUTextEdit.TextSize = new System.Drawing.Size(51, 13);
+            this.layoutControlProductSKUTextEdit.TextSize = new System.Drawing.Size(45, 13);
             // 
             // tabbedCommentsControlGroup
             // 
@@ -722,9 +712,8 @@ namespace ContosoUI.ProductForm
         private BarButtonItem barSaveAndNewButton;
         private BarButtonItem barNewButton;
         private BarButtonItem productStateButton;
-        private DevExpress.XtraGrid.Columns.GridColumn idColumn;
         private DevExpress.XtraGrid.Columns.GridColumn titleColumn;
-        private DevExpress.XtraGrid.Columns.GridColumn dateColumn;
+        private DevExpress.XtraGrid.Columns.GridColumn stateColumn;
         private System.Windows.Forms.BindingSource categoryBindingSource;
     }
 }

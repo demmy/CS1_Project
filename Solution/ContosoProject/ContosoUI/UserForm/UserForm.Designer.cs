@@ -286,6 +286,7 @@ namespace ContosoUI.UserForm
             this.passwordTextEdit.Location = new System.Drawing.Point(29, 313);
             this.passwordTextEdit.MenuManager = this.ribbon;
             this.passwordTextEdit.Name = "passwordTextEdit";
+            this.passwordTextEdit.Properties.PasswordChar = '●';
             this.passwordTextEdit.Size = new System.Drawing.Size(325, 20);
             this.passwordTextEdit.StyleController = this.layoutControl;
             this.passwordTextEdit.TabIndex = 5;
