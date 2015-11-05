@@ -2,6 +2,8 @@ using Domain.Entities;
 using Domain.Entities.Users;
 using System.Collections.Generic;
 using System.Data.Entity.Migrations;
+using System.Data;
+using System.Linq;
 
 internal sealed class Configuration : DbMigrationsConfiguration<Data.EFRepository.ProjectContext>
 {
@@ -110,10 +112,12 @@ internal sealed class Configuration : DbMigrationsConfiguration<Data.EFRepositor
             new Permission {Description = "Able to deactivate existing role", IsActive = true, Title = DeactivateRole}
         }; 
         #endregion
+        
         var admin = new User() { Login = "Admin", Password = "queryadmin", IsActive = true,
             Role = new Role { Permissions = Permissions, IsActive = true, Title = "Admin" },
             Person = new Person { FirstName = "Gregory", MiddleName = "Filler", LastName = "Mouse"} };
-        context.Users.AddOrUpdate<User>(admin);
+        if (!context.Users.Any())
+            context.Users.Add(admin);
         context.SaveChanges();
     }
 }

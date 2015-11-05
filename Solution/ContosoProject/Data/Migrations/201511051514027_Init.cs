@@ -1,7 +1,7 @@
 using System;
 using System.Data.Entity.Migrations;
 
-public partial class PasswordHashing : DbMigration
+public partial class Init : DbMigration
 {
     public override void Up()
     {
@@ -185,10 +185,10 @@ public partial class PasswordHashing : DbMigration
         DropForeignKey("dbo.Orders", "Client_Id", "dbo.Clients");
         DropForeignKey("dbo.Telephones", "Client_Id", "dbo.Clients");
         DropForeignKey("dbo.Comments", "Client_Id", "dbo.Clients");
+        DropForeignKey("dbo.Comments", "Author_Id", "dbo.Users");
         DropForeignKey("dbo.Users", "Role_Id", "dbo.Roles");
         DropForeignKey("dbo.PermissionRoles", "Role_Id", "dbo.Roles");
         DropForeignKey("dbo.PermissionRoles", "Permission_Id", "dbo.Permissions");
-        DropForeignKey("dbo.Comments", "Author_Id", "dbo.Users");
         DropIndex("dbo.PermissionRoles", new[] { "Role_Id" });
         DropIndex("dbo.PermissionRoles", new[] { "Permission_Id" });
         DropIndex("dbo.Products", new[] { "Category_Id" });

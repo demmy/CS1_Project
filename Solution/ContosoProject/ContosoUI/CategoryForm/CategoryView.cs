@@ -11,6 +11,7 @@ using DevExpress.XtraBars;
 using DevExpress.XtraGrid.Views.Grid;
 using Domain.Entities.Comments;
 using Domain.Entities.Products;
+using Domain.Entities.Users;
 
 namespace ContosoUI.CategoryForm
 {
@@ -31,23 +32,31 @@ namespace ContosoUI.CategoryForm
 
             categoryGridControl.DataBindings.Add("DataSource", binding, "Categories", false, DataSourceUpdateMode.OnPropertyChanged);
             //categoryCommentsListBoxControl.DataBindings.Add("DataSource", binding, "Comments", false, DataSourceUpdateMode.OnPropertyChanged);
+
+            ShowDependentOnRole(Program.AuthUser.Role);
+        }
+
+        private void ShowDependentOnRole(Role role)
+        {
+            if (!role.Permissions.Any(x => x.Title != "Add Category"))
+            {
+                addCategoryBarButton.Visibility = BarItemVisibility.Never;
+            }
+            if (!role.Permissions.Any(x => x.Title != "Edit Category"))
+            {
+                saveBarButton.Visibility = BarItemVisibility.Never;
+            }
+            if (!role.Permissions.Any(x => x.Title != "Comment Category"))
+            {
+                addNewCommentTextEdit.Enabled = false;
+                addNewCommentButton.Enabled = false;
+            }
         }
 
         private void saveBarButton_ItemClick(object sender, ItemClickEventArgs e)
         {
             binding.EndEdit();
             presenter.Save();
-        }
-
-        private void saveAndNewBarButton_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            binding.EndEdit();
-            presenter.SaveAndNew();
-        }
-
-        private void newBarButton_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            presenter.New();
         }
 
         private void addNewCommentButton_Click(object sender, EventArgs e)

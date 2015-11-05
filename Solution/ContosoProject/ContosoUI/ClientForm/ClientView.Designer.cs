@@ -506,8 +506,8 @@
             // 
             this.сlientTabbedControlOrdersCommentsGroup.Location = new System.Drawing.Point(379, 0);
             this.сlientTabbedControlOrdersCommentsGroup.Name = "сlientTabbedControlOrdersCommentsGroup";
-            this.сlientTabbedControlOrdersCommentsGroup.SelectedTabPage = this.сlientLayoutControlOrdersGroup;
-            this.сlientTabbedControlOrdersCommentsGroup.SelectedTabPageIndex = 0;
+            this.сlientTabbedControlOrdersCommentsGroup.SelectedTabPage = this.clientLayoutControlCommentsGroup;
+            this.сlientTabbedControlOrdersCommentsGroup.SelectedTabPageIndex = 1;
             this.сlientTabbedControlOrdersCommentsGroup.Size = new System.Drawing.Size(615, 594);
             this.сlientTabbedControlOrdersCommentsGroup.TabPages.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.сlientLayoutControlOrdersGroup,

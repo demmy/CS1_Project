@@ -8,6 +8,8 @@ using Domain.Entities.Comments;
 using DevExpress.XtraBars.Ribbon.Gallery;
 using DevExpress.Images;
 using Domain.Entities.Clients;
+using Domain.Entities.Users;
+using DevExpress.XtraBars;
 
 
 namespace ContosoUI.ClientForm
@@ -35,6 +37,31 @@ namespace ContosoUI.ClientForm
         private void clientViewList_Load(object sender, EventArgs e)
         {
             BindControls();
+            ShowDependentOnRole(Program.AuthUser.Role);
+        }
+
+        private void ShowDependentOnRole(Role role)
+        {
+            if (!role.Permissions.Any(x => x.Title != "Edit Client"))
+            {
+                clientBarSaveButton.Visibility = BarItemVisibility.Never;
+                clientBarSaveAndNewButton.Visibility = BarItemVisibility.Never;
+                clientBarNewButton.Visibility = BarItemVisibility.Never;
+                buttonAddNewTelephoneEdit.Enabled = false;
+            }
+            if (!role.Permissions.Any(x => x.Title != "Activate Client"))
+            {
+                clientStateButton.Visibility = BarItemVisibility.Never;
+            }
+            if (!role.Permissions.Any(x => x.Title != "Deactivate Client"))
+            {
+                clientStateButton.Visibility = BarItemVisibility.Never;
+            }
+            if (!role.Permissions.Any(x => x.Title != "Comment Client"))
+            {
+                сlientNewCommentTextBox.Enabled = false;
+                сlientAddCommentButton.Enabled = false;
+            }
         }
 
         private void BindControls()

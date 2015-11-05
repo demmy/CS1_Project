@@ -23,7 +23,6 @@ namespace ContosoUI
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            //Thread.CurrentThread.CurrentCulture = new CultureInfo("ua-UA");
             ShowDependentOnRole(Program.AuthUser.Role);
         }
 
@@ -31,30 +30,47 @@ namespace ContosoUI
         {
             if (!role.Permissions.Any(x => x.Title != "Add User")) 
                 UserBarButton.Visibility = BarItemVisibility.Never;
+            if (!role.Permissions.Any(x => x.Title != "Add Client"))
+                ClientBarButton.Visibility = BarItemVisibility.Never;
+            if (!role.Permissions.Any(x => x.Title != "Add Product"))
+                ProductBarButton.Visibility = BarItemVisibility.Never;
+            if (!role.Permissions.Any(x => x.Title != "Add Order"))
+                OrderBarButton.Visibility = BarItemVisibility.Never;
+
+            if (!role.Permissions.Any(x => x.Title != "Search User"))
+                UsersListBarButton.Visibility = BarItemVisibility.Never;
+            if (!role.Permissions.Any(x => x.Title != "Search Client"))
+                ClientsListBarButton.Visibility = BarItemVisibility.Never;
+            if (!role.Permissions.Any(x => x.Title != "Search Product"))
+                ProductsListBarButton.Visibility = BarItemVisibility.Never;
+            if (!role.Permissions.Any(x => x.Title != "Search Order"))
+                OrdersListBarButton.Visibility = BarItemVisibility.Never;
+            if (!role.Permissions.Any(x => x.Title != "Search Category"))
+                ProductsListBarButton.Visibility = BarItemVisibility.Never;
         }
 
-        private void clientsMenuBtn_ItemClick(object sender, ItemClickEventArgs e)
+        private void ClientsListBarButton_ItemClick(object sender, ItemClickEventArgs e)
         {
             var form = new ClientSearchForm.ClientListView();
             form.MdiParent = this;
             form.Show();
         }
 
-        private void ordersMenuBtn_ItemClick(object sender, ItemClickEventArgs e)
+        private void OrdersListBarButton_ItemClick(object sender, ItemClickEventArgs e)
         {
             var form = new OrderSearchForm.OrderListView();
             form.MdiParent = this;
             form.Show();
         }
 
-        private void barUserButton_ItemClick(object sender, ItemClickEventArgs e)
+        private void UserBarButton_ItemClick(object sender, ItemClickEventArgs e)
         {
             var form = new UserForm.UserForm();
             form.MdiParent = this;
             form.Show();
         }
 
-        private void barButtonItem1_ItemClick(object sender, ItemClickEventArgs e)
+        private void OrderBarButton_ItemClick(object sender, ItemClickEventArgs e)
         {
             var form = new OrderForm.OrderForm();
             form.MdiParent = this;
@@ -99,11 +115,6 @@ namespace ContosoUI
             var form = new CategoryForm.CategoryView();
             form.MdiParent = this;
             form.Show();
-        }
-
-        private void MainForm_MdiChildActivate(object sender, EventArgs e)
-        {
-            bgPictureEdit.Visible = false;
         }
 
         private void RolesBarButton_ItemClick(object sender, ItemClickEventArgs e)

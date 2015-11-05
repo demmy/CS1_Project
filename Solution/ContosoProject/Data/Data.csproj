@@ -65,21 +65,9 @@
     <Compile Include="DummyData\DummyDAOForClient.cs" />
     <Compile Include="DummyData\DummyDAOForComment.cs" />
     <Compile Include="Design\IRepositoryFacade.cs" />
-    <Compile Include="Migrations\201510291201585_Init.cs" />
-    <Compile Include="Migrations\201510291201585_Init.Designer.cs">
-      <DependentUpon>201510291201585_Init.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201510291253416_RolePermission.cs" />
-    <Compile Include="Migrations\201510291253416_RolePermission.Designer.cs">
-      <DependentUpon>201510291253416_RolePermission.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201510291346262_TelephonesAndComments.cs" />
-    <Compile Include="Migrations\201510291346262_TelephonesAndComments.Designer.cs">
-      <DependentUpon>201510291346262_TelephonesAndComments.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201510311325533_PasswordHashing.cs" />
-    <Compile Include="Migrations\201510311325533_PasswordHashing.Designer.cs">
-      <DependentUpon>201510311325533_PasswordHashing.cs</DependentUpon>
+    <Compile Include="Migrations\201511051514027_Init.cs" />
+    <Compile Include="Migrations\201511051514027_Init.Designer.cs">
+      <DependentUpon>201511051514027_Init.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="DummyData\DummyDAOExtension.cs" />
@@ -109,17 +97,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201510291201585_Init.resx">
-      <DependentUpon>201510291201585_Init.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201510291253416_RolePermission.resx">
-      <DependentUpon>201510291253416_RolePermission.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201510291346262_TelephonesAndComments.resx">
-      <DependentUpon>201510291346262_TelephonesAndComments.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201510311325533_PasswordHashing.resx">
-      <DependentUpon>201510311325533_PasswordHashing.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201511051514027_Init.resx">
+      <DependentUpon>201511051514027_Init.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

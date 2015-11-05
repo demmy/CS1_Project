@@ -27,7 +27,6 @@ namespace ContosoUI.ProductForm
 
         private String _searchTitleCategory = string.Empty;
         BindingList<Category> _categories = new BindingList<Category>();
-        private Category _categoryToSave = new Category();
         BindingList<Comment> _categoryComments = new BindingList<Comment>();
         private Category _categoryInUse = new Category(Comments.Init(Program.AuthUser, "Category"));
         private int _id;
@@ -80,38 +79,9 @@ namespace ContosoUI.ProductForm
             _categoryComments = new BindingList<Comment>(_categoryInUse.Comments.ToList());
         }
 
-        private void SaveCategory()
-        {
-            SaveCategoryInUse();
-            if (_categoryRepository.GetAll().Count() < _categories.Count)
-            {
-                _categoryRepository.Create(_categoryToSave);
-            }
-            if (!_categoryRepository.GetAll().ToList().SequenceEqual(_categories))
-            {
-                foreach (var category in _categories)
-                {
-                    _categoryRepository.Save(category);
-                }
-            }
-        }
-
-        public void SaveCategoryInUse()
-        {
-            Category categoryToSave = new Category(_categoryComments)
-            {
-                Date = _categoryInUse.Date,
-                Id = _categoryInUse.Id,
-                IsActive = _categoryInUse.IsActive,
-                Title = _categoryInUse.Title
-            };
-                _categories[_categories.IndexOf(_categories.First(x => x.Title == categoryToSave.Title))] = categoryToSave;
-        }
-
         public void Save()
         {
             SaveProduct();
-            SaveCategory();
         }
 
         private void SaveProduct()
@@ -136,20 +106,11 @@ namespace ContosoUI.ProductForm
             }
             else
             {
-                if (_model.GetBy(null, productToSave.Title, null).FirstOrDefault() == null)
-                {
-                    _model.Create(productToSave);
-                    _product = productToSave;
-                }
-                else
-                {
-                    MessageBox.Show("Product with this title already exists. Change title", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
-                    Title = string.Empty;
-                }
+                _model.Create(productToSave);
+                _product = productToSave;            
             }
         }
         
-
         public void SaveAndNew()
         {
             Save();
@@ -160,11 +121,6 @@ namespace ContosoUI.ProductForm
         {
             _product = new Product();
             InitializeProductFields();
-        }
-
-        public void AddCategoryWithTitle(string title)
-        {
-            _categories.Add(_categoryToSave  = new Category() { Title = title });
         }
 
         public void Search()

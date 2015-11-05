@@ -9,6 +9,7 @@ using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraGrid.Views.Grid.ViewInfo;
 using Domain.Entities.Comments;
 using Comment = Domain.Entities.Comments.Comment;
+using Domain.Entities.Users;
 
 namespace ContosoUI.ProductForm
 {
@@ -33,6 +34,7 @@ namespace ContosoUI.ProductForm
         private void ProductAddView_Load(object sender, EventArgs e)
         {
             BindControls();
+            ShowDependentOnRole(Program.AuthUser.Role);
         }
 
         private void BindControls()
@@ -52,6 +54,29 @@ namespace ContosoUI.ProductForm
             SetStateButtonState();
         }
 
+        private void ShowDependentOnRole(Role role)
+        {
+            if (!role.Permissions.Any(x => x.Title != "Edit Product"))
+            {
+                barSaveButton.Visibility = BarItemVisibility.Never;
+                barSaveAndNewButton.Visibility = BarItemVisibility.Never;
+                barNewButton.Visibility = BarItemVisibility.Never;
+            }
+            if (!role.Permissions.Any(x => x.Title != "Activate Product"))
+            {
+                productStateButton.Visibility = BarItemVisibility.Never;
+            }
+            if (!role.Permissions.Any(x => x.Title != "Deactivate Product"))
+            {
+                productStateButton.Visibility = BarItemVisibility.Never;
+            }
+            if (!role.Permissions.Any(x => x.Title != "Comment Product"))
+            {
+                newCommentTextBox.Enabled = false;
+                addCommentButton.Enabled = false;
+            }
+        }
+
         public void ShowView()
         {
             Show();
@@ -67,19 +92,6 @@ namespace ContosoUI.ProductForm
                 _presenter.Save();
             }
         }
-
-        private void addCategoryCommetSimpleButton_Click(object sender, EventArgs e)
-        {
-            if (!string.IsNullOrEmpty(categoryNewCommentTextBox.Text) && _presenter.CategoryComments.Count!=0)
-            {
-                Comment comment = new Comment() { Author = null, EntityType = EntityType.Category, Text = categoryNewCommentTextBox.Text };
-                List<Comment> newComments = _presenter.CategoryComments.ToList();
-                newComments.Add(comment);
-                _presenter.CategoryComments = new BindingList<Comment>(newComments);
-                _presenter.Save();
-                categoryNewCommentTextBox.Text = string.Empty;
-            }
-        }
         
         private void categorySearchControl_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -93,28 +105,6 @@ namespace ContosoUI.ProductForm
                     _presenter.AllCategoriesToGrid();
                 }
             }
-        }
-
-        private void simpleAddTitleButton_Click(object sender, EventArgs e)
-        {
-            if (!string.IsNullOrEmpty(newCategoryTitletextEdit.Text))
-            {
-                _presenter.AddCategoryWithTitle(newCategoryTitletextEdit.Text);
-                popupControlNewCategoryContainer.HidePopup();
-            }
-        }
-
-        private void newCategoryTitletextEdit_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == Convert.ToChar(Keys.Enter))
-            {
-                simpleAddTitleButton_Click(this, e);
-            }
-        }
-
-        public void popupControlNewCategoryContainer_CloseUp(object sender, EventArgs e)
-        {
-            newCategoryTitletextEdit.Text = string.Empty;
         }
 
         private void categoryGridView_RowClick(object sender, RowClickEventArgs e)
@@ -162,14 +152,6 @@ namespace ContosoUI.ProductForm
             if (e.KeyChar == Convert.ToChar(Keys.Enter))
             {
                 addCommentButton_Click(this, e);
-            }
-        }
-
-        private void categoryNewCommentTextBox_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == Convert.ToChar(Keys.Enter))
-            {
-                addCategoryCommetSimpleButton_Click(this, e);
             }
         }
 

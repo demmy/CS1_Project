@@ -36,7 +36,6 @@ namespace ContosoUI.UserForm
         public List<Role> RoleList;
 
         BindingList<Permission> _permissions = new BindingList<Permission>();
-        BindingList<Comment> _comments = new BindingList<Comment>(Domain.Entities.Comments.Comments.Init(Program.AuthUser, "User"));
 
         #region Properties
         public string Login
@@ -117,18 +116,7 @@ namespace ContosoUI.UserForm
                 
             }
         }
-        public BindingList<Comment> Comments
-        {
-            get { return _comments; }
-            set
-            {
-                if (!value.SequenceEqual(_comments))
-                {
-                    _comments = value;
-                    NotifyPropertyChanged();
-                }
-            }
-        }
+
          public int RoleID
         {
             get { return (Role == null) ? 0 : Role.Id; }
@@ -165,12 +153,11 @@ namespace ContosoUI.UserForm
             RoleID = _user.Role.Id;
             Permissions = new BindingList<Permission>(_user.Role.Permissions.ToList());
             State = _user.IsActive;
-            Comments = new BindingList<Comment>(_user.Comments.ToList());
         }
 
         public void Save()
         {
-            User userToSave = new User(_comments)
+            User userToSave = new User()
             {
                 Id = _user.Id,
                 IsActive = _state,
@@ -214,7 +201,6 @@ namespace ContosoUI.UserForm
             State = true;
             Role = new Role( );
             Permissions = new BindingList<Permission>();
-            Comments = new BindingList<Comment>();
         }
     }
 }
