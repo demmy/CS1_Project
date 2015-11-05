@@ -52,6 +52,9 @@
             this.categoryCommentsListBoxControl = new DevExpress.XtraEditors.ListBoxControl();
             this.categoryGridControl = new DevExpress.XtraGrid.GridControl();
             this.categoryGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.titleColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.dateColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.activityCollumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.layoutControlGroupCategories = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlCategoryGridControl = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlCommentsListBox = new DevExpress.XtraLayout.LayoutControlItem();
@@ -305,9 +308,37 @@
             // 
             // categoryGridView
             // 
+            this.categoryGridView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.titleColumn,
+            this.dateColumn,
+            this.activityCollumn});
             this.categoryGridView.GridControl = this.categoryGridControl;
             this.categoryGridView.Name = "categoryGridView";
             this.categoryGridView.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.categoryGridView_FocusedRowChanged);
+            // 
+            // titleColumn
+            // 
+            this.titleColumn.Caption = "Title";
+            this.titleColumn.FieldName = "Title";
+            this.titleColumn.Name = "titleColumn";
+            this.titleColumn.Visible = true;
+            this.titleColumn.VisibleIndex = 0;
+            // 
+            // dateColumn
+            // 
+            this.dateColumn.Caption = "Date";
+            this.dateColumn.FieldName = "Date";
+            this.dateColumn.Name = "dateColumn";
+            this.dateColumn.Visible = true;
+            this.dateColumn.VisibleIndex = 1;
+            // 
+            // activityCollumn
+            // 
+            this.activityCollumn.Caption = "State";
+            this.activityCollumn.FieldName = "IsActive";
+            this.activityCollumn.Name = "activityCollumn";
+            this.activityCollumn.Visible = true;
+            this.activityCollumn.VisibleIndex = 2;
             // 
             // layoutControlGroupCategories
             // 
@@ -436,5 +467,8 @@
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroupNewCategory;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlAddNewCategoryTextEdit;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlAddNewCategoryButton;
+        private DevExpress.XtraGrid.Columns.GridColumn titleColumn;
+        private DevExpress.XtraGrid.Columns.GridColumn dateColumn;
+        private DevExpress.XtraGrid.Columns.GridColumn activityCollumn;
     }
 }

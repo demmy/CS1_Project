@@ -14,8 +14,8 @@ namespace ContosoUI.ProductForm
         private readonly ProductModel _model;
 
         private readonly ICategoryRepository _categoryRepository;
-        
-        private Product _product = new Product();
+
+        private Product _product = new Product(Comments.Init(Program.AuthUser, "Product"));
 
         private bool _isActive;
         private string _sku = string.Empty;
@@ -29,7 +29,7 @@ namespace ContosoUI.ProductForm
         BindingList<Category> _categories = new BindingList<Category>();
         private Category _categoryToSave = null;
         BindingList<Comment> _categoryComments = new BindingList<Comment>();
-        private Category _categoryInUse = new Category();
+        private Category _categoryInUse = new Category(Comments.Init(Program.AuthUser, "Category"));
         private int _id;
         private bool _state;
 
@@ -75,7 +75,8 @@ namespace ContosoUI.ProductForm
 
         public void UseCategoryWithID(int id)
         {
-            _categoryInUse = _categoryRepository.Find(id);
+            if(id != 0)
+                _categoryInUse = _categoryRepository.Find(id);
             _categoryComments = new BindingList<Comment>(_categoryInUse.Comments.ToList());
         }
 

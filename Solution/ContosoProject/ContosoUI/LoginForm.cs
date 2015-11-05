@@ -11,7 +11,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
 namespace ContosoUI
 {
     public partial class LoginForm : Form
@@ -34,18 +33,21 @@ namespace ContosoUI
 
         private void okButton_Click(object sender, EventArgs e)
         {
-            IUserRepository userRepo = new EFUserDAO(_context);
-            var hashedPass = Hashing.CreateHash(passwordTextEdit.Text);
-            var user = userRepo.Authentificate(loginTextEdit.Text, hashedPass);
-            if (user != null)
+            using (_context)
             {
-                Program.AuthUser = user;
-                this.Close();
+                IUserRepository userRepo = new EFUserDAO(_context);
+                var hashedPass = passwordTextEdit.Text.CreateHash();
+                var user = userRepo.Authentificate(loginTextEdit.Text, hashedPass);
+                if (user != null)
+                {
+                    Program.AuthUser = user;
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Invalid login or password", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
-            else
-            {
-                MessageBox.Show("Invalid login or password", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }                   
         }
 
         private void passwordTextEdit_KeyPress(object sender, KeyPressEventArgs e)
