@@ -1,6 +1,7 @@
 ﻿using DevExpress.XtraGrid.Views.Grid;
 using Domain.Entities.Orders;
 using System;
+using System.Linq;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Globalization;
@@ -11,6 +12,8 @@ using DevExpress.XtraEditors.Controls;
 using DevExpress.XtraGrid.Views.Grid.ViewInfo;
 using Domain.Entities.Comments;
 using Domain.Entities.Products;
+using Domain.Entities.Users;
+using DevExpress.XtraBars;
 
 namespace ContosoUI.OrderForm
 {
@@ -34,6 +37,8 @@ namespace ContosoUI.OrderForm
 
         private void OrderViewList_Load(object sender, EventArgs e)
         {
+            ShowDependentOnRole(Program.AuthUser.Role);
+
             repositoryQuantitySpinEdit.Validating += RepositoryQuantitySpinEditOnValidating;
             binding = new BindingSource {DataSource = _presenter};
 
@@ -49,6 +54,30 @@ namespace ContosoUI.OrderForm
             SetStateButtonState();
 
             SetActivityOfComments();
+        }
+
+        private void ShowDependentOnRole(Role role)
+        {
+            if (!role.Permissions.Any(x => x.Title != "Edit Order"))
+            {
+                orderSaveBarButton.Visibility = BarItemVisibility.Never;
+                orderSaveAndNewBarButton.Visibility = BarItemVisibility.Never;
+                ClearBarButton.Visibility = BarItemVisibility.Never;
+                addOrderItemButton.Visibility = BarItemVisibility.Never;
+            }
+            if (!role.Permissions.Any(x => x.Title != "Activate Order"))
+            {
+                barStateButton.Visibility = BarItemVisibility.Never;
+            }
+            if (!role.Permissions.Any(x => x.Title != "Deactivate Order"))
+            {
+                barStateButton.Visibility = BarItemVisibility.Never;
+            }
+            if (!role.Permissions.Any(x => x.Title != "Comment Order"))
+            {
+                newCommentTextBox.Enabled = false;
+                addCommentButton.Enabled = false;
+            }
         }
 
         private void RepositoryQuantitySpinEditOnValidating(object sender, CancelEventArgs e)
