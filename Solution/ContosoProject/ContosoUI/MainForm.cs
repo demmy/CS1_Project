@@ -108,9 +108,9 @@ namespace ContosoUI
 
         private void RolesBarButton_ItemClick(object sender, ItemClickEventArgs e)
         {
-            //var form = new RoleForm.RoleView();
-            //form.MdiParent = this;
-            //form.Show();
+            var form = new RoleForm.RoleView();
+            form.MdiParent = this;
+            form.Show();
         }
     }
 }

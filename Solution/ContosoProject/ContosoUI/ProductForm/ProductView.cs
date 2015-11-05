@@ -182,8 +182,8 @@ namespace ContosoUI.ProductForm
             _presenter.UseCategoryWithID(id);
             categoryCommentsListBoxControl.DataBindings.Add("DataSource", _binding, "CategoryComments");
             
-        }
-
+       }
+ 
         private void productStateButton_ItemClick(object sender, ItemClickEventArgs e)
         {
             _presenter.IsActive = !_presenter.IsActive;

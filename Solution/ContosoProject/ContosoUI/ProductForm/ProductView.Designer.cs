@@ -575,7 +575,7 @@ namespace ContosoUI.ProductForm
             this.layoutControlProductCategoryComboBoxEdit.Spacing = new DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 2);
             this.layoutControlProductCategoryComboBoxEdit.Text = "Category";
             this.layoutControlProductCategoryComboBoxEdit.TextLocation = DevExpress.Utils.Locations.Top;
-            this.layoutControlProductCategoryComboBoxEdit.TextSize = new System.Drawing.Size(51, 13);
+            this.layoutControlProductCategoryComboBoxEdit.TextSize = new System.Drawing.Size(50, 13);
             // 
             // layoutControlProductPriceTextEdit
             // 
@@ -585,9 +585,9 @@ namespace ContosoUI.ProductForm
             this.layoutControlProductPriceTextEdit.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
             this.layoutControlProductPriceTextEdit.Size = new System.Drawing.Size(253, 50);
             this.layoutControlProductPriceTextEdit.Spacing = new DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 2);
-            this.layoutControlProductPriceTextEdit.Text = "Price, UAH";
+            this.layoutControlProductPriceTextEdit.Text = "Price, USD";
             this.layoutControlProductPriceTextEdit.TextLocation = DevExpress.Utils.Locations.Top;
-            this.layoutControlProductPriceTextEdit.TextSize = new System.Drawing.Size(51, 13);
+            this.layoutControlProductPriceTextEdit.TextSize = new System.Drawing.Size(50, 13);
             // 
             // layoutControlProductQuantitySpinEdit
             // 
@@ -599,7 +599,7 @@ namespace ContosoUI.ProductForm
             this.layoutControlProductQuantitySpinEdit.Spacing = new DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 2);
             this.layoutControlProductQuantitySpinEdit.Text = "Quantity";
             this.layoutControlProductQuantitySpinEdit.TextLocation = DevExpress.Utils.Locations.Top;
-            this.layoutControlProductQuantitySpinEdit.TextSize = new System.Drawing.Size(51, 13);
+            this.layoutControlProductQuantitySpinEdit.TextSize = new System.Drawing.Size(50, 13);
             // 
             // layoutControlProductTitleTextEdit
             // 
@@ -611,7 +611,7 @@ namespace ContosoUI.ProductForm
             this.layoutControlProductTitleTextEdit.Spacing = new DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 2);
             this.layoutControlProductTitleTextEdit.Text = "Title";
             this.layoutControlProductTitleTextEdit.TextLocation = DevExpress.Utils.Locations.Top;
-            this.layoutControlProductTitleTextEdit.TextSize = new System.Drawing.Size(51, 13);
+            this.layoutControlProductTitleTextEdit.TextSize = new System.Drawing.Size(50, 13);
             // 
             // layoutControlProductSKUTextEdit
             // 
@@ -623,7 +623,7 @@ namespace ContosoUI.ProductForm
             this.layoutControlProductSKUTextEdit.Spacing = new DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 2);
             this.layoutControlProductSKUTextEdit.Text = "SKU";
             this.layoutControlProductSKUTextEdit.TextLocation = DevExpress.Utils.Locations.Top;
-            this.layoutControlProductSKUTextEdit.TextSize = new System.Drawing.Size(51, 13);
+            this.layoutControlProductSKUTextEdit.TextSize = new System.Drawing.Size(50, 13);
             // 
             // tabbedCommentsControlGroup
             // 

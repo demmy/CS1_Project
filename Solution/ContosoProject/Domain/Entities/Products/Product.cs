@@ -14,7 +14,6 @@ namespace Domain.Entities.Products
 
         public Product()
         {
-
         }
         public int Quantity { get; set; }
         public double Price { get; set; }

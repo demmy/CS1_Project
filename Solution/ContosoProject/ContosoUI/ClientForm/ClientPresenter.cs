@@ -17,7 +17,9 @@ namespace ContosoUI.ClientForm
         private readonly IClientRepository _clientRepository;
         private readonly IOrderRepository _orderRepository;
 
-        private Client _client = new Client();
+        private Client _client = new Client(
+            new System.Collections.Generic.List<Telephone>(), 
+            Domain.Entities.Comments.Comments.Init(Program.AuthUser, "Client"));
 
         private string _firstName = string.Empty;
         private string _middleName = string.Empty;
@@ -152,6 +154,11 @@ namespace ContosoUI.ClientForm
 
         public void Save()
         {
+            if (string.IsNullOrEmpty(FirstName) || string.IsNullOrEmpty(MiddleName) || string.IsNullOrWhiteSpace(LastName))
+            {
+                MessageBox.Show("Fill the fields, please.", "Attention!");
+                return;
+            }
             Client clientToSave = new Client(_telephones, _comments)
             {
                 Person = new Person() {FirstName = _firstName, MiddleName = _middleName, LastName = _lastName},

@@ -69,8 +69,10 @@ namespace ContosoUI.ClientForm
 
         private void clientBarSaveButton_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            _binding.EndEdit();
-            _presenter.Save();
+            {
+                _binding.EndEdit();
+                _presenter.Save();
+            }
         }
 
         private void clientBarSaveAndNewButton_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

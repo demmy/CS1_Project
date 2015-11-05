@@ -6,30 +6,21 @@ using Domain.Entities.Comments;
 namespace Domain.Entities.Users
 {
     /// <summary>
-    /// The static class the enables hashing operations on strinsg
+    /// The static class the enables hashing operations on strings
     /// </summary>
     public static class Hashing
     {
         /// <summary>
-        /// Hashes an entry string
+        /// Hashes the entry string
         /// </summary>
-        /// <param name="unhashed"></param>
+        /// <param name="unhashed">The string not empty instance</param>
         /// <returns>Hashed string</returns>
-        public static string CreateHash(string unhashed)
+        public static string CreateHash(this string unhashed)
         {
+            if (string.IsNullOrWhiteSpace(unhashed))
+                throw new ArgumentException("Entry string is null, empty or contains only white spaces. You need to specify it.");
             System.Security.Cryptography.MD5CryptoServiceProvider md5 = new System.Security.Cryptography.MD5CryptoServiceProvider();
             return System.Text.Encoding.ASCII.GetString(md5.ComputeHash(System.Text.Encoding.ASCII.GetBytes(unhashed)));
-        }
-        /// <summary>
-        /// Compares two strings, where first is already hashed and second is not yet
-        /// </summary>
-        /// <param name="hashed"></param>
-        /// <param name="compared"></param>
-        /// <returns>true or false depending on strings' hash equalty</returns>
-        public static bool MatchHash(string hashed, string compared)
-        {
-            compared = CreateHash(compared);
-            return compared == hashed;
         }
     }
 
@@ -58,7 +49,7 @@ namespace Domain.Entities.Users
             }
             set
             {
-                _hashedPassword = Hashing.CreateHash(value);
+                _hashedPassword = value.CreateHash();
             }
         }
         /// <summary>

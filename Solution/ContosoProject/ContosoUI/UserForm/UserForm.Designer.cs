@@ -35,6 +35,7 @@ namespace ContosoUI.UserForm
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserForm));
             this.ribbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.barSaveButton = new DevExpress.XtraBars.BarButtonItem();
@@ -56,6 +57,7 @@ namespace ContosoUI.UserForm
             this.passwordTextEdit = new DevExpress.XtraEditors.TextEdit();
             this.loginTextEdit = new DevExpress.XtraEditors.TextEdit();
             this.roleLookUpEdit = new DevExpress.XtraEditors.LookUpEdit();
+            this.roleBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.layoutControlEntireGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.tabbedControlLoginDataGroup = new DevExpress.XtraLayout.TabbedControlGroup();
             this.layoutControlLoginDataGroup = new DevExpress.XtraLayout.LayoutControlGroup();
@@ -85,6 +87,7 @@ namespace ContosoUI.UserForm
             ((System.ComponentModel.ISupportInitialize)(this.passwordTextEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.loginTextEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.roleLookUpEdit.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.roleBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlEntireGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabbedControlLoginDataGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlLoginDataGroup)).BeginInit();
@@ -286,6 +289,7 @@ namespace ContosoUI.UserForm
             this.passwordTextEdit.Location = new System.Drawing.Point(29, 313);
             this.passwordTextEdit.MenuManager = this.ribbon;
             this.passwordTextEdit.Name = "passwordTextEdit";
+            this.passwordTextEdit.Properties.PasswordChar = '●';
             this.passwordTextEdit.Size = new System.Drawing.Size(325, 20);
             this.passwordTextEdit.StyleController = this.layoutControl;
             this.passwordTextEdit.TabIndex = 5;
@@ -306,14 +310,23 @@ namespace ContosoUI.UserForm
             this.roleLookUpEdit.Name = "roleLookUpEdit";
             this.roleLookUpEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.roleLookUpEdit.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Title", "Title")});
+            this.roleLookUpEdit.Properties.DataSource = this.roleBindingSource;
+            this.roleLookUpEdit.Properties.DisplayMember = "Title";
             this.roleLookUpEdit.Properties.NullText = "";
             this.roleLookUpEdit.Properties.PopupSizeable = false;
             this.roleLookUpEdit.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
+            this.roleLookUpEdit.Properties.ValueMember = "Title";
             this.roleLookUpEdit.Size = new System.Drawing.Size(325, 20);
             this.roleLookUpEdit.StyleController = this.layoutControl;
             this.roleLookUpEdit.TabIndex = 6;
             this.roleLookUpEdit.EditValueChanged += new System.EventHandler(this.roleLookUpEdit_EditValueChanged);
             this.roleLookUpEdit.EditValueChanging += new DevExpress.XtraEditors.Controls.ChangingEventHandler(this.roleLookUpEdit_EditValueChanging);
+            // 
+            // roleBindingSource
+            // 
+            this.roleBindingSource.DataSource = typeof(Domain.Entities.Users.Role);
             // 
             // layoutControlEntireGroup
             // 
@@ -541,6 +554,7 @@ namespace ContosoUI.UserForm
             ((System.ComponentModel.ISupportInitialize)(this.passwordTextEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.loginTextEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.roleLookUpEdit.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.roleBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlEntireGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabbedControlLoginDataGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlLoginDataGroup)).EndInit();
@@ -604,5 +618,6 @@ namespace ContosoUI.UserForm
         private BarButtonItem userStateButton;
         private RibbonPageGroup ribbonPageUserFileGroup;
         private LookUpEdit roleLookUpEdit;
+        private BindingSource roleBindingSource;
     }
 }
