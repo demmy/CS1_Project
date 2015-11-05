@@ -100,7 +100,7 @@ namespace ContosoUI.ClientForm
         {
             if (!string.IsNullOrEmpty(сlientNewCommentTextBox.Text))
             {
-                _presenter.Comments.Add(new Comment() {Text =  сlientNewCommentTextBox.Text, EntityType = EntityType.Client, Author = null });
+                _presenter.Comments.Add(new Comment() {Text =  сlientNewCommentTextBox.Text, EntityType = EntityType.Client, Author = Program.AuthUser });
                 сlientNewCommentTextBox.Text = string.Empty;
             }
         }

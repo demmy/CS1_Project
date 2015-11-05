@@ -18,7 +18,7 @@ namespace Data.EFRepository
 
         public void Create(T entity)
         {
-            dbContext.Set<T>().Add(entity); ;
+            dbContext.Set<T>().Add(entity);
             dbContext.SaveChanges();
         }
 

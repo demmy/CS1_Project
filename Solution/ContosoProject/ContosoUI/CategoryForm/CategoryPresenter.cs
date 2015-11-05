@@ -20,8 +20,8 @@ namespace ContosoUI.CategoryForm
         private Category _categoryToSave = null;
         private Category _selectedCategory = null;
 
-        private BindingList<Category> _categories;
-        private BindingList<Comment> _categoryComments;
+        private BindingList<Category> _categories = new BindingList<Category>();
+        private BindingList<Comment> _categoryComments = new BindingList<Comment>();
 
         public CategoryPresenter(ICategoryView view, CategoryModel model)
         {
@@ -87,6 +87,7 @@ namespace ContosoUI.CategoryForm
         {
             _categories.Add(_categoryToSave  = new Category(Domain.Entities.Comments.Comments.Init(Program.AuthUser, "Category")) { Title = title });
             Categories = new BindingList<Category>(_categories);
+            //Comments = new BindingList<Comment>(_categoryToSave.Comments.ToList());
             if (Categories.Count < 2)
                 _selectedCategory = _categoryToSave;
         }

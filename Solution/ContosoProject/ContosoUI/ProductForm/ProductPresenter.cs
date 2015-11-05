@@ -87,8 +87,7 @@ namespace ContosoUI.ProductForm
             {
                 _categoryRepository.Create(_categoryToSave);
             }
-            var avalaibleCategories = _categoryRepository.GetAll();
-            if (!avalaibleCategories.SequenceEqual(_categories))
+            if (!_categoryRepository.GetAll().ToList().SequenceEqual(_categories))
             {
                 foreach (var category in _categories)
                 {

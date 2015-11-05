@@ -98,7 +98,7 @@ namespace ContosoUI.OrderForm
         {
             if (!string.IsNullOrEmpty(newCommentTextBox.Text))
             {
-                Comment comment = new Comment() {Author = null, EntityType = EntityType.Order, Text = newCommentTextBox.Text};
+                Comment comment = new Comment() {Author = Program.AuthUser, EntityType = EntityType.Order, Text = newCommentTextBox.Text};
                 _presenter.Comments.Add(comment);
                 newCommentTextBox.Text = string.Empty;
                 _presenter.Save();

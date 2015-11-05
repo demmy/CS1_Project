@@ -96,7 +96,7 @@ namespace ContosoUI.UserForm
         {
             if (!string.IsNullOrWhiteSpace(newCommentTextBox.Text))
             {
-                _presenter.Comments.Add(new Comment() {Author = null, EntityType = EntityType.User, Text = newCommentTextBox.Text});
+                _presenter.Comments.Add(new Comment() {Author = Program.AuthUser, EntityType = EntityType.User, Text = newCommentTextBox.Text});
                 newCommentTextBox.Text = string.Empty;
             }
         }
