@@ -13,6 +13,17 @@ namespace Data.DummyData
         {
             Collection = Storage.Permissions;
         }
+
+        public new ICollection<Permission> GetAll()
+        {
+            return Collection;
+        }
+
+        public Permission GetById(int id)
+        {
+            throw new NotImplementedException();
+        }
+
         public ICollection<Permission> GetByTitle(string title)
         {
             if (Collection.Any(x => x.Title == title))

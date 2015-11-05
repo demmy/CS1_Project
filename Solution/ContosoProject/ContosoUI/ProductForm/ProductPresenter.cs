@@ -257,5 +257,10 @@ namespace ContosoUI.ProductForm
             get { return _state; }
             set { _state = value; }
         }
+
+        public override void Stop()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

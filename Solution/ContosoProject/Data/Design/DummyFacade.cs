@@ -97,5 +97,10 @@ namespace Data.Design
                 return _commentRepository;
             }
         }
+
+        public void Dispose()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

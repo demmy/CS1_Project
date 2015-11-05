@@ -96,8 +96,10 @@ namespace ContosoUI.ClientForm
 
         private void clientBarSaveButton_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            _binding.EndEdit();
-            _presenter.Save();
+            {
+                _binding.EndEdit();
+                _presenter.Save();
+            }
         }
 
         private void clientBarSaveAndNewButton_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -125,7 +127,7 @@ namespace ContosoUI.ClientForm
         {
             if (!string.IsNullOrEmpty(сlientNewCommentTextBox.Text))
             {
-                _presenter.Comments.Add(new Comment() {Text =  сlientNewCommentTextBox.Text, EntityType = EntityType.Client, Author = null });
+                _presenter.Comments.Add(new Comment() {Text =  сlientNewCommentTextBox.Text, EntityType = EntityType.Client, Author = Program.AuthUser });
                 сlientNewCommentTextBox.Text = string.Empty;
             }
         }

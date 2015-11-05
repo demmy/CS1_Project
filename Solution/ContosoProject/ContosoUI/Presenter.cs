@@ -13,6 +13,8 @@ namespace ContosoUI
     {
         public event PropertyChangedEventHandler PropertyChanged = delegate(object sender, PropertyChangedEventArgs args) { };
 
+        public abstract void Stop();
+
         [NotifyPropertyChangedInvocator]
         protected virtual void NotifyPropertyChanged([CallerMemberName] string propertyName = null)
         {

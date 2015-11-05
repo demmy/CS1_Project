@@ -18,7 +18,7 @@ namespace Data.EFRepository
         }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        {            
+        {
             base.OnModelCreating(modelBuilder);
         }
 

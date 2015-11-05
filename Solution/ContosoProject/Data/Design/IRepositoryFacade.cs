@@ -1,7 +1,8 @@
 ﻿using Domain.DAO;
+using System;
 namespace Data.Design
 {
-    public interface IRepositoryFacade
+    public interface IRepositoryFacade : IDisposable
     {
         IClientRepository ClientRepository { get; }
         IOrderRepository OrderRepository { get; }
@@ -10,6 +11,6 @@ namespace Data.Design
         IUserRepository UserRepository { get; }
         IRoleRepository RoleRepository { get; }
         IPermissionRepository PermissionRepository { get; }
-        ICommentRepository CommentRepository { get; } 
+        ICommentRepository CommentRepository { get; }
     }
 }

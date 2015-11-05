@@ -103,5 +103,10 @@ namespace ContosoUI.OrderSearchForm
             StatusEnum = Status.All;
             OrdersList.Clear();
         }
+
+        public override void Stop()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

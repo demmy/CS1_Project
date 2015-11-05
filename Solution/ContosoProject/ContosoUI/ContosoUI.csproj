@@ -150,12 +150,21 @@
     <Compile Include="ProductForm\IProductView.cs" />
     <Compile Include="ProductForm\ProductModel.cs" />
     <Compile Include="ProductForm\ProductPresenter.cs" />
+    <Compile Include="RoleForm\IRoleView.cs" />
     <Compile Include="ProductSearchForm\ProductListModel.cs" />
     <Compile Include="ChairsSplashScreen.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ChairsSplashScreen.Designer.cs">
       <DependentUpon>ChairsSplashScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RoleForm\RoleModel.cs" />
+    <Compile Include="RoleForm\RolePresenter.cs" />
+    <Compile Include="RoleForm\RoleView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RoleForm\RoleView.Designer.cs">
+      <DependentUpon>RoleView.cs</DependentUpon>
     </Compile>
     <Compile Include="UserForm\IUserView.cs" />
     <Compile Include="UserForm\UserModel.cs" />
@@ -231,6 +240,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ChairsSplashScreen.resx">
       <DependentUpon>ChairsSplashScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RoleForm\RoleView.resx">
+      <DependentUpon>RoleView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserForm\UserForm.resx">
       <DependentUpon>UserForm.cs</DependentUpon>

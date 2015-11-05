@@ -172,5 +172,10 @@ namespace ContosoUI.OrderForm
                 return Enum.GetValues(typeof(Status)).Cast<Status>().ToList();
             }
         }
+
+        public override void Stop()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

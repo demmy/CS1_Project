@@ -5,7 +5,10 @@ namespace Data.Design
 {
     public class EFRepositoryFacade: IRepositoryFacade
     {
+
         private readonly ProjectContext _context;
+
+        private bool _disposed;
 
         private IClientRepository _clientRepository;
         private IOrderRepository _orderRepository;
@@ -99,6 +102,34 @@ namespace Data.Design
                     _commentRepository = new EFRepository.EFCommentDAO(_context);
                 return _commentRepository;
             }
+        }
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (_disposed)
+                return;
+
+            if(disposing)
+            {
+                _context.Dispose();
+            }
+
+            _clientRepository = null;
+            _orderRepository = null;
+            _productRepository = null;
+            _categoryRepository = null;
+            _userRepository = null;
+            _roleRepository = null;
+            _permissionRepository = null;
+            _commentRepository = null;
+
+            _disposed = true;
+        }
+
+        public void Dispose()
+        {
+            Dispose(true);
+            System.GC.SuppressFinalize(this);
         }
     }
 }

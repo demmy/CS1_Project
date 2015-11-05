@@ -24,17 +24,11 @@ namespace Domain.Entities.Users
         }
     }
 
-    public class User : ExtendedEntity, ICommentable
+    public class User : ExtendedEntity
     {
         private string _hashedPassword;
-        public User(ICollection<Comment> comments)
-        {
-            Comments = comments;
-        }
-
         public User()
         {
-
         }
 
         public string Login { get; set; }
@@ -60,10 +54,6 @@ namespace Domain.Entities.Users
         /// General info of each registered person
         /// </summary>
         public Person Person { get; set; }
-        /// <summary>
-        /// The comments applied to current user
-        /// </summary>
-        public virtual ICollection<Comment> Comments { get; set; }  
 
         public override string ToString()
         {

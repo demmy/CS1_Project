@@ -105,5 +105,10 @@ namespace ContosoUI.ProductSearchForm
             Products.Clear();
             NotifyPropertyChanged();
         }
+
+        public override void Stop()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

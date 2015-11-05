@@ -20,5 +20,25 @@ namespace Domain.Entities.Users
         {
             return Title;
         }
+
+        protected bool Equals(Role other)
+        {
+            return string.Equals(Title, other.Title) && Equals(Permissions, other.Permissions) && Id.Equals(other.Id);
+        }
+        public override bool Equals(object obj)
+        {
+            if (ReferenceEquals(null, obj)) return false;
+            if (ReferenceEquals(this, obj)) return true;
+            if (obj.GetType() != this.GetType()) return false;
+            return Equals((Role) obj);
+        }
+
+        public override int GetHashCode()
+        {
+            unchecked
+            {
+                return ((Title != null ? Title.GetHashCode() : 0)*397) ^ (Permissions != null ? Permissions.GetHashCode() : 0) ^ (Id.GetHashCode() * 632);
+            }
+        }
     }
 }

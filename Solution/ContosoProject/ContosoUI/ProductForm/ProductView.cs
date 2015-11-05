@@ -86,7 +86,7 @@ namespace ContosoUI.ProductForm
         {
             if (!string.IsNullOrEmpty(newCommentTextBox.Text))
             {
-                Comment comment = new Comment() { Author = null, EntityType = EntityType.Product, Text = newCommentTextBox.Text };
+                Comment comment = new Comment() { Author = Program.AuthUser, EntityType = EntityType.Product, Text = newCommentTextBox.Text };
                 _presenter.ProductComments.Add(comment);
                 newCommentTextBox.Text = string.Empty;
                 _presenter.Save();
@@ -164,8 +164,8 @@ namespace ContosoUI.ProductForm
             _presenter.UseCategoryWithID(id);
             categoryCommentsListBoxControl.DataBindings.Add("DataSource", _binding, "CategoryComments");
             
-        }
-
+       }
+ 
         private void productStateButton_ItemClick(object sender, ItemClickEventArgs e)
         {
             _presenter.IsActive = !_presenter.IsActive;

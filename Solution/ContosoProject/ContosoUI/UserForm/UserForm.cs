@@ -62,7 +62,6 @@ namespace ContosoUI.UserForm
             passwordTextEdit.DataBindings.Add("EditValue", binding, "Password");
             roleLookUpEdit.DataBindings.Add("EditValue", binding, "RoleID");
             permissionListBoxControl.DataBindings.Add("DataSource", binding, "Permissions");
-            commentsListBoxControl.DataBindings.Add("DataSource", binding, "Comments");
             SetStateButtonState();
         }
 
@@ -97,23 +96,6 @@ namespace ContosoUI.UserForm
         {
             binding.EndEdit();
             _presenter.SaveAndNew();
-        }
-
-        private void addCommentButton_Click(object sender, EventArgs e)
-        {
-            if (!string.IsNullOrWhiteSpace(newCommentTextBox.Text))
-            {
-                _presenter.Comments.Add(new Comment() {Author = null, EntityType = EntityType.User, Text = newCommentTextBox.Text});
-                newCommentTextBox.Text = string.Empty;
-            }
-        }
-
-        private void newCommentTextBox_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == Convert.ToChar(Keys.Enter))
-            {
-                addCommentButton_Click(this, e);
-            }
         }
 
         private void roleLookUpEdit_EditValueChanged(object sender, EventArgs e)
