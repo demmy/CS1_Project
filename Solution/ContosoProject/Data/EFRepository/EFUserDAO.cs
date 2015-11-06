@@ -14,6 +14,10 @@ namespace Data.EFRepository
         {
 
         }
+        public new IQueryable<User> GetAll()
+        {
+            return dbContext.Users.Include(user => user.Role).AsQueryable();
+        }
         /// <summary>
         /// Function that gets all users that match all not-empty data
         /// </summary>
@@ -32,7 +36,7 @@ namespace Data.EFRepository
 
             if (!string.IsNullOrWhiteSpace(lastName))
                 result = result.Where(user => user.Person.LastName == lastName);
-            return result.ToList();
+            return result.Include(user => user.Role).ToList();
         }
         /// <summary>
         /// Gets all users of the specified role
@@ -57,9 +61,9 @@ namespace Data.EFRepository
         public User Authentificate(string login, string passwordHash)
         {
             return dbContext.Users
-                .Include(x =>x.Role)
-                .Include(x => x.Role.Permissions)
-                .FirstOrDefault(x => x.Login == login && x.Password == passwordHash);
+                .Include(user => user.Role)
+                .Include(user => user.Role.Permissions)
+                .FirstOrDefault(user => user.Login == login && user.Password == passwordHash);
         }
     }
 }
