@@ -10,7 +10,7 @@ namespace Domain.Entities.Orders
 
     public class Order : ExtendedEntity, ICommentable
     {
-        private IList<OrderItem> orderItems;
+        private IList<OrderItem> orderItems = new List<OrderItem>();
         public Order(ICollection<Comment> comments, ICollection<OrderItem> orders)
         {
             Comments = comments;
@@ -29,7 +29,8 @@ namespace Domain.Entities.Orders
         
         public List<OrderItem> OrderItems
         {
-            get { return orderItems.ToList(); }
+            get 
+            { return orderItems.ToList(); }
         }
 
         public double Sum

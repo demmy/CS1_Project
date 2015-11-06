@@ -28,24 +28,26 @@ namespace ContosoUI
 
         private void ShowDependentOnRole (Role role)
         {
-            if (!role.Permissions.Any(x => x.Title != "Add User")) 
+            if (!role.Permissions.Any(x => x.Title == "Add User")) 
                 UserBarButton.Visibility = BarItemVisibility.Never;
-            if (!role.Permissions.Any(x => x.Title != "Add Client"))
+            if (!role.Permissions.Any(x => x.Title == "Add Client"))
                 ClientBarButton.Visibility = BarItemVisibility.Never;
-            if (!role.Permissions.Any(x => x.Title != "Add Product"))
+            if (!role.Permissions.Any(x => x.Title == "Add Product"))
                 ProductBarButton.Visibility = BarItemVisibility.Never;
-            if (!role.Permissions.Any(x => x.Title != "Add Order"))
+            if (!role.Permissions.Any(x => x.Title == "Add Order"))
                 OrderBarButton.Visibility = BarItemVisibility.Never;
+            if (!role.Permissions.Any(x => x.Title == "Add Role"))
+                RolesBarButton.Visibility = BarItemVisibility.Never;
 
-            if (!role.Permissions.Any(x => x.Title != "Search User"))
+            if (!role.Permissions.Any(x => x.Title == "Search User"))
                 UsersListBarButton.Visibility = BarItemVisibility.Never;
-            if (!role.Permissions.Any(x => x.Title != "Search Client"))
+            if (!role.Permissions.Any(x => x.Title == "Search Client"))
                 ClientsListBarButton.Visibility = BarItemVisibility.Never;
-            if (!role.Permissions.Any(x => x.Title != "Search Product"))
+            if (!role.Permissions.Any(x => x.Title == "Search Product"))
                 ProductsListBarButton.Visibility = BarItemVisibility.Never;
-            if (!role.Permissions.Any(x => x.Title != "Search Order"))
+            if (!role.Permissions.Any(x => x.Title == "Search Order"))
                 OrdersListBarButton.Visibility = BarItemVisibility.Never;
-            if (!role.Permissions.Any(x => x.Title != "Search Category"))
+            if (!role.Permissions.Any(x => x.Title == "Search Category"))
                 ProductsListBarButton.Visibility = BarItemVisibility.Never;
         }
 

@@ -117,7 +117,7 @@ namespace Data.EFRepository
         /// <returns></returns>
         public Order GetByNumber(string orderNumber)
         {
-            return dbContext.Orders.AsQueryable().First(order => order.OrderNumber == orderNumber);
+            return dbContext.Orders.AsQueryable().FirstOrDefault(order => order.OrderNumber == orderNumber);
         }
     }
 }

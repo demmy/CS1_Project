@@ -86,7 +86,7 @@ namespace ContosoUI.OrderSearchForm
 
         private void orderStatusComboBoxEdit_SelectedIndexChanged(object sender, EventArgs e)
         {
-                presenter.StatusEnum = (Status)orderStatusComboBoxEdit.SelectedItem;
+             presenter.StatusEnum = (Status)orderStatusComboBoxEdit.SelectedItem;
         }
     }
 }

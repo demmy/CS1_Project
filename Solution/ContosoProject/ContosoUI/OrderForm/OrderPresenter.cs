@@ -29,6 +29,10 @@ namespace ContosoUI.OrderForm
         private BindingList<Comment> _comments = new BindingList<Comment>(); 
         private BindingList<OrderItem> _orderItems = new BindingList<OrderItem>();
         public bool State { get; set; }
+        private int _id;
+
+
+        public BindingList<Client> ClientsList;
 
         public OrderPresenter(OrderModel model, IOrderView view)
         {
@@ -36,6 +40,7 @@ namespace ContosoUI.OrderForm
             _view = view;
             _produtRepository = _model.ProductRepository;
             _clientRepository = _model.ClientRepository;
+            ClientsList = new BindingList<Client>(_clientRepository.GetAll().ToList());
         }
 
         public void UseOrderWithID(int id)
@@ -48,6 +53,7 @@ namespace ContosoUI.OrderForm
             _date = _order.Date;
             _comments = new BindingList<Comment>(_order.Comments.ToList());
             _orderItems = new BindingList<OrderItem>(_order.OrderItems);
+            _id = id;
         }
 
         public string OrderNumber
@@ -112,6 +118,7 @@ namespace ContosoUI.OrderForm
                 Client = _client,
                 Date = _date,
                 IsActive = State,
+                Id = _id,
                 Status = _status,
                 OrderNumber = _orderNumber
             };
@@ -156,10 +163,16 @@ namespace ContosoUI.OrderForm
             New();
         }
 
-        public BindingList<Client> ClientList
+        public int ClientID
         {
-            get { return new BindingList<Client>(_clientRepository.GetAll().ToList()); }
+            get { return (_client == null) ? 0 : _client.Id; }
+            set
+            {
+                _client = ClientsList.FirstOrDefault(x => x.Id == value);
+                NotifyPropertyChanged();
+            }
         }
+
         public BindingList<Product> Products
         {
             get { return new BindingList<Product>(_produtRepository.GetAll().ToList()); }

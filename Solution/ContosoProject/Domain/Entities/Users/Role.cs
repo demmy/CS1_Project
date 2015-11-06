@@ -1,8 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace Domain.Entities.Users
 {
-    public class Role : Entity
+    public class Role : Entity, ICloneable
     {
         public Role(ICollection<Permission> permissions)
         {
@@ -39,6 +40,11 @@ namespace Domain.Entities.Users
             {
                 return ((Title != null ? Title.GetHashCode() : 0)*397) ^ (Permissions != null ? Permissions.GetHashCode() : 0) ^ (Id.GetHashCode() * 632);
             }
+        }
+
+        public object Clone()
+        {
+            return new Role(Permissions) {Id = Id, IsActive = IsActive, Title=Title};
         }
     }
 }

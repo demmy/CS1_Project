@@ -42,22 +42,22 @@ namespace ContosoUI.ClientForm
 
         private void ShowDependentOnRole(Role role)
         {
-            if (!role.Permissions.Any(x => x.Title != "Edit Client"))
+            if (!role.Permissions.Any(x => x.Title == "Edit Client"))
             {
                 clientBarSaveButton.Visibility = BarItemVisibility.Never;
                 clientBarSaveAndNewButton.Visibility = BarItemVisibility.Never;
                 clientBarNewButton.Visibility = BarItemVisibility.Never;
                 buttonAddNewTelephoneEdit.Enabled = false;
             }
-            if (!role.Permissions.Any(x => x.Title != "Activate Client"))
+            if (!role.Permissions.Any(x => x.Title == "Activate Client"))
             {
                 clientStateButton.Visibility = BarItemVisibility.Never;
             }
-            if (!role.Permissions.Any(x => x.Title != "Deactivate Client"))
+            if (!role.Permissions.Any(x => x.Title == "Deactivate Client"))
             {
                 clientStateButton.Visibility = BarItemVisibility.Never;
             }
-            if (!role.Permissions.Any(x => x.Title != "Comment Client"))
+            if (!role.Permissions.Any(x => x.Title == "Comment Client"))
             {
                 сlientNewCommentTextBox.Enabled = false;
                 сlientAddCommentButton.Enabled = false;

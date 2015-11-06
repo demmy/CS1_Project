@@ -56,21 +56,21 @@ namespace ContosoUI.ProductForm
 
         private void ShowDependentOnRole(Role role)
         {
-            if (!role.Permissions.Any(x => x.Title != "Edit Product"))
+            if (!role.Permissions.Any(x => x.Title == "Edit Product"))
             {
                 barSaveButton.Visibility = BarItemVisibility.Never;
                 barSaveAndNewButton.Visibility = BarItemVisibility.Never;
                 barNewButton.Visibility = BarItemVisibility.Never;
             }
-            if (!role.Permissions.Any(x => x.Title != "Activate Product"))
+            if (!role.Permissions.Any(x => x.Title == "Activate Product"))
             {
                 productStateButton.Visibility = BarItemVisibility.Never;
             }
-            if (!role.Permissions.Any(x => x.Title != "Deactivate Product"))
+            if (!role.Permissions.Any(x => x.Title == "Deactivate Product"))
             {
                 productStateButton.Visibility = BarItemVisibility.Never;
             }
-            if (!role.Permissions.Any(x => x.Title != "Comment Product"))
+            if (!role.Permissions.Any(x => x.Title == "Comment Product"))
             {
                 newCommentTextBox.Enabled = false;
                 addCommentButton.Enabled = false;

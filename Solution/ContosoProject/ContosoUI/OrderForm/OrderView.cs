@@ -42,7 +42,12 @@ namespace ContosoUI.OrderForm
             repositoryQuantitySpinEdit.Validating += RepositoryQuantitySpinEditOnValidating;
             binding = new BindingSource {DataSource = _presenter};
 
-            clientLookUpEdit.Properties.DataSource = _presenter.ClientList;
+            //clientLookUpEdit.Properties.DataSource = _presenter.ClientList;
+            clientLookUpEdit.Properties.DataSource = _presenter.ClientsList;
+            clientLookUpEdit.DataBindings.Add("EditValue", binding, "ClientID");
+            clientLookUpEdit.Properties.ValueMember = "Id";
+            clientLookUpEdit.Properties.DisplayMember = "Person";
+
             orderStatusLookUpEdit.Properties.DataSource = _presenter.StatusEnum;
             orderNumberTextEdit.DataBindings.Add("EditValue", binding, "OrderNumber");
 
@@ -58,22 +63,22 @@ namespace ContosoUI.OrderForm
 
         private void ShowDependentOnRole(Role role)
         {
-            if (!role.Permissions.Any(x => x.Title != "Edit Order"))
+            if (!role.Permissions.Any(x => x.Title == "Edit Order"))
             {
                 orderSaveBarButton.Visibility = BarItemVisibility.Never;
                 orderSaveAndNewBarButton.Visibility = BarItemVisibility.Never;
                 ClearBarButton.Visibility = BarItemVisibility.Never;
                 addOrderItemButton.Visibility = BarItemVisibility.Never;
             }
-            if (!role.Permissions.Any(x => x.Title != "Activate Order"))
+            if (!role.Permissions.Any(x => x.Title == "Activate Order"))
             {
                 barStateButton.Visibility = BarItemVisibility.Never;
             }
-            if (!role.Permissions.Any(x => x.Title != "Deactivate Order"))
+            if (!role.Permissions.Any(x => x.Title == "Deactivate Order"))
             {
                 barStateButton.Visibility = BarItemVisibility.Never;
             }
-            if (!role.Permissions.Any(x => x.Title != "Comment Order"))
+            if (!role.Permissions.Any(x => x.Title == "Comment Order"))
             {
                 newCommentTextBox.Enabled = false;
                 addCommentButton.Enabled = false;

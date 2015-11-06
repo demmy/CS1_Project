@@ -29,13 +29,21 @@ namespace ContosoUI.RoleForm
         {
             binding.DataSource = _presenter;
 
-            roleGridControl.DataBindings.Add("DataSource", binding, "AvalaibleRoles");
-
+            roleGridControl.DataBindings.Add("DataSource", binding, "Roles");
+            ShowDependentOnRole(Program.AuthUser.Role);
         }
+
+       private void ShowDependentOnRole(Role role)
+       {
+           if (!role.Permissions.Any(x => x.Title == "Edit Role"))
+           {
+               barSaveButton.Visibility = BarItemVisibility.Never;
+               barAddButton.Visibility = BarItemVisibility.Never;
+           }
+       }
 
         private void roleGridView_RowClick(object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
         {
-
             permissionsCheckedListBox.DataBindings.Clear();
             GridView view = (GridView) sender;
             GridHitInfo info = view.CalcHitInfo(view.GridControl.PointToClient(Control.MousePosition));
@@ -52,21 +60,15 @@ namespace ContosoUI.RoleForm
         private void FillThePermissionsList()
         {
             permissionsCheckedListBox.Items.Clear();
-            foreach (var permission in _presenter.CheckedPermissions)
+            foreach (var permission in _presenter.AvalaiblePermissions)
             {
-                permissionsCheckedListBox.Items.Add(permission.Key, permission.Value);
+                permissionsCheckedListBox.Items.Add(permission,_presenter.CurrentRole.Permissions.Contains(permission));
             }
         }
-
      
         private void barSaveButton_ItemClick(object sender, ItemClickEventArgs e)
         {
             _presenter.Save();
-        }
-
-        private void barSaveNewButton_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            _presenter.SaveAndNew();
         }
 
         private void barAddButton_ItemClick(object sender, ItemClickEventArgs e)
@@ -76,7 +78,7 @@ namespace ContosoUI.RoleForm
 
         private void permissionsCheckedListBox_ItemCheck(object sender, ItemCheckEventArgs e)
         {
-            if (_presenter.Role == null) return;
+            if (_presenter.CurrentRole == null) return;
             var checkedPermission = permissionsCheckedListBox.SelectedItem as Permission;
             if (checkedPermission != null)
             {
