@@ -92,5 +92,10 @@ namespace ContosoUI.ClientSearchForm
                 presenter.Search();
             }
         }
+
+        private void ClientListView_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            presenter.Stop();
+        }
     }
 }

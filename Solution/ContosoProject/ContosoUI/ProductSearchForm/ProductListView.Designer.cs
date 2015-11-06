@@ -327,6 +327,7 @@
             this.Ribbon = this.mainRibbon;
             this.StatusBar = this.ribbonStatusBarProductView;
             this.Text = "ProductListView";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ProductListView_FormClosed);
             this.Load += new System.EventHandler(this.ProductListView_Load);
             ((System.ComponentModel.ISupportInitialize)(this.mainRibbon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlProductView)).EndInit();

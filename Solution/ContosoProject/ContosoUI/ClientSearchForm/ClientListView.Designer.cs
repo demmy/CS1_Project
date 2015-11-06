@@ -321,6 +321,7 @@
             this.Ribbon = this.ribbonClientView;
             this.StatusBar = this.ribbonStatusBar;
             this.Text = "Client search";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ClientListView_FormClosed);
             this.Load += new System.EventHandler(this.ClientListView_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ribbonClientView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlClientView)).EndInit();

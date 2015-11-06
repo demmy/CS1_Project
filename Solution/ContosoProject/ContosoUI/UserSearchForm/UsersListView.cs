@@ -86,5 +86,10 @@ namespace ContosoUI.UserSearchForm
             }
         }
 
+        private void UsersListView_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            presenter.Stop();
+        }
+
     }
 }

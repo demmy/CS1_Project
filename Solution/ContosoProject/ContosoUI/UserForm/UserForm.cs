@@ -113,5 +113,10 @@ namespace ContosoUI.UserForm
         {
             binding.EndEdit();
         }
+
+        private void UserForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            _presenter.Stop();
+        }
     }
 }

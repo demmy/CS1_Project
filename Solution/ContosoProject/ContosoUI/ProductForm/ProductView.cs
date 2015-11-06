@@ -184,5 +184,10 @@ namespace ContosoUI.ProductForm
                 productStateButton.LargeGlyph = ImageResourceCache.Default.GetImage("images/actions/apply_32x32.png");
             }
         }
+
+        private void ProductView_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            _presenter.Stop();
+        }
     }
 }

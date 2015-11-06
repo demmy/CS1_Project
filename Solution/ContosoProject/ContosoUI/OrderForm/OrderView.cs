@@ -195,5 +195,10 @@ namespace ContosoUI.OrderForm
                 }
             }
         }
+
+        private void OrderForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            _presenter.Stop();
+        }
     }
 }

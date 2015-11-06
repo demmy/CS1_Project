@@ -68,12 +68,12 @@
             this.clientLayoutControlAddressTextEdit = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.сlientTabbedControlOrdersCommentsGroup = new DevExpress.XtraLayout.TabbedControlGroup();
+            this.сlientLayoutControlOrdersGroup = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.сlientLayoutControlOrdersGrid = new DevExpress.XtraLayout.LayoutControlItem();
             this.clientLayoutControlCommentsGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.clientLayoutControlCommentsListBox = new DevExpress.XtraLayout.LayoutControlItem();
             this.clientLayoutControlAddNewCommentButton = new DevExpress.XtraLayout.LayoutControlItem();
             this.сlientLayoutControlNewCommentTextEdit = new DevExpress.XtraLayout.LayoutControlItem();
-            this.сlientLayoutControlOrdersGroup = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.сlientLayoutControlOrdersGrid = new DevExpress.XtraLayout.LayoutControlItem();
             this.сlientSplitter = new DevExpress.XtraLayout.SplitterItem();
             ((System.ComponentModel.ISupportInitialize)(this.сlientRibbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientLayoutControl)).BeginInit();
@@ -100,12 +100,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.clientLayoutControlAddressTextEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.сlientTabbedControlOrdersCommentsGroup)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.сlientLayoutControlOrdersGroup)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.сlientLayoutControlOrdersGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientLayoutControlCommentsGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientLayoutControlCommentsListBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientLayoutControlAddNewCommentButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.сlientLayoutControlNewCommentTextEdit)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.сlientLayoutControlOrdersGroup)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.сlientLayoutControlOrdersGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.сlientSplitter)).BeginInit();
             this.SuspendLayout();
             // 
@@ -513,6 +513,24 @@
             this.сlientLayoutControlOrdersGroup,
             this.clientLayoutControlCommentsGroup});
             // 
+            // сlientLayoutControlOrdersGroup
+            // 
+            this.сlientLayoutControlOrdersGroup.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.сlientLayoutControlOrdersGrid});
+            this.сlientLayoutControlOrdersGroup.Location = new System.Drawing.Point(0, 0);
+            this.сlientLayoutControlOrdersGroup.Name = "сlientLayoutControlOrdersGroup";
+            this.сlientLayoutControlOrdersGroup.Size = new System.Drawing.Size(591, 548);
+            this.сlientLayoutControlOrdersGroup.Text = "Orders";
+            // 
+            // сlientLayoutControlOrdersGrid
+            // 
+            this.сlientLayoutControlOrdersGrid.Control = this.сlientOrdersGridControl;
+            this.сlientLayoutControlOrdersGrid.Location = new System.Drawing.Point(0, 0);
+            this.сlientLayoutControlOrdersGrid.Name = "сlientLayoutControlOrdersGrid";
+            this.сlientLayoutControlOrdersGrid.Size = new System.Drawing.Size(591, 548);
+            this.сlientLayoutControlOrdersGrid.TextSize = new System.Drawing.Size(0, 0);
+            this.сlientLayoutControlOrdersGrid.TextVisible = false;
+            // 
             // clientLayoutControlCommentsGroup
             // 
             this.clientLayoutControlCommentsGroup.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
@@ -555,24 +573,6 @@
             this.сlientLayoutControlNewCommentTextEdit.TextSize = new System.Drawing.Size(0, 0);
             this.сlientLayoutControlNewCommentTextEdit.TextVisible = false;
             // 
-            // сlientLayoutControlOrdersGroup
-            // 
-            this.сlientLayoutControlOrdersGroup.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.сlientLayoutControlOrdersGrid});
-            this.сlientLayoutControlOrdersGroup.Location = new System.Drawing.Point(0, 0);
-            this.сlientLayoutControlOrdersGroup.Name = "сlientLayoutControlOrdersGroup";
-            this.сlientLayoutControlOrdersGroup.Size = new System.Drawing.Size(591, 548);
-            this.сlientLayoutControlOrdersGroup.Text = "Orders";
-            // 
-            // сlientLayoutControlOrdersGrid
-            // 
-            this.сlientLayoutControlOrdersGrid.Control = this.сlientOrdersGridControl;
-            this.сlientLayoutControlOrdersGrid.Location = new System.Drawing.Point(0, 0);
-            this.сlientLayoutControlOrdersGrid.Name = "сlientLayoutControlOrdersGrid";
-            this.сlientLayoutControlOrdersGrid.Size = new System.Drawing.Size(591, 548);
-            this.сlientLayoutControlOrdersGrid.TextSize = new System.Drawing.Size(0, 0);
-            this.сlientLayoutControlOrdersGrid.TextVisible = false;
-            // 
             // сlientSplitter
             // 
             this.сlientSplitter.AllowHotTrack = true;
@@ -592,6 +592,7 @@
             this.Ribbon = this.сlientRibbon;
             this.StatusBar = this.сlientRibbonStatusBar;
             this.Text = "Client View";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ClientView_FormClosed);
             this.Load += new System.EventHandler(this.clientViewList_Load);
             ((System.ComponentModel.ISupportInitialize)(this.сlientRibbon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientLayoutControl)).EndInit();
@@ -618,12 +619,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.clientLayoutControlAddressTextEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.сlientTabbedControlOrdersCommentsGroup)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.сlientLayoutControlOrdersGroup)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.сlientLayoutControlOrdersGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientLayoutControlCommentsGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientLayoutControlCommentsListBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientLayoutControlAddNewCommentButton)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.сlientLayoutControlNewCommentTextEdit)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.сlientLayoutControlOrdersGroup)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.сlientLayoutControlOrdersGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.сlientSplitter)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
