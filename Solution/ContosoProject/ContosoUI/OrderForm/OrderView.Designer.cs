@@ -626,6 +626,7 @@
             this.Ribbon = this.orderRibbon;
             this.StatusBar = this.orderRibbonStatusBar;
             this.Text = "Order View";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.OrderForm_FormClosed);
             this.Load += new System.EventHandler(this.OrderViewList_Load);
             ((System.ComponentModel.ISupportInitialize)(this.orderRibbon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.orderViewLayoutControl)).EndInit();

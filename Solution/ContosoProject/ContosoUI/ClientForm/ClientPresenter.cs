@@ -220,7 +220,7 @@ namespace ContosoUI.ClientForm
 
         public override void Stop()
         {
-            throw new System.NotImplementedException();
+            _model.Dispose();
         }
     }
 }

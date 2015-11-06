@@ -617,6 +617,7 @@ namespace ContosoUI.ProductForm
             this.Ribbon = this.ribbon;
             this.StatusBar = this.ribbonStatusBar;
             this.Text = "Product View";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ProductView_FormClosed);
             this.Load += new System.EventHandler(this.ProductAddView_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.entireLayoutControl)).EndInit();

@@ -22,17 +22,18 @@ namespace ContosoUI.UserForm
             _roleRepository = _model.RoleRepository;
             _userRepository = _model.UserRepository;
             var roles = _roleRepository.GetAll();
-            RoleList = new List<Domain.Entities.Users.Role>(roles);            
+            RoleList = new List<Role>(roles);            
         }
 
-        User _user = new User();
-        private bool _state;
-        private string _login = string.Empty;
-        private string _firstName = string.Empty;
-        private string _middleName = string.Empty;
-        private string _lastName = string.Empty;
+        User _user = new User
+        {
+            Person = new Person(),
+            Role = new Role
+            {
+                Permissions = new List<Permission>()
+            }            
+        };
         private string _password = string.Empty;
-        public Role Role = new Role();
         public List<Role> RoleList;
 
         BindingList<Permission> _permissions = new BindingList<Permission>();
@@ -40,12 +41,12 @@ namespace ContosoUI.UserForm
         #region Properties
         public string Login
         {
-            get { return _login; }
+            get { return _user.Login; }
             set
             {
-                if (value != _login)
+                if (value != _user.Login)
                 {
-                    _login = value;
+                    _user.Login = value;
                     NotifyPropertyChanged();
                 }
             }
@@ -53,12 +54,12 @@ namespace ContosoUI.UserForm
 
         public string FirstName
         {
-            get { return _firstName; }
+            get { return _user.Person.FirstName; }
             set
             {
-                if (value != _firstName)
+                if (value != _user.Person.FirstName)
                 {
-                    _firstName = value;
+                    _user.Person.FirstName = value;
                     NotifyPropertyChanged();
                 }
             }
@@ -66,12 +67,12 @@ namespace ContosoUI.UserForm
 
         public string MiddleName
         {
-            get { return _middleName; }
+            get { return _user.Person.MiddleName; }
             set
             {
-                if (value != _middleName)
+                if (value != _user.Person.MiddleName)
                 {
-                    _middleName = value;
+                    _user.Person.MiddleName = value;
                     NotifyPropertyChanged();
                 }
             }
@@ -79,12 +80,12 @@ namespace ContosoUI.UserForm
 
         public string LastName
         {
-            get { return _lastName; }
+            get { return _user.Person.LastName; }
             set
             {
-                if (value != _lastName)
+                if (value != _user.Person.LastName)
                 {
-                    _lastName = value;
+                    _user.Person.LastName = value;
                     NotifyPropertyChanged();
                 }
             }
@@ -98,6 +99,7 @@ namespace ContosoUI.UserForm
                 if (value != _password)
                 {
                     _password = value;
+                    _user.Password = value;
                     NotifyPropertyChanged();
                 }
             }
@@ -105,12 +107,12 @@ namespace ContosoUI.UserForm
 
         public BindingList<Permission> Permissions
         {
-            get { return _permissions; }
+            get { return new BindingList<Permission>(_user.Role.Permissions.ToList()); }
             set
             {
-                if (!value.SequenceEqual(_permissions))
+                if (!value.SequenceEqual(Permissions))
                 {
-                    _permissions = value;
+                    _user.Role.Permissions = value;
                     NotifyPropertyChanged();
                 }
                 
@@ -119,22 +121,22 @@ namespace ContosoUI.UserForm
 
          public int RoleID
         {
-            get { return (Role == null) ? 0 : Role.Id; }
+            get { return (_user.Role == null) ? 0 : _user.Role.Id; }
             set
             {
-                Role = RoleList.FirstOrDefault(x => x.Id == value);
-                if (Role != null) Permissions = new BindingList<Permission>(Role.Permissions.ToList());
+                _user.Role = RoleList.FirstOrDefault(x => x.Id == value);
+                if (_user.Role != null) Permissions = new BindingList<Permission>(_user.Role.Permissions.ToList());
                 NotifyPropertyChanged();
             }
         }
         public bool State
         {
-            get { return _state; }
+            get { return _user.IsActive; }
             set
             {
-                if (value != _state)
+                if (value != _user.IsActive)
                 {
-                    _state = value;
+                    _user.IsActive = value;
                     NotifyPropertyChanged();
                 }
             }
@@ -157,31 +159,13 @@ namespace ContosoUI.UserForm
 
         public void Save()
         {
-            User userToSave = new User()
+            if (_user.Id != 0)
             {
-                Id = _user.Id,
-                IsActive = _state,
-                Login = _login,
-                Password = _password,
-                Person = new Person() {FirstName = _firstName, MiddleName = _middleName, LastName = _lastName},
-                Role = Role
-            };
-
-            if (userToSave.Id != 0)
-            {
-                if (!_model.Find(userToSave.Id).Equals(userToSave))
-                {
-                    _model.Save(userToSave);
-                    _user = userToSave;
-                }
+                _model.Save(_user);
             }
             else
             {
-                if (_model.Find(userToSave.Id) == null)
-                {
-                    _model.Create(userToSave);
-                    _user = userToSave;
-                }
+                _model.Create(_user);
             }
         }
 
@@ -193,20 +177,25 @@ namespace ContosoUI.UserForm
 
         public void New()
         {
-            _user = new User();
+            _user = new User
+            {
+                Person = new Person(),
+                Role = new Role()
+                {
+                    Permissions = new BindingList<Permission>()
+                }
+            };
             Login = "";
             Password = "";
             FirstName = "";
             MiddleName = "";
             LastName = "";
             State = true;
-            Role = new Role( );
-            Permissions = new BindingList<Permission>();
         }
 
         public override void Stop()
         {
-            throw new System.NotImplementedException();
+            _model.Dispose();
         }
     }
 }

@@ -34,22 +34,19 @@ namespace ContosoUI
 
         private void okButton_Click(object sender, EventArgs e)
         {
-            using (_context)
+            SplashScreenManager.ShowForm(typeof(ChairsSplashScreen));
+            IUserRepository userRepo = new EFUserDAO(_context);
+            var hashedPass = passwordTextEdit.Text.CreateHash();
+            var user = userRepo.Authentificate(loginTextEdit.Text, hashedPass);
+            if (user != null)
             {
-                SplashScreenManager.ShowForm(typeof(ChairsSplashScreen));
-                IUserRepository userRepo = new EFUserDAO(_context);
-                var hashedPass = passwordTextEdit.Text.CreateHash();
-                var user = userRepo.Authentificate(loginTextEdit.Text, hashedPass);
-                if (user != null)
-                {
-                    Program.AuthUser = user;
-                    this.Close();
-                }
-                else
-                {
-                    SplashScreenManager.CloseForm();
-                    MessageBox.Show("Invalid login or password", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                Program.AuthUser = user;
+                this.Close();
+            }
+            else
+            {
+                SplashScreenManager.CloseForm();
+                MessageBox.Show("Invalid login or password", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -63,6 +60,11 @@ namespace ContosoUI
         {
             if (e.KeyChar == Convert.ToChar(Keys.Enter))
                 okButton_Click(sender, e);
+        }
+
+        private void LoginForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            _context.Dispose();
         }
     }
 }

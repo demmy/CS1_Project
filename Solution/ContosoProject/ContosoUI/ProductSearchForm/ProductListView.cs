@@ -90,5 +90,10 @@ namespace ContosoUI.ProductSearchForm
                 presenter.Search();
             }
         }
+
+        private void ProductListView_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            presenter.Stop();
+        }
     }
 }

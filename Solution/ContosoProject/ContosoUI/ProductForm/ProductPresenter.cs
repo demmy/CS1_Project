@@ -268,7 +268,7 @@ namespace ContosoUI.ProductForm
 
         public override void Stop()
         {
-            throw new NotImplementedException();
+            _model.Dispose();
         }
     }
 }

@@ -84,5 +84,10 @@ namespace ContosoUI.RoleForm
                 _presenter.ChangedRolePermission(checkedPermission, e.NewValue == CheckState.Checked);
             }
         }
+
+        private void RoleView_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            _presenter.Stop();
+        }
     }
 }

@@ -212,7 +212,7 @@ namespace ContosoUI.OrderForm
 
         public override void Stop()
         {
-            throw new NotImplementedException();
+            _model.Dispose();
         }
     }
 }
