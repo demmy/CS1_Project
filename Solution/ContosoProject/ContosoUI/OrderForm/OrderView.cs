@@ -49,6 +49,7 @@ namespace ContosoUI.OrderForm
             clientLookUpEdit.Properties.DisplayMember = "Person";
 
             orderStatusLookUpEdit.Properties.DataSource = _presenter.StatusEnum;
+            orderStatusLookUpEdit.DataBindings.Add("EditValue", binding, "Status");
             orderNumberTextEdit.DataBindings.Add("EditValue", binding, "OrderNumber");
 
             orderDateEdit.DataBindings.Add("EditValue", binding, "Date");
@@ -175,7 +176,7 @@ namespace ContosoUI.OrderForm
 
         private void addOrderItemButton_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            _presenter.OrderItems.Add(new OrderItem(new Product() {Title = "Chose product"}, 0, 0));
+            _presenter.OrderItems.Add(new OrderItem(new Product() {Title = "Choose product"}, 0, 0));
 
         }
 

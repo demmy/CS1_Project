@@ -327,7 +327,7 @@ namespace ContosoUI.ProductForm
             this.productPriceTextEdit.Location = new System.Drawing.Point(29, 217);
             this.productPriceTextEdit.MenuManager = this.ribbon;
             this.productPriceTextEdit.Name = "productPriceTextEdit";
-            this.productPriceTextEdit.Properties.Mask.EditMask = "c2";
+            this.productPriceTextEdit.Properties.Mask.EditMask = "n2";
             this.productPriceTextEdit.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.productPriceTextEdit.Size = new System.Drawing.Size(239, 20);
             this.productPriceTextEdit.StyleController = this.entireLayoutControl;

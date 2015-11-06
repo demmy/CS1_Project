@@ -42,7 +42,7 @@ namespace ContosoUI.RoleForm
            }
        }
 
-        private void roleGridView_RowClick(object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
+        private void roleGridView_RowClick(object sender, RowClickEventArgs e)
         {
             permissionsCheckedListBox.DataBindings.Clear();
             GridView view = (GridView) sender;
@@ -53,7 +53,6 @@ namespace ContosoUI.RoleForm
                 int id = (int) view.GetRowCellValue(info.RowHandle, "Id");
                 _presenter.UsePermissionWithRoleID(id);
                 FillThePermissionsList();
-
             }
         }
 
