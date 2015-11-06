@@ -43,8 +43,8 @@ namespace Domain.Entities.Clients
             {
                 var hashCode = (ClientLocation != null ? ClientLocation.GetHashCode() : 0);
                 hashCode = (hashCode*397) ^ (Person != null ? Person.GetHashCode() : 0);
-                hashCode = (hashCode*397) ^ (Comments != null ? Comments.GetHashCode() : 0);
-                hashCode = (hashCode*397) ^ (Telephones != null ? Telephones.GetHashCode() : 0);
+                //hashCode = (hashCode*397) ^ (Comments != null ? Comments.GetHashCode() : 0);
+                //hashCode = (hashCode*397) ^ (Telephones != null ? Telephones.GetHashCode() : 0);
                 return hashCode;
             }
         }
