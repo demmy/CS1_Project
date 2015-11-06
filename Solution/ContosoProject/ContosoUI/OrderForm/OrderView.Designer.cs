@@ -379,8 +379,8 @@
             // colPrice
             // 
             this.colPrice.ColumnEdit = this.orderRepositoryPriceSpinEdit;
-            this.colPrice.DisplayFormat.FormatString = "c2";
-            this.colPrice.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
+            this.colPrice.DisplayFormat.FormatString = "n2";
+            this.colPrice.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.colPrice.FieldName = "Product.Price";
             this.colPrice.Name = "colPrice";
             this.colPrice.Visible = true;
@@ -526,7 +526,7 @@
             this.layoutControlDataGrid.Location = new System.Drawing.Point(0, 0);
             this.layoutControlDataGrid.Name = "layoutControlDataGrid";
             this.layoutControlDataGrid.Size = new System.Drawing.Size(727, 548);
-            this.layoutControlDataGrid.Text = "Order";
+            this.layoutControlDataGrid.Text = "Order Items";
             // 
             // layoutControlOrderGrid
             // 
@@ -604,7 +604,7 @@
             this.Name = "OrderForm";
             this.Ribbon = this.orderRibbon;
             this.StatusBar = this.orderRibbonStatusBar;
-            this.Text = "OrderView";
+            this.Text = "Order View";
             this.Load += new System.EventHandler(this.OrderViewList_Load);
             ((System.ComponentModel.ISupportInitialize)(this.orderRibbon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.orderViewLayoutControl)).EndInit();

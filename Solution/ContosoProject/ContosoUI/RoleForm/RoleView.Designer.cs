@@ -114,14 +114,14 @@
             this.ribbonFilePageGroup.ItemLinks.Add(this.barSaveButton);
             this.ribbonFilePageGroup.MergeOrder = 50;
             this.ribbonFilePageGroup.Name = "ribbonFilePageGroup";
-            this.ribbonFilePageGroup.Text = "File";
+            this.ribbonFilePageGroup.Text = "Role";
             // 
             // ribbonRolePageGroup
             // 
             this.ribbonRolePageGroup.ItemLinks.Add(this.barAddButton);
             this.ribbonRolePageGroup.MergeOrder = 60;
             this.ribbonRolePageGroup.Name = "ribbonRolePageGroup";
-            this.ribbonRolePageGroup.Text = "Role";
+            this.ribbonRolePageGroup.Text = "Edit";
             // 
             // ribbonStatusBar
             // 
@@ -227,7 +227,7 @@
             this.layoutPermissionsListCheckBoxControl.Spacing = new DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 2);
             this.layoutPermissionsListCheckBoxControl.Text = "Permissions";
             this.layoutPermissionsListCheckBoxControl.TextLocation = DevExpress.Utils.Locations.Top;
-            this.layoutPermissionsListCheckBoxControl.TextSize = new System.Drawing.Size(69, 13);
+            this.layoutPermissionsListCheckBoxControl.TextSize = new System.Drawing.Size(72, 13);
             // 
             // layoutRoleGridControl
             // 
@@ -237,9 +237,9 @@
             this.layoutRoleGridControl.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
             this.layoutRoleGridControl.Size = new System.Drawing.Size(479, 294);
             this.layoutRoleGridControl.Spacing = new DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 2);
-            this.layoutRoleGridControl.Text = "AvalaibleRoles";
+            this.layoutRoleGridControl.Text = "Avalaible Roles";
             this.layoutRoleGridControl.TextLocation = DevExpress.Utils.Locations.Top;
-            this.layoutRoleGridControl.TextSize = new System.Drawing.Size(69, 13);
+            this.layoutRoleGridControl.TextSize = new System.Drawing.Size(72, 13);
             // 
             // RoleView
             // 

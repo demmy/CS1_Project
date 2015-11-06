@@ -222,6 +222,8 @@
             // totalPriceGridColumn
             // 
             this.totalPriceGridColumn.Caption = "Total price";
+            this.totalPriceGridColumn.DisplayFormat.FormatString = "n2";
+            this.totalPriceGridColumn.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.totalPriceGridColumn.FieldName = "Sum";
             this.totalPriceGridColumn.Name = "totalPriceGridColumn";
             this.totalPriceGridColumn.Visible = true;
