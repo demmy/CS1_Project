@@ -395,7 +395,7 @@
             this.сlientLayoutControlPersonDataGroup.Location = new System.Drawing.Point(0, 0);
             this.сlientLayoutControlPersonDataGroup.Name = "сlientLayoutControlPersonDataGroup";
             this.сlientLayoutControlPersonDataGroup.Size = new System.Drawing.Size(350, 150);
-            this.сlientLayoutControlPersonDataGroup.Text = "Person data";
+            this.сlientLayoutControlPersonDataGroup.Text = "Personal data";
             // 
             // сlientLayoutControlFirstNameTextEdit
             // 
@@ -453,7 +453,7 @@
             this.clientLayoutControlClientInfoGroup.Location = new System.Drawing.Point(0, 0);
             this.clientLayoutControlClientInfoGroup.Name = "clientLayoutControlClientInfoGroup";
             this.clientLayoutControlClientInfoGroup.Size = new System.Drawing.Size(350, 352);
-            this.clientLayoutControlClientInfoGroup.Text = "Client information";
+            this.clientLayoutControlClientInfoGroup.Text = "Contact information";
             // 
             // сlientLayoutControlTelephonesListBox
             // 
@@ -506,8 +506,8 @@
             // 
             this.сlientTabbedControlOrdersCommentsGroup.Location = new System.Drawing.Point(379, 0);
             this.сlientTabbedControlOrdersCommentsGroup.Name = "сlientTabbedControlOrdersCommentsGroup";
-            this.сlientTabbedControlOrdersCommentsGroup.SelectedTabPage = this.clientLayoutControlCommentsGroup;
-            this.сlientTabbedControlOrdersCommentsGroup.SelectedTabPageIndex = 1;
+            this.сlientTabbedControlOrdersCommentsGroup.SelectedTabPage = this.сlientLayoutControlOrdersGroup;
+            this.сlientTabbedControlOrdersCommentsGroup.SelectedTabPageIndex = 0;
             this.сlientTabbedControlOrdersCommentsGroup.Size = new System.Drawing.Size(615, 594);
             this.сlientTabbedControlOrdersCommentsGroup.TabPages.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.сlientLayoutControlOrdersGroup,
@@ -591,7 +591,8 @@
             this.Name = "ClientView";
             this.Ribbon = this.сlientRibbon;
             this.StatusBar = this.сlientRibbonStatusBar;
-            this.Text = "ClientViewList";
+            this.Text = "Client View";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ClientView_FormClosed);
             this.Load += new System.EventHandler(this.clientViewList_Load);
             ((System.ComponentModel.ISupportInitialize)(this.сlientRibbon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientLayoutControl)).EndInit();

@@ -12,13 +12,17 @@ namespace Data.EFRepository
     public class ProjectContext : DbContext
     {
         public ProjectContext()
-            : base("name=ProjectContext")
         {
-            Database.SetInitializer(new CreateDatabaseIfNotExists<ProjectContext>());
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<ProjectContext, Configuration>("ProjectContext"));
         }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            //modelBuilder.Entity<Order>()
+            //    .HasMany<OrderItem>(order => order.OrderItems)
+            //    .WithRequired(orderItem => orderItem.Order)
+            //    .HasForeignKey(orderItem => orderItem.OrderId)
+            //    .WillCascadeOnDelete(true);
             base.OnModelCreating(modelBuilder);
         }
 

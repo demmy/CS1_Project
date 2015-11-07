@@ -42,7 +42,18 @@ namespace ContosoUI.CategoryForm
         private void SaveCategory()
         {
             SaveCategoryInUse();
-            if (_categoryRepository.GetAll().Count() < _categories.Count)
+            foreach (var category in _categories)
+            {
+                if (category.Id != 0)
+                {
+                    _model.CategoryRepository.Save(category);
+                }
+                else
+                {
+                    _model.CategoryRepository.Create(category);
+                }
+            }
+            /*if (_categoryRepository.GetAll().Count() < _categories.Count)
             {
                 _categoryRepository.Create(_categoryToSave);
             }
@@ -52,19 +63,30 @@ namespace ContosoUI.CategoryForm
                 {
                     _categoryRepository.Save(category);
                 }
-            }
+            }*/
         }
 
         public void SaveCategoryInUse()
         {
-            Category categoryToSave = new Category(_categoryComments) 
-            { 
-                Date = _selectedCategory.Date, 
-                Id = _selectedCategory.Id, 
-                IsActive = _selectedCategory.IsActive, 
-                Title = _selectedCategory.Title
-            };
+            Category categoryToSave = _selectedCategory;
+            
+            if (_selectedCategory.Id == 0)
+            {
+                categoryToSave = new Category(_categoryComments)
+                {
+                    Date = _selectedCategory.Date,
+                    Id = _selectedCategory.Id,
+                    IsActive = _selectedCategory.IsActive,
+                    Title = _selectedCategory.Title
+                };
+            }
+            else
+            {
+                categoryToSave.Comments = _categoryComments;
+                
+            }
             _categories[_categories.IndexOf(_categories.First(x => x.Title == categoryToSave.Title))] = categoryToSave;
+
         }
 
         public void Save()

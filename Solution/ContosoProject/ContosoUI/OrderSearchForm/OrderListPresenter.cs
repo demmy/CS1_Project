@@ -106,7 +106,7 @@ namespace ContosoUI.OrderSearchForm
 
         public override void Stop()
         {
-            throw new NotImplementedException();
+            _model.Dispose();
         }
     }
 }

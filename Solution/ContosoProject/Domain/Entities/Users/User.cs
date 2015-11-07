@@ -18,7 +18,7 @@ namespace Domain.Entities.Users
         public static string CreateHash(this string unhashed)
         {
             if (string.IsNullOrWhiteSpace(unhashed))
-                throw new ArgumentException("Entry string is null, empty or contains only white spaces. You need to specify it.");
+                return string.Empty;
             System.Security.Cryptography.MD5CryptoServiceProvider md5 = new System.Security.Cryptography.MD5CryptoServiceProvider();
             return System.Text.Encoding.ASCII.GetString(md5.ComputeHash(System.Text.Encoding.ASCII.GetBytes(unhashed)));
         }

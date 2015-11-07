@@ -88,5 +88,10 @@ namespace ContosoUI.OrderSearchForm
         {
              presenter.StatusEnum = (Status)orderStatusComboBoxEdit.SelectedItem;
         }
+
+        private void OrderListView_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            presenter.Stop();
+        }
     }
 }

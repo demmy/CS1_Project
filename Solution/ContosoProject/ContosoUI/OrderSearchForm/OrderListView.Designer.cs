@@ -222,6 +222,8 @@
             // totalPriceGridColumn
             // 
             this.totalPriceGridColumn.Caption = "Total price";
+            this.totalPriceGridColumn.DisplayFormat.FormatString = "n2";
+            this.totalPriceGridColumn.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.totalPriceGridColumn.FieldName = "Sum";
             this.totalPriceGridColumn.Name = "totalPriceGridColumn";
             this.totalPriceGridColumn.Visible = true;
@@ -318,7 +320,8 @@
             this.Name = "OrderListView";
             this.Ribbon = this.mainRibbon;
             this.StatusBar = this.ribbonStatusBarOrderView;
-            this.Text = "Order search";
+            this.Text = "Order Search";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.OrderListView_FormClosed);
             this.Load += new System.EventHandler(this.OrderListView_Load);
             ((System.ComponentModel.ISupportInitialize)(this.mainRibbon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlOrderView)).EndInit();

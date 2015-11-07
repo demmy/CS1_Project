@@ -50,15 +50,15 @@ namespace ContosoUI.ProductForm
 
         private void InitializeProductFields()
         {
-            ID = _product.Id;
-            IsActive = _product.IsActive;
-            SKU = _product.SKU;
-            Title = _product.Title;
-            Quantity = _product.Quantity;
-            Price = _product.Price;
-            Category = _product.Category;
-            ProductComments = new BindingList<Comment>(_product.Comments.ToList());
-            SearchTitleCategory = string.Empty;
+            _id = _product.Id;
+            _isActive = _product.IsActive;
+            _sku = _product.SKU;
+            _title = _product.Title;
+            _quantity = _product.Quantity;
+            _price = _product.Price;
+            _category = _product.Category;
+            _productComments = new BindingList<Comment>(_product.Comments.ToList());
+            _searchTitleCategory = string.Empty;
         }
 
         private void InitializeCategoryFields()
@@ -75,7 +75,11 @@ namespace ContosoUI.ProductForm
         public void UseCategoryWithID(int id)
         {
             if(id != 0)
+            {                
                 _categoryInUse = _categoryRepository.Find(id);
+                _category = _categoryInUse;
+                NotifyPropertyChanged();
+            }
             _categoryComments = new BindingList<Comment>(_categoryInUse.Comments.ToList());
         }
 
@@ -86,28 +90,32 @@ namespace ContosoUI.ProductForm
 
         private void SaveProduct()
         {
-            Product productToSave = new Product(_productComments)
+            if (_product.Id != 0)
             {
-                Category = _category,
-                Price = _price,
-                Quantity = _quantity,
-                SKU = _sku,
-                Title = _title,
-                Id = ID,
-                IsActive = _isActive
-            };
-            if (productToSave.Id != 0)
-            {
-                if (!_model.Find(productToSave.Id).Equals(productToSave))
-                {
-                    _model.Save(productToSave);
-                    _product = productToSave;
-                }
+                _product.Comments = _productComments;
+                _product.Category = _category;
+                _product.Price = _price;
+                _product.Quantity = _quantity;
+                _product.SKU = _sku;
+                _product.Title = _title;
+                _product.Id = _id;
+                _product.IsActive = _isActive;
+
+                _model.Save(_product);
             }
             else
             {
-                _model.Create(productToSave);
-                _product = productToSave;            
+                var newProductToSave = new Product(_productComments)
+                {
+                    Category = _category,
+                    Price = _price,
+                    Quantity = _quantity,
+                    SKU = _sku,
+                    Title = _title,
+                    Id = ID,
+                    IsActive = _isActive
+                };
+                _model.Create(newProductToSave);
             }
         }
         
@@ -119,7 +127,7 @@ namespace ContosoUI.ProductForm
 
         public void New()
         {
-            _product = new Product();
+            _product = new Product(Comments.Init(Program.AuthUser, "Product"));
             InitializeProductFields();
         }
 
@@ -243,7 +251,11 @@ namespace ContosoUI.ProductForm
         public Category CategoryInUse
         {
             get { return _categoryInUse; }
-            set { _categoryInUse = value; }
+            set
+            {
+                _categoryInUse = value; 
+                NotifyPropertyChanged();
+            }
         }
 
         private int ID
@@ -260,7 +272,7 @@ namespace ContosoUI.ProductForm
 
         public override void Stop()
         {
-            throw new NotImplementedException();
+            _model.Dispose();
         }
     }
 }

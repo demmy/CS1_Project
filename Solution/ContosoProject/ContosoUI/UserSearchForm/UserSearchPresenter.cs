@@ -105,7 +105,7 @@ namespace ContosoUI.UserSearchForm
 
         public override void Stop()
         {
-            throw new System.NotImplementedException();
+            _model.Dispose();
         }
     }
 }

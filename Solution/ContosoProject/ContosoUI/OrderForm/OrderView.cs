@@ -14,6 +14,7 @@ using Domain.Entities.Comments;
 using Domain.Entities.Products;
 using Domain.Entities.Users;
 using DevExpress.XtraBars;
+using DevExpress.XtraGrid.Columns;
 
 namespace ContosoUI.OrderForm
 {
@@ -42,18 +43,19 @@ namespace ContosoUI.OrderForm
             repositoryQuantitySpinEdit.Validating += RepositoryQuantitySpinEditOnValidating;
             binding = new BindingSource {DataSource = _presenter};
 
-            //clientLookUpEdit.Properties.DataSource = _presenter.ClientList;
             clientLookUpEdit.Properties.DataSource = _presenter.ClientsList;
             clientLookUpEdit.DataBindings.Add("EditValue", binding, "ClientID");
             clientLookUpEdit.Properties.ValueMember = "Id";
             clientLookUpEdit.Properties.DisplayMember = "Person";
 
             orderStatusLookUpEdit.Properties.DataSource = _presenter.StatusEnum;
+            orderStatusLookUpEdit.DataBindings.Add("EditValue", binding, "Status");
             orderNumberTextEdit.DataBindings.Add("EditValue", binding, "OrderNumber");
 
             orderDateEdit.DataBindings.Add("EditValue", binding, "Date");
             orderGridControl.DataBindings.Add("DataSource", binding, "OrderItems");
             commentsListBox.DataBindings.Add("DataSource", binding, "Comments");
+            totalPriceTextEdit.DataBindings.Add("EditValue", binding, "TotalPrice");
 
             orderRepositoryProductLookUpEdit.DataSource = _presenter.Products;
             SetStateButtonState();
@@ -144,15 +146,6 @@ namespace ContosoUI.OrderForm
             SetActivityOfComments();
         }
 
-        private void orderGridControl_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void orderGridView_InitNewRow(object sender, DevExpress.XtraGrid.Views.Grid.InitNewRowEventArgs e)
-        {
-        }
-
         private void barStateButton_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             _presenter.State = !_presenter.State;
@@ -175,25 +168,31 @@ namespace ContosoUI.OrderForm
 
         private void addOrderItemButton_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            _presenter.OrderItems.Add(new OrderItem(new Product() {Title = "Chose product"}, 0, 0));
-
-        }
-
-        private void orderGridView_CellValueChanging(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
-        {
+            _presenter.OrderItems.Add(new OrderItem(new Product() {Title = "Choose product"}, 0, 0));
         }
 
         private void orderGridView_CellValueChanged(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
         {
             var view = sender as GridView;
+
             if (e.Column == colQuantity || e.Column == colProduct)
             {
                 var product = (view.GetRowCellValue(e.RowHandle, "Product") as Product);
+                int quantity = (int)view.GetRowCellValue(e.RowHandle, "Quantity");
                 if (product != null)
                 {
+                    _presenter.OrderItems.Remove(_presenter.OrderItems.FirstOrDefault(x => x.Product.Title == product.Title));
+                    _presenter.OrderItems.Add(new OrderItem(product, quantity, product.Price));                    
                     repositoryQuantitySpinEdit.MaxValue = product.Quantity;
+                    _presenter.OrderItemsComparer();
+                    _presenter.TotalPrice = _presenter.OrderItems.Sum(x => x.Price * x.Quantity);
                 }
             }
+        }
+
+        private void OrderForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            _presenter.Stop();
         }
     }
 }

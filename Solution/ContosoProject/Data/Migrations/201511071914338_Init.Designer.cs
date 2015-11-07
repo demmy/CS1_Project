@@ -11,7 +11,7 @@ public sealed partial class Init : IMigrationMetadata
     
     string IMigrationMetadata.Id
     {
-        get { return "201511051514027_Init"; }
+        get { return "201511071914338_Init"; }
     }
     
     string IMigrationMetadata.Source

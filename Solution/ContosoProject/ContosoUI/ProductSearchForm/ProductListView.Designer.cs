@@ -219,7 +219,7 @@
             // priceGridColumn
             // 
             this.priceGridColumn.Caption = "Price";
-            this.priceGridColumn.DisplayFormat.FormatString = "c2";
+            this.priceGridColumn.DisplayFormat.FormatString = "n2";
             this.priceGridColumn.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.priceGridColumn.FieldName = "Price";
             this.priceGridColumn.Name = "priceGridColumn";
@@ -326,7 +326,8 @@
             this.Name = "ProductListView";
             this.Ribbon = this.mainRibbon;
             this.StatusBar = this.ribbonStatusBarProductView;
-            this.Text = "ProductListView";
+            this.Text = "Product Search";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ProductListView_FormClosed);
             this.Load += new System.EventHandler(this.ProductListView_Load);
             ((System.ComponentModel.ISupportInitialize)(this.mainRibbon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlProductView)).EndInit();

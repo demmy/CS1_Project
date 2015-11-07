@@ -61,13 +61,14 @@ namespace ContosoUI.UserForm
             this.layoutControlLoginTextEdit = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlPasswordTextEdit = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlRoleComboBox = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.tabbedControlGroup1 = new DevExpress.XtraLayout.TabbedControlGroup();
+            this.tabbedControlGroupPersonalData = new DevExpress.XtraLayout.TabbedControlGroup();
             this.layoutControlPersonDataGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlFirstNameTextEdit = new DevExpress.XtraLayout.LayoutControlItem();
             this.middleNameLayoutControl = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlLastNameTextEdit = new DevExpress.XtraLayout.LayoutControlItem();
-            this.splitterItem1 = new DevExpress.XtraLayout.SplitterItem();
+            this.tabbedControlGroupLoginData = new DevExpress.XtraLayout.TabbedControlGroup();
+            this.layoutControlGroupPermissions = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.layoutControlPermissionsListBox = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl)).BeginInit();
             this.layoutControl.SuspendLayout();
@@ -85,13 +86,14 @@ namespace ContosoUI.UserForm
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlLoginTextEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlPasswordTextEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlRoleComboBox)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tabbedControlGroup1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tabbedControlGroupPersonalData)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlPersonDataGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlFirstNameTextEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.middleNameLayoutControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlLastNameTextEdit)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.splitterItem1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tabbedControlGroupLoginData)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroupPermissions)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlPermissionsListBox)).BeginInit();
             this.SuspendLayout();
             // 
             // ribbon
@@ -208,61 +210,61 @@ namespace ContosoUI.UserForm
             // 
             // permissionListBoxControl
             // 
-            this.permissionListBoxControl.Location = new System.Drawing.Point(29, 413);
+            this.permissionListBoxControl.Location = new System.Drawing.Point(532, 51);
             this.permissionListBoxControl.Name = "permissionListBoxControl";
-            this.permissionListBoxControl.Size = new System.Drawing.Size(951, 172);
+            this.permissionListBoxControl.Size = new System.Drawing.Size(453, 534);
             this.permissionListBoxControl.StyleController = this.layoutControl;
             this.permissionListBoxControl.TabIndex = 5;
             // 
             // lastNameTextEdit
             // 
-            this.lastNameTextEdit.Location = new System.Drawing.Point(29, 167);
+            this.lastNameTextEdit.Location = new System.Drawing.Point(29, 363);
             this.lastNameTextEdit.MenuManager = this.ribbon;
             this.lastNameTextEdit.Name = "lastNameTextEdit";
-            this.lastNameTextEdit.Size = new System.Drawing.Size(951, 20);
+            this.lastNameTextEdit.Size = new System.Drawing.Size(465, 20);
             this.lastNameTextEdit.StyleController = this.layoutControl;
             this.lastNameTextEdit.TabIndex = 9;
             // 
             // middleNameTextEdit
             // 
-            this.middleNameTextEdit.Location = new System.Drawing.Point(29, 117);
+            this.middleNameTextEdit.Location = new System.Drawing.Point(29, 313);
             this.middleNameTextEdit.MenuManager = this.ribbon;
             this.middleNameTextEdit.Name = "middleNameTextEdit";
-            this.middleNameTextEdit.Size = new System.Drawing.Size(951, 20);
+            this.middleNameTextEdit.Size = new System.Drawing.Size(465, 20);
             this.middleNameTextEdit.StyleController = this.layoutControl;
             this.middleNameTextEdit.TabIndex = 8;
             // 
             // firstNameTextEdit
             // 
-            this.firstNameTextEdit.Location = new System.Drawing.Point(29, 67);
+            this.firstNameTextEdit.Location = new System.Drawing.Point(29, 263);
             this.firstNameTextEdit.MenuManager = this.ribbon;
             this.firstNameTextEdit.Name = "firstNameTextEdit";
-            this.firstNameTextEdit.Size = new System.Drawing.Size(951, 20);
+            this.firstNameTextEdit.Size = new System.Drawing.Size(465, 20);
             this.firstNameTextEdit.StyleController = this.layoutControl;
             this.firstNameTextEdit.TabIndex = 7;
             // 
             // passwordTextEdit
             // 
-            this.passwordTextEdit.Location = new System.Drawing.Point(29, 313);
+            this.passwordTextEdit.Location = new System.Drawing.Point(29, 117);
             this.passwordTextEdit.MenuManager = this.ribbon;
             this.passwordTextEdit.Name = "passwordTextEdit";
             this.passwordTextEdit.Properties.PasswordChar = '●';
-            this.passwordTextEdit.Size = new System.Drawing.Size(951, 20);
+            this.passwordTextEdit.Size = new System.Drawing.Size(465, 20);
             this.passwordTextEdit.StyleController = this.layoutControl;
             this.passwordTextEdit.TabIndex = 5;
             // 
             // loginTextEdit
             // 
-            this.loginTextEdit.Location = new System.Drawing.Point(29, 263);
+            this.loginTextEdit.Location = new System.Drawing.Point(29, 67);
             this.loginTextEdit.MenuManager = this.ribbon;
             this.loginTextEdit.Name = "loginTextEdit";
-            this.loginTextEdit.Size = new System.Drawing.Size(951, 20);
+            this.loginTextEdit.Size = new System.Drawing.Size(465, 20);
             this.loginTextEdit.StyleController = this.layoutControl;
             this.loginTextEdit.TabIndex = 4;
             // 
             // roleLookUpEdit
             // 
-            this.roleLookUpEdit.Location = new System.Drawing.Point(29, 363);
+            this.roleLookUpEdit.Location = new System.Drawing.Point(29, 167);
             this.roleLookUpEdit.MenuManager = this.ribbon;
             this.roleLookUpEdit.Name = "roleLookUpEdit";
             this.roleLookUpEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -275,7 +277,7 @@ namespace ContosoUI.UserForm
             this.roleLookUpEdit.Properties.PopupSizeable = false;
             this.roleLookUpEdit.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
             this.roleLookUpEdit.Properties.ValueMember = "Title";
-            this.roleLookUpEdit.Size = new System.Drawing.Size(951, 20);
+            this.roleLookUpEdit.Size = new System.Drawing.Size(465, 20);
             this.roleLookUpEdit.StyleController = this.layoutControl;
             this.roleLookUpEdit.TabIndex = 6;
             this.roleLookUpEdit.EditValueChanged += new System.EventHandler(this.roleLookUpEdit_EditValueChanged);
@@ -291,8 +293,8 @@ namespace ContosoUI.UserForm
             this.layoutControlEntireGroup.GroupBordersVisible = false;
             this.layoutControlEntireGroup.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.tabbedControlLoginDataGroup,
-            this.tabbedControlGroup1,
-            this.splitterItem1});
+            this.tabbedControlGroupPersonalData,
+            this.tabbedControlGroupLoginData});
             this.layoutControlEntireGroup.Location = new System.Drawing.Point(0, 0);
             this.layoutControlEntireGroup.Name = "layoutControlEntireGroup";
             this.layoutControlEntireGroup.Size = new System.Drawing.Size(1014, 614);
@@ -300,11 +302,11 @@ namespace ContosoUI.UserForm
             // 
             // tabbedControlLoginDataGroup
             // 
-            this.tabbedControlLoginDataGroup.Location = new System.Drawing.Point(0, 196);
+            this.tabbedControlLoginDataGroup.Location = new System.Drawing.Point(0, 0);
             this.tabbedControlLoginDataGroup.Name = "tabbedControlLoginDataGroup";
             this.tabbedControlLoginDataGroup.SelectedTabPage = this.layoutControlLoginDataGroup;
             this.tabbedControlLoginDataGroup.SelectedTabPageIndex = 0;
-            this.tabbedControlLoginDataGroup.Size = new System.Drawing.Size(989, 398);
+            this.tabbedControlLoginDataGroup.Size = new System.Drawing.Size(503, 196);
             this.tabbedControlLoginDataGroup.TabPages.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlLoginDataGroup});
             // 
@@ -313,11 +315,10 @@ namespace ContosoUI.UserForm
             this.layoutControlLoginDataGroup.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlLoginTextEdit,
             this.layoutControlPasswordTextEdit,
-            this.layoutControlRoleComboBox,
-            this.layoutControlItem1});
+            this.layoutControlRoleComboBox});
             this.layoutControlLoginDataGroup.Location = new System.Drawing.Point(0, 0);
             this.layoutControlLoginDataGroup.Name = "layoutControlLoginDataGroup";
-            this.layoutControlLoginDataGroup.Size = new System.Drawing.Size(965, 352);
+            this.layoutControlLoginDataGroup.Size = new System.Drawing.Size(479, 150);
             this.layoutControlLoginDataGroup.Text = "Login data";
             // 
             // layoutControlLoginTextEdit
@@ -326,7 +327,7 @@ namespace ContosoUI.UserForm
             this.layoutControlLoginTextEdit.Location = new System.Drawing.Point(0, 0);
             this.layoutControlLoginTextEdit.Name = "layoutControlLoginTextEdit";
             this.layoutControlLoginTextEdit.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
-            this.layoutControlLoginTextEdit.Size = new System.Drawing.Size(965, 50);
+            this.layoutControlLoginTextEdit.Size = new System.Drawing.Size(479, 50);
             this.layoutControlLoginTextEdit.Spacing = new DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 2);
             this.layoutControlLoginTextEdit.Text = "Login";
             this.layoutControlLoginTextEdit.TextLocation = DevExpress.Utils.Locations.Top;
@@ -338,7 +339,7 @@ namespace ContosoUI.UserForm
             this.layoutControlPasswordTextEdit.Location = new System.Drawing.Point(0, 50);
             this.layoutControlPasswordTextEdit.Name = "layoutControlPasswordTextEdit";
             this.layoutControlPasswordTextEdit.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
-            this.layoutControlPasswordTextEdit.Size = new System.Drawing.Size(965, 50);
+            this.layoutControlPasswordTextEdit.Size = new System.Drawing.Size(479, 50);
             this.layoutControlPasswordTextEdit.Spacing = new DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 2);
             this.layoutControlPasswordTextEdit.Text = "Password";
             this.layoutControlPasswordTextEdit.TextLocation = DevExpress.Utils.Locations.Top;
@@ -350,32 +351,20 @@ namespace ContosoUI.UserForm
             this.layoutControlRoleComboBox.Location = new System.Drawing.Point(0, 100);
             this.layoutControlRoleComboBox.Name = "layoutControlRoleComboBox";
             this.layoutControlRoleComboBox.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
-            this.layoutControlRoleComboBox.Size = new System.Drawing.Size(965, 50);
+            this.layoutControlRoleComboBox.Size = new System.Drawing.Size(479, 50);
             this.layoutControlRoleComboBox.Spacing = new DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 2);
             this.layoutControlRoleComboBox.Text = "Role";
             this.layoutControlRoleComboBox.TextLocation = DevExpress.Utils.Locations.Top;
             this.layoutControlRoleComboBox.TextSize = new System.Drawing.Size(59, 13);
             // 
-            // layoutControlItem1
+            // tabbedControlGroupPersonalData
             // 
-            this.layoutControlItem1.Control = this.permissionListBoxControl;
-            this.layoutControlItem1.Location = new System.Drawing.Point(0, 150);
-            this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
-            this.layoutControlItem1.Size = new System.Drawing.Size(965, 202);
-            this.layoutControlItem1.Spacing = new DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 2);
-            this.layoutControlItem1.Text = "Permissions";
-            this.layoutControlItem1.TextLocation = DevExpress.Utils.Locations.Top;
-            this.layoutControlItem1.TextSize = new System.Drawing.Size(59, 13);
-            // 
-            // tabbedControlGroup1
-            // 
-            this.tabbedControlGroup1.Location = new System.Drawing.Point(0, 0);
-            this.tabbedControlGroup1.Name = "tabbedControlGroup1";
-            this.tabbedControlGroup1.SelectedTabPage = this.layoutControlPersonDataGroup;
-            this.tabbedControlGroup1.SelectedTabPageIndex = 0;
-            this.tabbedControlGroup1.Size = new System.Drawing.Size(989, 196);
-            this.tabbedControlGroup1.TabPages.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.tabbedControlGroupPersonalData.Location = new System.Drawing.Point(0, 196);
+            this.tabbedControlGroupPersonalData.Name = "tabbedControlGroupPersonalData";
+            this.tabbedControlGroupPersonalData.SelectedTabPage = this.layoutControlPersonDataGroup;
+            this.tabbedControlGroupPersonalData.SelectedTabPageIndex = 0;
+            this.tabbedControlGroupPersonalData.Size = new System.Drawing.Size(503, 398);
+            this.tabbedControlGroupPersonalData.TabPages.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlPersonDataGroup});
             // 
             // layoutControlPersonDataGroup
@@ -386,8 +375,8 @@ namespace ContosoUI.UserForm
             this.layoutControlLastNameTextEdit});
             this.layoutControlPersonDataGroup.Location = new System.Drawing.Point(0, 0);
             this.layoutControlPersonDataGroup.Name = "layoutControlPersonDataGroup";
-            this.layoutControlPersonDataGroup.Size = new System.Drawing.Size(965, 150);
-            this.layoutControlPersonDataGroup.Text = "Person data";
+            this.layoutControlPersonDataGroup.Size = new System.Drawing.Size(479, 352);
+            this.layoutControlPersonDataGroup.Text = "Personal data";
             // 
             // layoutControlFirstNameTextEdit
             // 
@@ -395,7 +384,7 @@ namespace ContosoUI.UserForm
             this.layoutControlFirstNameTextEdit.Location = new System.Drawing.Point(0, 0);
             this.layoutControlFirstNameTextEdit.Name = "layoutControlFirstNameTextEdit";
             this.layoutControlFirstNameTextEdit.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
-            this.layoutControlFirstNameTextEdit.Size = new System.Drawing.Size(965, 50);
+            this.layoutControlFirstNameTextEdit.Size = new System.Drawing.Size(479, 50);
             this.layoutControlFirstNameTextEdit.Spacing = new DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 2);
             this.layoutControlFirstNameTextEdit.Text = "First name";
             this.layoutControlFirstNameTextEdit.TextLocation = DevExpress.Utils.Locations.Top;
@@ -407,7 +396,7 @@ namespace ContosoUI.UserForm
             this.middleNameLayoutControl.Location = new System.Drawing.Point(0, 50);
             this.middleNameLayoutControl.Name = "middleNameLayoutControl";
             this.middleNameLayoutControl.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
-            this.middleNameLayoutControl.Size = new System.Drawing.Size(965, 50);
+            this.middleNameLayoutControl.Size = new System.Drawing.Size(479, 50);
             this.middleNameLayoutControl.Spacing = new DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 2);
             this.middleNameLayoutControl.Text = "Middle name";
             this.middleNameLayoutControl.TextLocation = DevExpress.Utils.Locations.Top;
@@ -419,18 +408,43 @@ namespace ContosoUI.UserForm
             this.layoutControlLastNameTextEdit.Location = new System.Drawing.Point(0, 100);
             this.layoutControlLastNameTextEdit.Name = "layoutControlLastNameTextEdit";
             this.layoutControlLastNameTextEdit.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
-            this.layoutControlLastNameTextEdit.Size = new System.Drawing.Size(965, 50);
+            this.layoutControlLastNameTextEdit.Size = new System.Drawing.Size(479, 252);
             this.layoutControlLastNameTextEdit.Spacing = new DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 2);
             this.layoutControlLastNameTextEdit.Text = "Last name";
             this.layoutControlLastNameTextEdit.TextLocation = DevExpress.Utils.Locations.Top;
             this.layoutControlLastNameTextEdit.TextSize = new System.Drawing.Size(59, 13);
             // 
-            // splitterItem1
+            // tabbedControlGroupLoginData
             // 
-            this.splitterItem1.AllowHotTrack = true;
-            this.splitterItem1.Location = new System.Drawing.Point(989, 0);
-            this.splitterItem1.Name = "splitterItem1";
-            this.splitterItem1.Size = new System.Drawing.Size(5, 594);
+            this.tabbedControlGroupLoginData.Location = new System.Drawing.Point(503, 0);
+            this.tabbedControlGroupLoginData.Name = "tabbedControlGroupLoginData";
+            this.tabbedControlGroupLoginData.SelectedTabPage = this.layoutControlGroupPermissions;
+            this.tabbedControlGroupLoginData.SelectedTabPageIndex = 0;
+            this.tabbedControlGroupLoginData.Size = new System.Drawing.Size(491, 594);
+            this.tabbedControlGroupLoginData.TabPages.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.layoutControlGroupPermissions});
+            // 
+            // layoutControlGroupPermissions
+            // 
+            this.layoutControlGroupPermissions.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.layoutControlPermissionsListBox});
+            this.layoutControlGroupPermissions.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlGroupPermissions.Name = "layoutControlGroupPermissions";
+            this.layoutControlGroupPermissions.Size = new System.Drawing.Size(467, 548);
+            this.layoutControlGroupPermissions.Text = "Permissions";
+            // 
+            // layoutControlPermissionsListBox
+            // 
+            this.layoutControlPermissionsListBox.Control = this.permissionListBoxControl;
+            this.layoutControlPermissionsListBox.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlPermissionsListBox.Name = "layoutControlPermissionsListBox";
+            this.layoutControlPermissionsListBox.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
+            this.layoutControlPermissionsListBox.Size = new System.Drawing.Size(467, 548);
+            this.layoutControlPermissionsListBox.Spacing = new DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 2);
+            this.layoutControlPermissionsListBox.Text = "Permissions";
+            this.layoutControlPermissionsListBox.TextLocation = DevExpress.Utils.Locations.Top;
+            this.layoutControlPermissionsListBox.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlPermissionsListBox.TextVisible = false;
             // 
             // UserForm
             // 
@@ -443,7 +457,8 @@ namespace ContosoUI.UserForm
             this.Name = "UserForm";
             this.Ribbon = this.ribbon;
             this.StatusBar = this.ribbonStatusBar;
-            this.Text = "UserViewList";
+            this.Text = "User View";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.UserForm_FormClosed);
             this.Load += new System.EventHandler(this.UserForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl)).EndInit();
@@ -462,13 +477,14 @@ namespace ContosoUI.UserForm
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlLoginTextEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlPasswordTextEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlRoleComboBox)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tabbedControlGroup1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tabbedControlGroupPersonalData)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlPersonDataGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlFirstNameTextEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.middleNameLayoutControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlLastNameTextEdit)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.splitterItem1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tabbedControlGroupLoginData)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroupPermissions)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlPermissionsListBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -488,7 +504,6 @@ namespace ContosoUI.UserForm
         private TextEdit passwordTextEdit;
         private TextEdit loginTextEdit;
         private LayoutControlGroup layoutControlEntireGroup;
-        private SplitterItem splitterItem1;
         private TabbedControlGroup tabbedControlLoginDataGroup;
         private LayoutControlGroup layoutControlLoginDataGroup;
         private LayoutControlItem layoutControlLoginTextEdit;
@@ -497,8 +512,7 @@ namespace ContosoUI.UserForm
         private BarButtonItem barSaveAndNewButton;
         private BarButtonItem barNewButton;
         private ListBoxControl permissionListBoxControl;
-        private LayoutControlItem layoutControlItem1;
-        private TabbedControlGroup tabbedControlGroup1;
+        private TabbedControlGroup tabbedControlGroupPersonalData;
         private LayoutControlGroup layoutControlPersonDataGroup;
         private LayoutControlItem layoutControlFirstNameTextEdit;
         private LayoutControlItem middleNameLayoutControl;
@@ -507,5 +521,8 @@ namespace ContosoUI.UserForm
         private RibbonPageGroup ribbonPageUserFileGroup;
         private LookUpEdit roleLookUpEdit;
         private BindingSource roleBindingSource;
+        private TabbedControlGroup tabbedControlGroupLoginData;
+        private LayoutControlGroup layoutControlGroupPermissions;
+        private LayoutControlItem layoutControlPermissionsListBox;
     }
 }
