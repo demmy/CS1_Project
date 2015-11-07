@@ -26,10 +26,23 @@ namespace ContosoUI.OrderForm
         private Status _status = Status.Opened;
         private DateTime _date = DateTime.Now;
         private double _totalPrice;
-
+        
         private BindingList<Comment> _comments = new BindingList<Comment>(); 
         private BindingList<OrderItem> _orderItems = new BindingList<OrderItem>();
-        public bool State { get; set; }
+
+        public bool State
+        {
+            get { return _state; }
+            set
+            {
+                if (!Equals(value, _state))
+                {
+                    _state = value;
+                    NotifyPropertyChanged();
+                }
+            }
+        }
+
         private int _id;
 
         public void OrderItemsComparer()
@@ -45,6 +58,7 @@ namespace ContosoUI.OrderForm
         }
 
         public BindingList<Client> ClientsList;
+        private bool _state;
 
         public OrderPresenter(OrderModel model, IOrderView view)
         {
@@ -52,7 +66,7 @@ namespace ContosoUI.OrderForm
             _view = view;
             _produtRepository = _model.ProductRepository;
             _clientRepository = _model.ClientRepository;
-            ClientsList = new BindingList<Client>(_clientRepository.GetAll().ToList());            
+            ClientsList = new BindingList<Client>(_clientRepository.GetAll().ToList());
         }
 
         public void UseOrderWithID(int id)
@@ -65,6 +79,7 @@ namespace ContosoUI.OrderForm
             _date = _order.Date;
             _comments = new BindingList<Comment>(_order.Comments.ToList());
             _orderItems = new BindingList<OrderItem>(_order.OrderItems);
+            _state = _order.IsActive;
             _id = id;
         }
 
@@ -136,30 +151,33 @@ namespace ContosoUI.OrderForm
 
         public void Save()
         {
-            Order orderToSave = new Order(_comments, new List<OrderItem>(_orderItems))
+            if (_order.Id != 0)
+            {
+                _order.Comments = _comments;
+                _order.Client = _client;
+                _order.Date = _date;
+                _order.OrderItems = _orderItems.ToList();
+                _order.IsActive = _state;
+                _order.Id = _id;
+                _order.Status = _status;
+                _order.OrderNumber = _orderNumber;
+
+                _model.Save(_order);
+            }
+            else
+            {
+                var newOrderToSave = new Order(_comments, new List<OrderItem>(_orderItems))
             {
                 Client = _client,
                 Date = _date,
-                IsActive = State,
+                    IsActive = _state,
                 Id = _id,
                 Status = _status,
                 OrderNumber = _orderNumber
             };
-
-            if (orderToSave.Id != 0)
+                if (_model.GetByNumber(newOrderToSave.OrderNumber) == null)
             {
-                if (!_model.GetByNumber(orderToSave.OrderNumber).Equals(orderToSave))
-                {
-                    _model.Save(orderToSave);
-                    _order = orderToSave;
-                }
-            }
-            else
-            {
-                if (_model.GetByNumber(orderToSave.OrderNumber) == null)
-                {
-                    _model.Create(orderToSave);
-                    _order = orderToSave;
+                    _model.Create(newOrderToSave);
                 }
                 else
                 {
@@ -170,12 +188,12 @@ namespace ContosoUI.OrderForm
 
         public void New()
         {
-            _order = new Order();
+            _order = new Order(Domain.Entities.Comments.Comments.Init(Program.AuthUser, "Order"), new List<OrderItem>());
             _client = new Client() { ClientLocation = new Location(), Person = new Domain.Entities.Person() };
             _orderNumber = string.Empty;
             _status = Status.Opened;
             _date = DateTime.Now;
-            State = true;
+            _state = true;
             _orderItems = new BindingList<OrderItem>();
             _comments = new BindingList<Comment>();
             NotifyPropertyChanged();

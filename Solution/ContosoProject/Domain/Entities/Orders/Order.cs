@@ -1,6 +1,7 @@
 ﻿using Domain.Entities.Clients;
 using Domain.Entities.Comments;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 
@@ -31,6 +32,7 @@ namespace Domain.Entities.Orders
         {
             get 
             { return orderItems.ToList(); }
+            set { orderItems = new Collection<OrderItem>(value); }
         }
 
         public double Sum
