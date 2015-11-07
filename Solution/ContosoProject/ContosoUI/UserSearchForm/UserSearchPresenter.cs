@@ -1,61 +1,111 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Data.Design;
+using Domain.DAO;
 using Domain.Entities.Users;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Linq;
 
 namespace ContosoUI.UserSearchForm
 {
-    class UserSearchPresenter
+    public class UserSearchPresenter: Presenter, ISearchPresenter
     {
-        private readonly IUserSearchView view;
-        private readonly UserSearchModel model;
-        private readonly UserForm.IUserView viewUserForm;
+        private readonly IUserSearchView _view;
+        private readonly UserSearchModel _model;
 
-        public UserSearchPresenter(IUserSearchView view, UserSearchModel model, UserForm.IUserView viewUserForm)
+        private readonly IUserRepository _userRepository;
+
+        public UserSearchPresenter(IUserSearchView view, UserSearchModel model)
         {
-            this.view = view;
-            this.model = model;
-            this.viewUserForm = viewUserForm;
+            _view = view;
+            _model = model;
+            _userRepository = _model.UserRepository;
         }
 
-        public void AddUser()
+        private string login = string.Empty;
+        public string Login 
         {
-            UserForm.UserForm addUserForm = new UserForm.UserForm();
-            addUserForm.Show();
+            get { return login; }
+            set
+            {
+                if (value != this.login)
+                {
+                    this.login = value;
+                    NotifyPropertyChanged();
+                }
+            }
         }
 
-        public void EditUser(int id)
+        private string firstName = string.Empty;
+        public string FirstName
         {
-            Data.DummyData.DummyDAO<User> DefaultUser = new Data.DummyData.DummyDAO<User>();
-            var CurrentUser = DefaultUser.Find(id);
+            get { return firstName; }
+            set
+            {
+                if (value != this.firstName)
+                {
+                    this.firstName = value;
+                    NotifyPropertyChanged();
+                }
+            }
+        }
 
-            viewUserForm.Login = CurrentUser.Login;
-            viewUserForm.Password = CurrentUser.Password;
-            viewUserForm.FirstName = CurrentUser.Person.FirstName;
-            viewUserForm.MiddleName = CurrentUser.Person.MiddleName;
-            viewUserForm.LastName = CurrentUser.Person.LastName;
-            viewUserForm.Role = CurrentUser.Role.Title;
-            viewUserForm.Active = CurrentUser.IsActive;
-            viewUserForm.Comments = (ICollection<Domain.Entities.Comments.Comment>)CurrentUser.Comments;
+        private string lastName = string.Empty;
+        public string LastName
+        {
+            get { return lastName; }
+            set
+            {
+                if (value != this.lastName)
+                {
+                    this.lastName = value;
+                    NotifyPropertyChanged();
+                }
+            }
+        }
 
-            UserForm.UserForm addUserForm = new UserForm.UserForm();
-            addUserForm.Show();
+        private BindingList<User> usersList = new BindingList<User>();
+        public BindingList<User> Users
+        {
+            get { return usersList; }
+            set
+            {
+                if (value != this.usersList)
+                {
+                    this.usersList = value;
+                    NotifyPropertyChanged();
+                }
+            }
+        }
+
+        public void Edit(int id)
+        {
+            UserForm.UserForm editUserForm = new UserForm.UserForm(id);
+            editUserForm.MdiParent = Program.MainForm;
+            editUserForm.Show();
         }
 
         public void Search()
         {
-            var users = model.SearchUser(view.Login, view.FirstName, view.LastName);
-            view.UserGrid = users;
+            List<User> users; 
+            if (Login != null && FirstName != null && LastName != null)
+                users = _userRepository.GetBy(Login, FirstName, LastName).ToList();
+            else
+                users = _userRepository.GetAll().ToList();
+
+            Users = new BindingList<User>(users);
         }
 
-        public void Cancel()
+        public void Clear()
         {
-            view.Login = null;
-            view.FirstName = null;
-            view.LastName = null;
-            view.UserGrid.Clear(); 
+            Login = null;
+            FirstName = null;
+            LastName = null;
+            Users.Clear();
+        }
+
+        public override void Stop()
+        {
+            _model.Dispose();
         }
     }
 }

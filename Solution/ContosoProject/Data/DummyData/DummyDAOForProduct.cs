@@ -11,22 +11,37 @@ namespace Data.DummyData
     {
         public DummyDAOForProduct()
         {
-            _collection = Storage.Products;
-        }
-        public ICollection<Product> GetBySKU(string sku)
-        {
-            if (_collection.Any(x => x.SKU == sku))
-            {
-                return _collection.Where(x => x.SKU== sku).ToList();
-            }
-            throw new Exception();
+            Collection = Storage.Products;
         }
 
+        public ICollection<Product> GetBy(string sku, string title, Category category)
+        {
+            var result = Collection.AsQueryable();
+            if (!string.IsNullOrWhiteSpace(sku))
+            {
+                result = result.Where(x => x.SKU == sku);
+            }
+            if (!string.IsNullOrWhiteSpace(title))
+            {
+                result = result.Where(x => x.Title ==title);
+            }
+            if (!Category.IsNullOrEmpty(category))
+            {
+                result = result.Where(x =>x.Category == category);
+            }
+            return result.ToList();
+        }
+        [Obsolete]
+        public Product GetBySKU(string sku)
+        {
+            return Collection.FirstOrDefault(x => x.SKU == sku);
+        }
+        [Obsolete]
         public ICollection<Product> GetByCategory(Category category)
         {
-            if (_collection.Any(x => x.Category == category))
+            if (Collection.Any(x => x.Category == category))
             {
-                return _collection.Where(x => x.Category == category).ToList();
+                return Collection.Where(x => x.Category == category).ToList();
             }
             throw new Exception();
         }

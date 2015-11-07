@@ -4,6 +4,7 @@ using System.Linq;
 using Data.StoreData;
 using Domain.DAO;
 using Domain.Entities;
+using Domain.Entities.Clients;
 
 namespace Data.DummyData
 {
@@ -11,24 +12,29 @@ namespace Data.DummyData
     {
         public DummyDAOForClient()
         {
-            _collection = Storage.Clients;
-        }
-        public ICollection<Client> GetByName(string name)
-        {
-            if (_collection.Any(x => x.Person.FirstName == name))
-            {
-                return _collection.Where(x => x.Person.FirstName == name).ToList();
-            }
-            throw new Exception();
+            Collection = Storage.Clients;
         }
 
-        public ICollection<Client> GetByCity(string city)
+        public ICollection<Client> FindBy(string firstName, string lastName, string city)
         {
-            if (_collection.Any(x => x.ClientLocation.City == city))
+            var result = Collection.AsQueryable();
+            if (!string.IsNullOrWhiteSpace(firstName))
             {
-                return _collection.Where(x => x.ClientLocation.City == city).ToList();
+                result = result.Where(x => x.Person.FirstName == firstName);
+            }            
+            if (!string.IsNullOrWhiteSpace(lastName))
+            {
+                result = result.Where(x => x.Person.LastName == lastName);
             }
-            throw new Exception();
+            if (!string.IsNullOrWhiteSpace(city))
+            {
+                result = result.Where(x => x.ClientLocation.City == city);
+            }
+            if (!Equals(result, Collection.AsQueryable()))
+            {
+                return result.ToList();
+            }
+            return null;
         }
     }
 }

@@ -1,14 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using Domain.Entities.Users;
 
 namespace Domain.DAO
 {
-    public interface IPermissionRepository : IRepository<Permission>
+    public interface IPermissionRepository
     {
+        Permission GetById(int id);
         ICollection<Permission> GetByTitle(string title);
+        ICollection<Permission> GetAll();
     }
 }

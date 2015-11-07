@@ -1,13 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using DevExpress.XtraSplashScreen;
+using Domain.Entities.Users;
+using System;
 using System.Windows.Forms;
 
 namespace ContosoUI
 {
     static class Program
     {
+        public static MainForm MainForm { get; private set; }
+        public static User AuthUser { get; set; }
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
@@ -16,11 +17,18 @@ namespace ContosoUI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new ClientSearchForm.ClientSearchForm());
-            Application.Run(new UserSearchForm.UserSearchForm());
-//Application.Run(new ProductSearchForm.ProductSearchForm());
-            //Application.Run(new OrderSearchForm.OrderSearchForm());
 
+            
+            //auth
+            var lf = new LoginForm();
+            lf.ShowDialog();
+
+            if (AuthUser != null)
+            {
+                MainForm = new MainForm();
+                SplashScreenManager.CloseForm();
+                Application.Run(MainForm);
+            }
         }
     }
 }
