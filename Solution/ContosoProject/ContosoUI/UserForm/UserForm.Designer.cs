@@ -457,7 +457,7 @@ namespace ContosoUI.UserForm
             this.Name = "UserForm";
             this.Ribbon = this.ribbon;
             this.StatusBar = this.ribbonStatusBar;
-            this.Text = "UserViewList";
+            this.Text = "User View";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.UserForm_FormClosed);
             this.Load += new System.EventHandler(this.UserForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).EndInit();

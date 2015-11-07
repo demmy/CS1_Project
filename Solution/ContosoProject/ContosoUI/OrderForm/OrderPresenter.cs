@@ -20,17 +20,29 @@ namespace ContosoUI.OrderForm
         IClientRepository _clientRepository;
 
         private Order _order = new Order(Domain.Entities.Comments.Comments.Init(Program.AuthUser, "Order"), new List<OrderItem>());
-        private Client _client = new Client();
+        private Client _client = new Client() { ClientLocation = new Location(), Person = new Domain.Entities.Person()};
 
         private string _orderNumber = string.Empty;
         private Status _status = Status.Opened;
         private DateTime _date = DateTime.Now;
-        
+        private double _totalPrice;
+
         private BindingList<Comment> _comments = new BindingList<Comment>(); 
         private BindingList<OrderItem> _orderItems = new BindingList<OrderItem>();
         public bool State { get; set; }
         private int _id;
 
+        public void OrderItemsComparer()
+        {
+            foreach (var item in OrderItems)
+            {
+                if (OrderItems.Where(x => x.Product == item.Product).Count() > 1)
+                {
+                    MessageBox.Show("Dublicate product in order items list.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    NotifyPropertyChanged();
+                }                    
+            }
+        }
 
         public BindingList<Client> ClientsList;
 
@@ -40,7 +52,7 @@ namespace ContosoUI.OrderForm
             _view = view;
             _produtRepository = _model.ProductRepository;
             _clientRepository = _model.ClientRepository;
-            ClientsList = new BindingList<Client>(_clientRepository.GetAll().ToList());
+            ClientsList = new BindingList<Client>(_clientRepository.GetAll().ToList());            
         }
 
         public void UseOrderWithID(int id)
@@ -111,6 +123,17 @@ namespace ContosoUI.OrderForm
             }
         }
 
+        public double TotalPrice
+        {
+            get { return _totalPrice; }
+            set
+            {
+                if (Equals(value, _totalPrice)) return;
+                _totalPrice = value;
+                NotifyPropertyChanged();
+            }
+        }
+
         public void Save()
         {
             Order orderToSave = new Order(_comments, new List<OrderItem>(_orderItems))
@@ -148,13 +171,14 @@ namespace ContosoUI.OrderForm
         public void New()
         {
             _order = new Order();
-            _client = new Client();
+            _client = new Client() { ClientLocation = new Location(), Person = new Domain.Entities.Person() };
             _orderNumber = string.Empty;
             _status = Status.Opened;
             _date = DateTime.Now;
             State = true;
             _orderItems = new BindingList<OrderItem>();
             _comments = new BindingList<Comment>();
+            NotifyPropertyChanged();
         }
 
         public void SaveAndNew()
