@@ -18,6 +18,11 @@ namespace Data.EFRepository
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            //modelBuilder.Entity<Order>()
+            //    .HasMany<OrderItem>(order => order.OrderItems)
+            //    .WithRequired(orderItem => orderItem.Order)
+            //    .HasForeignKey(orderItem => orderItem.OrderId)
+            //    .WillCascadeOnDelete(true);
             base.OnModelCreating(modelBuilder);
         }
 

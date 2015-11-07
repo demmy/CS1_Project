@@ -320,7 +320,7 @@
             this.Name = "OrderListView";
             this.Ribbon = this.mainRibbon;
             this.StatusBar = this.ribbonStatusBarOrderView;
-            this.Text = "Order search";
+            this.Text = "Order Search";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.OrderListView_FormClosed);
             this.Load += new System.EventHandler(this.OrderListView_Load);
             ((System.ComponentModel.ISupportInitialize)(this.mainRibbon)).EndInit();

@@ -75,7 +75,11 @@ namespace ContosoUI.ProductForm
         public void UseCategoryWithID(int id)
         {
             if(id != 0)
+            {                
                 _categoryInUse = _categoryRepository.Find(id);
+                _category = _categoryInUse;
+                NotifyPropertyChanged();
+            }
             _categoryComments = new BindingList<Comment>(_categoryInUse.Comments.ToList());
         }
 
@@ -247,7 +251,11 @@ namespace ContosoUI.ProductForm
         public Category CategoryInUse
         {
             get { return _categoryInUse; }
-            set { _categoryInUse = value; }
+            set
+            {
+                _categoryInUse = value; 
+                NotifyPropertyChanged();
+            }
         }
 
         private int ID

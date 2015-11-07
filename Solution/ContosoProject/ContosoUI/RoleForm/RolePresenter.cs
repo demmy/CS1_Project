@@ -105,7 +105,7 @@ namespace ContosoUI.RoleForm
 
         public override void Stop()
         {
-            throw new NotImplementedException();
+            _model.Dispose();
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Data.Entity;
 using Domain.DAO;
 using Domain.Entities;
 using Domain.Entities.Orders;
@@ -17,6 +18,43 @@ namespace Data.EFRepository
 
         }
 
+        public new void Create(Order entity)
+        {
+            dbContext.Orders.Add(entity);
+            dbContext.SaveChanges();
+        }
+
+        public new void Save(Order entity)
+        {
+            dbContext.Entry(entity).State = System.Data.Entity.EntityState.Modified;
+            dbContext.SaveChanges();
+        }
+
+        public new void Delete(Order entity)
+        {
+            dbContext.Orders.Remove(entity);
+            dbContext.SaveChanges();
+        }
+
+        public new void Delete(int id)
+        {
+            var ent = Find(id);
+            Delete(ent);
+            dbContext.SaveChanges();
+        }
+
+        public new Order Find(int id)
+        {
+            return dbContext.Orders
+                .Include(ord => ord.OrderItems)
+                .FirstOrDefault(x => x.Id == id);
+        }
+
+        public new IQueryable<Order> GetAll()
+        {
+            return dbContext.Orders.Include(order => order.OrderItems).AsQueryable();
+        }
+
         /// <summary>
         /// The method to search the Order by some kind of "mask"
         /// </summary>
@@ -24,7 +62,7 @@ namespace Data.EFRepository
         /// <returns></returns>
         public ICollection<Order> GetByStatus(Status status)
         {
-            return dbContext.Orders.AsQueryable()
+            return dbContext.Orders.Include(ord => ord.OrderItems)
                 .Where(order => order.Status == status)
                 .ToList();
         }
@@ -37,7 +75,7 @@ namespace Data.EFRepository
         /// <returns></returns>
         public ICollection<Order> GetByClient(Client client)
         {
-            return (from order in dbContext.Orders
+            return (from order in dbContext.Orders.Include(ord => ord.OrderItems)
                         where order.Client.Id == client.Id
                             select order)
                                 .ToList();
@@ -49,7 +87,7 @@ namespace Data.EFRepository
         /// <returns></returns>
         public ICollection<Order> GetByProduct(Product product)
         {
-            return (from order in dbContext.Orders
+            return (from order in dbContext.Orders.Include(ord => ord.OrderItems)
                         where order.Contains(product)
                             select order)
                                 .ToList();
@@ -63,7 +101,7 @@ namespace Data.EFRepository
         /// <param name="quantity"></param>
         public void AddOrder(Order order, Product product, int quantity)
         {
-            var tempOrder = dbContext.Orders.FirstOrDefault(ord => ord == order) ?? order;
+            var tempOrder = dbContext.Orders.Include(ord => ord.OrderItems).FirstOrDefault(ord => ord == order) ?? order;
             tempOrder.AddOrder(product, quantity);
             dbContext.SaveChanges();
         }
@@ -88,7 +126,7 @@ namespace Data.EFRepository
         /// <param name="quantity"></param>
         public void EditOrder(Order order, Product product, int quantity)
         {
-            dbContext.Orders
+            dbContext.Orders.Include(ord => ord.OrderItems)
                 .FirstOrDefault(ord => ord == order)
                 .EditOrder(product, quantity);
         }
@@ -106,9 +144,9 @@ namespace Data.EFRepository
                 return result.Where(order => order.OrderNumber == orderNumber).ToList();
 
             if (client != null)
-                result = result.Where(order => order.Client == client);
+                result = result.Where(order => order.Client.Id == client.Id);
 
-            return result.Where(order => order.Status == status).ToList();
+            return result.Include(ord => ord.OrderItems).Where(order => order.Status == status).ToList();
         }
         /// <summary>
         /// 
@@ -117,7 +155,7 @@ namespace Data.EFRepository
         /// <returns></returns>
         public Order GetByNumber(string orderNumber)
         {
-            return dbContext.Orders.AsQueryable().FirstOrDefault(order => order.OrderNumber == orderNumber);
+            return dbContext.Orders.Include(ord => ord.OrderItems).FirstOrDefault(order => order.OrderNumber == orderNumber);
         }
     }
 }

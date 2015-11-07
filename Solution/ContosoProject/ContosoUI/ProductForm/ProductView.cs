@@ -45,9 +45,8 @@ namespace ContosoUI.ProductForm
             productTitleTextEdit.DataBindings.Add("EditValue", _binding, "Title");
             productQuantitySpinEdit.DataBindings.Add("Value", _binding, "Quantity");
             productPriceTextEdit.DataBindings.Add("EditValue", _binding, "Price");
-            
-            categoryLookUpEdit.Properties.DataSource = _presenter.Categories;
-            categoryLookUpEdit.DataBindings.Add("EditValue", _binding, "Category");
+
+            productCategoryTextEdit.DataBindings.Add("EditValue", _binding, "Category");
             categorySearchControl.DataBindings.Add("EditValue", _binding, "SearchTitleCategory");
             productCommentsListBoxControl.DataBindings.Add("DataSource", _binding, "ProductComments");
             categoryGridControl.DataBindings.Add("DataSource", _binding, "Categories");
@@ -132,7 +131,7 @@ namespace ContosoUI.ProductForm
 
         private bool IsControlsEmpty()
         {
-            return string.IsNullOrEmpty(productSKUTextEdit.Text) || string.IsNullOrEmpty(productTitleTextEdit.Text) || string.IsNullOrEmpty(productPriceTextEdit.Text) || categoryLookUpEdit.EditValue == null;
+            return string.IsNullOrEmpty(productSKUTextEdit.Text) || string.IsNullOrEmpty(productTitleTextEdit.Text) || string.IsNullOrEmpty(productPriceTextEdit.Text) || productCategoryTextEdit.EditValue == null;
         }
 
         private void barSaveAndNewButton_ItemClick(object sender, ItemClickEventArgs e)
@@ -163,7 +162,7 @@ namespace ContosoUI.ProductForm
             int id = (int)view.GetRowCellValue(e.FocusedRowHandle, "Id");
             _presenter.UseCategoryWithID(id);
             categoryCommentsListBoxControl.DataBindings.Add("DataSource", _binding, "CategoryComments");
-            
+            _binding.EndEdit();
        }
  
         private void productStateButton_ItemClick(object sender, ItemClickEventArgs e)

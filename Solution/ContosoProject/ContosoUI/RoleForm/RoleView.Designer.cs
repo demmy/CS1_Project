@@ -252,7 +252,7 @@
             this.Name = "RoleView";
             this.Ribbon = this.ribbon;
             this.StatusBar = this.ribbonStatusBar;
-            this.Text = "RoleView";
+            this.Text = "Roles";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.RoleView_FormClosed);
             this.Load += new System.EventHandler(this.RoleView_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).EndInit();
