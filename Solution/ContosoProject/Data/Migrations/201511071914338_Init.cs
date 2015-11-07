@@ -122,14 +122,14 @@ public partial class Init : DbMigration
                     Quantity = c.Int(nullable: false),
                     Price = c.Double(nullable: false),
                     IsActive = c.Boolean(nullable: false),
-                    Product_Id = c.Int(),
                     Order_Id = c.Int(),
+                    Product_Id = c.Int(),
                 })
             .PrimaryKey(t => t.Id)
-            .ForeignKey("dbo.Products", t => t.Product_Id)
             .ForeignKey("dbo.Orders", t => t.Order_Id)
-            .Index(t => t.Product_Id)
-            .Index(t => t.Order_Id);
+            .ForeignKey("dbo.Products", t => t.Product_Id)
+            .Index(t => t.Order_Id)
+            .Index(t => t.Product_Id);
         
         CreateTable(
             "dbo.Products",
@@ -176,11 +176,11 @@ public partial class Init : DbMigration
     
     public override void Down()
     {
-        DropForeignKey("dbo.OrderItems", "Order_Id", "dbo.Orders");
         DropForeignKey("dbo.OrderItems", "Product_Id", "dbo.Products");
         DropForeignKey("dbo.Comments", "Product_Id", "dbo.Products");
         DropForeignKey("dbo.Products", "Category_Id", "dbo.Categories");
         DropForeignKey("dbo.Comments", "Category_Id", "dbo.Categories");
+        DropForeignKey("dbo.OrderItems", "Order_Id", "dbo.Orders");
         DropForeignKey("dbo.Comments", "Order_Id", "dbo.Orders");
         DropForeignKey("dbo.Orders", "Client_Id", "dbo.Clients");
         DropForeignKey("dbo.Telephones", "Client_Id", "dbo.Clients");
@@ -192,8 +192,8 @@ public partial class Init : DbMigration
         DropIndex("dbo.PermissionRoles", new[] { "Role_Id" });
         DropIndex("dbo.PermissionRoles", new[] { "Permission_Id" });
         DropIndex("dbo.Products", new[] { "Category_Id" });
-        DropIndex("dbo.OrderItems", new[] { "Order_Id" });
         DropIndex("dbo.OrderItems", new[] { "Product_Id" });
+        DropIndex("dbo.OrderItems", new[] { "Order_Id" });
         DropIndex("dbo.Orders", new[] { "Client_Id" });
         DropIndex("dbo.Telephones", new[] { "Client_Id" });
         DropIndex("dbo.Users", new[] { "Role_Id" });

@@ -4,9 +4,14 @@ namespace Domain.Entities.Orders
 {
     public class OrderItem : Entity
     {
-        public Product Product { get; set; }
+        public virtual Order Order { get; set; }
+        public virtual Product Product { get; set; }
         public int Quantity { get; set; }
         public double Price { get; set; }
+        public OrderItem()
+        {
+
+        }
 
         public OrderItem(Product product, int quantity, double price)
         {

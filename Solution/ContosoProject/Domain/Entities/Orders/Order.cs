@@ -11,11 +11,10 @@ namespace Domain.Entities.Orders
 
     public class Order : ExtendedEntity, ICommentable
     {
-        private IList<OrderItem> orderItems = new List<OrderItem>();
         public Order(ICollection<Comment> comments, ICollection<OrderItem> orders)
         {
             Comments = comments;
-            orderItems = orders.ToList();
+            OrderItems = orders.ToList();
         }
 
         public Order()
@@ -26,18 +25,13 @@ namespace Domain.Entities.Orders
         public Client Client { get; set; }
         public Status Status { get; set; }
         public string OrderNumber { get; set; }
+
         public virtual ICollection<Comment> Comments { get; set; }
-        
-        public List<OrderItem> OrderItems
-        {
-            get 
-            { return orderItems.ToList(); }
-            set { orderItems = new Collection<OrderItem>(value); }
-        }
+        public virtual List<OrderItem> OrderItems { get; set; }
 
         public double Sum
         {
-            get { return orderItems.Sum(x => x.Price); }
+            get { return OrderItems.Sum(x => x.Price); }
         }
     }
 }
