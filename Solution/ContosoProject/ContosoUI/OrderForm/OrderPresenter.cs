@@ -88,14 +88,10 @@ namespace ContosoUI.OrderForm
                     Status = _status,
                     OrderNumber = _orderNumber
                 };
-                if (_model.GetByNumber(newOrderToSave.OrderNumber) == null)
-                {
-                    _model.Create(newOrderToSave);
-                }
-                else
-                {
-                    MessageBox.Show("Order with this number already exists, use another one, please.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
-                }
+
+                _model.Create(newOrderToSave);
+                _id = newOrderToSave.Id;
+                _order = newOrderToSave;                
             }
         }
 
@@ -143,6 +139,7 @@ namespace ContosoUI.OrderForm
             _orderItems = new BindingList<OrderItem>(_order.OrderItems);
             _state = _order.IsActive;
             _id = id;
+            _totalPrice = _order.Sum;
         }
 
         public override void Stop()
