@@ -116,6 +116,8 @@ namespace ContosoUI.ProductForm
                     IsActive = _isActive
                 };
                 _model.Create(newProductToSave);
+                _id = newProductToSave.Id;
+                _product = newProductToSave; 
             }
         }
         
