@@ -10,6 +10,7 @@ using DevExpress.Images;
 using Domain.Entities.Clients;
 using Domain.Entities.Users;
 using DevExpress.XtraBars;
+using DevExpress.XtraEditors.Controls;
 
 
 namespace ContosoUI.ClientForm
@@ -116,10 +117,20 @@ namespace ContosoUI.ClientForm
 
         private void buttonAddNewTelephoneEdit_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
-            if (!string.IsNullOrEmpty(buttonAddNewTelephoneEdit.EditValue.ToString()))
+            if (e.Button.Kind == ButtonPredefines.Plus)
             {
-                _presenter.Telephones.Add(new Telephone() {Number = buttonAddNewTelephoneEdit.EditValue.ToString()});
-                buttonAddNewTelephoneEdit.EditValue = string.Empty;
+                if (!string.IsNullOrEmpty(buttonAddNewTelephoneEdit.EditValue.ToString()))
+                {
+                    _presenter.Telephones.Add(new Telephone() {Number = buttonAddNewTelephoneEdit.EditValue.ToString()});
+                    buttonAddNewTelephoneEdit.EditValue = string.Empty;
+                }
+            }
+            else
+            {
+                if (сlientTelephonesListBoxControl.SelectedIndex>=0)
+                {
+                    _presenter.Telephones.Remove((сlientTelephonesListBoxControl.SelectedItem as Telephone));
+                }
             }
         }
 
@@ -155,6 +166,12 @@ namespace ContosoUI.ClientForm
         private void ClientView_FormClosed(object sender, FormClosedEventArgs e)
         {
             _presenter.Stop();
+        }
+
+
+        private void buttonAddNewTelephoneEdit_Click(object sender, EventArgs e)
+        {
+            buttonAddNewTelephoneEdit.SelectAll();
         }
     }
 }
