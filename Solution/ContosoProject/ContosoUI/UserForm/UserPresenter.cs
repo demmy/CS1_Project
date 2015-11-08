@@ -153,6 +153,7 @@ namespace ContosoUI.UserForm
             MiddleName = _user.Person.MiddleName;
             LastName = _user.Person.LastName;
             RoleID = _user.Role.Id;
+            
             Permissions = new BindingList<Permission>(_user.Role.Permissions.ToList());
             State = _user.IsActive;
         }

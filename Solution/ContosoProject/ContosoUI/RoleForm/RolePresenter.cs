@@ -61,6 +61,11 @@ namespace ContosoUI.RoleForm
         {
             foreach (var role in _roles)
             {
+                if (string.IsNullOrEmpty(role.Title))
+                {
+                    MessageBox.Show("You unable to save role with empty title!", "Warning");
+                    return;
+                }
                 if (role.Id == 0)
                 {
                     _model.RoleRepository.Create(role);

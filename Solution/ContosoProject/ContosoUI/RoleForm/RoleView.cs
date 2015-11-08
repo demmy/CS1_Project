@@ -42,19 +42,6 @@ namespace ContosoUI.RoleForm
            }
        }
 
-        private void roleGridView_RowClick(object sender, RowClickEventArgs e)
-        {
-            permissionsCheckedListBox.DataBindings.Clear();
-            GridView view = (GridView) sender;
-            GridHitInfo info = view.CalcHitInfo(view.GridControl.PointToClient(Control.MousePosition));
-
-            if (e.HitInfo.InRow || e.HitInfo.InColumn)
-            {
-                int id = (int) view.GetRowCellValue(info.RowHandle, "Id");
-                _presenter.UsePermissionWithRoleID(id);
-                FillThePermissionsList();
-            }
-        }
 
         private void FillThePermissionsList()
         {
@@ -85,9 +72,20 @@ namespace ContosoUI.RoleForm
             }
         }
 
+
+
         private void RoleView_FormClosed(object sender, FormClosedEventArgs e)
         {
             _presenter.Stop();
+        }
+
+        private void roleGridView_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
+        {
+            permissionsCheckedListBox.DataBindings.Clear();
+            GridView view = (GridView) sender;
+            int id = (int) view.GetRowCellValue(e.FocusedRowHandle, "Id");
+            _presenter.UsePermissionWithRoleID(id);
+            FillThePermissionsList();
         }
     }
 }
