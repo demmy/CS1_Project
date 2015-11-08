@@ -45,7 +45,7 @@ namespace ContosoUI.OrderForm
             _view = view;
             _produtRepository = _model.ProductRepository;
             _clientRepository = _model.ClientRepository;
-            ClientsList = new BindingList<Client>(_clientRepository.GetAll().ToList());
+            ClientsList = new BindingList<Client>(_clientRepository.GetAll().Where(x => x.IsActive == true).ToList());
         } 
         #endregion
 
