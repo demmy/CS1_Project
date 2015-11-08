@@ -100,6 +100,7 @@ namespace ContosoUI.CategoryForm
             Categories = new BindingList<Category>(_categories);
             if (Categories.Count < 2)
                 _selectedCategory = _categoryToSave;
+            SaveCategory();
         }
 
         public BindingList<Category> Categories
