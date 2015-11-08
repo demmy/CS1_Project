@@ -168,7 +168,7 @@
             this.roleGridView.GridControl = this.roleGridControl;
             this.roleGridView.Name = "roleGridView";
             this.roleGridView.OptionsView.ShowGroupPanel = false;
-            this.roleGridView.RowClick += new DevExpress.XtraGrid.Views.Grid.RowClickEventHandler(this.roleGridView_RowClick);
+            this.roleGridView.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.roleGridView_FocusedRowChanged);
             // 
             // colTitle
             // 
