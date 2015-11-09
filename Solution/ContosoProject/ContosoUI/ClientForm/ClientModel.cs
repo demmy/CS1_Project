@@ -23,7 +23,7 @@ namespace ContosoUI.ClientForm
 
         public void Save(Client currentClient)
         {
-            ClientRepository.Save(currentClient);
+            ClientRepository.Update(currentClient);
         }
 
         public void Create(Client newClient)
@@ -33,7 +33,7 @@ namespace ContosoUI.ClientForm
 
         public Client Find(int id)
         {
-            return ClientRepository.Find(id);
+            return ClientRepository.Read(id);
         }
 
         public Client FindBy(string firstName, string lastName, string city)

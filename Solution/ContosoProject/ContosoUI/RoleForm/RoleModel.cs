@@ -30,7 +30,7 @@ namespace ContosoUI.RoleForm
 
         public void Save(Role currentRole)
         {
-            RoleRepository.Save(currentRole);
+            RoleRepository.Update(currentRole);
         }
 
         public void Create(Role currentRole)
@@ -40,7 +40,7 @@ namespace ContosoUI.RoleForm
 
         public Role Find(int id)
         {
-            return RoleRepository.Find(id);
+            return RoleRepository.Read(id);
         }
     }
 }

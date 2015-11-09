@@ -72,7 +72,7 @@ namespace ContosoUI.RoleForm
                 }
                 else
                 {
-                    _model.RoleRepository.Save(role);
+                    _model.RoleRepository.Update(role);
                 }
             }
         }

@@ -27,7 +27,7 @@ namespace ContosoUI.OrderForm
 
         public void Save(Order currentOrder)
         {
-            OrderRepository.Save(currentOrder);
+            OrderRepository.Update(currentOrder);
         }
         public void Create(Order currentOrder)
         {
@@ -41,7 +41,7 @@ namespace ContosoUI.OrderForm
 
         public Order GetByID(int id)
         {
-            return OrderRepository.Find(id);
+            return OrderRepository.Read(id);
         }
          
     }

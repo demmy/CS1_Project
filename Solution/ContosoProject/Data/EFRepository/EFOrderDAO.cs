@@ -6,54 +6,19 @@ using Domain.DAO;
 using Domain.Entities;
 using Domain.Entities.Orders;
 using Domain.Entities.Products;
+using System.Linq.Expressions;
+using System;
 using Domain.Entities.Clients;
 
 namespace Data.EFRepository
 {
-    public class EFOrderDAO: EFExtendedDAO<Order>, IOrderRepository
+    public class EFOrderDAO: EFBaseDao, IOrderRepository
     {
         public EFOrderDAO(ProjectContext context)
             : base(context)
         {
 
-        }
-
-        public new void Create(Order entity)
-        {
-            dbContext.Orders.Add(entity);
-            dbContext.SaveChanges();
-        }
-
-        public new void Save(Order entity)
-        {
-            dbContext.Entry(entity).State = System.Data.Entity.EntityState.Modified;
-            dbContext.SaveChanges();
-        }
-
-        public new void Delete(Order entity)
-        {
-            dbContext.Orders.Remove(entity);
-            dbContext.SaveChanges();
-        }
-
-        public new void Delete(int id)
-        {
-            var ent = Find(id);
-            Delete(ent);
-            dbContext.SaveChanges();
-        }
-
-        public new Order Find(int id)
-        {
-            return dbContext.Orders
-                .Include(ord => ord.OrderItems)
-                .FirstOrDefault(x => x.Id == id);
-        }
-
-        public new IQueryable<Order> GetAll()
-        {
-            return dbContext.Orders.Include(order => order.OrderItems).AsQueryable();
-        }
+        }       
 
         /// <summary>
         /// The method to search the Order by some kind of "mask"
@@ -69,7 +34,7 @@ namespace Data.EFRepository
 
 
         /// <summary>
-        /// Gets all orders of any Client
+        /// Gets all orders of any Order
         /// </summary>
         /// <param name="client"></param>
         /// <returns></returns>
@@ -157,5 +122,63 @@ namespace Data.EFRepository
         {
             return dbContext.Orders.Include(ord => ord.OrderItems).FirstOrDefault(order => order.OrderNumber == orderNumber);
         }
+        
+        #region CRUD
+        public ICollection<Order> GetByDate(DateTime date)
+        {
+            return dbContext.Orders
+               .Where(x => x.Date.ToShortDateString() == date.ToShortDateString())
+               .ToList();
+        }
+
+        public void Create(Order entity)
+        {
+            dbContext.Orders.Add(entity);
+            dbContext.SaveChanges();
+        }
+
+        public void Update(Order entity)
+        {
+            dbContext.Entry(entity).State = System.Data.Entity.EntityState.Modified;
+            dbContext.SaveChanges();
+        }
+
+        public void Delete(Order entity)
+        {
+            dbContext.Orders.Remove(entity);
+            dbContext.SaveChanges();
+        }
+
+        public void Delete(int id)
+        {
+            var ent = Read(id);
+            Delete(ent);
+            dbContext.SaveChanges();
+        }
+
+        public Order Read(int id)
+        {
+            return dbContext.Orders
+                .Include(ord => ord.OrderItems)
+                .FirstOrDefault(x => x.Id == id);
+        }
+
+        public IQueryable<Order> GetAll()
+        {
+            return dbContext.Orders.Include(order => order.OrderItems).AsQueryable();
+        }
+
+        public IQueryable<Order> GetByIsActive(bool isActive)
+        {
+            return dbContext.Orders
+                .Where(t => t.IsActive == isActive)
+                .AsQueryable();
+        }
+
+        public IQueryable<Order> FindBy(Expression<Func<Order, bool>> predicate)
+        {
+            return dbContext.Orders.Where(predicate).AsQueryable();
+        } 
+        #endregion
     }
 }

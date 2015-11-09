@@ -76,7 +76,7 @@ namespace ContosoUI.ProductForm
         {
             if(id != 0)
             {                
-                _categoryInUse = _categoryRepository.Find(id);
+                _categoryInUse = _categoryRepository.Read(id);
                 _category = _categoryInUse;
                 NotifyPropertyChanged();
             }

@@ -23,12 +23,12 @@ namespace ContosoUI.ProductForm
 
         public Product Find(int id)
         {
-            return ProductRepository.Find(id);
+            return ProductRepository.Read(id);
         }
 
         public void Save(Product productToSave)
         {
-            ProductRepository.Save(productToSave);
+            ProductRepository.Update(productToSave);
         }
 
         public void Create(Product productToSave)

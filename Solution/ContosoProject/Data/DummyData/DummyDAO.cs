@@ -19,7 +19,7 @@ namespace Data.DummyData
                 throw new Exception();
         }
 
-        public T Find(int id)
+        public T Read(int id)
         {
             return Collection.FirstOrDefault(x => x.Id == id);
         }
@@ -34,7 +34,7 @@ namespace Data.DummyData
             return Collection.Where(x => x.IsActive == isActive).AsQueryable<T>();
         }
 
-        public void Save(T entity)
+        public void Update(T entity)
         {
             Collection[Collection.IndexOf(Collection.First(x => x.Id == entity.Id))] = entity;
         }

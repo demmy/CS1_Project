@@ -54,7 +54,6 @@
     <Compile Include="EFRepository\EFCategoryDAO.cs" />
     <Compile Include="EFRepository\EFClientDAO.cs" />
     <Compile Include="EFRepository\EFCommentDAO.cs" />
-    <Compile Include="EFRepository\EFExtendedDAO.cs" />
     <Compile Include="EFRepository\EFOrderDAO.cs" />
     <Compile Include="EFRepository\EFPermissionDAO.cs" />
     <Compile Include="EFRepository\EFProductDAO.cs" />
