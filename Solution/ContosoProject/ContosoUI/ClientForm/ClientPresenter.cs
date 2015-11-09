@@ -45,7 +45,7 @@ namespace ContosoUI.ClientForm
 
         public void UseClientWithID(int id)
         {
-            _client = _clientRepository.Find(id);
+            _client = _clientRepository.Read(id);
             InitializeClientsFields();
             _id = id;           
         }

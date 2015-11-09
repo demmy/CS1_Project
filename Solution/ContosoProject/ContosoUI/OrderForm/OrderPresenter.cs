@@ -239,7 +239,7 @@ namespace ContosoUI.OrderForm
         {
             get
             {
-                return Enum.GetValues(typeof(Status)).Cast<Status>().ToList();
+                return Enum.GetValues(typeof(Status)).Cast<Status>().Skip(1).ToList();
             }
         } 
         #endregion

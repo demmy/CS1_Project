@@ -46,7 +46,7 @@ namespace ContosoUI.CategoryForm
             {
                 if (category.Id != 0)
                 {
-                    _model.CategoryRepository.Save(category);
+                    _model.CategoryRepository.Update(category);
                 }
                 else
                 {

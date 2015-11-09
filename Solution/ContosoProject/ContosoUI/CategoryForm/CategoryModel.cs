@@ -24,7 +24,7 @@ namespace ContosoUI.CategoryForm
 
         public void Save(Category category)
         {
-            CategoryRepository.Save(category);
+            CategoryRepository.Update(category);
         }
 
         public void Create(Category category)
@@ -34,7 +34,7 @@ namespace ContosoUI.CategoryForm
 
         public Category Find(int id)
         {
-            return CategoryRepository.Find(id);
+            return CategoryRepository.Read(id);
         }
     }
 }

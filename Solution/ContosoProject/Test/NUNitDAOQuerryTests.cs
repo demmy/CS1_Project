@@ -54,7 +54,7 @@ namespace Test
         public void TestDAOForPermission()
         {
             IPermissionRepository permission = new DummyDAOForPermission();
-            CollectionAssert.AreEqual(new List<Permission> { Storage.Permissions[8]}, permission.GetByTitle("Add Client"));
+            CollectionAssert.AreEqual(new List<Permission> { Storage.Permissions[7] }, permission.GetByTitle("Add Client"));
         }
         [Test]
         public void TestDAOForProduct()
@@ -67,7 +67,7 @@ namespace Test
         {
             IProductRepository product = new DummyDAOForProduct();
             CollectionAssert.AreEqual(new List<Product> { Storage.Products[1], Storage.Products[4] }, product.GetBy(null, null, Storage.Categories[1]));
-            CollectionAssert.AreEqual(new List<Product>(), product.GetBy(null, null, null));
+            CollectionAssert.AreEqual(Storage.Products, product.GetBy(null, null, null));
             CollectionAssert.AreEqual(new List<Product> { Storage.Products[0], Storage.Products[3] }, product.GetBy(null, "Table", null));
 
         }

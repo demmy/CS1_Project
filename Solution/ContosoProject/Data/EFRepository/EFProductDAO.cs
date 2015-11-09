@@ -2,10 +2,12 @@
 using System.Linq;
 using Domain.DAO;
 using Domain.Entities.Products;
+using System;
+using System.Linq.Expressions;
 
 namespace Data.EFRepository
 {
-    public class EFProductDAO: EFExtendedDAO<Product>, IProductRepository
+    public class EFProductDAO:EFBaseDao, IProductRepository
     {
         public EFProductDAO(ProjectContext context)
             : base(context)
@@ -44,5 +46,62 @@ namespace Data.EFRepository
             return dbContext.Products
                 .FirstOrDefault(product => product.SKU == sku);
         }
+
+        #region CRUD
+        public ICollection<Product> GetByDate(DateTime date)
+        {
+            return dbContext.Products
+               .Where(x => x.Date.ToShortDateString() == date.ToShortDateString())
+               .ToList();
+        }
+
+        public void Create(Product entity)
+        {
+            dbContext.Products.Add(entity);
+            dbContext.SaveChanges();
+        }
+
+        public void Update(Product entity)
+        {
+            dbContext.Entry(entity).State = System.Data.Entity.EntityState.Modified;
+            dbContext.SaveChanges();
+        }
+
+        public void Delete(Product entity)
+        {
+            dbContext.Products.Remove(entity);
+            dbContext.SaveChanges();
+        }
+
+        public void Delete(int id)
+        {
+            var ent = Read(id);
+            Delete(ent);
+            dbContext.SaveChanges();
+        }
+
+        public Product Read(int id)
+        {
+            return dbContext.Products
+                .FirstOrDefault(x => x.Id == id);
+        }
+
+        public IQueryable<Product> GetAll()
+        {
+            return dbContext.Products.AsQueryable();
+        }
+
+        public IQueryable<Product> GetByIsActive(bool isActive)
+        {
+            return dbContext.Products
+                .Where(t => t.IsActive == isActive)
+                .AsQueryable();
+        }
+
+        public IQueryable<Product> FindBy(Expression<Func<Product, bool>> predicate)
+        {
+            return dbContext.Products.Where(predicate).AsQueryable();
+        } 
+        #endregion
     }
 }

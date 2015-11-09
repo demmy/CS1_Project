@@ -145,7 +145,7 @@ namespace ContosoUI.UserForm
 
         public void GetUser(int id)
         {
-            _user  = _userRepository.Find(id);
+            _user  = _userRepository.Read(id);
 
             Login = _user.Login;
             Password = _user.Password;
