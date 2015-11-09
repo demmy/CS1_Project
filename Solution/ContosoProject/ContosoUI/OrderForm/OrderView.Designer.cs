@@ -245,6 +245,12 @@
             this.totalPriceTextEdit.Location = new System.Drawing.Point(337, 570);
             this.totalPriceTextEdit.MenuManager = this.orderRibbon;
             this.totalPriceTextEdit.Name = "totalPriceTextEdit";
+            this.totalPriceTextEdit.Properties.DisplayFormat.FormatString = "n2";
+            this.totalPriceTextEdit.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.totalPriceTextEdit.Properties.Mask.EditMask = "n2";
+            this.totalPriceTextEdit.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.totalPriceTextEdit.Properties.ReadOnly = true;
+            this.totalPriceTextEdit.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.totalPriceTextEdit.Size = new System.Drawing.Size(653, 20);
             this.totalPriceTextEdit.StyleController = this.orderViewLayoutControl;
             this.totalPriceTextEdit.TabIndex = 14;

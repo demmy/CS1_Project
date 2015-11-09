@@ -46,7 +46,7 @@ namespace ContosoUI.CategoryForm
             {
                 if (category.Id != 0)
                 {
-                    _model.CategoryRepository.Save(category);
+                    _model.CategoryRepository.Update(category);
                 }
                 else
                 {
@@ -100,6 +100,7 @@ namespace ContosoUI.CategoryForm
             Categories = new BindingList<Category>(_categories);
             if (Categories.Count < 2)
                 _selectedCategory = _categoryToSave;
+            SaveCategory();
         }
 
         public BindingList<Category> Categories

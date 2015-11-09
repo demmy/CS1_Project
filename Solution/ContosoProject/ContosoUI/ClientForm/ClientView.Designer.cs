@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ClientView));
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
             this.сlientRibbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.сlientRibbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.clientBarSaveButton = new DevExpress.XtraBars.BarButtonItem();
@@ -231,13 +232,15 @@
             this.buttonAddNewTelephoneEdit.MenuManager = this.сlientRibbon;
             this.buttonAddNewTelephoneEdit.Name = "buttonAddNewTelephoneEdit";
             this.buttonAddNewTelephoneEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Plus, "Add ", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("buttonAddNewTelephoneEdit.Properties.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Plus, "Add ", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("buttonAddNewTelephoneEdit.Properties.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Minus, "Remove", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("buttonAddNewTelephoneEdit.Properties.Buttons1"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", null, null, true)});
             this.buttonAddNewTelephoneEdit.Properties.Mask.EditMask = "(\\(\\d\\d\\d\\) )?\\d{1,3}-\\d\\d\\d-\\d\\d-\\d\\d";
             this.buttonAddNewTelephoneEdit.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
             this.buttonAddNewTelephoneEdit.Size = new System.Drawing.Size(346, 20);
             this.buttonAddNewTelephoneEdit.StyleController = this.clientLayoutControl;
             this.buttonAddNewTelephoneEdit.TabIndex = 16;
             this.buttonAddNewTelephoneEdit.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.buttonAddNewTelephoneEdit_ButtonClick);
+            this.buttonAddNewTelephoneEdit.Click += new System.EventHandler(this.buttonAddNewTelephoneEdit_Click);
             // 
             // сlientNewCommentTextBox
             // 

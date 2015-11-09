@@ -32,5 +32,9 @@ namespace Data.EFRepository
         public virtual DbSet<Client> Clients { get; set; }
 
         public virtual DbSet<Permission> Permissions { get; set; }
+
+        public virtual DbSet<Category> Categories { get; set; }
+        public virtual DbSet<Role> Roles { get; set; }
+        public virtual DbSet<Comment> Comments { get; set; }
     }
 }

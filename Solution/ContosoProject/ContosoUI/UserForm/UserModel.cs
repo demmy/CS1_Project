@@ -25,7 +25,7 @@ namespace ContosoUI.UserForm
 
         public void Save(User currentUser)
         {
-            UserRepository.Save(currentUser);
+            UserRepository.Update(currentUser);
         }
 
         public void Create(User currentUser)
@@ -35,7 +35,7 @@ namespace ContosoUI.UserForm
 
         public User Find(int id)
         {
-            return UserRepository.Find(id);
+            return UserRepository.Read(id);
         }
     }
 }

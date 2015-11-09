@@ -31,7 +31,7 @@ namespace Domain.Entities.Orders
 
         public double Sum
         {
-            get { return OrderItems.Sum(x => x.Price); }
+            get { return OrderItems.Sum(x => x.Price * x.Quantity); }
         }
     }
 }
